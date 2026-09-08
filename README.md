@@ -1,16 +1,12 @@
 <p align="center">
-  <img src="./media/profile.png" width="160" alt="Portrait of Ruiying Liu" />
+  <img src="./media/profile-avatar.png" width="152" alt="Portrait of Ruiying Liu" style="border-radius: 50%;" />
 </p>
 
 <h1 align="center">Ruiying (Rain) Liu</h1>
 
-<p align="center">
-  <strong>AI Product Manager · Product Strategist · UX Designer</strong>
-</p>
+<p align="center"><strong>AI Product Manager · Product Strategist · UX Designer</strong></p>
 
-<p align="center">
-  I turn complex technology into thoughtful, useful product experiences.
-</p>
+<p align="center"><i>I build clarity where people, products, and intelligent systems meet.</i></p>
 
 <p align="center">
   <a href="https://rainliu0309.github.io/">Portfolio</a> ·
@@ -20,38 +16,30 @@
 
 ---
 
-## About
-
-I am an aspiring AI Product Manager with a foundation in user experience design, project delivery, and cross-functional operations. I combine product thinking with a practical understanding of AI-enabled workflows to move ideas from ambiguous problems to clear, valuable experiences.
-
-My work is grounded in three questions: What do people need? What can technology make possible? What will make the result useful in the real world?
-
-## Focus
-
-- AI product strategy, product discovery, and workflow design
-- User research, interaction design, and information architecture
-- Cross-functional alignment and end-to-end project delivery
-- Translating complex systems into clear, human-centred experiences
+I am an aspiring AI Product Manager with experience spanning user experience design, project delivery, and operations. I turn ambiguous problems into focused product opportunities, then shape AI-enabled workflows into experiences people can understand and use.
 
 ## Selected Work
 
-| Project | Focus |
+| Project | Product Question |
 | --- | --- |
-| [CrossScribe AI](https://rainliu0309.github.io/crossscribe.html) | RAG-powered marketing-copy workflows for cross-border e-commerce teams. |
-| [TeamAlign AI](https://rainliu0309.github.io/teamalign.html) | Agent-native collaboration workflows for enterprise project teams. |
-| [FateFork AI](https://rainliu0309.github.io/fatefork.html) | Narrative-driven AI experiences for reflective decision-making. |
-| [FairBench AI](https://rainliu0309.github.io/fairbench.html) | Fairness evaluation and reporting for facial-recognition systems. |
+| [CrossScribe AI](https://rainliu0309.github.io/crossscribe.html) | How can private product knowledge become compliant, market-ready copy? |
+| [TeamAlign AI](https://rainliu0309.github.io/teamalign.html) | How can teams turn meetings into clear, accountable actions? |
+| [FateFork AI](https://rainliu0309.github.io/fatefork.html) | How can AI support reflection while preserving personal agency? |
+| [FairBench AI](https://rainliu0309.github.io/fairbench.html) | How can algorithmic fairness become measurable and reviewable? |
 
 ## Background
 
-- Master of Information, User Experience Design — University of Toronto
-- Bachelor of Arts, Media, Information & Technoculture — Western University
-- Experience across product design, project management, operations, and interactive media design
+### Experience
 
-## Let’s Connect
+| Role | Focus |
+| --- | --- |
+| Operations Manager | Operations, data-informed decision-making, and cross-functional coordination |
+| Project Manager | Project delivery, stakeholder alignment, and team collaboration |
+| Interactive Media Designer | Interactive experiences, visual systems, and human-centred design |
 
-I welcome conversations about AI products, user-centred systems, and opportunities to build technology that matters.
+### Education
 
-- Email: [rainliu0309@gmail.com](mailto:rainliu0309@gmail.com)
-- LinkedIn: [linkedin.com/in/rainliu0309](https://www.linkedin.com/in/rainliu0309/)
-- Portfolio: [rainliu0309.github.io](https://rainliu0309.github.io/)
+| Degree | Area of Study | Institution |
+| --- | --- | --- |
+| Master of Information | User Experience Design | University of Toronto |
+| Bachelor of Arts | Media, Information & Technoculture | University of Western Ontario |
