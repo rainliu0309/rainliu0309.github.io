@@ -15,8 +15,5 @@ __pycache__/
 .env.*
 !.env.example
 
-# Local development server
-dev_server.py
-
 # Logs
 *.log
