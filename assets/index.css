@@ -4724,6 +4724,10 @@ html[data-theme="dark"] .dial-nav-btn:hover {
   color: var(--dark-accent);
 }
 
+html[data-theme="dark"] #root .dial-nav-btn:hover svg {
+  color: var(--dark-accent) !important;
+}
+
 html[data-theme="dark"] .fan-flip-back .era-back::before,
 html[data-theme="dark"] .dial-marker--active .dial-marker-bar,
 html[data-theme="dark"] .dial-pointer-dot {
