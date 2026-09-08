@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f5f5" />
+    <script>
+      (() => {
+        try {
+        const theme = localStorage.getItem("rain-theme") === "dark" ? "dark" : "light";
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#0c111d" : "#f5f5f5";
+        } catch {}
+      })();
+    </script>
+    <meta
+      name="description"
+      content="FairBench AI — a ToG-oriented AI auditing tool for facial-recognition algorithm fairness evaluation."
+    />
+    <title>FairBench AI</title>
+    <link rel="icon" type="image/svg+xml" href="./media/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&family=Pinyon+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/fairbench/fairbench.css?v=20260907-case-icon-balance" />
+    <script src="./assets/case-study.js?v=20260907-shared-navigation" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="glass-control brand portfolio-logo" href="./index.html" aria-label="Back to portfolio">
+        <img src="./media/logo-light.svg" alt="" />
+      </a>
+      <nav class="top-navigation" id="case-navigation" aria-label="Case navigation">
+        <a href="./index.html#project"><svg class="case-nav-icon case-nav-icon--home" viewBox="0 0 16 16" aria-hidden="true"><path d="m2.25 7 5.75-4.75L13.75 7v6.25H2.25Z"></path><path d="M6.25 13.25V9.5h3.5v3.75"></path></svg><span>Home<span class="nav-label-zh" lang="zh-CN">主页</span></span></a>
+        <a href="./crossscribe.html"><svg class="case-nav-icon case-nav-icon--case" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.25 1.75h7l4.5 4.5v8H2.25Z"></path><path d="M5.25 9h5.5"></path></svg><span>CrossScribe AI</span></a>
+        <a href="./teamalign.html"><svg class="case-nav-icon case-nav-icon--case" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.25 1.75h7l4.5 4.5v8H2.25Z"></path><path d="M5.25 9h5.5"></path></svg><span>TeamAlign AI</span></a>
+        <a href="./fatefork.html"><svg class="case-nav-icon case-nav-icon--case" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.25 1.75h7l4.5 4.5v8H2.25Z"></path><path d="M5.25 9h5.5"></path></svg><span>FateFork AI</span></a>
+        <a class="is-active" href="./fairbench.html" aria-current="page"><svg class="case-nav-icon case-nav-icon--case" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.25 1.75h7l4.5 4.5v8H2.25Z"></path><path d="M5.25 9h5.5"></path></svg><span>FairBench AI</span></a>
+        <div class="nav-preferences">
+        <button class="theme-switch" type="button" role="switch" aria-label="Switch to dark mode" aria-checked="false" data-case-theme-switch>
+          <svg class="theme-switch-icon theme-switch-icon--sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.1"></circle><path d="M10 1.5v2M10 16.5v2M1.5 10h2M16.5 10h2M4 4l1.45 1.45M14.55 14.55 16 16M16 4l-1.45 1.45M5.45 14.55 4 16"></path></svg>
+          <svg class="theme-switch-icon theme-switch-icon--moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16.3 12.3A6.7 6.7 0 0 1 7.7 3.7a6.7 6.7 0 1 0 8.6 8.6Z"></path></svg>
+        </button>
+        </div>
+      </nav>
+      <button class="navigation-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="case-navigation"><span></span><span></span><span></span></button>
+    </header>
+
+    <main>
+      <section class="hero fairbench-hero">
+        <div class="hero-inner">
+          <p class="eyebrow">Case Study · 04</p>
+          <h1>
+            FairBench AI
+          </h1>
+          <p class="hero-role"><b>MY ROLE</b><span>Product Strategy · Evaluation Frameworks · 0→1 Prototyping<small>产品策略 · 评测框架设计 · 0→1 原型落地</small></span></p>
+
+          <div class="hero-actions" aria-label="Project links">
+            <a
+              class="hero-action"
+              href="https://github.com/rainliu0309/fairbench-ai-app.git"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
+            <a
+              class="hero-action hero-action--primary"
+              href="https://fairbench-ai-app.onrender.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Demo ↗
+            </a>
+          </div>
+
+          <div class="intro">
+            <div class="intro-details">
+              <p class="intro-copy">
+                A <strong>ToG‑oriented AI auditing tool</strong> for facial‑recognition algorithm fairness evaluation.<br />
+                It measures demographic bias in vision‑AI models and generates standardized reports for algorithm‑admission review.
+                <span class="zh">
+                  面向政务监管的<strong>人脸算法公平性 AI 评测工具</strong>。<br />
+                  量化视觉AI模型人群偏差，输出标准化报告，服务算法准入审查。
+                </span>
+              </p>
+              <div class="tags" aria-label="Project tags">
+                <span class="tag">AI Native</span>
+                <span class="tag">ToG</span>
+                <span class="tag">Audit</span>
+                <span class="tag">Dataset</span>
+                <span class="tag">Model Evaluation</span>
+              </div>
+            </div>
+
+            <div class="intro-demo">
+              <div class="demo-shell">
+                <p class="demo-label">Concept Video · 00:05</p>
+                <video
+                  src="./media/fairbench/fairbench.mov"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  controls
+                  aria-label="FairBench AI concept video"
+                ></video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="structure-section fairbench-structure" id="case-structure" aria-labelledby="fairbench-structure-title">
+        <div class="structure-inner">
+          <header class="structure-heading reveal-on-scroll case-reveal">
+            <div>
+              <h2 id="fairbench-structure-title">From audit<br />to fairness.</h2>
+            </div>
+            <p>
+              Eight modules mapping the path from a compliance mandate to accountable AI governance.
+              <span class="zh-small">八个模块，记录从合规诉求到可追责 AI 治理的完整路径。</span>
+            </p>
+          </header>
+
+          <section class="fairbench-audit-cabinet reveal-on-scroll case-reveal" aria-label="FairBench audit case file index">
+            <div class="fairbench-audit-cabinet-body">
+              <div class="fairbench-drawer-shelf" aria-label="FairBench case study module drawers">
+                <p aria-hidden="true"><span class="fairbench-shelf-punches"></span></p>
+                <nav class="fairbench-drawer-list" aria-label="FairBench case study modules" role="tablist">
+                <button class="fairbench-drawer is-active" type="button" role="tab" aria-selected="true" aria-controls="fairbench-module-stage" data-fairbench-module data-index="01" data-art="media/fairbench/module-01-context.png" data-phase="COMPLIANCE MANDATE · 合规诉求" data-title="Project Overview &amp; Compliance Mandate" data-title-zh="项目概述与合规诉求" data-summary="Show how facial recognition test evidence supports public sector model admission decisions." data-summary-zh="展示人脸识别测试证据如何支持政务模型准入决策。">
+                  <span class="fairbench-drawer-number">01</span><span class="fairbench-drawer-code">MND</span><span class="fairbench-drawer-content"><strong>Overview</strong><small>概述</small></span><i aria-hidden="true"></i>
+                </button>
+                <button class="fairbench-drawer" type="button" role="tab" aria-selected="false" aria-controls="fairbench-module-stage" data-fairbench-module data-index="02" data-art="media/fairbench/module-02-metrics.png" data-phase="FAIRNESS METRICS · 公平性指标" data-title="Bias &amp; Fairness Metric Framework" data-title-zh="偏差与公平性指标框架" data-summary="Define measurable fairness indicators for comparing performance across demographic groups." data-summary-zh="定义可衡量的公平性指标，用于比较不同人群的模型表现。">
+                  <span class="fairbench-drawer-number">02</span><span class="fairbench-drawer-code">MET</span><span class="fairbench-drawer-content"><strong>Metrics</strong><small>指标</small></span><i aria-hidden="true"></i>
+                </button>
+                <button class="fairbench-drawer" type="button" role="tab" aria-selected="false" aria-controls="fairbench-module-stage" data-fairbench-module data-index="03" data-art="media/fairbench/module-03-benchmark.png" data-phase="BENCHMARK PIPELINE · 基准审计" data-title="Benchmark Dataset &amp; Audit Pipeline" data-title-zh="基准数据集与审计流水线" data-summary="Define a traceable benchmark dataset and repeatable audit pipeline for comparing models." data-summary-zh="定义可追溯的基准图集和可重复执行的模型审计流程。">
+                  <span class="fairbench-drawer-number">03</span><span class="fairbench-drawer-code">BKM</span><span class="fairbench-drawer-content"><strong>Benchmark</strong><small>基准</small></span><i aria-hidden="true"></i>
+                </button>
+                <button class="fairbench-drawer" type="button" role="tab" aria-selected="false" aria-controls="fairbench-module-stage" data-fairbench-module data-index="04" data-art="media/fairbench/module-04-risk.png" data-phase="RISK SCORING · 风险评分" data-title="Risk Stratification &amp; Scoring Model" data-title-zh="风险分级与评分模型" data-summary="Convert fairness, evidence, privacy and robustness signals into review levels and required actions." data-summary-zh="将公平性、证据、隐私与鲁棒性信号转化为审查等级和必需行动。">
+                  <span class="fairbench-drawer-number">04</span><span class="fairbench-drawer-code">RSK</span><span class="fairbench-drawer-content"><strong>Risk</strong><small>风险</small></span><i aria-hidden="true"></i>
+                </button>
+                <button class="fairbench-drawer" type="button" role="tab" aria-selected="false" aria-controls="fairbench-module-stage" data-fairbench-module data-index="05" data-art="media/fairbench/module-05-alignment.png" data-phase="REGULATORY ALIGNMENT · 监管对齐" data-title="Regulatory Constraint &amp; Stakeholder Alignment" data-title-zh="合规约束与监管对齐" data-summary="Show how regional rules determine required evidence, review roles and release decisions." data-summary-zh="说明地区规则如何决定所需证据、审查职责与上线决策。">
+                  <span class="fairbench-drawer-number">05</span><span class="fairbench-drawer-code">ALG</span><span class="fairbench-drawer-content"><strong>Alignment</strong><small>对齐</small></span><i aria-hidden="true"></i>
+                </button>
+                <button class="fairbench-drawer" type="button" role="tab" aria-selected="false" aria-controls="fairbench-module-stage" data-fairbench-module data-index="06" data-art="media/fairbench/module-06-report.png" data-phase="REPORT DESIGN · 报告设计" data-title="Audit Workflow &amp; Compliance Report Design" data-title-zh="审计流程与合规报告设计" data-summary="Turn one audit task into audience specific reports, evidence exports and an archived PDF." data-summary-zh="将一次审计任务转化为面向不同读者的报告、证据导出与归档 PDF。">
+                  <span class="fairbench-drawer-number">06</span><span class="fairbench-drawer-code">RPT</span><span class="fairbench-drawer-content"><strong>Report</strong><small>报告</small></span><i aria-hidden="true"></i>
+                </button>
+                <button class="fairbench-drawer" type="button" role="tab" aria-selected="false" aria-controls="fairbench-module-stage" data-fairbench-module data-index="07" data-art="media/fairbench/module-07-validation.png" data-phase="CONTROLLED VALIDATION · 对照验证" data-title="Validation &amp; Controlled Benchmark Experiment" data-title-zh="有效性验证与对照基准实验" data-summary="Separate implemented audit controls from planned experiments and the evidence still needed." data-summary-zh="区分已实现的审计控制、待执行的实验和仍需补充的证据。">
+                  <span class="fairbench-drawer-number">07</span><span class="fairbench-drawer-code">VLD</span><span class="fairbench-drawer-content"><strong>Validation</strong><small>验证</small></span><i aria-hidden="true"></i>
+                </button>
+                <button class="fairbench-drawer" type="button" role="tab" aria-selected="false" aria-controls="fairbench-module-stage" data-fairbench-module data-index="08" data-art="media/fairbench/module-08-governance.png" data-phase="GOVERNANCE ROADMAP · 治理规划" data-title="Governance Recommendation &amp; Long-Term Roadmap" data-title-zh="治理建议与长期规划" data-summary="Define admission reviews, recurring checks, change reviews and a phased product roadmap." data-summary-zh="明确上线准入、周期巡检、变更重审和分阶段产品路线图。">
+                  <span class="fairbench-drawer-number">08</span><span class="fairbench-drawer-code">GOV</span><span class="fairbench-drawer-content"><strong>Roadmap</strong><small>路线</small></span><i aria-hidden="true"></i>
+                </button>
+              </nav>
+              </div>
+
+              <div class="fairbench-file-stack">
+                <span class="fairbench-file-layer" data-fairbench-sheet data-sheet-index="08" style="--sheet-depth: 7" aria-hidden="true"></span>
+                <span class="fairbench-file-layer" data-fairbench-sheet data-sheet-index="07" style="--sheet-depth: 6" aria-hidden="true"></span>
+                <span class="fairbench-file-layer" data-fairbench-sheet data-sheet-index="06" style="--sheet-depth: 5" aria-hidden="true"></span>
+                <span class="fairbench-file-layer" data-fairbench-sheet data-sheet-index="05" style="--sheet-depth: 4" aria-hidden="true"></span>
+                <span class="fairbench-file-layer" data-fairbench-sheet data-sheet-index="04" style="--sheet-depth: 3" aria-hidden="true"></span>
+                <span class="fairbench-file-layer" data-fairbench-sheet data-sheet-index="03" style="--sheet-depth: 2" aria-hidden="true"></span>
+                <span class="fairbench-file-layer" data-fairbench-sheet data-sheet-index="02" style="--sheet-depth: 1" aria-hidden="true"></span>
+                <section class="fairbench-cabinet-cover" id="fairbench-module-stage" role="tabpanel" tabindex="0" aria-live="polite">
+                  <figure class="fairbench-cabinet-cover-art" aria-hidden="true">
+                    <img src="media/fairbench/module-01-context.png" alt="" decoding="async" data-fairbench-stage-art>
+                  </figure>
+                  <div class="fairbench-cabinet-cover-meta">
+                    <strong data-fairbench-stage-index>01</strong>
+                    <div class="fairbench-cabinet-cover-title-group">
+                      <p class="fairbench-cabinet-cover-title" data-fairbench-stage-title>Project Overview &amp; Compliance Mandate</p>
+                      <p class="fairbench-cabinet-cover-title-zh" data-fairbench-stage-title-zh>项目概述与合规诉求</p>
+                      <p class="fairbench-cabinet-cover-summary" data-fairbench-stage-summary>Show how facial recognition test evidence supports public sector model admission decisions.<small data-fairbench-stage-summary-zh>展示人脸识别测试证据如何支持政务模型准入决策。</small></p>
+                    </div>
+                  </div>
+                  <section class="fairbench-overview-experience" data-fairbench-overview data-fairbench-panel="01" aria-label="FairBench project overview">
+                    <div class="fairbench-overview-section-title">
+                      <span class="fairbench-overview-section-index">01</span>
+                      <span class="fairbench-overview-section-name">PROJECT CONTEXT</span>
+                      <small>项目背景</small>
+                    </div>
+                    <header class="fairbench-overview-experience-heading">
+                      <p><b>Can We Trust This Model?</b><span>这个模型能信吗？</span></p>
+                      <i aria-hidden="true">→</i>
+                      <p><b>Here Is the Evidence.</b><span>这里有可核验的证据。</span></p>
+                    </header>
+
+                    <div class="fairbench-overview-context" aria-label="FairBench operating context">
+                      <article class="fairbench-context-card">
+                        <button class="fairbench-context-toggle" type="button" aria-expanded="false" aria-controls="fairbench-context-admission" data-fairbench-context-toggle>
+                          <span>
+                            <h3>Admission Context <small>准入场景</small></h3>
+                            <p>When a public-sector facial-AI model enters formal review.<small>政务人脸算法何时进入正式审查。</small></p>
+                          </span>
+                          <i aria-hidden="true">+</i>
+                        </button>
+                        <div class="fairbench-context-details" id="fairbench-context-admission" hidden>
+                          <ul>
+                            <li><strong>Public-sector facial-AI deployment</strong><small>政务人脸AI落地应用</small></li>
+                            <li><strong>Pre-launch algorithm admission review</strong><small>上线前算法准入审查</small></li>
+                            <li><strong>Scheduled recurring compliance reassessment</strong><small>定时开展合规复审</small></li>
+                          </ul>
+                        </div>
+                      </article>
+                      <article class="fairbench-context-card">
+                        <button class="fairbench-context-toggle" type="button" aria-expanded="false" aria-controls="fairbench-context-friction" data-fairbench-context-toggle>
+                          <span>
+                            <h3>Current Friction <small>当前卡点</small></h3>
+                            <p>Why manual review cannot sustain reliable fairness decisions.<small>为什么人工审查无法持续支撑可靠的公平性决策。</small></p>
+                          </span>
+                          <i aria-hidden="true">+</i>
+                        </button>
+                        <div class="fairbench-context-details" id="fairbench-context-friction" hidden>
+                          <ul>
+                            <li><strong>Labour-intensive manual sample auditing</strong><small>人工样本审计耗费人力</small></li>
+                            <li><strong>Non-unified demographic grouping standards</strong><small>人群分组标准不统一</small></li>
+                            <li><strong>Scattered compliance evidence hard to archive</strong><small>合规证据分散难以归档</small></li>
+                          </ul>
+                        </div>
+                      </article>
+                      <article class="fairbench-context-card">
+                        <button class="fairbench-context-toggle" type="button" aria-expanded="false" aria-controls="fairbench-context-position" data-fairbench-context-toggle>
+                          <span>
+                            <h3>Product Position <small>产品定位</small></h3>
+                            <p>How FairBench turns fairness evidence into a review workflow.<small>FairBench 如何将公平性证据转化为审查流程。</small></p>
+                          </span>
+                          <i aria-hidden="true">+</i>
+                        </button>
+                        <div class="fairbench-context-details" id="fairbench-context-position" hidden>
+                          <ul>
+                            <li><strong>Fairness-focused AI risk-audit SaaS platform</strong><small>聚焦公平性的AI风险审计SaaS平台</small></li>
+                            <li><strong>Audit-evidence driven regulatory review</strong><small>审计证据驱动监管评审</small></li>
+                            <li><strong>Serves government audit &amp; compliance teams</strong><small>服务政府审计与合规团队</small></li>
+                          </ul>
+                        </div>
+                      </article>
+                      <article class="fairbench-context-card">
+                        <button class="fairbench-context-toggle" type="button" aria-expanded="false" aria-controls="fairbench-context-scale" data-fairbench-context-toggle>
+                          <span>
+                            <h3>Operating Scale <small>项目量级</small></h3>
+                            <p>Where repeatable audits need batch and comparison capacity.<small>哪些审计场景需要批量化与横向比较能力。</small></p>
+                          </span>
+                          <i aria-hidden="true">+</i>
+                        </button>
+                        <div class="fairbench-context-details" id="fairbench-context-scale" hidden>
+                          <ul>
+                            <li><strong>Supports government &amp; enterprise scenarios</strong><small>支持政务机构与企业场景</small></li>
+                            <li><strong>Runs batch fairness audits for multiple models</strong><small>执行多模型批量公平审计</small></li>
+                            <li><strong>Enables cross-vendor algorithm comparison</strong><small>支持跨供应商算法横向比对</small></li>
+                          </ul>
+                        </div>
+                      </article>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-overview-section-title--workbench">
+                      <span class="fairbench-overview-section-index">02</span>
+                      <span class="fairbench-overview-section-name">AUDIT WORKFLOW</span>
+                      <small>审计流程</small>
+                    </div>
+                    <div class="fairbench-audit-workbench" aria-label="FairBench audit evidence flow">
+                      <article class="fairbench-audit-input">
+                          <header><em>Before FairBench</em><small>评测盲区</small></header>
+                          <ul>
+                          <li tabindex="0"><b>Manual samples</b><small>人工抽检</small><span class="fairbench-audit-tooltip"><strong>Small spot checks miss systemic accuracy gaps.</strong><small>小样本人工抽检容易遗漏系统性准确率差异。</small></span></li>
+                          <li tabindex="0"><b>Uneven groups</b><small>分组口径不一</small><span class="fairbench-audit-tooltip"><strong>Inconsistent group rules make comparisons unreliable.</strong><small>分组规则不统一会让横向比较失去依据。</small></span></li>
+                          <li tabindex="0"><b>Fragmented proof</b><small>证据分散</small><span class="fairbench-audit-tooltip"><strong>Scattered evidence cannot support an auditable decision.</strong><small>分散证据无法支撑可审计的准入决策。</small></span></li>
+                          </ul>
+                      </article>
+
+                      <div class="fairbench-audit-engine" aria-label="Human-in-the-loop fairness audit engine">
+                        <span class="fairbench-audit-engine-orbit fairbench-audit-engine-orbit--one" aria-hidden="true"></span>
+                        <span class="fairbench-audit-engine-orbit fairbench-audit-engine-orbit--two" aria-hidden="true"></span>
+                        <div class="fairbench-audit-engine-core">
+                          <strong>FairBench</strong><small>公允准鉴</small>
+                        </div>
+                        <p><span>IMAGE SET<small>测试图集</small></span><i></i><span>LABEL + REVIEW<small>标注与复核</small></span><i></i><span>TARGET API<small>待测接口</small></span></p>
+                      </div>
+
+                      <article class="fairbench-audit-output">
+                          <header><em>Admission File</em><small>准入档案</small></header>
+                          <div class="fairbench-audit-report-sheet">
+                          <p tabindex="0"><b>Accuracy Gap</b><small>准确率差值</small><i></i><span class="fairbench-audit-tooltip"><strong>Compares error rates across approved demographic cohorts.</strong><small>比较已批准人群组之间的错误率差异。</small></span></p>
+                          <p tabindex="0"><b>Bias Coefficient</b><small>偏见系数</small><i></i><span class="fairbench-audit-tooltip"><strong>Flags directional disparity before model admission.</strong><small>在算法准入前识别倾向性的群体差异。</small></span></p>
+                          <p tabindex="0"><b>Archive PDF</b><small>归档报告</small><i></i><span class="fairbench-audit-tooltip"><strong>Packages evidence, metrics and reviewer decisions into one traceable record.</strong><small>将证据、指标与审核决策归入同一可追溯记录。</small></span></p>
+                        </div>
+                      </article>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-overview-section-title--lens">
+                      <span class="fairbench-overview-section-index">03</span>
+                      <span class="fairbench-overview-section-name">COMPLIANCE MANDATE</span>
+                      <small>合规诉求</small>
+                    </div>
+                    <div class="fairbench-overview-steps" role="group" aria-label="Explore FairBench project overview">
+                      <button class="is-active" type="button" data-fairbench-overview-step aria-pressed="true" data-stage="01" data-title="Review Boundary" data-title-zh="审查边界" data-copy="A public-sector admission decision requires evidence across people, not a single model score." data-copy-zh="政务算法准入需要跨人群证据，而非单一模型分数。" data-tags="B2G review · 政务监管|Face API · 人脸接口|Admission · 准入">
+                        <span>01</span><b>Boundary</b><small>审查边界</small>
+                      </button>
+                      <button type="button" data-fairbench-overview-step aria-pressed="false" data-stage="02" data-title="Bias Blind Spots" data-title-zh="偏见盲区" data-copy="Manual spot checks conceal where recognition accuracy breaks across demographic groups." data-copy-zh="人工抽检会掩盖不同人口群体间的识别准确率断层。" data-tags="Manual sampling · 人工抽检|Uneven groups · 分组不一|Evidence gap · 证据缺口">
+                        <span>02</span><b>Friction</b><small>偏见盲区</small>
+                      </button>
+                      <button type="button" data-fairbench-overview-step aria-pressed="false" data-stage="03" data-title="Audit Loop" data-title-zh="审计闭环" data-copy="Authorised images, verified labels and a target API become metrics, alerts and an archivable report." data-copy-zh="授权图集、核验标签与待测接口被转化为指标、告警及可归档报告。" data-tags="Image set · 测试图集|Human override · 人工校正|Threshold alert · 阈值告警">
+                        <span>03</span><b>Audit Loop</b><small>审计闭环</small>
+                      </button>
+                      <button type="button" data-fairbench-overview-step aria-pressed="false" data-stage="04" data-title="Governance Record" data-title-zh="治理留痕" data-copy="Recurring batch reviews compare vendors, isolate failed samples and preserve an immutable audit trail." data-copy-zh="周期性批量评测支持算法横向比较、失败样本定位与不可删除审计留痕。" data-tags="Batch review · 批量评测|Vendor comparison · 算法对比|Immutable log · 不可删除日志">
+                        <span>04</span><b>Governance</b><small>治理留痕</small>
+                      </button>
+                    </div>
+
+                    <article class="fairbench-overview-inspector" aria-live="polite">
+                      <div class="fairbench-overview-inspector-title">
+                        <div class="fairbench-overview-inspector-heading"><em data-fairbench-overview-stage>01</em><h3 data-fairbench-overview-title>Review Boundary</h3></div>
+                        <small data-fairbench-overview-title-zh>审查边界</small>
+                      </div>
+                      <p><span data-fairbench-overview-copy>A public-sector admission decision requires evidence across people, not a single model score.</span><small data-fairbench-overview-copy-zh>政务算法准入需要跨人群证据，而非单一模型分数。</small></p>
+                    </article>
+                  </section>
+
+                  <section class="fairbench-metric-framework" data-fairbench-panel="02" aria-label="Bias and fairness metric framework" hidden>
+                    <div class="fairbench-overview-section-title">
+                      <span class="fairbench-overview-section-index">01</span>
+                      <span class="fairbench-overview-section-name">FAIRNESS PRINCIPLES</span>
+                      <small>公平审查原则</small>
+                    </div>
+
+                    <div class="fairbench-obligation-grid">
+                      <article class="fairbench-obligation-card">
+                        <span class="fairbench-obligation-label"><b>01</b> Fairness <small>公平性</small></span>
+                        <button class="fairbench-obligation-toggle" type="button" aria-expanded="false" aria-controls="fairbench-obligation-fairness" data-fairbench-obligation-toggle><h3>Test every group the same way<small>让不同人群接受同一套测试</small></h3><i aria-hidden="true">↓</i></button>
+                        <div class="fairbench-obligation-details" id="fairbench-obligation-fairness" hidden><p>Run the same face-recognition test across gender, age and ethnicity groups.</p><small>在性别、年龄组与族裔维度上，使用同一套人脸识别测试。</small></div>
+                      </article>
+                      <article class="fairbench-obligation-card">
+                        <span class="fairbench-obligation-label"><b>02</b> Non-discrimination <small>非歧视</small></span>
+                        <button class="fairbench-obligation-toggle" type="button" aria-expanded="false" aria-controls="fairbench-obligation-gap" data-fairbench-obligation-toggle><h3>Find who the model misses<small>找出模型更容易识别失败的人群</small></h3><i aria-hidden="true">↓</i></button>
+                        <div class="fairbench-obligation-details" id="fairbench-obligation-gap" hidden><p>Compare group accuracy so an overall average cannot hide a weaker result.</p><small>比较各组准确率，避免总体平均分掩盖某一人群的较差表现。</small></div>
+                      </article>
+                      <article class="fairbench-obligation-card">
+                        <span class="fairbench-obligation-label"><b>03</b> Explainability <small>可解释性</small></span>
+                        <button class="fairbench-obligation-toggle" type="button" aria-expanded="false" aria-controls="fairbench-obligation-trace" data-fairbench-obligation-toggle><h3>Show how each result was reached<small>让每项结论都有据可查</small></h3><i aria-hidden="true">↓</i></button>
+                        <div class="fairbench-obligation-details" id="fairbench-obligation-trace" hidden><p>Keep the test dataset, labels, model API and threshold attached to every result.</p><small>将测试数据集、标签、模型接口与阈值一并保留在每项结果中。</small></div>
+                      </article>
+                      <article class="fairbench-obligation-card">
+                        <span class="fairbench-obligation-label"><b>04</b> Accountability <small>责任归属</small></span>
+                        <button class="fairbench-obligation-toggle" type="button" aria-expanded="false" aria-controls="fairbench-obligation-signoff" data-fairbench-obligation-toggle><h3>Keep the final decision human-owned<small>最终准入结论由人负责</small></h3><i aria-hidden="true">↓</i></button>
+                        <div class="fairbench-obligation-details" id="fairbench-obligation-signoff" hidden><p>Give reviewers the failed samples, corrections and sign-off record before approval.</p><small>在批准前，向审核人员提供失败样本、人工校正和签署记录。</small></div>
+                      </article>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-metric-section-title">
+                      <span class="fairbench-overview-section-index">02</span>
+                      <span class="fairbench-overview-section-name">MODEL-SPECIFIC METRICS</span>
+                      <small>模型对应指标</small>
+                    </div>
+                    <div class="fairbench-model-matrix">
+                      <article class="fairbench-model-card is-current">
+                        <button class="fairbench-model-toggle" type="button" aria-expanded="false" aria-controls="fairbench-model-classification" data-fairbench-model-toggle>
+                          <header><span class="fairbench-model-label"><b>01</b><span><strong>Classification model</strong><small>分类模型</small></span></span></header>
+                          <h3>Facial-recognition decisions<small>人脸识别分类决策</small></h3>
+                          <div class="fairbench-model-status"><span>Live in FairBench</span><small>当前已落地</small></div>
+                          <p>Use this for face-recognition systems: compare recognition accuracy across gender, age and ethnicity.</p><small>用于人脸识别系统，比较不同性别、年龄和族裔的识别准确率。</small>
+                          <i aria-hidden="true"><span>View checks</span><small>展开查看</small></i>
+                        </button>
+                        <div class="fairbench-model-details" id="fairbench-model-classification" hidden>
+                          <div class="fairbench-model-brief"><span>Audit question<small>审计问题</small></span><p>Are any demographic groups recognised less accurately?<small>是否有某些人群的识别准确率更低？</small></p></div>
+                          <div class="fairbench-metric-signal"><span><b>Input</b><small>测试记录</small></span><i></i><span><b>Group</b><small>人口分组</small></span><i></i><span><b>Gap</b><small>差异判定</small></span></div>
+                          <ul>
+                            <li><span>Overall &amp; group accuracy<small>总体与分组准确率</small></span><em>Compare every group with the overall result, so a lower-performing group is visible.<small>将每个人群与总体结果对照，避免较差表现被总体分数掩盖。</small></em></li>
+                            <li><span>Maximum group gap<small>最大组间差</small></span><em>Show the largest accuracy difference between any two groups.<small>显示任意两个人群之间最大的准确率差距。</small></em></li>
+                            <li><span>Bias coefficient<small>公平偏差系数</small></span><em>Summarise the size of the performance imbalance in one comparable value.<small>将表现不均衡的程度汇总为一个可比较数值。</small></em></li>
+                            <li><span>Group standard deviation<small>组间标准差</small></span><em>Show how widely recognition results vary across groups.<small>显示不同人群之间识别结果的离散程度。</small></em></li>
+                          </ul>
+                        </div>
+                      </article>
+                      <article class="fairbench-model-card">
+                        <button class="fairbench-model-toggle" type="button" aria-expanded="false" aria-controls="fairbench-model-regression" data-fairbench-model-toggle>
+                          <header><span class="fairbench-model-label"><b>02</b><span><strong>Regression model</strong><small>回归模型</small></span></span></header>
+                          <h3>Continuous-value predictions<small>连续数值预测</small></h3>
+                          <div class="fairbench-model-status"><span>Framework extension</span><small>框架扩展</small></div>
+                          <p>Use this when a model predicts a number, such as a score or risk level: compare prediction errors across groups.</p><small>用于模型预测分数或风险等级等数值时，比较不同人群的预测误差。</small>
+                          <i aria-hidden="true"><span>View checks</span><small>展开查看</small></i>
+                        </button>
+                        <div class="fairbench-model-details" id="fairbench-model-regression" hidden>
+                          <div class="fairbench-model-brief"><span>Audit question<small>审计问题</small></span><p>Does the prediction make larger errors for some groups?<small>模型是否对某些人群产生更大的预测误差？</small></p></div>
+                          <div class="fairbench-metric-signal"><span><b>Value</b><small>连续值</small></span><i></i><span><b>Residual</b><small>残差</small></span><i></i><span><b>Tail</b><small>尾部误差</small></span></div>
+                          <ul>
+                            <li><span>MAE / RMSE by group<small>分组绝对与均方误差</small></span><em>Show which group receives the largest prediction error.<small>显示哪个人群承受了最大的预测误差。</small></em></li>
+                            <li><span>Mean residual gap<small>平均残差差异</small></span><em>Check whether the model consistently over- or under-predicts one group.<small>检查模型是否持续高估或低估某一人群。</small></em></li>
+                            <li><span>Tail-error disparity<small>尾部误差差异</small></span><em>Check whether the most severe errors cluster in one group.<small>检查最严重的预测错误是否集中在某一人群。</small></em></li>
+                            <li><span>Calibration by cohort<small>分组校准度</small></span><em>Check whether the same score means the same risk level for every group.<small>检查相同分数对不同人群是否代表相同风险水平。</small></em></li>
+                          </ul>
+                        </div>
+                      </article>
+                      <article class="fairbench-model-card">
+                        <button class="fairbench-model-toggle" type="button" aria-expanded="false" aria-controls="fairbench-model-generative" data-fairbench-model-toggle>
+                          <header><span class="fairbench-model-label"><b>03</b><span><strong>Generative model</strong><small>生成模型</small></span></span></header>
+                          <h3>Generated-content behaviour<small>生成内容行为</small></h3>
+                          <div class="fairbench-model-status"><span>Framework extension</span><small>框架扩展</small></div>
+                          <p>Use this when a model generates text or images: test whether the same prompts produce unequal responses for different groups.</p><small>用于生成文本或图像时，测试相同提示是否对不同人群产生不一致回应。</small>
+                          <i aria-hidden="true"><span>View checks</span><small>展开查看</small></i>
+                        </button>
+                        <div class="fairbench-model-details" id="fairbench-model-generative" hidden>
+                          <div class="fairbench-model-brief"><span>Audit question<small>审计问题</small></span><p>Does the same prompt lead to unequal responses for different groups?<small>同一提示是否对不同人群产生不一致回应？</small></p></div>
+                          <div class="fairbench-metric-signal"><span><b>Prompt</b><small>提示</small></span><i></i><span><b>Output</b><small>输出</small></span><i></i><span><b>Rubric</b><small>量表</small></span></div>
+                          <ul>
+                            <li><span>Unsafe-output rate gap<small>不安全输出率差异</small></span><em>Check whether unsafe responses occur more often for one group.<small>检查不安全回复是否更常出现在某一人群相关的场景中。</small></em></li>
+                            <li><span>Refusal-rate disparity<small>拒答率差异</small></span><em>Check whether the model refuses the same request more often for one group.<small>检查模型是否更常拒绝与某一人群相关的相同请求。</small></em></li>
+                            <li><span>Stereotype occurrence<small>刻板印象出现率</small></span><em>Record how often a group is associated with stereotypical content.<small>记录某一人群被关联到刻板印象内容的频率。</small></em></li>
+                            <li><span>Human-rating consistency<small>人工评分一致性</small></span><em>Check whether reviewers reach consistent judgments on the outputs.<small>检查审核人员对输出结果的判断是否一致。</small></em></li>
+                          </ul>
+                        </div>
+                      </article>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-metric-section-title">
+                      <span class="fairbench-overview-section-index">03</span>
+                      <span class="fairbench-overview-section-name">THRESHOLD DECISIONS</span>
+                      <small>阈值决策</small>
+                    </div>
+                    <div class="fairbench-threshold-board">
+                      <div class="fairbench-threshold-formula">
+                        <header><span>REVIEW RULE</span><small>审查规则</small></header>
+                        <div class="fairbench-threshold-path" aria-label="Threshold decision path">
+                          <ol class="fairbench-threshold-flow">
+                            <li class="fairbench-threshold-flow-step"><span>01</span><div><b>Find the largest group gap <em>找出最大组间差</em></b><p>Compare every group's result to identify the largest accuracy gap (Δ<sub>max</sub>).</p><small>比较各人群的结果，找出最大准确率差异（Δ<sub>max</sub>）。</small></div></li>
+                            <li class="fairbench-threshold-flow-arrow" aria-hidden="true">↓</li>
+                            <li class="fairbench-threshold-flow-step"><span>02</span><div><b>Compare it with the task threshold <em>与任务阈值比较</em></b><p>Compare Δ<sub>max</sub> with the largest gap this audit can accept (task threshold τ).</p><small>将 Δ<sub>max</sub> 与本次审查可接受的最大差异（任务阈值 τ）比较。</small></div></li>
+                            <li class="fairbench-threshold-flow-arrow" aria-hidden="true">↓</li>
+                            <li class="fairbench-threshold-flow-decision"><span>03</span><div><b>Choose the review route <em>确定审查路径</em></b><p>Use the comparison to decide whether a fairness review is needed.</p><small>根据比较结果，决定是否需要公平性复核。</small><div class="fairbench-threshold-outcomes"><p><b>Δ<sub>max</sub> ≤ τ</b><span>The difference is within the limit, so reviewer sign-off can proceed.<small>差异未超过上限，可进入人工签署</small></span></p><p><b>Δ<sub>max</sub> &gt; τ</b><span>The difference exceeds the limit, so a human fairness review is required.<small>差异超过上限，进入人工公平性复核</small></span></p></div></div></li>
+                          </ol>
+                        </div>
+                        <details class="fairbench-formula-note"><summary>Calculation details <small>查看计算详情</small></summary><div class="fairbench-formula-grid"><article class="fairbench-formula-item"><div class="fairbench-formula-item-head"><span><b>Δ<sub>max</sub></b> = max(A<sub>group</sub>) − min(A<sub>group</sub>)</span><small>最大组间差</small></div><div><p>Compare the best and weakest group accuracy.</p><small>比较表现最好与最弱人群的准确率。</small></div></article><article class="fairbench-formula-item"><div class="fairbench-formula-item-head"><span><b>τ</b> = task threshold</span><small>任务阈值</small></div><div><p>Set the largest group gap this audit can accept before the review begins.</p><small>在审查开始前，设定本次审查可接受的最大组间差。</small></div></article></div></details>
+                      </div>
+                      <section class="fairbench-risk-section" aria-labelledby="fairbench-risk-title">
+                        <header><span id="fairbench-risk-title">REVIEW OUTCOMES</span><small>审查状态</small></header>
+                        <ol class="fairbench-risk-states">
+                          <li><button type="button" aria-expanded="false" aria-controls="fairbench-risk-e0" data-fairbench-risk-toggle><div><b>Evidence incomplete <em>证据未齐</em></b><p>Records, labels or usable API results are missing.</p><small>缺少记录、标签或可用接口结果。</small></div><i aria-hidden="true">+</i></button><div class="fairbench-risk-details" id="fairbench-risk-e0" hidden><b>Trigger <em>触发条件</em></b><p>No usable records, incomplete labels or unresolved API failures.</p><small>无可用记录、标签不完整或接口失败尚未处理。</small><b>Next step <em>下一步</em></b><p>Return to data and task preparation; do not assign a compliance result.</p><small>返回数据与任务准备环节，不输出合规结论。</small></div></li>
+                          <li><button type="button" aria-expanded="false" aria-controls="fairbench-risk-r1" data-fairbench-risk-toggle><div><b>Ready for reviewer sign-off <em>可进入人工签署</em></b><p>Evidence is complete and the largest group gap stays within the task threshold.</p><small>证据齐全，且最大组间差未超过当前任务阈值。</small></div><i aria-hidden="true">+</i></button><div class="fairbench-risk-details" id="fairbench-risk-r1" hidden><b>Trigger <em>触发条件</em></b><p>Maximum group gap Δ<sub>max</sub> ≤ τ; retain evidence for review.</p><small>最大组间差不超过阈值，保留证据进入复核。</small><b>Next step <em>下一步</em></b><p>Archive the metrics, reviewer rationale and version record with the task.</p><small>将指标、审核理由与版本记录归档至任务。</small></div></li>
+                          <li><button type="button" aria-expanded="false" aria-controls="fairbench-risk-r2" data-fairbench-risk-toggle><div><b>Fairness review required <em>需进行公平性复核</em></b><p>The largest group gap exceeds the task threshold; inspect affected groups before approval.</p><small>最大组间差超过任务阈值，批准前需检查受影响人群。</small></div><i aria-hidden="true">+</i></button><div class="fairbench-risk-details" id="fairbench-risk-r2" hidden><b>Trigger <em>触发条件</em></b><p>Δ<sub>max</sub> &gt; τ; trigger human review and provider remediation.</p><small>最大组间差超过阈值，触发人工审查与供应方整改。</small><b>Next step <em>下一步</em></b><p>Inspect group results and failed samples before requesting remediation.</p><small>在提出整改前检查各组结果与失败样本。</small></div></li>
+                        </ol>
+                      </section>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-metric-section-title">
+                      <span class="fairbench-overview-section-index">04</span>
+                      <span class="fairbench-overview-section-name">AUDIT READINESS</span>
+                      <small>审查准备度</small>
+                    </div>
+                    <div class="fairbench-viability-grid">
+                      <details class="fairbench-viability-card"><summary><span>01</span><h3>Sample Support<small>样本支撑</small></h3><i aria-hidden="true">+</i></summary><div><p>Show group counts and block conclusions when evidence is unusable.</p><small>展示各组样本量，在证据不可用时阻止直接下结论。</small></div></details>
+                      <details class="fairbench-viability-card"><summary><span>02</span><h3>Label Quality<small>标签质量</small></h3><i aria-hidden="true">+</i></summary><div><p>Use verified effective labels; manual corrections take priority.</p><small>采用经核验的有效标签，人工校正优先于自动标注。</small></div></details>
+                      <details class="fairbench-viability-card"><summary><span>03</span><h3>API Observability<small>接口可观测性</small></h3><i aria-hidden="true">+</i></summary><div><p>Exclude transport failures from accuracy and archive retry history.</p><small>接口失败不计入准确率，并独立归档重试历史。</small></div></details>
+                      <details class="fairbench-viability-card"><summary><span>04</span><h3>Audit Reproducibility<small>审计可复现性</small></h3><i aria-hidden="true">+</i></summary><div><p>Preserve dataset, model, threshold, method, reviewer and checksum.</p><small>保留数据集、模型、阈值、方法、审核人及校验值。</small></div></details>
+                    </div>
+                    <p class="fairbench-metric-boundary"><b>Governance boundary <small>治理边界</small></b><span>A metric flags a review risk; it does not by itself determine legal compliance.</span><small>指标用于提示审查风险，不能单独决定是否合规或违法。</small></p>
+                  </section>
+
+                  <section class="fairbench-benchmark-framework" data-fairbench-panel="03" aria-label="Benchmark dataset and automated audit pipeline" hidden>
+                    <div class="fairbench-benchmark-note">
+                      <span>REFERENCE AUDIT CONFIGURATION <small>参考审计配置</small></span>
+                      <p>The figures below illustrate how a representative audit is configured and reviewed. They are example settings for explaining the workflow, not published production results.<small>以下数据用于说明代表性审计如何配置与复核，是解释流程的示例设置，并非对外发布的生产结果。</small></p>
+                    </div>
+
+                    <div class="fairbench-overview-section-title">
+                      <span class="fairbench-overview-section-index">01</span>
+                      <span class="fairbench-overview-section-name">BENCHMARK DESIGN</span>
+                      <small>基准集设计</small>
+                    </div>
+                    <p class="fairbench-benchmark-lead">Build a test set that reveals who the model struggles with, not just its average score.<small>构建能够发现模型对哪些人群表现较弱的测试集，而不只看总体平均分。</small></p>
+
+                    <div class="fairbench-dataset-blueprint">
+                      <div class="fairbench-dataset-counts" aria-label="Reference benchmark composition">
+                        <article><strong>600</strong><span>Consented identities<small>授权测试对象</small></span></article>
+                        <article><strong>2,400</strong><span>Face-image records<small>人脸图像记录</small></span></article>
+                        <article><strong>4</strong><span>Capture conditions<small>采集条件</small></span></article>
+                        <article><strong>3</strong><span>Audit dimensions<small>审查维度</small></span></article>
+                      </div>
+                      <div class="fairbench-sampling-disclosures">
+                        <details><summary><span>01</span><b>Give every group enough samples<small>每个人群都有足够样本</small></b><i aria-hidden="true">⌄</i></summary><div><p>Build the 2,400-image set so every approved age, gender and ethnicity group has enough records to compare. Before an audit runs, FairBench shows the count for every group and flags any group below the minimum.</p><small>在 2,400 张图像中，为每个经批准的年龄、性别和族裔人群保留足够记录以便比较；审计开始前，FairBench 会展示每组数量，并标记低于最低要求的人群。</small><em>Product rule · 产品规则</em><p>A group with fewer than 60 usable images cannot support a reliable comparison, so the system does not issue a pass/fail result for that group.</p><small>任何一组可用图像少于 60 张，都无法支撑可靠比较；系统不会为该组输出通过或不通过结论。</small></div></details>
+                        <details><summary><span>02</span><b>Test hard cases too<small>也要测试困难场景</small></b><i aria-hidden="true">⌄</i></summary><div><p>Each person contributes four test photos: a clear frontal image, a side pose, low light or partial occlusion. This prevents a model from looking accurate only because it was tested on easy, well-lit faces.</p><small>每位测试对象提供四张测试照片：清晰正脸、侧脸、低光或局部遮挡。这样可以避免模型仅因测试图片简单、光线充足而显得准确。</small><em>Coverage · 覆盖条件</em><p>Clear frontal · side pose · low light · partial occlusion</p><small>清晰正脸 · 侧脸 · 低光 · 局部遮挡</small></div></details>
+                        <details><summary><span>03</span><b>Keep sensitive labels separate<small>敏感标签与识别接口分离</small></b><i aria-hidden="true">⌄</i></summary><div><p>Age, gender and ethnicity labels stay in a protected audit table used only to compare group results. The face-recognition API receives the image, not these labels; reviewers see group totals and gaps, not raw identity data.</p><small>年龄、性别和族裔标签保存在受保护的审计表中，只用于比较人群结果。人脸识别接口只接收图像，不接收这些标签；审核人员看到的是分组数量和差异，而不是原始身份信息。</small><em>Access · 访问原则</em><p>Use the minimum data needed to assess fairness.</p><small>仅使用评估公平性所必需的最少数据。</small></div></details>
+                      </div>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-benchmark-section-title">
+                      <span class="fairbench-overview-section-index">02</span>
+                      <span class="fairbench-overview-section-name">AUDIT PIPELINE</span>
+                      <small>自动审计流水线</small>
+                    </div>
+                    <p class="fairbench-benchmark-lead">Turn one approved dataset into a repeatable sequence of API calls, fairness metrics and reviewable exceptions.<small>将一套经批准的数据集转化为可重复执行的接口调用、公平性指标和可复核异常。</small></p>
+
+                    <div class="fairbench-pipeline" data-fairbench-pipeline>
+                      <div class="fairbench-pipeline-run" aria-label="Illustrative audit batch">
+                        <span>EXAMPLE BATCH <small>示例批次</small></span>
+                        <p><b>2,400</b><small><span>INPUT</span><span>输入</span></small></p><i aria-hidden="true">→</i><p><b>2,352</b><small><span>SCORED</span><span>已计分</span></small></p><i aria-hidden="true">→</i><p><b>48</b><small><span>EXCEPTIONS</span><span>异常</span></small></p>
+                      </div>
+                      <div class="fairbench-pipeline-tabs" role="tablist" aria-label="Automated audit pipeline steps">
+                        <button class="is-active" type="button" role="tab" aria-selected="true" aria-controls="fairbench-pipeline-intake" data-fairbench-pipeline-step="intake"><span>01</span><b>Validate input<small>校验输入</small></b></button>
+                        <button type="button" role="tab" aria-selected="false" aria-controls="fairbench-pipeline-inference" data-fairbench-pipeline-step="inference"><span>02</span><b>Call the model<small>调用模型</small></b></button>
+                        <button type="button" role="tab" aria-selected="false" aria-controls="fairbench-pipeline-metrics" data-fairbench-pipeline-step="metrics"><span>03</span><b>Calculate gaps<small>计算差异</small></b></button>
+                        <button type="button" role="tab" aria-selected="false" aria-controls="fairbench-pipeline-exceptions" data-fairbench-pipeline-step="exceptions"><span>04</span><b>Route exceptions<small>分流异常</small></b></button>
+                      </div>
+                      <div class="fairbench-pipeline-panels">
+                        <section id="fairbench-pipeline-intake" role="tabpanel" data-fairbench-pipeline-panel="intake"><header><span class="fairbench-pipeline-panel-index">01</span><h3>Check records before testing<small>测试前检查记录</small></h3></header><ul><li>ID, consent and group label verified<small>样本 ID、授权与人群标签已核验</small></li><li>Dataset version and image confirmed<small>数据集版本与图像可读性已确认</small></li><li>Invalid records returned for correction<small>缺失或无效记录已退回修正</small></li></ul></section>
+                        <section id="fairbench-pipeline-inference" role="tabpanel" data-fairbench-pipeline-panel="inference" hidden><header><span class="fairbench-pipeline-panel-index">02</span><h3>Send the same images to every API<small>将同一批图像发送到每个接口</small></h3></header><ul><li>Same, capped request for every API<small>每个接口收到相同且受限的请求</small></li><li>10-second timeout and two retries<small>最长等待 10 秒，最多重试两次</small></li><li>Response linked to its sample<small>响应与对应样本一并保存</small></li></ul></section>
+                        <section id="fairbench-pipeline-metrics" role="tabpanel" data-fairbench-pipeline-panel="metrics" hidden><header><span class="fairbench-pipeline-panel-index">03</span><h3>Find gaps between groups<small>找出不同人群之间的差异</small></h3></header><ul><li>Overall result compared with every group<small>总体结果与每个人群逐一对照</small></li><li>Largest group difference shown<small>直接展示最大的组间差异</small></li><li>Over 10 points goes to review<small>超过 10 个百分点即进入复核</small></li></ul></section>
+                        <section id="fairbench-pipeline-exceptions" role="tabpanel" data-fairbench-pipeline-panel="exceptions" hidden><header><span class="fairbench-pipeline-panel-index">04</span><h3>Separate technical problems from recognition mistakes<small>区分技术问题与识别错误</small></h3></header><ul><li>Timeouts and unreadable images isolated<small>请求超时与不可读图像已单独隔离</small></li><li>Failed or empty API results isolated<small>接口失败或空输出已单独隔离</small></li><li>Excluded from accuracy until confirmed<small>确认原因前不计入准确率</small></li></ul></section>
+                      </div>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-benchmark-section-title">
+                      <span class="fairbench-overview-section-index">03</span>
+                      <span class="fairbench-overview-section-name">DATASET CONTROL</span>
+                      <small>数据集控制</small>
+                    </div>
+                    <p class="fairbench-benchmark-lead">Make every audit rerunnable without exposing the people represented in the dataset.<small>在不暴露数据集中个人身份的前提下，让每次审计都能重新执行。</small></p>
+
+                    <div class="fairbench-control-grid">
+                      <details><summary><span>VERSION 版本</span><b>Lock this review's files<small>锁定本次审查文件</small></b><i aria-hidden="true">→</i></summary><div><p>Give the reviewed image set and labels a version ID, such as <code>FB-DS-2026.03</code>. If a photo or label changes, create a new version instead of editing the one already reviewed.</p><small>为本次审查的图像和标签分配版本号，例如 <code>FB-DS-2026.03</code>；照片或标签发生变化时创建新版本，不修改已经审查过的版本。</small></div></details>
+                      <details><summary><span>PRIVACY 隐私</span><b>Use audit IDs, not names<small>使用审计 ID，不使用姓名</small></b><i aria-hidden="true">→</i></summary><div><p>Use a random audit ID in the review task instead of a person’s name. Keep the ID-to-person lookup in a separate protected file, and limit original-photo access to approved reviewers.</p><small>审计任务中使用随机审计 ID，而不是姓名；将 ID 与个人身份的对应表单独保护，只有获批审核人员可以访问原始图像。</small></div></details>
+                      <details><summary><span>REPLAY 复现</span><b>Save each review's setup<small>保存每次审查设置</small></b><i aria-hidden="true">→</i></summary><div><p>Save the dataset version, model version, request settings, review limit and reviewer with each result. Another reviewer can then rerun the same setup and check the outcome.</p><small>将数据集版本、模型版本、请求设置、审查上限和审核人员与每次结果一同保存；其他审核人员可以按相同设置重新运行并核对结果。</small></div></details>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-benchmark-section-title">
+                      <span class="fairbench-overview-section-index">04</span>
+                      <span class="fairbench-overview-section-name">BATCH AUDITS</span>
+                      <small>批量审计</small>
+                    </div>
+                    <p class="fairbench-benchmark-lead">Give every API the same approved 2,400 test images, then compare the results side by side. Use the full set for a new model; use a smaller check after a limited change.<small>将同一批经批准的 2,400 张测试图像发送给每个接口，再并排比较结果；新模型使用完整测试集，小范围变更后使用更小的复查集。</small></p>
+
+                    <div class="fairbench-batch-summary">
+                      <div><span>API ENDPOINTS<small>参与比较的接口</small></span><strong>4</strong><p>APIs receive the same images<small>4 个接口接收同一批图像</small></p></div>
+                      <i aria-hidden="true">×</i>
+                      <div><span>TEST IMAGES<small>每个接口使用的图像</small></span><strong>2,400</strong><p>approved images per API<small>每个接口各测试 2,400 张图像</small></p></div>
+                      <i aria-hidden="true">=</i>
+                      <div><span>TOTAL REQUESTS<small>本批次发送的总请求</small></span><strong>9,600</strong><p>image requests in one batch<small>单个批次共发送 9,600 次图像请求</small></p></div>
+                    </div>
+                    <div class="fairbench-batch-modes">
+                      <details><summary><span>01</span><b>Full admission audit<small>完整准入审查</small></b><i aria-hidden="true">↓</i></summary><div><p>Before approving a new API or major model update, send all 2,400 approved test images to it and compare the results with the current model.</p><small>批准新接口或模型重大更新前，将全部 2,400 张经批准的测试图像发送给它，并与当前模型的结果进行比较。</small><em>Use it when · 适用情况</em><p>Adding a vendor, changing the model substantially, or changing the acceptance limit.</p><small>新增供应商、模型发生重大变化，或修改接受标准时使用。</small></div></details>
+                      <details><summary><span>02</span><b>Incremental change audit<small>增量变更审查</small></b><i aria-hidden="true">↓</i></summary><div><p>After a small change, test every new or changed image plus 480 unchanged images. The unchanged images show whether the update made a previously stable group worse.</p><small>小范围变更后，测试所有新增或变更图像，并加入 480 张未变更图像；这些未变更图像可发现更新是否让原本稳定的人群表现变差。</small><em>Use it when · 适用情况</em><p>Correcting labels, adding images, or making a minor API update.</p><small>修正标签、补充图像或进行接口小版本更新时使用。</small></div></details>
+                      <details><summary><span>03</span><b>Scheduled recheck<small>定期复审</small></b><i aria-hidden="true">↓</i></summary><div><p>Every three months, rerun the same 2,400 images against every approved API. This shows whether an API has become less accurate for a particular group over time.</p><small>每三个月，使用同一批 2,400 张图像重新测试每个已批准接口；这能发现某个接口是否随时间对特定人群变得更不准确。</small><em>Use it when · 适用情况</em><p>The calendar reaches the next quarterly review date, even if nothing has changed.</p><small>到达下一次季度复审日期时使用，即使系统没有发生变化也要执行。</small></div></details>
+                    </div>
+                  </section>
+
+                  <section class="fairbench-risk-framework" data-fairbench-panel="04" aria-label="Risk stratification and scoring model" hidden>
+                    <div class="fairbench-overview-section-title">
+                      <span class="fairbench-overview-section-index">01</span>
+                      <span class="fairbench-overview-section-name">RISK SCORE</span>
+                      <small>风险评分</small>
+                    </div>
+                    <p class="fairbench-risk-lead"><span>Each dimension receives a 0–100 signal. Each signal is multiplied by the agreed weight, then the four weighted points are added together.</span><small>每个维度获得 0–100 的风险信号；各项信号乘以预先约定的权重，再汇总四项加权分数。</small></p>
+
+                    <div class="fairbench-risk-scoreboard" data-fairbench-risk-score>
+                      <header class="fairbench-risk-score-result">
+                        <div><span>COMPOSITE RISK SCORE<small>综合风险分数</small></span><p class="fairbench-risk-score-note">The score sets the depth of review; it does not approve an API, determine legality or replace the reviewer.<small>该分数只决定审查深度，不会自动批准接口、判断合法性或替代审核人员。</small></p><div class="fairbench-risk-score-value"><span><output data-fairbench-risk-total>51</output><em>/100</em></span></div></div>
+                        <div class="fairbench-risk-meter" aria-hidden="true"><i data-fairbench-risk-meter></i><span>0</span><span>30</span><span>60</span><span>100</span><b data-fairbench-risk-meter-band="low">LOW RISK<small>低风险</small></b><b data-fairbench-risk-meter-band="medium">MEDIUM RISK<small>中风险</small></b><b data-fairbench-risk-meter-band="high">HIGH RISK<small>高风险</small></b></div>
+                      </header>
+
+                      <div class="fairbench-risk-equation" aria-label="Weighted risk score formula">
+                        <p class="fairbench-risk-equation-line" lang="en"><b>Risk level</b><i>=</i><span>Bias × 40%</span><i>+</i><span>Unsupported output × 20%</span><i>+</i><span>Privacy exposure × 20%</span><i>+</i><span>Robustness × 20%</span></p>
+                        <p class="fairbench-risk-equation-line fairbench-risk-equation-line-zh" lang="zh-CN"><b>风险等级</b><i>=</i><span>偏见 × 40%</span><i>+</i><span>无依据输出 × 20%</span><i>+</i><span>隐私泄露 × 20%</span><i>+</i><span>鲁棒性 × 20%</span></p>
+                      </div>
+
+                    <div class="fairbench-risk-dimensions">
+                      <article class="fairbench-risk-dimension">
+                        <div class="fairbench-risk-dimension-summary"><div><h3>Bias<button class="fairbench-risk-info-toggle" type="button" aria-label="Show Bias details" aria-controls="fairbench-risk-info-bias" aria-expanded="false">i</button><small>偏见</small></h3><p id="fairbench-risk-info-bias">Pause the batch for image and label review when any two groups differ by more than 10 percentage points.<small>任意两组差距超过 10 个百分点时，暂停批次并检查相关图像与标签。</small></p></div><strong><b>40%</b></strong><div class="fairbench-risk-dimension-controls"><label><span>Risk signal<small>风险信号</small></span><output data-fairbench-risk-signal>70</output><input type="range" min="0" max="100" value="70" data-fairbench-risk-input data-weight="40" aria-label="Bias risk signal"></label><p><b>Weighted points<small>加权得分</small></b><output data-fairbench-risk-contribution>28.0</output></p></div></div>
+                      </article>
+
+                        <article class="fairbench-risk-dimension">
+                        <div class="fairbench-risk-dimension-summary"><div><h3>Unsupported output<button class="fairbench-risk-info-toggle" type="button" aria-label="Show Unsupported output details" aria-controls="fairbench-risk-info-unsupported" aria-expanded="false">i</button><small>无依据输出</small></h3><p id="fairbench-risk-info-unsupported">Flags a hallucinated identity when the approved record and source image cannot verify the returned person.<small>当批准记录和源图像无法验证接口返回的人时，标记为“幻觉身份”。</small></p></div><strong><b>20%</b></strong><div class="fairbench-risk-dimension-controls"><label><span>Risk signal<small>风险信号</small></span><output data-fairbench-risk-signal>35</output><input type="range" min="0" max="100" value="35" data-fairbench-risk-input data-weight="20" aria-label="Unsupported output risk signal"></label><p><b>Weighted points<small>加权得分</small></b><output data-fairbench-risk-contribution>7.0</output></p></div></div>
+                        </article>
+
+                        <article class="fairbench-risk-dimension">
+                        <div class="fairbench-risk-dimension-summary"><div><h3>Privacy exposure<button class="fairbench-risk-info-toggle" type="button" aria-label="Show Privacy exposure details" aria-controls="fairbench-risk-info-privacy" aria-expanded="false">i</button><small>隐私泄露</small></h3><p id="fairbench-risk-info-privacy">Send only the test image and audit ID, then log every access to original photos or identity mappings.<small>请求中只发送测试图像和审计 ID，并记录每次原始照片或身份映射访问。</small></p></div><strong><b>20%</b></strong><div class="fairbench-risk-dimension-controls"><label><span>Risk signal<small>风险信号</small></span><output data-fairbench-risk-signal>25</output><input type="range" min="0" max="100" value="25" data-fairbench-risk-input data-weight="20" aria-label="Privacy exposure risk signal"></label><p><b>Weighted points<small>加权得分</small></b><output data-fairbench-risk-contribution>5.0</output></p></div></div>
+                        </article>
+
+                        <article class="fairbench-risk-dimension">
+                        <div class="fairbench-risk-dimension-summary"><div><h3>Robustness<button class="fairbench-risk-info-toggle" type="button" aria-label="Show Robustness details" aria-controls="fairbench-risk-info-robustness" aria-expanded="false">i</button><small>鲁棒性</small></h3><p id="fairbench-risk-info-robustness">Record side pose, low light and partial occlusion separately from demographic gaps.<small>将侧脸、低光和局部遮挡导致的问题与人群差异分开记录。</small></p></div><strong><b>20%</b></strong><div class="fairbench-risk-dimension-controls"><label><span>Risk signal<small>风险信号</small></span><output data-fairbench-risk-signal>55</output><input type="range" min="0" max="100" value="55" data-fairbench-risk-input data-weight="20" aria-label="Robustness risk signal"></label><p><b>Weighted points<small>加权得分</small></b><output data-fairbench-risk-contribution>11.0</output></p></div></div>
+                        </article>
+                      </div>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-risk-section-title">
+                      <span class="fairbench-overview-section-index">02</span>
+                      <span class="fairbench-overview-section-name">RISK ROUTES</span>
+                      <small>风险路径</small>
+                    </div>
+                    <p class="fairbench-risk-lead"><span>The highlighted card is the range selected by the score above. It sets the next review action; the other two cards show what would happen at different scores.</span><small>浅蓝高亮表示上方分数当前落入的区间；它决定下一步审查动作，另外两项展示分数变化时会采取什么行动。</small></p>
+                    <div class="fairbench-risk-levels">
+                      <details data-fairbench-risk-level="low"><summary><span>LOW RISK<small>低风险</small></span><strong>0–29</strong><i aria-hidden="true"></i></summary><div><p><b>Action <small>行动</small></b><span>Proceed to reviewer sign-off and archive the score and rationale.</span><small>进入人工签署，并归档分数与理由。</small></p><p><b>Exit condition <small>退出条件</small></b><span>The reviewer signs off and the score and rationale are archived.</span><small>审核人员完成签署，且分数与理由已归档。</small></p></div></details>
+                      <details data-fairbench-risk-level="medium"><summary><span>MEDIUM RISK<small>中风险</small></span><strong>30–59</strong><i aria-hidden="true"></i></summary><div><p><b>Action <small>行动</small></b><span>Pause admission, open the highest-scoring dimension and inspect affected groups or samples with the vendor.</span><small>暂停准入，展开得分最高的维度，并与供应方检查受影响人群或样本。</small></p><p><b>Exit condition <small>退出条件</small></b><span>Documented remediation plus a successful rerun.</span><small>完成整改记录并通过重新评测。</small></p></div></details>
+                      <details data-fairbench-risk-level="high"><summary><span>HIGH RISK<small>高风险</small></span><strong>60–100</strong><i aria-hidden="true"></i></summary><div><p><b>Action <small>行动</small></b><span>If the audit finds a problem in the model, data or access controls, do not approve the API; the responsible team must fix and verify it before it can be submitted for approval again.</span><small>审计发现模型、数据或访问控制问题时，不予批准接口；对应团队修复并验证后，方可再次提交审批。</small></p><p><b>Exit condition <small>退出条件</small></b><span>Confirm the cause, change the relevant control and run the audit again before reopening review.</span><small>确认问题原因、修改相关控制措施，并重新审计后才能再次评审。</small></p></div></details>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-risk-section-title">
+                      <span class="fairbench-overview-section-index">03</span>
+                      <span class="fairbench-overview-section-name">ROOT CAUSES</span>
+                      <small>根因定位</small>
+                    </div>
+                    <p class="fairbench-risk-lead"><span>The same score can come from different problems, so reviewers open the evidence behind the leading dimension before assigning an owner.</span><small>相同分数可能由不同问题造成，因此审核人员会先展开主要风险维度背后的证据，再确定责任人。</small></p>
+                    <div class="fairbench-cause-grid">
+                      <details><summary><span>01</span><div><b>Segment or dataset bias<small>分组或数据集偏差</small></b><p>Check who is under-represented and which capture condition is missing.</p><small>检查哪些人群代表不足、哪些采集条件缺失。</small></div><i aria-hidden="true"></i></summary><div><p><b>What to check<small>检查什么</small></b>Compare group counts, corrected labels, rejected images and accuracy for side pose, low light and partial occlusion.<small>对比分组数量、标签更正、被拒图像，以及侧脸、低光和局部遮挡下的准确率。</small></p><p><b>Who fixes it<small>谁来修复</small></b>The team that collects images and maintains labels.<small>负责采集图像和维护标签的团队。</small></p></div></details>
+                      <details><summary><span>02</span><div><b>Model configuration or learned weights<small>模型配置或学习权重问题</small></b><p>Check whether the same samples fail across versions or vendors.</p><small>检查相同样本是否在不同版本或供应商中持续失败。</small></div><i aria-hidden="true"></i></summary><div><p><b>What to check<small>检查什么</small></b>Compare the model version and confidence threshold, then see whether the same failed photos recur across vendors.<small>对比模型版本和置信度阈值，并查看同一批失败照片是否在不同供应商处重复出现。</small></p><p><b>Who fixes it<small>谁来修复</small></b>The model vendor or the ML engineering team.<small>模型供应商或机器学习工程团队。</small></p></div></details>
+                      <details><summary><span>03</span><div><b>Request, preprocessing or prompt design<small>请求、预处理或提示设计问题</small></b><p>Check whether the product is sending the wrong context or transforming inputs unevenly.</p><small>检查产品是否发送了错误上下文，或对输入进行了不一致处理。</small></div><i aria-hidden="true"></i></summary><div><p><b>What to check<small>检查什么</small></b>Review image crop, resize, compression, API request fields and retry settings. For generative flows, review the system prompt and template.<small>检查图像裁剪、缩放、压缩、接口请求字段和重试设置；生成式流程还需检查系统提示和模板。</small></p><p><b>Who fixes it<small>谁来修复</small></b>The product and application engineering team.<small>产品与应用工程团队。</small></p></div></details>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-risk-section-title">
+                      <span class="fairbench-overview-section-index">04</span>
+                      <span class="fairbench-overview-section-name">EVIDENCE LEDGER</span>
+                      <small>证据台账</small>
+                    </div>
+                    <p class="fairbench-risk-lead"><span>The risk ledger is written automatically when the batch runs, when a rule changes and when a reviewer acts. Earlier entries remain unchanged.</span><small>批次运行、规则变更和审核人员操作时，风险台账都会自动写入；历史记录保持不变。</small></p>
+                    <ol class="fairbench-risk-ledger">
+                      <li><article><div><b>Input snapshot saved<small>保存输入快照</small></b><em>AUTO-SAVED<small>自动留存</small></em><p>2,400-image dataset version, protected labels and consent status</p><small>2,400 张图像的数据集版本、受保护标签与授权状态</small></div></article></li>
+                      <li><article><div><b>Model and request captured<small>记录模型与请求</small></b><em>AUTO-SAVED<small>自动留存</small></em><p>Vendor endpoint, model build, preprocessing, timeout and retry settings</p><small>供应商接口、模型版本、预处理、超时与重试设置</small></div></article></li>
+                      <li><article><div><b>Score calculation linked<small>关联评分计算</small></b><em>AUTO-SAVED<small>自动留存</small></em><p>Four dimension signals, weights, thresholds and source sample IDs</p><small>四项风险信号、权重、阈值与来源样本 ID</small></div></article></li>
+                      <li><article><div><b>Human decision appended<small>追加人工决策</small></b><em>HUMAN-OWNED<small>人工负责</small></em><p>Reviewer, rationale, remediation request, timestamp and result checksum</p><small>审核人员、决策理由、整改要求、时间戳与结果校验值</small></div></article></li>
+                    </ol>
+                  </section>
+
+                  <section class="fairbench-alignment-framework" data-fairbench-panel="05" aria-label="Regulatory constraints and stakeholder alignment" hidden>
+                    <div class="fairbench-overview-section-title">
+                      <span class="fairbench-overview-section-index">01</span>
+                      <span class="fairbench-overview-section-name">REGULATORY REFERENCES</span>
+                      <small>法规参考</small>
+                    </div>
+                    <aside class="fairbench-alignment-boundary" aria-label="Academic prototype boundary">
+                      <b>ACADEMIC PROTOTYPE <small>学术原型</small></b>
+                      <p>The academic prototype used Canada’s proposed AIDA and the EU AI Act as design references. It was not connected to a regulator, certified in either region, or used for a real customer approval.<small>本学术原型以加拿大 AIDA 提案与欧盟 AI Act 作为设计参考；项目未对接监管机构、未获得地区认证，也未用于真实客户审批。</small></p>
+                    </aside>
+
+                    <div class="fairbench-jurisdiction-switch" role="tablist" aria-label="Regulatory reference selector">
+                      <button class="is-active" id="fairbench-jurisdiction-tab-canada" type="button" role="tab" aria-selected="true" aria-controls="fairbench-jurisdiction-canada" data-fairbench-jurisdiction="canada"><span>CANADA · 加拿大</span><b><span>AIDA proposal reference</span><small>AIDA 提案参考</small></b></button>
+                      <button id="fairbench-jurisdiction-tab-eu" type="button" role="tab" aria-selected="false" aria-controls="fairbench-jurisdiction-eu" data-fairbench-jurisdiction="eu" tabindex="-1"><span>EUROPEAN UNION · 欧盟</span><b><span>EU AI Act reference</span><small>欧盟 AI Act 参考</small></b></button>
+                    </div>
+
+                    <div class="fairbench-jurisdiction-panels">
+                      <article class="fairbench-jurisdiction-panel" id="fairbench-jurisdiction-canada" role="tabpanel" aria-labelledby="fairbench-jurisdiction-tab-canada" data-fairbench-jurisdiction-panel="canada">
+                        <header><div><h3>Required review fields<small>评审必填字段</small></h3></div></header>
+                        <div class="fairbench-jurisdiction-grid">
+                          <ol>
+                            <li><span>01</span><p><b>Intended use and impact context</b><small>预期用途与影响场景</small></p></li>
+                            <li><span>02</span><p><b>Dataset source and group coverage</b><small>数据来源与人群覆盖</small></p></li>
+                            <li><span>03</span><p><b>Bias and discriminatory-outcome tests</b><small>偏差与歧视性结果测试</small></p></li>
+                            <li><span>04</span><p><b>Mitigation and residual risk</b><small>缓解措施与剩余风险</small></p></li>
+                            <li><span>05</span><p><b>Accountable owner and human review</b><small>责任主体与人工复核</small></p></li>
+                            <li><span>06</span><p><b>Model version, report version and logs</b><small>模型版本、报告版本与日志</small></p></li>
+                          </ol>
+                          <div class="fairbench-jurisdiction-translation"><span>FROM REGULATION TO PRODUCT RULES<small>从监管要求到产品规则</small></span><details><summary><div class="fairbench-jurisdiction-rule"><span><b>REQUIRED FIELD</b><small>必填字段</small></span><i aria-hidden="true">→</i><span><b>LINKED EVIDENCE</b><small>关联证据</small></span></div></summary><p>Reject any claim that cannot link to a dataset, test result, reviewer or version record.<small>无法关联数据、测试结果、审核人或版本记录的结论，不得写入报告。</small></p></details></div>
+                        </div>
+                        <a class="fairbench-alignment-source" href="https://ised-isde.canada.ca/site/ised/en/archived-artificial-intelligence-and-data-act" target="_blank" rel="noreferrer">Official Canada AIDA reference <span>加拿大官方 AIDA 参考 <i aria-hidden="true">↗</i></span></a>
+                      </article>
+
+                      <article class="fairbench-jurisdiction-panel" id="fairbench-jurisdiction-eu" role="tabpanel" aria-labelledby="fairbench-jurisdiction-tab-eu" data-fairbench-jurisdiction-panel="eu" hidden>
+                        <header><div><h3>Required review fields<small>评审必填字段</small></h3></div></header>
+                        <div class="fairbench-jurisdiction-grid">
+                          <ol>
+                            <li><span>01</span><p><b>Intended purpose and operator role</b><small>预期用途与运营角色</small></p></li>
+                            <li><span>02</span><p><b>Risk-management record</b><small>风险管理记录</small></p></li>
+                            <li><span>03</span><p><b>Data governance and bias evaluation</b><small>数据治理与偏差评估</small></p></li>
+                            <li><span>04</span><p><b>Technical documentation and trace logs</b><small>技术文档与追溯日志</small></p></li>
+                            <li><span>05</span><p><b>Accuracy, robustness and security evidence</b><small>准确性、鲁棒性与安全证据</small></p></li>
+                            <li><span>06</span><p><b>Human oversight and release conditions</b><small>人工监督与放行条件</small></p></li>
+                          </ol>
+                          <div class="fairbench-jurisdiction-translation"><span>FROM REGULATION TO PRODUCT RULES<small>从监管要求到产品规则</small></span><details><summary><div class="fairbench-jurisdiction-rule"><span><b>ONE EVIDENCE BASE</b><small>一套证据</small></span><i aria-hidden="true">→</i><span><b>REGIONAL FIELD PACKS</b><small>各地区字段包</small></span></div></summary><p>Keep one evidence base and generate the field pack required by each region.<small>保留一套证据，根据地区生成对应字段包。</small></p></details></div>
+                        </div>
+                        <a class="fairbench-alignment-source" href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noreferrer">Official EU AI Act reference <span>欧盟官方 AI Act 参考 <i aria-hidden="true">↗</i></span></a>
+                      </article>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-alignment-section-title">
+                      <span class="fairbench-overview-section-index">02</span>
+                      <span class="fairbench-overview-section-name">DECISION OWNERSHIP</span>
+                      <small>决策权责</small>
+                    </div>
+                    <div class="fairbench-ownership-boundary"><div><b>PLATFORM EVIDENCE</b><small>平台证据</small></div><i aria-hidden="true">≠</i><div><b>HUMAN APPROVAL</b><small>人工审批</small></div></div>
+
+                    <div class="fairbench-owner-grid">
+                      <details class="fairbench-owner-card"><summary><span>01</span><div><b>Algorithm &amp; model team</b><small>算法与模型团队</small><p>Fixes the model and owns technical performance.</p><em>修复模型，对技术性能负责。</em></div><i class="fairbench-owner-disclosure" aria-hidden="true"></i></summary><div><p><b>Provides<small>提供材料</small></b><span>Model build, thresholds, preprocessing settings and remediation notes.</span><small>提交模型版本、阈值、预处理设置与修复说明</small></p><p><b>Authority<small>权限边界</small></b><span>Chooses the technical fix; cannot grant compliance clearance.</span><small>决定如何修复模型，但不能批准合规放行</small></p></div></details>
+                      <details class="fairbench-owner-card"><summary><span>02</span><div><b>Compliance &amp; legal team</b><small>合规与法务团队</small><p>Checks evidentiary coverage and holds the veto.</p><em>审查举证是否充分，并拥有合规否决权。</em></div><i class="fairbench-owner-disclosure" aria-hidden="true"></i></summary><div><p><b>Reviews<small>审阅内容</small></b><span>Risk report, jurisdiction fields and proposed mitigations.</span><small>审阅风险报告、法规字段与缓解措施</small></p><p><b>Authority<small>权限边界</small></b><span>Blocks release when evidence is incomplete or risk is unacceptable.</span><small>证据不足或风险不可接受时阻止放行</small></p></div></details>
+                      <details class="fairbench-owner-card"><summary><span>03</span><div><b>Business owner</b><small>业务负责人</small><p>Makes the final go-live decision after clearance.</p><em>在合规通过后作出最终上线决定。</em></div><i class="fairbench-owner-disclosure" aria-hidden="true"></i></summary><div><p><b>Reviews<small>审阅内容</small></b><span>Use case, residual risk, mitigation commitments and release impact.</span><small>业务用途、剩余风险、缓解承诺与上线影响</small></p><p><b>Authority<small>权限边界</small></b><span>Decides whether to deploy; cannot override a compliance veto.</span><small>决定是否投入使用，不可绕过合规否决</small></p></div></details>
+                      <details class="fairbench-owner-card fairbench-owner-card-platform"><summary><span>04</span><div><b>Audit platform</b><small>审计平台</small><p>Runs the audit and packages objective evidence.</p><em>标准化执行评测并打包客观证据。</em></div><i class="fairbench-owner-disclosure" aria-hidden="true"></i></summary><div><p><b>Produces<small>产出内容</small></b><span>Auditable report, risk flags, version history and evidence links.</span><small>可审计报告、风险标记、版本记录与证据链接</small></p><p><b>No authority<small>无审批权</small></b><span>Does not decide legality and never signs the final admission approval.</span><small>不判断合法性，不签署最终准入审批</small></p></div></details>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-alignment-section-title">
+                      <span class="fairbench-overview-section-index">03</span>
+                      <span class="fairbench-overview-section-name">REVIEW FLOW</span>
+                      <small>评审流程</small>
+                    </div>
+                    <div class="fairbench-review-flow" aria-label="Prototype review flow">
+                      <div class="fairbench-review-steps" role="tablist" aria-label="Review stage selector">
+                        <button class="is-active" type="button" role="tab" aria-selected="true" aria-controls="fairbench-alignment-review-inspector" data-fairbench-alignment-step data-stage="01" data-title="Submit the model build" data-title-zh="提交待测模型" data-copy="The algorithm team sends a fixed model version, API configuration and intended use to the audit platform." data-copy-zh="算法团队向审计平台提交固定模型版本、接口配置与预期用途。" data-owner="Algorithm team" data-owner-zh="算法团队" data-evidence="Model ID + request snapshot" data-evidence-zh="模型 ID 与请求快照"><span>01</span><b>Submit<small>提交模型</small></b></button>
+                        <button type="button" role="tab" aria-selected="false" aria-controls="fairbench-alignment-review-inspector" data-fairbench-alignment-step data-stage="02" data-title="Run the full benchmark" data-title-zh="执行完整评测" data-copy="The platform runs the approved 2,400-image set, calculates group gaps and produces the traceable report." data-copy-zh="平台使用经批准的 2,400 张图像执行评测，计算人群差异并生成可追溯报告。" data-owner="Audit platform" data-owner-zh="审计平台" data-evidence="Metrics + failed samples + risk flags" data-evidence-zh="指标、失败样本与风险标记" tabindex="-1"><span>02</span><b>Test<small>完整评测</small></b></button>
+                        <button type="button" role="tab" aria-selected="false" aria-controls="fairbench-alignment-review-inspector" data-fairbench-alignment-step data-stage="03" data-title="Review every flagged risk" data-title-zh="跨团队审阅风险项" data-copy="Algorithm, compliance, legal and business representatives review the same evidence and record objections or mitigations." data-copy-zh="算法、合规、法务与业务代表共同审阅同一份证据，并记录异议或缓解方案。" data-owner="Cross-team review" data-owner-zh="跨团队评审" data-evidence="Comments + objections + mitigation" data-evidence-zh="评论、异议与缓解方案" tabindex="-1"><span>03</span><b>Review<small>联合评审</small></b></button>
+                        <button type="button" role="tab" aria-selected="false" aria-controls="fairbench-alignment-review-inspector" data-fairbench-alignment-step data-stage="04" data-title="Choose the accountable route" data-title-zh="进入对应责任路径" data-copy="The outcome routes work back to the model team or forward to archive and a human go-live decision." data-copy-zh="评审结果决定返回模型团队修复，或进入归档与人工上线决策。" data-owner="Compliance + business owner" data-owner-zh="合规与业务负责人" data-evidence="Recorded outcome + next owner" data-evidence-zh="已记录结果与下一责任人" tabindex="-1"><span>04</span><b>Route<small>分支处理</small></b></button>
+                      </div>
+                      <div class="fairbench-review-inspector" id="fairbench-alignment-review-inspector" role="tabpanel" aria-live="polite">
+                        <div><em data-fairbench-alignment-stage>01</em><h3 data-fairbench-alignment-title>Submit the model build</h3><small data-fairbench-alignment-title-zh>提交待测模型</small><p data-fairbench-alignment-copy>The algorithm team sends a fixed model version, API configuration and intended use to the audit platform.</p><small data-fairbench-alignment-copy-zh>算法团队向审计平台提交固定模型版本、接口配置与预期用途。</small></div>
+                        <dl><div><dt>Accountable now<small>当前责任人</small></dt><dd data-fairbench-alignment-owner>Algorithm team<small data-fairbench-alignment-owner-zh>算法团队</small></dd></div><div><dt>Proof created<small>生成证据</small></dt><dd data-fairbench-alignment-evidence>Model ID + request snapshot<small data-fairbench-alignment-evidence-zh>模型 ID 与请求快照</small></dd></div></dl>
+                      </div>
+                      <div class="fairbench-review-branches" data-fairbench-route-branches hidden>
+                        <details><summary><span><b>4.1</b>RETURN<small>退回</small></span><div><b>Material risk found</b><small>发现重大风险</small></div><i aria-hidden="true">+</i></summary><div><p>Send the finding to the model team, repair the defect and rerun the audit before review resumes.<small>将问题退回模型团队修复，重新评测后才能恢复评审。</small></p><em><b>Exit condition<small>退出条件</small></b><span>Repair is complete and the new report passes review.</span><small>修复完成且新报告通过复核。</small></em></div></details>
+                        <details><summary><span><b>4.2</b>RECORD<small>记录</small></span><div><b>Risk accepted with mitigation</b><small>部分风险可接受</small></div><i aria-hidden="true">+</i></summary><div><p>Record the residual risk, mitigation, accountable owner and follow-up date in the report.<small>在报告中记录剩余风险、缓解措施、责任人和后续日期。</small></p><em><b>Exit condition<small>退出条件</small></b><span>Compliance confirms that the record is complete.</span><small>合规确认记录充分。</small></em></div></details>
+                        <details><summary><span><b>4.3</b>HAND OFF<small>交接</small></span><div><b>No high risk remains</b><small>无高危风险</small></div><i aria-hidden="true">+</i></summary><div><p>Archive the complete evidence packet and hand the go-live choice to the business owner.<small>归档完整证据包，并将上线决定交由业务负责人。</small></p><em><b>Exit condition<small>退出条件</small></b><span>The human go-live decision is signed and archived.</span><small>人工上线决定已签署并归档。</small></em></div></details>
+                      </div>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-alignment-section-title">
+                      <span class="fairbench-overview-section-index">04</span>
+                      <span class="fairbench-overview-section-name">REVIEW RECORD</span>
+                      <small>评审留痕</small>
+                    </div>
+                    <div class="fairbench-consensus-layout">
+                      <div class="fairbench-consensus-record">
+                        <div class="fairbench-consensus-thread">
+                          <div class="fairbench-consensus-inputs">
+                          <article><div class="fairbench-consensus-card-role"><span>ALGORITHM TEAM</span><small>算法团队</small></div><div class="fairbench-consensus-card-description"><p>Coverage evidence for affected groups is incomplete</p><small>受影响人群的覆盖证据不完整</small></div></article>
+                          <article><div class="fairbench-consensus-card-role"><span>COMPLIANCE TEAM</span><small>合规团队</small></div><div class="fairbench-consensus-card-description"><p>Evidence is insufficient, so a rerun is required</p><small>当前证据不足以支持放行，需重新评测</small></div></article>
+                          <article><div class="fairbench-consensus-card-role"><span>BUSINESS OWNER</span><small>业务负责人</small></div><div class="fairbench-consensus-card-description"><p>The launch stays on hold until the rerun passes review</p><small>重新评测通过复核前，项目保持暂停上线</small></div></article>
+                          </div>
+                          <div class="fairbench-consensus-flow-arrow" aria-hidden="true">↓</div>
+                          <article class="is-resolution"><div class="fairbench-consensus-card-role"><span>FINAL DECISION</span><small>最终决议</small></div><div class="fairbench-consensus-card-description"><p>Algorithm team adds data, reruns affected groups and resubmits</p><small>算法团队补充数据、重测受影响人群后重新提交</small></div></article>
+                        </div>
+                      </div>
+
+                      <aside class="fairbench-consensus-archive"><span>ARCHIVED WITH THE REPORT<small>随报告永久归档</small></span><ul><li>Evidence link<small>证据链接</small></li><li>Role and timestamp<small>角色与时间戳</small></li><li>Objection and response<small>异议与回复</small></li><li>Mitigation commitment<small>缓解承诺</small></li><li>Final resolution<small>最终结论</small></li></ul></aside>
+                    </div>
+                  </section>
+
+                  <section class="fairbench-report-framework" data-fairbench-panel="06" aria-label="Audit workflow and compliance report design" hidden>
+                    <div class="fairbench-overview-section-title">
+                      <span class="fairbench-overview-section-index">01</span>
+                      <span class="fairbench-overview-section-name">END-TO-END AUDIT TASK</span>
+                      <small>完整审计任务</small>
+                    </div>
+                    <p class="fairbench-report-lead">One task carries the review from setup to an archived PDF.<small>一项任务串联配置、评测与 PDF 归档。</small></p>
+
+                    <div class="fairbench-report-workflow" aria-label="Four-step audit task workflow">
+                      <div class="fairbench-report-workflow-tabs" role="tablist" aria-label="Audit workflow step selector">
+                        <button class="is-active" id="fairbench-report-step-01" type="button" role="tab" aria-selected="true" aria-controls="fairbench-report-workflow-inspector" data-fairbench-report-step data-step="01" data-title="Create an audit task" data-title-zh="新建审计任务" data-copy="Name the review and choose its working language." data-copy-zh="填写审计名称并选择工作语言。" data-action="Name · language" data-action-zh="名称、语言" data-system="Opens a queued task" data-system-zh="建立待运行任务" data-proof="Task ID · owner · time" data-proof-zh="任务 ID、负责人、时间"><span>01</span><b>Create task<small>新建任务</small></b></button>
+                        <button id="fairbench-report-step-02" type="button" role="tab" aria-selected="false" aria-controls="fairbench-report-workflow-inspector" data-fairbench-report-step data-step="02" data-title="Connect model and dataset" data-title-zh="连接模型与图集" data-copy="Choose the labelled dataset, API endpoint and fairness threshold." data-copy-zh="选择已标注图集、模型接口与公平阈值。" data-action="Dataset · API · threshold" data-action-zh="图集、接口、阈值" data-system="Checks setup; keeps credentials temporary" data-system-zh="校验配置，密钥仅临时使用" data-proof="Dataset ID · API snapshot" data-proof-zh="图集 ID、接口快照" tabindex="-1"><span>02</span><b>Connect inputs<small>连接输入</small></b></button>
+                        <button id="fairbench-report-step-03" type="button" role="tab" aria-selected="false" aria-controls="fairbench-report-workflow-inspector" data-fairbench-report-step data-step="03" data-title="Run the fairness audit" data-title-zh="运行公平性评测" data-copy="Run every sample, calculate group gaps and isolate API failures." data-copy-zh="评测全部样本，计算群体差距并隔离接口失败。" data-action="Start batch" data-action-zh="启动批次" data-system="Scores results; isolates failures" data-system-zh="计算结果并隔离失败样本" data-proof="Metrics · groups · failure log" data-proof-zh="指标、分组、失败日志" tabindex="-1"><span>03</span><b>Run audit<small>运行审计</small></b></button>
+                        <button id="fairbench-report-step-04" type="button" role="tab" aria-selected="false" aria-controls="fairbench-report-workflow-inspector" data-fairbench-report-step data-step="04" data-title="Issue the audit PDF" data-title-zh="签发审计 PDF" data-copy="Confirm the audience, signer and appendices, then generate the report." data-copy-zh="确认读者、签发人和附录后生成报告。" data-action="Audience · signer · appendices" data-action-zh="读者、签发人、附录" data-system="Creates and archives the PDF" data-system-zh="生成并归档 PDF" data-proof="Report No. · checksum · event" data-proof-zh="报告编号、校验值、事件" tabindex="-1"><span>04</span><b>Issue report<small>签发报告</small></b></button>
+                      </div>
+
+                      <div class="fairbench-report-workflow-inspector" id="fairbench-report-workflow-inspector" role="tabpanel" aria-labelledby="fairbench-report-step-01" aria-live="polite">
+                        <header><em data-fairbench-report-stage>01</em><div><h3 data-fairbench-report-title>Create an audit task</h3><small data-fairbench-report-title-zh>新建审计任务</small></div></header>
+                        <p data-fairbench-report-copy>Name the review and choose its working language.</p>
+                        <small data-fairbench-report-copy-zh>填写审计名称并选择工作语言。</small>
+                        <dl>
+                          <div><dt>Input<small>输入</small></dt><dd data-fairbench-report-action>Name · language<small data-fairbench-report-action-zh>名称、语言</small></dd></div>
+                          <div><dt>Automation<small>自动处理</small></dt><dd data-fairbench-report-system>Opens a queued task<small data-fairbench-report-system-zh>建立待运行任务</small></dd></div>
+                          <div><dt>Record<small>留痕</small></dt><dd data-fairbench-report-proof>Task ID · owner · time<small data-fairbench-report-proof-zh>任务 ID、负责人、时间</small></dd></div>
+                        </dl>
+                      </div>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-report-section-title">
+                      <span class="fairbench-overview-section-index">02</span>
+                      <span class="fairbench-overview-section-name">REPORT VIEWS</span>
+                      <small>报告视图</small>
+                    </div>
+                    <p class="fairbench-report-lead">The same evidence is arranged for decisions, diagnosis and compliance review.<small>同一份证据按决策、诊断与合规核验分层呈现。</small></p>
+
+                    <div class="fairbench-report-layers">
+                      <article class="fairbench-report-layer">
+                        <header><span>01</span><div><b>Executive decision</b><small>决策摘要</small></div></header>
+                        <ul><li>Model + dataset<small>模型与图集</small></li><li>Accuracy + largest gap<small>准确率与最大差距</small></li><li>Verdict + signer<small>结论与签发人</small></li></ul>
+                      </article>
+                      <article class="fairbench-report-layer">
+                        <header><span>02</span><div><b>Technical evidence</b><small>技术证据</small></div></header>
+                        <ul><li>Threshold + metrics<small>阈值与指标</small></li><li>Group accuracy<small>分组准确率</small></li><li>Failures + retries<small>失败样本与重试</small></li></ul>
+                      </article>
+                      <article class="fairbench-report-layer">
+                        <header><span>03</span><div><b>Compliance record</b><small>合规记录</small></div></header>
+                        <ul><li>Method + scope<small>方法与范围</small></li><li>Report ID + issuer<small>报告编号与签发方</small></li><li>Source + file checksum<small>来源与文件校验值</small></li></ul>
+                      </article>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-report-section-title">
+                      <span class="fairbench-overview-section-index">03</span>
+                      <span class="fairbench-overview-section-name">FROM ALERT TO EVIDENCE</span>
+                      <small>从告警到证据</small>
+                    </div>
+                    <p class="fairbench-report-lead">This synthetic demo turns a 10-point threshold breach into a group-level finding.<small>该合成演示将超过 10 个百分点阈值的告警定位到具体人群。</small></p>
+
+                    <div class="fairbench-report-dashboard">
+                      <section class="fairbench-report-scorecard" aria-label="Demo fairness audit result">
+                        <header><div><span>SYNTHETIC DEMO<small>合成演示</small></span><h3>CityVision Face API v4.2</h3><div class="fairbench-report-scorecard-tags"><span>36 synthetic faces<small>36 张合成人脸</small></span><span>Threshold 10.0 pp<small>阈值 10.0 个百分点</small></span></div></div></header>
+                        <div class="fairbench-report-metrics">
+                          <article class="fairbench-report-metric" tabindex="0" aria-describedby="fairbench-accuracy-formula"><span>Overall accuracy<small>总体准确率</small></span><div class="fairbench-report-metric-value"><strong>83.3<small>%</small></strong><div class="fairbench-report-metric-tooltip" id="fairbench-accuracy-formula" role="tooltip">30 correct ÷ 36 samples = 83.3%<small>30 个正确结果 ÷ 36 个样本 = 83.3%</small></div></div></article>
+                          <article class="fairbench-report-metric is-alert" tabindex="0" aria-describedby="fairbench-gap-formula"><span>Maximum group gap<small>最大群体差值</small></span><div class="fairbench-report-metric-value"><strong>11.1<small>pp</small></strong><div class="fairbench-report-metric-tooltip" id="fairbench-gap-formula" role="tooltip">88.9% − 77.8% = 11.1 pp<small>88.9% − 77.8% = 11.1 个百分点</small></div></div></article>
+                          <article class="fairbench-report-metric" tabindex="0" aria-describedby="fairbench-bias-formula"><span>Bias coefficient<small>公平偏差系数</small></span><div class="fairbench-report-metric-value"><strong>0.133</strong><div class="fairbench-report-metric-tooltip" id="fairbench-bias-formula" role="tooltip">0.111 gap ÷ 0.833 overall = 0.133<small>0.111 最大差值 ÷ 0.833 总体准确率 = 0.133</small></div></div></article>
+                          <article class="fairbench-report-metric" tabindex="0" aria-describedby="fairbench-std-formula"><span>Standard deviation<small>标准差</small></span><div class="fairbench-report-metric-value"><strong>0.031</strong><div class="fairbench-report-metric-tooltip" id="fairbench-std-formula" role="tooltip">σ(77.8%, 88.9%, 88.9%, 77.8%, 83.3% × 9) = 0.031<small>13 个群体准确率的标准差 = 0.031（约 3.1 个百分点）</small></div></div></article>
+                        </div>
+                      </section>
+
+                      <section class="fairbench-report-drill" aria-label="Demographic risk drill-down">
+                        <header><div><h3>Review-triggering group</h3><small>触发复核的人群</small></div></header>
+                        <div class="fairbench-report-drill-tabs" role="tablist" aria-label="Demographic dimension selector">
+                          <button class="is-active" id="fairbench-report-drill-age" type="button" role="tab" aria-selected="true" aria-controls="fairbench-report-drill-panel-age" data-fairbench-report-drill="age">Age<small>年龄</small></button>
+                          <button id="fairbench-report-drill-gender" type="button" role="tab" aria-selected="false" aria-controls="fairbench-report-drill-panel-gender" data-fairbench-report-drill="gender" tabindex="-1">Gender<small>性别</small></button>
+                          <button id="fairbench-report-drill-ethnicity" type="button" role="tab" aria-selected="false" aria-controls="fairbench-report-drill-panel-ethnicity" data-fairbench-report-drill="ethnicity" tabindex="-1">Ethnicity<small>族裔</small></button>
+                        </div>
+                        <div class="fairbench-report-drill-panels">
+                          <div class="fairbench-report-drill-panel" id="fairbench-report-drill-panel-age" role="tabpanel" aria-labelledby="fairbench-report-drill-age" data-fairbench-report-drill-panel="age"><div><span><span class="fairbench-report-drill-group-name">18–29 years old</span><small>18–29 岁</small><em>n=9</em></span><i style="--value:77.8%"></i><b>77.8%</b></div><div><span><span class="fairbench-report-drill-group-name">30–44 years old</span><small>30–44 岁</small><em>n=9</em></span><i style="--value:88.9%"></i><b>88.9%</b></div><div><span><span class="fairbench-report-drill-group-name">45–59 years old</span><small>45–59 岁</small><em>n=9</em></span><i style="--value:88.9%"></i><b>88.9%</b></div><div><span><span class="fairbench-report-drill-group-name">60+ years old</span><small>60+ 岁</small><em>n=9</em></span><i style="--value:77.8%"></i><b>77.8%</b></div><p class="fairbench-report-drill-alert"><span>Age triggers the alert.<small>年龄维度触发告警。</small></span><b>11.1 pp > 10.0 pp</b></p></div>
+                          <div class="fairbench-report-drill-panel" id="fairbench-report-drill-panel-gender" role="tabpanel" aria-labelledby="fairbench-report-drill-gender" data-fairbench-report-drill-panel="gender" hidden><div><span><span class="fairbench-report-drill-group-name">Female</span><small>女性</small><em>n=12</em></span><i style="--value:83.3%"></i><b>83.3%</b></div><div><span><span class="fairbench-report-drill-group-name">Male</span><small>男性</small><em>n=12</em></span><i style="--value:83.3%"></i><b>83.3%</b></div><div><span><span class="fairbench-report-drill-group-name">Non-binary</span><small>非二元</small><em>n=12</em></span><i style="--value:83.3%"></i><b>83.3%</b></div><p>No gender gap in this demo.<small>本次演示未出现性别差距。</small></p></div>
+                          <div class="fairbench-report-drill-panel" id="fairbench-report-drill-panel-ethnicity" role="tabpanel" aria-labelledby="fairbench-report-drill-ethnicity" data-fairbench-report-drill-panel="ethnicity" hidden><div><span><span class="fairbench-report-drill-group-name">East Asian</span><small>东亚</small><em>n=6</em></span><i style="--value:83.3%"></i><b>83.3%</b></div><div><span><span class="fairbench-report-drill-group-name">South Asian</span><small>南亚</small><em>n=6</em></span><i style="--value:83.3%"></i><b>83.3%</b></div><div><span><span class="fairbench-report-drill-group-name">Black</span><small>黑人</small><em>n=6</em></span><i style="--value:83.3%"></i><b>83.3%</b></div><div><span><span class="fairbench-report-drill-group-name">White</span><small>白人</small><em>n=6</em></span><i style="--value:83.3%"></i><b>83.3%</b></div><div><span><span class="fairbench-report-drill-group-name">Latino</span><small>拉丁裔</small><em>n=6</em></span><i style="--value:83.3%"></i><b>83.3%</b></div><div><span><span class="fairbench-report-drill-group-name">Middle Eastern &amp; North African</span><small>中东及北非</small><em>n=6</em></span><i style="--value:83.3%"></i><b>83.3%</b></div><p>No ethnicity gap in this demo.<small>本次演示未出现族裔差距。</small></p></div>
+                        </div>
+                      </section>
+
+                      <details class="fairbench-report-export">
+                        <summary><div><span>EVIDENCE SNAPSHOT</span><small>证据快照</small></div><i aria-hidden="true">+</i></summary>
+                        <div><article><b>Results CSV<small>评测结果 CSV</small></b><p>Sample outcomes.<small>样本结果。</small></p></article><article><b>Dataset CSV<small>图集 CSV</small></b><p>Labels and sources.<small>标签与来源。</small></p></article><article><b>Archival PDF<small>归档 PDF</small></b><p>Signed review record.<small>已签发审查记录。</small></p></article></div>
+                      </details>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-report-section-title">
+                      <span class="fairbench-overview-section-index">04</span>
+                      <span class="fairbench-overview-section-name">ARCHIVE &amp; HANDOFF</span>
+                      <small>归档与交付</small>
+                    </div>
+                    <p class="fairbench-report-lead">Each report is immutable, identifiable and easy to verify after handoff.<small>每份报告不可覆盖、有唯一标识，并可在交付后核验。</small></p>
+
+                    <div class="fairbench-report-archive">
+                      <ol>
+                        <li><span>01</span><div><b>Freeze report inputs<small>冻结报告输入</small></b><p>Task, language, method and signer.<small>任务、语言、方法与签发人。</small></p></div></li>
+                        <li><span>02</span><div><b>Issue a unique report ID<small>生成唯一报告编号</small></b><p>Every generation creates a new version.<small>每次生成都会建立新版本。</small></p></div></li>
+                        <li><span>03</span><div><b>Store PDF and checksum<small>存储 PDF 与校验值</small></b><p>Archive the file with its SHA-256 fingerprint.<small>归档文件及其 SHA-256 指纹。</small></p></div></li>
+                        <li><span>04</span><div><b>Append the audit event<small>追加审计事件</small></b><p>Actor, language, checksum and time.<small>操作人、语言、校验值与时间。</small></p></div></li>
+                      </ol>
+
+                      <details>
+                        <summary><div><span>HANDOFF CHECKLIST</span><small>交付核验清单</small><p>Four items let the next reviewer verify the file.</p><em>四项信息帮助下一位审核人核验文件。</em></div><i aria-hidden="true">+</i></summary>
+                        <div class="fairbench-report-handoff"><article><span class="fairbench-report-handoff-check" aria-hidden="true"></span><b>Issued archival PDF<small>带签发信息的归档 PDF</small></b></article><article><span class="fairbench-report-handoff-check" aria-hidden="true"></span><b>Report number<small>报告编号</small></b></article><article><span class="fairbench-report-handoff-check" aria-hidden="true"></span><b>SHA-256 checksum<small>文件校验值</small></b></article><article><span class="fairbench-report-handoff-check" aria-hidden="true"></span><b>Generation metadata<small>生成元数据</small></b></article></div>
+                      </details>
+                    </div>
+                  </section>
+
+                  <section class="fairbench-validation-framework" data-fairbench-panel="07" aria-label="Validation and controlled benchmark experiment" hidden>
+                    <div class="fairbench-benchmark-note">
+                      <span>VALIDATION SCOPE <small>验证范围</small></span>
+                      <p>This prototype validates the audit workflow; real benchmark data is still required to validate fairness outcomes.<small>本原型验证的是审计流程；公平性结果仍需真实基准数据验证。</small></p>
+                    </div>
+
+                    <div class="fairbench-overview-section-title">
+                      <span class="fairbench-overview-section-index">01</span>
+                      <span class="fairbench-overview-section-name">PROTOTYPE EVIDENCE</span>
+                      <small>原型证据</small>
+                    </div>
+                    <p class="fairbench-validation-lead">Separate implemented workflow capabilities from results that still require empirical evidence.<small>区分已实现的工作流能力与仍需实证数据支持的结果。</small></p>
+
+                    <div class="fairbench-validation-proof-grid">
+                      <details>
+                        <summary><span>01</span><div><b>Compare runs</b><small>对比多次评测</small><p>One dataset, multiple algorithms.</p><em>同一图集，对比多个算法。</em></div><i aria-hidden="true"></i></summary>
+                        <div><p><b>Implemented<small>已实现</small></b>Side-by-side demographic accuracy.<small>并排展示人群准确率。</small></p><p><b>Still unknown<small>仍未知</small></b>Whether the optimized model is fairer.<small>优化模型是否更公平。</small></p></div>
+                      </details>
+                      <details>
+                        <summary><span>02</span><div><b>Correct labels</b><small>修正人工标签</small><p>Editor, reason and time stay traceable.</p><em>操作人、原因与时间可追溯。</em></div><i aria-hidden="true"></i></summary>
+                        <div><p><b>Implemented<small>已实现</small></b>Human correction with an audit trail.<small>人工修正并记录留痕。</small></p><p><b>Still unknown<small>仍未知</small></b>Human–system agreement at scale.<small>规模化人机一致性。</small></p></div>
+                      </details>
+                      <details>
+                        <summary><span>03</span><div><b>Isolate failures</b><small>隔离失败样本</small><p>Failed requests stay outside the metric.</p><em>失败请求不进入指标计算。</em></div><i aria-hidden="true"></i></summary>
+                        <div><p><b>Implemented<small>已实现</small></b>Isolation, archive and retry.<small>隔离、归档与重试。</small></p><p><b>Still unknown<small>仍未知</small></b>Stability under full stress testing.<small>完整压力测试下的稳定性。</small></p></div>
+                      </details>
+                      <details>
+                        <summary><span>04</span><div><b>Test calculations</b><small>测试指标计算</small><p>Repeatable simulator + metric unit tests.</p><em>确定性模拟接口与指标单元测试。</em></div><i aria-hidden="true"></i></summary>
+                        <div><p><b>Implemented<small>已实现</small></b>Known outcomes and empty-input tests.<small>已知结果与空输入测试。</small></p><p><b>Still unknown<small>仍未知</small></b>Accuracy on vendor models and field data.<small>真实模型与实地数据准确性。</small></p></div>
+                      </details>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-validation-section-title">
+                      <span class="fairbench-overview-section-index">02</span>
+                      <span class="fairbench-overview-section-name">A/B MODEL COMPARISON</span>
+                      <small>A/B 模型对照</small>
+                    </div>
+                    <p class="fairbench-validation-lead">Two models, one controlled setup. No result has been measured yet.<small>两个模型共用同一测试条件，目前尚无实测结果。</small></p>
+
+                    <div class="fairbench-validation-ab">
+                      <article class="fairbench-validation-model">
+                        <header><span>A · BASELINE<small>基线组</small></span></header>
+                        <h3>Baseline-FaceNet</h3>
+                        <p>Public pretrained baseline<small>公开预训练基线</small></p>
+                        <dl><div><dt>Observed result<small>实测结果</small></dt><dd>Not measured<small>未实测</small></dd></div><div><dt>Test role<small>实验作用</small></dt><dd>Control<small>对照组</small></dd></div></dl>
+                      </article>
+
+                      <div class="fairbench-validation-control">
+                        <span>CONTROLLED EVALUATION CONDITIONS<small>受控评测条件</small></span>
+                        <ul><li>Dataset<small>图集</small></li><li>Group labels<small>人群标签</small></li><li>Threshold + metrics<small>阈值与指标</small></li><li>Request setup<small>请求配置</small></li></ul>
+                      </div>
+
+                      <article class="fairbench-validation-model is-optimized">
+                        <header><span>B · OPTIMIZED<small>优化组</small></span></header>
+                        <h3>Fair-FaceNet</h3>
+                        <p>Hypothetical optimized candidate<small>假想优化候选模型</small></p>
+                        <dl><div><dt>Observed result<small>实测结果</small></dt><dd>Not measured<small>未实测</small></dd></div><div><dt>Test role<small>实验作用</small></dt><dd>Candidate<small>候选组</small></dd></div></dl>
+                      </article>
+
+                      <section class="fairbench-validation-measures" aria-label="Measures to evaluate">
+                        <header><div><span>MEASURES</span><small>待测指标</small></div></header>
+                        <div><article tabindex="0"><b>Group gap<small>群体差距</small></b><p>Did the largest gap shrink?<small>最大差距是否缩小？</small></p></article><article tabindex="0"><b>False identification<small>误识别</small></b><p>Did disparity decrease?<small>群体差异是否下降？</small></p></article><article tabindex="0"><b>False negatives<small>漏检</small></b><p>Did misses fall without a new gap?<small>漏检是否下降且未产生新差距？</small></p></article></div>
+                      </section>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-validation-section-title">
+                      <span class="fairbench-overview-section-index">03</span>
+                      <span class="fairbench-overview-section-name">REVIEW &amp; STRESS TESTS</span>
+                      <small>复核与压力测试</small>
+                    </div>
+                    <p class="fairbench-validation-lead">Planned human review and stress tests examine risk cases, edge conditions and system failures.<small>计划中的人工复核与压力测试将检查风险样本、边界条件与系统异常。</small></p>
+                    <div class="fairbench-validation-fieldwork">
+                      <section class="fairbench-validation-human">
+                        <header><span>PLANNED REVIEW BATCH<small>计划复核批次</small></span><strong>500–1,200<small>face samples · 人脸样本</small></strong><em>NOT RUN<small>未测试</small></em></header>
+                        <ol><li><span>01</span><p><b>Export risk cases</b><small>导出风险样本</small></p></li><li><span>02</span><p><b>Label independently</b><small>独立人工标注</small></p></li><li><span>03</span><p><b>Compare decisions</b><small>对比人机判断</small></p></li></ol>
+                        <div class="fairbench-validation-rate"><span>RISK RECALL<small>风险召回率</small></span><p><span><b>System-flagged confirmed risks</b><small>系统标记且经人工确认的风险样本</small></span><i aria-hidden="true">÷</i><span><b>All human-confirmed risks</b><small>全部经人工确认的风险样本</small></span></p></div>
+                      </section>
+
+                      <section class="fairbench-validation-stress">
+                        <header><span>PLANNED STRESS SUITE<small>计划压力测试集</small></span><em>NO PASS RATE<small>暂无通过率</small></em></header>
+                        <details><summary><span>01</span><div><b>Boundary faces</b><small>边界人脸</small><p>Low light · occlusion · extreme angle</p><em>低光 · 遮挡 · 极端角度</em></div><i aria-hidden="true"></i></summary><div><p>Measure completion and group shifts.<small>检查完成率与群体变化。</small></p></div></details>
+                        <details><summary><span>02</span><div><b>Adversarial faces</b><small>对抗人脸</small><p>Noise · minor image edits</p><em>噪声 · 轻微图像篡改</em></div><i aria-hidden="true"></i></summary><div><p>Compare predictions before and after perturbation.<small>对比扰动前后的预测。</small></p></div></details>
+                        <details><summary><span>03</span><div><b>Invalid inputs</b><small>异常输入</small><p>Corrupt · empty · wrong format</p><em>损坏 · 空输入 · 格式异常</em></div><i aria-hidden="true"></i></summary><div><p>Confirm isolation, retry and clean metrics.<small>验证隔离、重试与指标不受污染。</small></p></div></details>
+                      </section>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-validation-section-title">
+                      <span class="fairbench-overview-section-index">04</span>
+                      <span class="fairbench-overview-section-name">EVIDENCE LIMITS</span>
+                      <small>证据限制</small>
+                    </div>
+                    <p class="fairbench-validation-lead">Select a claim to see its evidence limit and next test.<small>选择一项结论，查看证据边界与下一步验证。</small></p>
+
+                    <div class="fairbench-validation-confidence">
+                      <div class="fairbench-validation-confidence-tabs" role="tablist" aria-label="Validation confidence selector">
+                        <button class="is-active" id="fairbench-validation-confidence-code" type="button" role="tab" aria-selected="true" aria-controls="fairbench-validation-confidence-panel" data-fairbench-validation-confidence data-level="SUPPORTED" data-level-zh="有源码支撑" data-title="The audit workflow exists" data-title-zh="审计工作流已实现" data-can="Comparison, correction, retry and metrics are implemented." data-can-zh="对比、修正、重试与指标计算已实现。" data-cannot="No real-world fairness result." data-cannot-zh="不能得出真实场景公平性结果。" data-next="Run a paired benchmark." data-next-zh="执行配对基准测试。"><span>01</span><b>Workflow<small>工作流</small></b><em>SUPPORTED<small>有依据</small></em></button>
+                        <button id="fairbench-validation-confidence-metrics" type="button" role="tab" aria-selected="false" aria-controls="fairbench-validation-confidence-panel" data-fairbench-validation-confidence data-level="PARTIALLY SUPPORTED" data-level-zh="部分有依据" data-title="Metric logic is testable" data-title-zh="指标逻辑可测试" data-can="Unit tests and a repeatable simulator." data-can-zh="已有单元测试与确定性模拟接口。" data-cannot="Not externally calibrated." data-cannot-zh="尚未经过外部基准校准。" data-next="Compare with independent labels." data-next-zh="与独立基准标签对照。" tabindex="-1"><span>02</span><b>Metric logic<small>指标逻辑</small></b><em>PARTIAL<small>部分依据</small></em></button>
+                        <button id="fairbench-validation-confidence-review" type="button" role="tab" aria-selected="false" aria-controls="fairbench-validation-confidence-panel" data-fairbench-validation-confidence data-level="NOT ESTABLISHED" data-level-zh="尚未建立" data-title="Detection rate is unknown" data-title-zh="自动检出率未知" data-can="The human-review flow is designed." data-can-zh="人工复核流程已经设计。" data-cannot="No reviewed counts or measured rate." data-cannot-zh="暂无复核数量与检出率实测值。" data-next="Review 500–1,200 samples." data-next-zh="复核 500–1,200 条样本。" tabindex="-1"><span>03</span><b>Human review<small>人工复核</small></b><em>NOT RUN<small>未测试</small></em></button>
+                        <button id="fairbench-validation-confidence-model" type="button" role="tab" aria-selected="false" aria-controls="fairbench-validation-confidence-panel" data-fairbench-validation-confidence data-level="NO EMPIRICAL CLAIM" data-level-zh="不可作实证结论" data-title="Model improvement is unverified" data-title-zh="模型提升尚未验证" data-can="A/B and stress protocols are defined." data-can-zh="A/B 与压力测试方案已定义。" data-cannot="No paired or stress-test results." data-cannot-zh="暂无配对实验与压力测试结果。" data-next="Run both models under identical conditions." data-next-zh="在相同条件下运行两个模型。" tabindex="-1"><span>04</span><b>Model claim<small>模型结论</small></b><em>UNAVAILABLE<small>不可得</small></em></button>
+                      </div>
+
+                      <div class="fairbench-validation-confidence-panel" id="fairbench-validation-confidence-panel" role="tabpanel" aria-labelledby="fairbench-validation-confidence-code" aria-live="polite">
+                        <header><span data-fairbench-validation-level>SUPPORTED<small data-fairbench-validation-level-zh>有源码支撑</small></span><h3 data-fairbench-validation-title>The audit workflow exists</h3><small data-fairbench-validation-title-zh>审计工作流已实现</small></header>
+                        <dl><div><dt>Can conclude<small>可以得出</small></dt><dd data-fairbench-validation-can>Comparison, correction, retry and metrics are implemented.<small data-fairbench-validation-can-zh>对比、修正、重试与指标计算已实现。</small></dd></div><div><dt>Cannot conclude<small>不能得出</small></dt><dd data-fairbench-validation-cannot>No real-world fairness result.<small data-fairbench-validation-cannot-zh>不能得出真实场景公平性结果。</small></dd></div><div><dt>Test next<small>下一步验证</small></dt><dd data-fairbench-validation-next>Run a paired benchmark.<small data-fairbench-validation-next-zh>执行配对基准测试。</small></dd></div></dl>
+                      </div>
+                    </div>
+
+                  </section>
+
+                  <section class="fairbench-governance-framework" data-fairbench-panel="08" aria-label="Governance recommendation and long-term roadmap" hidden>
+                    <div class="fairbench-overview-section-title">
+                      <span class="fairbench-overview-section-index">01</span>
+                      <span class="fairbench-overview-section-name">MODEL GOVERNANCE CYCLE</span>
+                      <small>模型治理周期</small>
+                    </div>
+                    <p class="fairbench-validation-lead">Set review gates for first use, periodic checks and material changes.<small>为首次使用、周期复核与重大变更设置审查关口。</small></p>
+                    <div class="fairbench-governance-loop">
+                      <div class="fairbench-governance-loop-tabs" role="tablist" aria-label="Model governance stage selector">
+                        <button class="is-active" id="fairbench-governance-stage-admission" type="button" role="tab" aria-selected="true" aria-controls="fairbench-governance-loop-panel" data-fairbench-governance-stage data-stage="01" data-kicker="BEFORE FIRST USE" data-kicker-zh="首次使用前" data-title="Audit before the API goes live" data-title-zh="接口上线前完成审计" data-trigger="New vendor, model or API version." data-trigger-zh="新供应商、模型或接口版本。" data-action="Run the approved dataset, endpoint and threshold." data-action-zh="使用批准的图集、接口与阈值执行审计。" data-output="Review-ready report + human decision." data-output-zh="可审查报告与人工决策。" data-current="Workflow exists; approval stays human-owned." data-current-zh="流程已实现，放行权属于人工。"><span>01</span><b>Admission review<small>上线准入</small></b><em>GATE<small>准入门槛</small></em></button>
+                        <button id="fairbench-governance-stage-periodic" type="button" role="tab" aria-selected="false" aria-controls="fairbench-governance-loop-panel" data-fairbench-governance-stage data-stage="02" data-kicker="WHILE IN SERVICE" data-kicker-zh="上线运行期间" data-title="Re-audit on the agreed cycle" data-title-zh="按约定周期重新审计" data-trigger="Review date or risk alert." data-trigger-zh="到达复核日期或出现风险告警。" data-action="Rerun a fixed benchmark; compare prior runs." data-action-zh="固定基准复测并对比历史任务。" data-output="Dated trend report." data-output-zh="带日期的趋势报告。" data-current="Comparison exists; scheduling is proposed." data-current-zh="已支持多任务对比，自动调度仍在规划。" tabindex="-1"><span>02</span><b>Periodic review<small>周期巡检</small></b><em>MONITOR<small>持续监测</small></em></button>
+                        <button id="fairbench-governance-stage-change" type="button" role="tab" aria-selected="false" aria-controls="fairbench-governance-loop-panel" data-fairbench-governance-stage data-stage="03" data-kicker="AFTER MATERIAL CHANGE" data-kicker-zh="重大变更后" data-title="Re-audit after a material change" data-title-zh="重大变更后重新审计" data-trigger="Model, preprocessing, labels or threshold changed." data-trigger-zh="模型、预处理、标签或阈值发生变化。" data-action="Create a new task; link the change reason." data-action-zh="新建任务并关联变更原因。" data-output="Before-and-after records with separate IDs." data-output-zh="保留独立编号的变更前后记录。" data-current="Versioned records exist; auto-detection is proposed." data-current-zh="版本记录已实现，自动检测仍在规划。" tabindex="-1"><span>03</span><b>Change review<small>变更重审</small></b><em>RECHECK<small>强制复核</small></em></button>
+                      </div>
+
+                      <div class="fairbench-governance-loop-panel" id="fairbench-governance-loop-panel" role="tabpanel" aria-labelledby="fairbench-governance-stage-admission" aria-live="polite">
+                        <header><div><span data-fairbench-governance-kicker>BEFORE FIRST USE<small data-fairbench-governance-kicker-zh>首次使用前</small></span><h3 data-fairbench-governance-title>Audit before the API goes live</h3><small data-fairbench-governance-title-zh>接口上线前完成审计</small></div></header>
+                        <dl>
+                          <div><dt>Trigger<small>触发条件</small></dt><dd data-fairbench-governance-trigger>New vendor, model or API version.<small data-fairbench-governance-trigger-zh>新供应商、模型或接口版本。</small></dd></div>
+                          <div><dt>Action<small>执行动作</small></dt><dd data-fairbench-governance-action>Run the approved dataset, endpoint and threshold.<small data-fairbench-governance-action-zh>使用批准的图集、接口与阈值执行审计。</small></dd></div>
+                          <div><dt>Evidence<small>决策证据</small></dt><dd data-fairbench-governance-output>Review-ready report + human decision.<small data-fairbench-governance-output-zh>可审查报告与人工决策。</small></dd></div>
+                        </dl>
+                        <aside><span>PRODUCT BOUNDARY<small>产品边界</small></span><p data-fairbench-governance-current>Workflow exists; approval stays human-owned.<small data-fairbench-governance-current-zh>流程已实现，放行权属于人工。</small></p></aside>
+                      </div>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-governance-section-title">
+                      <span class="fairbench-overview-section-index">02</span>
+                      <span class="fairbench-overview-section-name">PRODUCT ROADMAP</span>
+                      <small>产品路线图</small>
+                    </div>
+                    <p class="fairbench-validation-lead">Show what is implemented now, what is planned next and where human decisions remain.<small>明确当前已实现内容、后续规划与仍由人工决定的边界。</small></p>
+                    <div class="fairbench-governance-roadmap">
+                      <div class="fairbench-governance-roadmap-tabs" role="tablist" aria-label="Product roadmap horizon selector">
+                        <button class="is-active" id="fairbench-roadmap-now" type="button" role="tab" aria-selected="true" aria-controls="fairbench-roadmap-panel" data-fairbench-roadmap data-phase="CURRENT PROTOTYPE" data-phase-zh="当前原型" data-title="Complete the face-AI audit loop" data-title-zh="完成人脸 AI 审计闭环" data-outcome="Run an API audit.|Export a group-comparison report." data-outcome-zh="运行 API 审计。|导出分组对比报告。" data-build="Standardize API access.|Keep a log for every run." data-build-zh="统一 API 接入。|记录每次运行。" data-boundary="Evaluate API outputs only.|Do not train or deploy models." data-boundary-zh="只评估 API 输出。|不训练或部署模型。"><span>NOW<small>当前</small></span><b>Audit foundation<small>审计基础</small></b></button>
+                        <button id="fairbench-roadmap-near" type="button" role="tab" aria-selected="false" aria-controls="fairbench-roadmap-panel" data-fairbench-roadmap data-phase="NEAR-TERM PROPOSAL" data-phase-zh="短期规划" data-title="Cover more vision tasks" data-title-zh="覆盖更多视觉任务" data-outcome="Audit detection and verification.|Audit image classification." data-outcome-zh="评测检测和验证任务。|评测图像分类任务。" data-build="Add input checks per task.|Add task-specific metrics." data-build-zh="为每类任务补充输入检查。|为每类任务补充指标。" data-boundary="Use a reviewed benchmark per task.|Show no result without one." data-boundary-zh="每类任务使用复核基准。|没有对应基准，不展示结果。" tabindex="-1"><span>NEXT<small>短期</small></span><b>More model types<small>拓展模型类型</small></b></button>
+                        <button id="fairbench-roadmap-mid" type="button" role="tab" aria-selected="false" aria-controls="fairbench-roadmap-panel" data-fairbench-roadmap data-phase="MID-TERM PROPOSAL" data-phase-zh="中期规划" data-title="Monitor risk over time" data-title-zh="持续监测风险" data-outcome="Schedule recurring rechecks.|Alert the assigned owner." data-outcome-zh="定期安排复测。|通知指定负责人。" data-build="Set review dates per API.|Set thresholds and recipients." data-build-zh="为每个 API 设置复核日期。|设置阈值和通知对象。" data-boundary="Open a review task after an alert.|People decide whether it stays live." data-boundary-zh="告警后创建复核任务。|是否继续上线由人工决定。" tabindex="-1"><span>SCALE<small>中期</small></span><b>Risk monitoring<small>风险监测</small></b></button>
+                        <button id="fairbench-roadmap-long" type="button" role="tab" aria-selected="false" aria-controls="fairbench-roadmap-panel" data-fairbench-roadmap data-phase="LONG-TERM PROPOSAL" data-phase-zh="长期规划" data-title="Connect remediation and external audit" data-title-zh="连接整改与外部审计" data-outcome="Let auditors view samples and versions.|Let auditors view findings and follow-up." data-outcome-zh="让审计方查看样本和版本。|查看结论和后续动作。" data-build="Link advice to samples and versions.|Link advice to each rerun." data-build-zh="将建议关联到样本和版本。|将建议关联到每次复测。" data-boundary="Recommend a remediation step.|Never edit vendor models." data-boundary-zh="提供整改建议。|不修改供应商模型。" tabindex="-1"><span>LATER<small>长期</small></span><b>Audit ecosystem<small>审计生态</small></b></button>
+                      </div>
+
+                      <div class="fairbench-governance-roadmap-panel" id="fairbench-roadmap-panel" role="tabpanel" aria-labelledby="fairbench-roadmap-now" aria-live="polite">
+                        <header><span data-fairbench-roadmap-phase>CURRENT PROTOTYPE<small data-fairbench-roadmap-phase-zh>当前原型</small></span><h3 data-fairbench-roadmap-title>Complete the face-AI audit loop</h3><small data-fairbench-roadmap-title-zh>完成人脸 AI 审计闭环</small></header>
+                        <div><article><span>USER OUTCOME<small>用户获得</small></span><ul data-fairbench-roadmap-outcome><li>Run an API audit<small>运行 API 审计</small></li><li>Export a group-comparison report<small>导出分组对比报告</small></li></ul></article><article><span>PRODUCT WORK<small>产品建设</small></span><ul data-fairbench-roadmap-build><li>Standardize API access<small>统一 API 接入</small></li><li>Keep a log for every run<small>记录每次运行</small></li></ul></article><article><span>BOUNDARY<small>边界</small></span><ul data-fairbench-roadmap-boundary><li>Evaluate API outputs only<small>只评估 API 输出</small></li><li>Do not train or deploy models<small>不训练或部署模型</small></li></ul></article></div>
+                      </div>
+                    </div>
+
+                    <div class="fairbench-overview-section-title fairbench-governance-section-title">
+                      <span class="fairbench-overview-section-index">03</span>
+                      <span class="fairbench-overview-section-name">PUBLIC-SECTOR DELIVERY</span>
+                      <small>政府端交付</small>
+                    </div>
+                    <p class="fairbench-validation-lead fairbench-governance-delivery-lead">Independent audit is the core delivery; supplier readiness support is the ecosystem entry point.<small>独立审计是核心交付；供应商审查准备是生态配套入口。</small></p>
+                    <div class="fairbench-governance-commercial">
+                      <details class="fairbench-governance-service">
+                        <summary><div><em>CORE TOG DELIVERY<small>核心 ToG 交付</small></em><h4>Commissioned independent audit<small>政府委托的独立审计</small></h4></div></summary>
+                        <div class="fairbench-governance-service-content"><dl><div><dt>COMMISSIONED WHEN<small>委托场景</small></dt><dd>Public procurement or regulatory review needs independent API evidence<small>政府采购或监管审查需要独立的 API 证据</small></dd></div><div><dt>DELIVERED<small>交付内容</small></dt><dd>Scoped audit findings and a review-ready evidence package<small>范围内的审计结论与可审查证据包</small></dd></div></dl></div>
+                      </details>
+
+                      <details class="fairbench-governance-service">
+                        <summary><div><em>ECOSYSTEM SUPPORT<small>生态配套服务</small></em><h4>Supplier review readiness<small>供应商审查准备</small></h4></div></summary>
+                        <div class="fairbench-governance-service-content"><dl><div><dt>USED WHEN<small>适用场景</small></dt><dd>AI suppliers prepare for a public procurement review<small>AI 供应商准备政府采购审查</small></dd></div><div><dt>DELIVERED<small>交付内容</small></dt><dd>Requirement map, risk log and evidence archive<small>要求映射、风险台账与证据归档</small></dd></div></dl></div>
+                      </details>
+                    </div>
+
+                    <aside class="fairbench-governance-principle"><span>PROCUREMENT BOUNDARY <small>采购决策边界</small></span><p>Evidence supports procurement. Admission decision remains with the public authority or regulator.<small>证据支持采购审查；准入决定仍由公共机构或监管机构做出</small></p></aside>
+                  </section>
+                </section>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <nav class="case-pagination" aria-label="Case study navigation">
+      <a class="case-pagination-link" href="./fatefork.html">
+        <img class="case-pagination-poster" src="./media/fatefork/poster.jpg" alt="" aria-hidden="true">
+        <span class="case-pagination-direction">
+          <span class="case-pagination-arrow" aria-hidden="true">←</span>
+          <span class="case-pagination-direction-en">Previous Case</span>
+          <span class="case-pagination-direction-zh">上一个案例</span>
+        </span>
+        <span class="case-pagination-info">
+          <span class="case-pagination-index">Case 03</span>
+          <span class="case-pagination-name">FateFork AI</span>
+          <span class="case-pagination-name-zh">叙事驱动型 AIGC 自省工具</span>
+        </span>
+      </a>
+      <span class="case-pagination-link case-pagination-link--next case-pagination-link--disabled" aria-disabled="true">
+        <span class="case-pagination-direction">
+          <span class="case-pagination-direction-en">Next Case</span>
+          <span class="case-pagination-arrow" aria-hidden="true">→</span>
+          <span class="case-pagination-direction-zh">下一个案例</span>
+        </span>
+        <span class="case-pagination-info">
+          <span class="case-pagination-index">Case 04</span>
+          <span class="case-pagination-name">No next case</span>
+          <span class="case-pagination-name-zh">已是最后一个案例</span>
+        </span>
+      </span>
+    </nav>
+
+    <footer class="portfolio-footer">
+      <p class="portfolio-footer-signature">Ruiying Liu</p>
+      <p class="portfolio-footer-copy">
+        <span aria-hidden="true">©</span>
+        <span class="portfolio-footer-year"></span>
+        · design what matters, develop what endures.
+      </p>
+    </footer>
+    <button class="back-to-top" type="button" aria-label="Back to top"><span aria-hidden="true">↑</span></button>
+    <script src="./assets/live-reload.js" defer></script>
+    <script src="./assets/fluid-cursor.js" defer></script>
+    <script src="./assets/fairbench/fairbench.js?v=20260907-model-drawer-reset" defer></script>
+  </body>
+</html>

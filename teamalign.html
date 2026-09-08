@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f5f5" />
+    <script>
+      (() => {
+        try {
+        const theme = localStorage.getItem("rain-theme") === "dark" ? "dark" : "light";
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#0c111d" : "#f5f5f5";
+        } catch {}
+      })();
+    </script>
+    <meta
+      name="description"
+      content="TeamAlign AI — an Agent-native AI collaboration tool for enterprise project teams."
+    />
+    <title>TeamAlign AI</title>
+    <link rel="icon" type="image/svg+xml" href="./media/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&family=Pinyon+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/teamalign/teamalign.css?v=20260907-case-icon-balance" />
+    <script src="./assets/case-study.js?v=20260907-shared-navigation" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="glass-control brand portfolio-logo" href="./index.html" aria-label="Back to portfolio">
+        <img src="./media/logo-light.svg" alt="" />
+      </a>
+      <nav class="top-navigation" id="case-navigation" aria-label="Case navigation">
+        <a href="./index.html#project"><svg class="case-nav-icon case-nav-icon--home" viewBox="0 0 16 16" aria-hidden="true"><path d="m2.25 7 5.75-4.75L13.75 7v6.25H2.25Z"></path><path d="M6.25 13.25V9.5h3.5v3.75"></path></svg><span>Home<span class="nav-label-zh" lang="zh-CN">主页</span></span></a>
+        <a href="./crossscribe.html"><svg class="case-nav-icon case-nav-icon--case" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.25 1.75h7l4.5 4.5v8H2.25Z"></path><path d="M5.25 9h5.5"></path></svg><span>CrossScribe AI</span></a>
+        <a class="is-active" href="./teamalign.html" aria-current="page"><svg class="case-nav-icon case-nav-icon--case" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.25 1.75h7l4.5 4.5v8H2.25Z"></path><path d="M5.25 9h5.5"></path></svg><span>TeamAlign AI</span></a>
+        <a href="./fatefork.html"><svg class="case-nav-icon case-nav-icon--case" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.25 1.75h7l4.5 4.5v8H2.25Z"></path><path d="M5.25 9h5.5"></path></svg><span>FateFork AI</span></a>
+        <a href="./fairbench.html"><svg class="case-nav-icon case-nav-icon--case" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.25 1.75h7l4.5 4.5v8H2.25Z"></path><path d="M5.25 9h5.5"></path></svg><span>FairBench AI</span></a>
+        <div class="nav-preferences">
+        <button class="theme-switch" type="button" role="switch" aria-label="Switch to dark mode" aria-checked="false" data-case-theme-switch>
+          <svg class="theme-switch-icon theme-switch-icon--sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.1"></circle><path d="M10 1.5v2M10 16.5v2M1.5 10h2M16.5 10h2M4 4l1.45 1.45M14.55 14.55 16 16M16 4l-1.45 1.45M5.45 14.55 4 16"></path></svg>
+          <svg class="theme-switch-icon theme-switch-icon--moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16.3 12.3A6.7 6.7 0 0 1 7.7 3.7a6.7 6.7 0 1 0 8.6 8.6Z"></path></svg>
+        </button>
+        </div>
+      </nav>
+      <button class="navigation-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="case-navigation"><span></span><span></span><span></span></button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-inner">
+          <p class="eyebrow">Case Study · 02</p>
+          <h1>
+            TeamAlign AI
+          </h1>
+          <p class="hero-role"><b>MY ROLE</b><span>Product Strategy · Collaboration Systems · 0→1 Prototyping<small>产品策略 · 协作系统设计 · 0→1 原型落地</small></span></p>
+          <div class="hero-actions" aria-label="Project links">
+            <a
+              class="hero-action"
+              href="https://github.com/rainliu0309/teamalign-ai-demo.git"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
+            <a
+              class="hero-action hero-action--primary"
+              href="https://teamalign-ai-demo.onrender.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Demo ↗
+            </a>
+          </div>
+
+          <div class="intro">
+            <div class="intro-details">
+              <p class="intro-copy">
+                A lightweight <strong>Agent-native web AI collaboration tool</strong> built for enterprise project teams.<br />
+                It streamlines meeting analysis, task breakdown and risk spotting to eliminate cross-team information silos.
+                <span class="zh">
+                  面向企业项目团队打造的<strong>轻量化 Agent 原生 AI 协作工具</strong>。<br />
+                  自动梳理会议信息、拆解任务、识别风险，消除跨团队信息孤岛。
+                </span>
+              </p>
+              <div class="tags" aria-label="Project tags">
+                <span class="tag">AI Agent</span>
+                <span class="tag">ToB</span>
+                <span class="tag">SaaS</span>
+                <span class="tag">Workflow</span>
+                <span class="tag">Risk Detection</span>
+              </div>
+            </div>
+
+            <div class="intro-demo">
+              <div class="demo-shell">
+                <p class="demo-label">Concept Video · 00:05</p>
+                <video
+                  src="./media/teamalign/teamalign.mov"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  controls
+                  aria-label="TeamAlign product demo"
+                ></video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="structure-section teamalign-bloom-section" id="case-structure">
+        <div class="teamalign-bloom-shell">
+          <header class="structure-heading reveal-on-scroll case-reveal">
+            <div>
+              <h2>From alignment<br />to action.</h2>
+            </div>
+            <p>
+              Six modules tracing the product journey from organizational friction to sustainable team adoption.
+              <span class="zh-small">六个模块，记录产品从组织协作痛点到团队持续落地的完整路径。</span>
+            </p>
+          </header>
+
+          <div class="teamalign-case-layout reveal-on-scroll case-reveal">
+            <div class="teamalign-journey-dock">
+              <nav class="teamalign-journey-nav" aria-label="TeamAlign case study chapters">
+                <svg class="teamalign-journey-line" viewBox="0 0 240 620" preserveAspectRatio="none" aria-hidden="true"><path d="M 82 38 C 168 96 44 142 136 210 S 48 330 142 392 S 55 508 116 580" /></svg>
+                <button class="journey-step journey-step--1 is-active" type="button" aria-pressed="true" data-index="01" data-title="Project Overview &amp; Organizational Pain Point" data-title-zh="项目概述与组织痛点" data-summary="Agent-powered collaboration solution targeting structural cross-team alignment gaps in project delivery." data-summary-zh="基于Agent的协作方案，解决项目交付中结构性的跨团队对齐缺口。"><span class="journey-node">01</span><span><strong>Overview</strong><small>项目概述</small></span></button>
+                <button class="journey-step journey-step--2" type="button" aria-pressed="false" data-index="02" data-title="Alignment Model &amp; Stakeholder Mapping" data-title-zh="共识模型与干系人梳理" data-summary="Five-factor alignment framework and stakeholder classification to uncover hidden collaboration gaps." data-summary-zh="五要素共识框架结合干系人分层，识别协作中的隐性信息偏差。"><span class="journey-node">02</span><span><strong>Alignment</strong><small>共识模型</small></span></button>
+                <button class="journey-step journey-step--3" type="button" aria-pressed="false" data-index="03" data-title="AI-assisted Decision Workflow Design" data-title-zh="AI辅助决策流程设计" data-summary="Agent pipeline extracts tasks and risks from meeting recordings while retaining human decision authority." data-summary-zh="Agent 链路从会议录音提取任务与风险，保留人工最终决策权。"><span class="journey-node">03</span><span><strong>Workflow</strong><small>决策流程</small></span></button>
+                <button class="journey-step journey-step--4" type="button" aria-pressed="false" data-index="04" data-title="Prototype &amp; Internal Usability Validation" data-title-zh="原型与内部可用性验证" data-summary="A bilingual prototype validated through internal pilots for alignment efficiency, document speed and disagreement detection." data-summary-zh="通过内部试点验证对齐效率、文档生成速度与异议识别表现的双语原型。"><span class="journey-node">04</span><span><strong>Validation</strong><small>原型验证</small></span></button>
+                <button class="journey-step journey-step--5" type="button" aria-pressed="false" data-index="05" data-title="Collaboration Metrics &amp; Outcome Tracking" data-title-zh="协作指标与效果追踪" data-summary="Collaboration metric system distinguishing AI incremental value from basic process optimization." data-summary-zh="协作指标体系，区分 AI 增量价值与基础流程优化收益。"><span class="journey-node">05</span><span><strong>Metrics</strong><small>效果追踪</small></span></button>
+                <button class="journey-step journey-step--6" type="button" aria-pressed="false" data-index="06" data-title="Adoption Analysis &amp; Iteration Strategy" data-title-zh="落地阻力分析与迭代优化策略" data-summary="Adoption barrier assessment and phased rollout with iterative product updates." data-summary-zh="落地阻力评估，配合分阶段上线与产品持续迭代。"><span class="journey-node">06</span><span><strong>Adoption</strong><small>落地迭代</small></span></button>
+              </nav>
+              <div class="teamalign-journey-scroll-progress" aria-hidden="true">
+                <span class="teamalign-journey-scroll-progress-bar"></span>
+              </div>
+            </div>
+
+            <section class="teamalign-chapter-stage" aria-live="polite">
+              <p class="teamalign-chapter-stage-kicker">CHAPTER <span>章节</span></p>
+              <p class="teamalign-chapter-stage-index">01</p>
+              <h3>Project Overview &amp; Organizational Pain Point</h3>
+              <p class="teamalign-chapter-stage-zh">项目概述与组织痛点</p>
+              <div class="teamalign-chapter-stage-summary">
+                <p class="teamalign-chapter-stage-summary-en">Agent-powered collaboration solution targeting structural cross-team alignment gaps in project delivery.</p>
+                <p class="teamalign-chapter-stage-summary-zh">基于Agent的协作方案，解决项目交付中结构性的跨团队对齐缺口。</p>
+              </div>
+              <div class="teamalign-chapter-stage-rule" aria-hidden="true"></div>
+
+              <section class="teamalign-module-detail" data-chapter-detail="01" aria-labelledby="module-one-profile-label">
+                <div class="module-one-block module-one-profile">
+                  <div class="module-one-copy">
+                    <header class="module-one-section-heading" id="module-one-profile-label">
+                      <p>Problem Framing</p>
+                      <span>问题定义</span>
+                    </header>
+                    <p class="module-one-copy-en">Cross-functional project delivery suffers from information silos: meeting knowledge is trapped in audio, action items and risks rely on manual extraction, causing constant re-alignment cost and unexposed delivery hazards.</p>
+                    <p class="module-one-copy-zh">跨职能项目交付存在信息孤岛：会议知识沉淀在录音内，任务与风险依赖人工整理，持续产生对齐成本、风险难以前置暴露。</p>
+                  </div>
+                </div>
+
+                <div class="module-one-block module-one-pain-section">
+                  <header class="module-one-section-heading">
+                    <p>Root Pain Classification</p>
+                    <span>痛点归类</span>
+                  </header>
+                  <ol class="module-one-pain-list">
+                      <li class="module-one-pain-item" data-pain-point tabindex="0" role="button">
+                        <div class="module-one-pain-axis">
+                          <div>
+                            <p>Knowledge capture cost</p>
+                            <small>知识捕获成本</small>
+                          </div>
+                        </div>
+                        <div class="module-one-pain-detail">
+                          <p>Manual transcription &amp; item sorting creates repetitive administrative load</p>
+                          <small>人工纪要与任务整理带来重复事务开销</small>
+                        </div>
+                      </li>
+                      <li class="module-one-pain-item" data-pain-point tabindex="0" role="button">
+                        <div class="module-one-pain-axis">
+                          <div>
+                            <p>Asynchronous visibility gap</p>
+                            <small>异步可视缺口</small>
+                          </div>
+                        </div>
+                        <div class="module-one-pain-detail">
+                          <p>Risk and accountability remain implicit across departments</p>
+                          <small>风险、责任在跨部门流转中隐性化</small>
+                        </div>
+                      </li>
+                      <li class="module-one-pain-item" data-pain-point tabindex="0" role="button">
+                        <div class="module-one-pain-axis">
+                          <div>
+                            <p>Low consensus persistence</p>
+                            <small>共识留存薄弱</small>
+                          </div>
+                        </div>
+                        <div class="module-one-pain-detail">
+                          <p>Verbal agreements fail to form traceable project baseline</p>
+                          <small>口头共识无法形成可追溯的项目基准</small>
+                        </div>
+                      </li>
+                  </ol>
+                </div>
+
+                <div class="module-one-block module-one-positioning">
+                  <header class="module-one-section-heading">
+                    <p>Solution Boundary &amp; Positioning</p>
+                    <span>方案边界与定位</span>
+                  </header>
+                  <ol class="module-one-positioning-list">
+                    <li>
+                      <div class="module-one-positioning-label">
+                        <p>Target Group</p>
+                        <small>目标客群</small>
+                      </div>
+                      <div class="module-one-positioning-detail">
+                        <p><mark>Small-to-medium internet businesses</mark> internal cross-functional teams</p>
+                        <small><mark>互联网类中小企业</mark>内部跨职能团队</small>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="module-one-positioning-label">
+                        <p>Product Scope</p>
+                        <small>产品边界</small>
+                      </div>
+                      <div class="module-one-positioning-detail">
+                        <p>Lightweight web AI assistant for meeting structuring, <mark>consensus reinforcement</mark>, not full project management</p>
+                        <small>网页端轻量化会议结构化智能助手，用于<mark>共识补强</mark>，非完整项目管理系统</small>
+                      </div>
+                    </li>
+                  </ol>
+                </div>
+
+                <figure class="module-one-block module-one-flow" aria-labelledby="module-one-flow-caption">
+                  <figcaption id="module-one-flow-caption">
+                    <b>FROM FRAGMENTATION TO ALIGNMENT</b>
+                    <span>从信息零散到可追溯共识</span>
+                  </figcaption>
+                  <div class="module-one-flow-diagram">
+                    <article class="module-one-flow-node module-one-flow-node--input"><em>MEETING INPUT</em><b>Cross-team Meeting</b><small>跨团队会议</small></article>
+                    <i class="module-one-flow-link" aria-hidden="true"><span><b>CAPTURE</b><small>提取</small></span></i>
+                    <article class="module-one-flow-node module-one-flow-node--pain"><em>FRICTION</em><b>Knowledge <br />Silo</b><small>知识孤岛（痛点）</small></article>
+                    <i class="module-one-flow-link module-one-flow-link--agent" aria-hidden="true"><span><b>STRUCTURE</b><small>结构化</small></span></i>
+                    <article class="module-one-flow-node module-one-flow-node--agent"><em>AI INTERVENTION</em><b>Structured Extraction</b><small>AI结构化提取</small></article>
+                    <i class="module-one-flow-link module-one-flow-link--outcome" aria-hidden="true"><span><b>ALIGN</b><small>对齐</small></span></i>
+                    <article class="module-one-flow-node module-one-flow-node--output"><em>OUTCOME</em><b>Traceable Alignment</b><small>可追溯共识</small></article>
+                  </div>
+                </figure>
+              </section>
+
+              <section class="teamalign-module-detail" data-chapter-detail="02" aria-labelledby="module-two-source-label" hidden>
+                <div class="module-two-block module-two-source">
+                  <header class="module-one-section-heading" id="module-two-source-label">
+                    <p>Misalignment Source</p>
+                    <span>组织协作痛点拆解</span>
+                  </header>
+                  <div class="module-two-source-layout">
+                    <div class="module-two-gap-map" aria-label="Four sources of organizational misalignment">
+                      <p class="module-two-map-kicker">COLLABORATION GAP MAP <span>协作错位图谱</span></p>
+                      <div class="module-two-gap-orbit">
+                        <article class="module-two-gap-node module-two-gap-node--information">
+                          <button class="module-two-gap-flip" type="button" aria-pressed="false" aria-label="Show Information gap details">
+                            <span class="module-two-gap-face module-two-gap-face--front">
+                              <img class="module-two-gap-photo" src="media/teamalign/gap-information.png" alt="" />
+                              <span class="module-two-gap-label"><strong>Information gap</strong><small>信息差</small></span>
+                            </span>
+                            <span class="module-two-gap-face module-two-gap-face--back"><span class="module-two-gap-detail-en">Inconsistent project information across team members</span><span class="module-two-gap-detail-zh">团队成员项目信息不对称</span></span>
+                          </button>
+                        </article>
+                        <article class="module-two-gap-node module-two-gap-node--target">
+                          <button class="module-two-gap-flip" type="button" aria-pressed="false" aria-label="Show Target misalignment details">
+                            <span class="module-two-gap-face module-two-gap-face--front">
+                              <img class="module-two-gap-photo" src="media/teamalign/gap-target.png" alt="" />
+                              <span class="module-two-gap-label"><strong>Target misalignment</strong><small>目标错位</small></span>
+                            </span>
+                            <span class="module-two-gap-face module-two-gap-face--back"><span class="module-two-gap-detail-en">Divergent understanding of deliverables &amp; acceptance criteria</span><span class="module-two-gap-detail-zh">对交付物与验收标准理解不一</span></span>
+                          </button>
+                        </article>
+                        <article class="module-two-gap-node module-two-gap-node--authority">
+                          <button class="module-two-gap-flip" type="button" aria-pressed="false" aria-label="Show Unclear authority details">
+                            <span class="module-two-gap-face module-two-gap-face--front">
+                              <img class="module-two-gap-photo" src="media/teamalign/gap-authority.png" alt="" />
+                              <span class="module-two-gap-label"><strong>Unclear authority</strong><small>权责不清</small></span>
+                            </span>
+                            <span class="module-two-gap-face module-two-gap-face--back"><span class="module-two-gap-detail-en">Undefined task owners and accountability boundaries</span><span class="module-two-gap-detail-zh">任务负责人与责任边界未明确</span></span>
+                          </button>
+                        </article>
+                        <article class="module-two-gap-node module-two-gap-node--divergence">
+                          <button class="module-two-gap-flip" type="button" aria-pressed="false" aria-label="Show Implicit divergence details">
+                            <span class="module-two-gap-face module-two-gap-face--front">
+                              <img class="module-two-gap-photo" src="media/teamalign/gap-divergence.png" alt="" />
+                              <span class="module-two-gap-label"><strong>Implicit divergence</strong><small>隐性分歧</small></span>
+                            </span>
+                            <span class="module-two-gap-face module-two-gap-face--back"><span class="module-two-gap-detail-en">Unvoiced disagreements hidden behind superficial agreement</span><span class="module-two-gap-detail-zh">表面共识之下未表露的分歧</span></span>
+                          </button>
+                        </article>
+                  </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="module-two-block module-two-tiering">
+                  <header class="module-one-section-heading">
+                    <p>Stakeholder Tiering</p>
+                    <span>干系人分层定义</span>
+                  </header>
+                  <p class="module-one-copy-en">Infer participant project roles from meeting dialogue, bind tasks &amp; risks accurately</p>
+                  <p class="module-one-copy-zh">从会议对话推断参会人项目角色，精准绑定任务与风险</p>
+                  <ol class="module-two-role-lanes" aria-label="Stakeholder role tiers">
+                    <li>
+                      <em>01</em>
+                      <div class="module-two-role-title"><strong>Decision-maker</strong><small>决策者</small></div>
+                      <div class="module-two-role-duty"><p>Holds final approval for project decisions</p><span>拥有项目事项最终审批权</span></div>
+                    </li>
+                    <li>
+                      <em>02</em>
+                      <div class="module-two-role-title"><strong>Executor</strong><small>执行者</small></div>
+                      <div class="module-two-role-duty"><p>Owns delivery of agreed tasks &amp; outputs</p><span>负责会议约定任务与成果交付</span></div>
+                    </li>
+                    <li>
+                      <em>03</em>
+                      <div class="module-two-role-title"><strong>Collaborator</strong><small>协同方</small></div>
+                      <div class="module-two-role-duty"><p>Provides cross-team input and dependent support</p><span>提供跨团队输入与依赖支撑</span></div>
+                    </li>
+                    <li>
+                      <em>04</em>
+                      <div class="module-two-role-title"><strong>Observer</strong><small>观察员</small></div>
+                      <div class="module-two-role-duty"><p>Receives progress updates only, no delivery/approval duty</p><span>仅同步项目进展，无交付、审批职责</span></div>
+                    </li>
+                  </ol>
+                </div>
+
+                <div class="module-two-block module-two-consensus">
+                  <header class="module-one-section-heading">
+                    <p>Consensus Element Model</p>
+                    <span>共识要素模型</span>
+                  </header>
+                  <div class="module-two-consensus-record" aria-label="Five extracted consensus elements">
+                    <p>STRUCTURED MEETING RECORD <span>结构化会议记录</span></p>
+                    <div>
+                      <article><strong>Target</strong><small>目标</small></article>
+                      <article><strong>Constraint</strong><small>约束</small></article>
+                      <article><strong>Risk</strong><small>风险</small></article>
+                      <article><strong>Owner</strong><small>责任人</small></article>
+                      <article><strong>Deadline</strong><small>截止时间</small></article>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="module-two-block module-two-adaptation">
+                  <header class="module-one-section-heading">
+                    <p>Organizational Adaptation</p>
+                    <span>组织架构适配差异</span>
+                  </header>
+                  <p class="module-one-copy-en">Adjust consensus extraction rules to match varied team operating modes</p>
+                  <p class="module-one-copy-zh">根据不同团队运作模式，调整共识提取规则</p>
+                  <div class="module-two-adaptation-board" aria-label="Organizational adaptation model">
+                    <article>
+                      <em>INPUT</em>
+                      <strong>Team operating mode</strong>
+                      <small>团队运作模式</small>
+                    </article>
+                    <div class="module-two-adaptation-link" aria-hidden="true"><span><b>ADAPT</b><small>适配</small></span></div>
+                    <article>
+                      <em>RULE SET</em>
+                      <strong>Consensus extraction rules</strong>
+                      <small>共识提取规则</small>
+                    </article>
+                  </div>
+                </div>
+              </section>
+
+              <section class="teamalign-module-detail" data-chapter-detail="03" aria-labelledby="module-three-workflow-label" hidden>
+                <div class="module-three-block module-three-overview">
+                  <header class="module-one-section-heading" id="module-three-workflow-label">
+                    <p>Decision Workflow</p>
+                    <span>决策工作流</span>
+                  </header>
+                  <figure class="module-three-stage-flow" aria-labelledby="module-three-stage-flow-caption">
+                    <figcaption id="module-three-stage-flow-caption">
+                      <b>3-STAGE DECISION LOOP</b>
+                      <span>会前、会中、会后三段式决策闭环</span>
+                    </figcaption>
+                    <div class="module-three-stage-flow-track">
+                      <article class="module-three-stage-card module-three-stage-card--pre">
+                        <em>01 · PRE-MEETING</em>
+                        <strong>Frame the topic</strong>
+                        <small>明确议题</small>
+                        <ul class="module-three-stage-points">
+                          <li><span>Topic entry</span><small>议题录入</small></li>
+                          <li><span>Information aggregation</span><small>信息归集</small></li>
+                        </ul>
+                      </article>
+                      <div class="module-three-stage-link module-three-stage-link--ai" aria-hidden="true"><span><b>AI SYNTHESIS</b><small>AI 信息整合</small></span></div>
+                      <article class="module-three-stage-card module-three-stage-card--in">
+                        <em>02 · IN-MEETING</em>
+                        <strong>Surface &amp; decide</strong>
+                        <small>识别分歧并决策</small>
+                        <ul class="module-three-stage-points">
+                          <li><span>Divergence detection</span><small>分歧识别</small></li>
+                          <li><span>Option generation</span><small>方案生成</small></li>
+                          <li><span>Consensus polling</span><small>共识投票</small></li>
+                        </ul>
+                      </article>
+                      <div class="module-three-stage-link module-three-stage-link--human" aria-hidden="true"><span><b>HUMAN DECISION</b><small>人工决策</small></span></div>
+                      <article class="module-three-stage-card module-three-stage-card--post">
+                        <em>03 · POST-MEETING</em>
+                        <strong>Archive &amp; act</strong>
+                        <small>归档并执行</small>
+                        <ul class="module-three-stage-points">
+                          <li><span>Decision archiving</span><small>决策归档</small></li>
+                          <li><span>Atomic task generation</span><small>原子任务生成</small></li>
+                        </ul>
+                      </article>
+                    </div>
+                  </figure>
+                </div>
+
+                <section class="module-three-block module-three-workbench" aria-labelledby="module-three-timeline-label">
+                  <header class="module-one-section-heading">
+                    <p id="module-three-timeline-label">Interactive Decision Timeline</p>
+                    <span>交互式决策时间线</span>
+                  </header>
+
+                  <div class="module-three-phase-tabs" role="group" aria-label="Filter workflow stages">
+                    <button class="module-three-phase-tab" type="button" data-workflow-phase="pre" aria-pressed="false"><span>Pre-meeting</span><small>会前</small></button>
+                    <button class="module-three-phase-tab" type="button" data-workflow-phase="in" aria-pressed="false"><span>In-meeting</span><small>会中</small></button>
+                    <button class="module-three-phase-tab" type="button" data-workflow-phase="post" aria-pressed="false"><span>Post-meeting</span><small>会后</small></button>
+                  </div>
+
+                  <div class="module-three-workflow-surface">
+                    <aside class="module-three-workflow-legend" aria-label="Workflow legend">
+                      <p>LEGEND <span>图例</span></p>
+                      <ul>
+                        <li><i class="module-three-legend-dot module-three-legend-dot--human"></i><span>Human operation<small>人工操作</small></span></li>
+                        <li><i class="module-three-legend-dot module-three-legend-dot--ai"></i><span>AI processing<small>AI 自动处理</small></span></li>
+                        <li><i class="module-three-legend-dot module-three-legend-dot--archive"></i><span>Archived deliverable<small>归档产物</small></span></li>
+                      </ul>
+                    </aside>
+
+                    <div class="module-three-timeline-column">
+                      <div class="module-three-timeline-progress" aria-hidden="true"><i class="module-three-timeline-progress-bar"></i></div>
+                      <div class="module-three-timeline-wrap">
+                        <div class="module-three-timeline" role="list" aria-label="Seven-step decision workflow">
+                        <button class="module-three-workflow-node module-three-workflow-node--human is-active" type="button" role="listitem" data-workflow-node data-phase="pre" data-step="01" data-title="Topic Entry" data-title-zh="议题录入" data-user="Submit a decision topic with its business context" data-user-zh="录入决策议题与业务背景" data-ai="Normalizes the topic, constraints and participants" data-ai-zh="梳理议题、约束与参会角色" data-output="Pre-meeting brief in a 3-stage decision loop" data-output-zh="三段式决策闭环中的会前简报">
+                          <em>01 · PRE</em><strong>Topic<br />Entry</strong><small>议题录入</small>
+                        </button>
+                        <button class="module-three-workflow-node module-three-workflow-node--ai" type="button" role="listitem" data-workflow-node data-phase="pre" data-step="02" data-title="Information Aggregation" data-title-zh="信息归集" data-user="Review connected records and supporting context" data-user-zh="查看关联资料与上下文" data-ai="Synthesizes meeting history, documents and dependencies" data-ai-zh="汇总会议历史、文档与依赖关系" data-output="Decision evidence bundle" data-output-zh="决策证据包">
+                          <em>02 · PRE</em><strong>Information<br />Aggregation</strong><small>信息归集</small>
+                        </button>
+                        <button class="module-three-workflow-node module-three-workflow-node--ai" type="button" role="listitem" data-workflow-node data-phase="in" data-step="03" data-title="Divergence Detection" data-title-zh="分歧识别" data-user="Respond to clarifying prompts during discussion" data-user-zh="在讨论中回应澄清问题" data-ai="Extracts conflicting views, constraints and risks" data-ai-zh="提炼冲突观点、约束与风险" data-output="Visible dissent map" data-output-zh="可视化分歧图谱">
+                          <em>03 · IN</em><strong>Divergence<br />Detection</strong><small>分歧识别</small>
+                        </button>
+                        <button class="module-three-workflow-node module-three-workflow-node--ai" type="button" role="listitem" data-workflow-node data-phase="in" data-step="04" data-title="Option Generation" data-title-zh="方案生成" data-user="Compare alternatives and add contextual judgment" data-user-zh="比较备选方案并补充判断" data-ai="Synthesizes information, surfaces divergence and drafts options" data-ai-zh="汇总信息、识别分歧并生成备选方案" data-output="Option set" data-output-zh="备选方案集">
+                          <em>04 · IN</em><strong>Option<br />Generation</strong><small>方案生成</small>
+                        </button>
+                        <button class="module-three-workflow-node module-three-workflow-node--human" type="button" role="listitem" data-workflow-node data-phase="in" data-step="05" data-title="Consensus Polling" data-title-zh="共识投票" data-user="Vote through tiered permissions, align in threads and retain dissent" data-user-zh="经分级权限投票、在嵌套评论中对齐，并保留异议" data-ai="Summarizes support, objections and unresolved items" data-ai-zh="汇总支持、异议与待解决事项" data-output="Consensus record with persistent dissent traceability" data-output-zh="带有永久异议留痕的共识记录">
+                          <em>05 · IN</em><strong>Consensus<br />Polling</strong><small>共识投票</small>
+                        </button>
+                        <button class="module-three-workflow-node module-three-workflow-node--archive" type="button" role="listitem" data-workflow-node data-phase="post" data-step="06" data-title="Decision Archiving" data-title-zh="决策归档" data-user="Confirm the final human decision and task handoff" data-user-zh="确认最终人工决策与任务交接" data-ai="Generates minutes and packages task-ready materials" data-ai-zh="生成纪要并整理可执行任务材料" data-output="Traceable decision archive" data-output-zh="可追溯决策归档">
+                          <em>06 · POST</em><strong>Decision<br />Archiving</strong><small>决策归档</small>
+                        </button>
+                        <button class="module-three-workflow-node module-three-workflow-node--archive" type="button" role="listitem" data-workflow-node data-phase="post" data-step="07" data-title="Atomic Task Generation" data-title-zh="原子任务生成" data-user="Review the generated task draft and confirm the task details" data-user-zh="查看生成的任务草稿并确认任务信息" data-ai="Turns the approved decision into an assignable task" data-ai-zh="将已确认决策转为可分派任务" data-output="Owner-ready atomic task" data-output-zh="可直接分派的原子任务">
+                          <em>07 · POST</em><strong>Atomic Task<br />Generation</strong><small>原子任务生成</small>
+                        </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <section class="module-three-node-popover" aria-live="polite">
+                      <header><span class="module-three-popover-step">01</span><div><strong class="module-three-popover-title">Topic Entry</strong><small class="module-three-popover-title-zh">议题录入</small></div></header>
+                      <div class="module-three-popover-grid">
+                        <article><p>User Interaction</p><small>用户操作</small><b class="module-three-popover-user">Submit a decision topic with its business context</b><span class="module-three-popover-user-zh">录入决策议题与业务背景</span></article>
+                        <article><p>AI Action</p><small>AI 处理</small><b class="module-three-popover-ai">Normalizes the topic, constraints and participants</b><span class="module-three-popover-ai-zh">梳理议题、约束与参会角色</span></article>
+                        <article><p>Output Artifact</p><small>输出物</small><b class="module-three-popover-output">Structured topic brief</b><span class="module-three-popover-output-zh">结构化议题简报</span></article>
+                      </div>
+                    </section>
+                  </div>
+
+                </section>
+
+              </section>
+
+              <section class="teamalign-module-detail" data-chapter-detail="04" hidden>
+                <section class="module-four-block module-four-architecture" aria-labelledby="module-four-architecture-label">
+                  <header class="module-one-section-heading">
+                    <p id="module-four-architecture-label">Information Architecture</p>
+                    <span>信息架构</span>
+                  </header>
+                  <div class="module-four-ia-map" aria-label="TeamAlign AI sitemap">
+                    <div class="module-four-ia-tree-shell">
+                      <div class="module-four-ia-root">
+                        <em>00 · ROOT</em>
+                        <strong>TeamAlign AI</strong>
+                        <span>协齐 AI 项目协作助手</span>
+                      </div>
+                      <ol class="module-four-ia-tree">
+                      <li class="module-four-ia-branch module-four-ia-branch--overview">
+                        <div class="module-four-ia-primary"><em>01 · PRIMARY · INDEX</em><strong>Overview</strong><small>项目总览</small></div>
+                        <div class="module-four-ia-children module-four-ia-children--meeting">
+                          <article class="module-four-ia-secondary module-four-ia-secondary--with-children">
+                            <em>02 · CORE MODULE</em><strong>Meeting Intelligence</strong><small>会议智能解析</small>
+                            <ul class="module-four-ia-leaves module-four-ia-leaves--tertiary">
+                              <li>Paste Notes <small>粘贴纪要</small></li>
+                              <li>Upload Audio <small>上传录音</small></li>
+                            <li>Analyze with AI <small>AI 解析</small></li>
+                            </ul>
+                          </article>
+                        </div>
+                      </li>
+
+                      <li class="module-four-ia-branch module-four-ia-branch--tasks">
+                        <div class="module-four-ia-primary"><em>01 · PRIMARY</em><strong>Smart Tasks</strong><small>智能任务</small></div>
+                        <div class="module-four-ia-children module-four-ia-children--secondary-grid">
+                          <article class="module-four-ia-secondary"><em>02 · TASK OPERATION</em><strong>Task Details</strong><small>任务详情</small></article>
+                          <article class="module-four-ia-secondary"><em>02 · TASK OPERATION</em><strong>Add Task</strong><small>添加任务</small></article>
+                        </div>
+                      </li>
+
+                      <li class="module-four-ia-branch module-four-ia-branch--risk">
+                        <div class="module-four-ia-primary"><em>01 · PRIMARY</em><strong>Risk Insights</strong><small>风险洞察</small></div>
+                        <div class="module-four-ia-children module-four-ia-children--stacked">
+                          <article class="module-four-ia-secondary module-four-ia-secondary--with-children">
+                            <em>02 · RISK OPERATION</em><strong>Risk Details</strong><small>风险详情</small>
+                            <ul class="module-four-ia-leaves module-four-ia-leaves--tertiary">
+                              <li>Risk Types <small>风险类型</small></li>
+                              <li>Risk Status <small>风险状态</small></li>
+                            </ul>
+                          </article>
+                        </div>
+                      </li>
+
+                      <li class="module-four-ia-branch module-four-ia-branch--reports">
+                        <div class="module-four-ia-primary"><em>01 · PRIMARY</em><strong>Reports</strong><small>汇报中心</small></div>
+                        <div class="module-four-ia-children module-four-ia-children--secondary-grid">
+                          <article class="module-four-ia-secondary"><em>02 · REPORT</em><strong>Internal Weekly Report</strong><small>内部项目周报</small></article>
+                          <article class="module-four-ia-secondary"><em>02 · REPORT</em><strong>Client Progress Brief</strong><small>客户进展简报</small></article>
+                          <article class="module-four-ia-secondary module-four-ia-secondary--with-children">
+                            <em>02 · REPORT</em><strong>Generate DOCX Report</strong><small>生成报告</small>
+                            <ul class="module-four-ia-leaves module-four-ia-leaves--single module-four-ia-leaves--tertiary">
+                              <li>Download DOCX Report <small>下载报告</small></li>
+                            </ul>
+                          </article>
+                        </div>
+                      </li>
+
+                      <li class="module-four-ia-branch module-four-ia-branch--global">
+                        <div class="module-four-ia-primary"><em>01 · GLOBAL</em><strong>Global Functions</strong><small>全局功能</small></div>
+                        <div class="module-four-ia-children module-four-ia-children--secondary-grid">
+                          <article class="module-four-ia-secondary module-four-ia-secondary--with-children">
+                            <em>02 · GLOBAL FUNCTION</em><strong>Project Switcher</strong><small>项目切换器</small>
+                            <ul class="module-four-ia-leaves module-four-ia-leaves--single module-four-ia-leaves--tertiary">
+                              <li>Create Project <small>新建项目</small></li>
+                            </ul>
+                          </article>
+                          <article class="module-four-ia-secondary"><em>02 · GLOBAL FUNCTION</em><strong>Workspace Search</strong><small>全局搜索</small></article>
+                          <article class="module-four-ia-secondary"><em>02 · GLOBAL FUNCTION</em><strong>Project Alerts</strong><small>项目提醒</small></article>
+                        </div>
+                      </li>
+
+                      <li class="module-four-ia-branch module-four-ia-branch--tools">
+                        <div class="module-four-ia-primary"><em>01 · TOOLS</em><strong>Tool Panels</strong><small>工具面板</small></div>
+                        <div class="module-four-ia-children module-four-ia-children--secondary-grid">
+                          <article class="module-four-ia-secondary"><em>02 · TOOL PANEL</em><strong>Project Team</strong><small>项目成员</small></article>
+                          <article class="module-four-ia-secondary"><em>02 · TOOL PANEL</em><strong>Help Center</strong><small>帮助中心</small></article>
+                          <article class="module-four-ia-secondary"><em>02 · TOOL PANEL</em><strong>Settings</strong><small>设置</small></article>
+                          <article class="module-four-ia-secondary"><em>02 · TOOL PANEL</em><strong>Account</strong><small>账号信息</small></article>
+                        </div>
+                      </li>
+
+                      <li class="module-four-ia-branch module-four-ia-branch--api">
+                        <div class="module-four-ia-primary"><em>01 · SERVICES</em><strong>Backend APIs</strong><small>后端接口</small></div>
+                        <div class="module-four-ia-children module-four-ia-children--secondary-grid">
+                          <article class="module-four-ia-secondary"><em>02 · API ENDPOINT</em><strong>GET /api/health</strong><small>服务健康检查</small></article>
+                          <article class="module-four-ia-secondary"><em>02 · API ENDPOINT</em><strong>POST /api/analyze</strong><small>会议分析接口</small></article>
+                          <article class="module-four-ia-secondary"><em>02 · API ENDPOINT</em><strong>POST /api/report</strong><small>报告生成接口</small></article>
+                        </div>
+                      </li>
+                      </ol>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="module-four-block module-four-flow" aria-labelledby="module-four-flow-label">
+                  <header class="module-one-section-heading">
+                    <p id="module-four-flow-label">Core Alignment-to-Task Workflow</p>
+                    <span>核心用户任务流程</span>
+                  </header>
+                  <div class="module-four-workflow" aria-label="Meeting intelligence workflow from project overview to DOCX report">
+                    <ol class="module-four-workflow-vertical">
+                      <li class="module-four-workflow-step module-four-workflow-step--overview"><article><em>01 · START</em><strong>Open Project Overview</strong><small>打开项目总览</small></article></li>
+                      <li class="module-four-workflow-step module-four-workflow-step--meeting"><article><em>02 · ENTRY</em><strong>Meeting Intelligence</strong><small>会议智能解析</small></article></li>
+                      <li class="module-four-workflow-step module-four-workflow-step--inputs">
+                        <svg class="module-four-workflow-input-arrows" viewBox="0 0 600 58" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="workflow-input-arrowhead" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" /></marker></defs><path class="flow-arrow" d="M300 0 C300 24 150 25 150 58" /><path class="flow-arrow" d="M300 0 C300 24 450 25 450 58" /></svg>
+                        <div class="module-four-workflow-input-group">
+                          <article><em>03A · INPUT</em><strong>Paste Notes</strong><small>粘贴会议纪要</small></article>
+                          <article><em>03B · INPUT</em><strong>Upload Audio</strong><small>上传录音文件</small></article>
+                        </div>
+                        <svg class="module-four-workflow-input-merge" viewBox="0 0 600 58" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="workflow-merge-arrowhead" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" /></marker></defs><path d="M150 0 C150 22 300 23 300 36" /><path d="M450 0 C450 22 300 23 300 36" /><path class="flow-arrow" d="M300 36 V58" /></svg>
+                      </li>
+                      <li class="module-four-workflow-step"><article><em>04 · LOCAL</em><strong>Browser Transcribe</strong><small>浏览器本地转写</small></article></li>
+                      <li class="module-four-workflow-step module-four-workflow-step--api"><article><em>05 · API</em><strong>Meeting Analysis API</strong><small>调用会议分析 API</small></article></li>
+                      <li class="module-four-workflow-step module-four-workflow-step--output"><article><em>06 · AI OUTPUT</em><strong>Tasks, Risks &amp; Report Draft</strong><small>AI 输出任务、风险与报告草稿</small></article></li>
+                      <li class="module-four-workflow-step module-four-workflow-step--routes">
+                        <svg class="module-four-workflow-route-arrows" viewBox="0 0 600 58" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="workflow-route-arrowhead" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" /></marker></defs><path class="flow-arrow" d="M300 0 C300 24 150 25 150 58" /><path class="flow-arrow" d="M300 0 C300 24 450 25 450 58" /></svg>
+                        <div class="module-four-workflow-route-group">
+                          <article><em>07A · SMART TASKS</em><strong>Sync Tasks</strong><small>同步至智能任务</small><p>Edit Task Details <span>编辑任务详情</span></p></article>
+                          <article><em>07B · RISK INSIGHTS</em><strong>Sync Risks</strong><small>同步至风险洞察</small><p>Mark Risk Status <span>标记风险状态</span></p></article>
+                        </div>
+                        <svg class="module-four-workflow-route-merge" viewBox="0 0 600 58" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="workflow-route-merge-arrowhead" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7" /></marker></defs><path d="M150 0 C150 22 300 23 300 36" /><path d="M450 0 C450 22 300 23 300 36" /><path class="flow-arrow" d="M300 36 V58" /></svg>
+                      </li>
+                      <li class="module-four-workflow-step module-four-workflow-step--reports"><article><em>08 · REPORTS CENTER</em><strong>Sync Report Draft</strong><small>同步至汇报中心</small><p>Draft + Task Updates + Risks <span>汇总草稿、任务与风险</span></p></article></li>
+                      <li class="module-four-workflow-step module-four-workflow-step--delivery"><article><em>09 · DELIVERY</em><strong>Generate &amp; Download DOCX Report</strong><small>生成与下载 DOCX 报告</small></article></li>
+                    </ol>
+                  </div>
+                </section>
+
+                <section class="module-four-block module-four-validation" aria-labelledby="module-four-validation-label">
+                  <header class="module-one-section-heading">
+                    <p id="module-four-validation-label">Usability Validation</p>
+                    <span>可用性验证</span>
+                  </header>
+                  <div class="module-four-validation-list">
+                    <details class="module-four-validation-card">
+                      <summary><em>01 · SCOPE</em><strong>Pilot Scope<span>试点范围</span></strong><i>View details <b>查看详情</b></i></summary>
+                      <div class="module-four-validation-detail"><p>Overview <span>项目总览</span></p><p>Smart Tasks <span>智能任务</span></p><p>Risk Insights <span>风险洞察</span></p><p>Reports <span>汇报中心</span></p></div>
+                    </details>
+                    <details class="module-four-validation-card">
+                      <summary><em>02 · PILOT</em><strong>Internal Pilot Setup<span>内部试点设置</span></strong><i>View details <b>查看详情</b></i></summary>
+                      <div class="module-four-validation-detail"><p>Pilot Team Recruitment <span>试点团队招募</span></p><p>Representative Task Scenarios <span>代表性任务场景</span></p><p>End-to-End Workflow Trial <span>端到端流程测试</span></p></div>
+                    </details>
+                    <details class="module-four-validation-card">
+                      <summary><em>03 · MEASURE</em><strong>Usability Measures<span>可用性指标</span></strong><i>View details <b>查看详情</b></i></summary>
+                      <div class="module-four-validation-detail"><p>Alignment Time <span>对齐耗时</span></p><p>Minutes Generation Speed <span>纪要生成效率</span></p><p>Disagreement Detection Accuracy <span>异议识别准确率</span></p></div>
+                    </details>
+                    <details class="module-four-validation-card">
+                      <summary><em>04 · ITERATE</em><strong>Feedback &amp; Iteration<span>反馈与迭代</span></strong><i>View details <b>查看详情</b></i></summary>
+                      <div class="module-four-validation-detail"><p>Capture Pilot Feedback <span>收集试点反馈</span></p><p>Prioritize Interaction Improvements <span>确定交互优化优先级</span></p><p>Validate the Next Iteration <span>验证下一轮迭代</span></p></div>
+                    </details>
+                  </div>
+                </section>
+
+                <section class="module-four-block module-four-grid" aria-labelledby="module-four-grid-label">
+                  <header class="module-one-section-heading">
+                    <p id="module-four-grid-label">Prototype Workspace</p>
+                    <span>原型工作空间</span>
+                  </header>
+
+    <article class="module-four-live-demo" aria-label="TeamAlign live prototype">
+      <header class="module-four-live-demo-header">
+        <div>
+          <p>LIVE PROTOTYPE <span>真实原型</span></p>
+        </div>
+        <a href="https://teamalign-ai-demo.onrender.com" target="_blank" rel="noreferrer">Open live demo <span>打开原型</span></a>
+      </header>
+      <div class="module-four-live-demo-frame">
+        <iframe src="https://teamalign-ai-demo.onrender.com" title="TeamAlign AI live prototype" loading="lazy" allow="clipboard-read; clipboard-write"></iframe>
+      </div>
+    </article>
+                </section>
+              </section>
+
+              <section class="teamalign-module-detail" data-chapter-detail="05" hidden aria-label="Collaboration metrics visualizations">
+                <section class="module-five-block">
+                  <aside class="module-five-pilot-note" aria-label="Pilot measurement note">
+                    <p>PILOT MEASUREMENT PLAN <span>内部试点验证</span></p>
+                    <strong>Planning benchmarks for internal validation — not live production results.</strong>
+                    <small>用于内部试点验证的预设观测基准，并非大规模线上真实产出数据。</small>
+                  </aside>
+                  <div class="module-five-grid module-five-grid--sequence">
+                    <article class="module-five-card module-five-card--metrics">
+                          <header><em>01 · MEASURE <span>衡量</span></em><span class="module-five-status">Pilot targets <i>试点预期目标</i></span><h4>Core Measurement Metrics</h4><p>核心衡量指标</p></header>
+                          <figure class="module-five-bar-chart" aria-label="Baseline and optimized comparison of decision cycle, consensus retention, and cross-team rework">
+                            <figcaption><span>Baseline <small>基线</small></span><span>Optimized <small>优化后</small></span></figcaption>
+                            <div class="module-five-bar-row"><div><b>Decision Cycle</b><small>决策周期</small></div><div class="module-five-bar-track"><i style="--value:83%"></i><strong style="--value:65%"></strong></div><mark>−22%</mark><span class="module-five-bar-tooltip"><em>Baseline 100 h <b>基线 100 小时</b></em><em>Optimized 78 h <b>优化后 78 小时</b></em><em class="module-five-bar-score">Normalized score 88/100 <b>标准化评分 88/100</b></em></span></div>
+                            <div class="module-five-bar-row"><div><b>Consensus Retention</b><small>共识留存率</small></div><div class="module-five-bar-track"><i style="--value:83%"></i><strong style="--value:98%"></strong></div><mark>+18%</mark><span class="module-five-bar-tooltip"><em>Baseline 72% <b>基线 72%</b></em><em>Optimized 90% <b>优化后 90%</b></em><em class="module-five-bar-score">Normalized score 90/100 <b>标准化评分 90/100</b></em></span></div>
+                            <div class="module-five-bar-row"><div><b>Cross-team Rework</b><small>跨团队返工率</small></div><div class="module-five-bar-track"><i style="--value:83%"></i><strong style="--value:71%"></strong></div><mark>−15%</mark><span class="module-five-bar-tooltip"><em>Baseline 35% <b>基线 35%</b></em><em>Optimized 20% <b>优化后 20%</b></em><em class="module-five-bar-score">Normalized score 77/100 <b>标准化评分 77/100</b></em></span></div>
+                          </figure>
+                    </article>
+
+                    <article class="module-five-card module-five-card--funnel">
+                      <header><em>02 · TRACK <span>埋点</span></em><span class="module-five-status">Illustrative funnel <i>试点漏斗示意</i></span><h4>Event Tracking Plan</h4><p>数据埋点计划</p></header>
+                      <figure class="module-five-funnel" aria-label="User behavior funnel from material upload to document export">
+                        <div style="--funnel-width:100%"><b>Upload Material</b><span>会议素材上传</span><strong>100%</strong></div>
+                        <div style="--funnel-width:82%"><b>Run AI Analysis</b><span>触发 AI 解析</span><strong>82%</strong></div>
+                        <div style="--funnel-width:67%"><b>Edit Task</b><span>编辑任务</span><strong>67%</strong></div>
+                        <div style="--funnel-width:53%"><b>Export Document</b><span>导出文档</span><strong>53%</strong></div>
+                      </figure>
+                    </article>
+
+                    <article class="module-five-card module-five-card--attribution">
+                      <header><em>03 · ATTRIBUTE <span>归因</span></em><span class="module-five-status">Working hypothesis <i>价值归因假设</i></span><h4>Value Attribution</h4><p>价值归因</p></header>
+                      <figure class="module-five-attribution-split" aria-label="Value contribution: 60 percent AI automatic parsing and 40 percent workflow optimization">
+                        <div class="module-five-attribution-bar" aria-hidden="true"><i style="--value:60%"></i><i style="--value:40%"></i></div>
+                        <figcaption><p><strong>60%</strong><span><b>AI Automatic Parsing</b><small>AI 自动解析</small></span></p><p><strong>40%</strong><span><b>Workflow Optimization</b><small>标准化流程优化</small></span></p></figcaption>
+                      </figure>
+                    </article>
+
+                    <article class="module-five-card module-five-card--dashboard">
+                      <header><em>04 · MONITOR <span>监测</span></em><span class="module-five-status">Weekly Snapshot <i>周度指标快照</i></span><h4>Team Alignment Health Dashboard</h4><p>团队对齐健康度仪表盘</p></header>
+                      <div class="module-five-dashboard" aria-label="Weekly team alignment health dashboard">
+                        <div class="module-five-dashboard-stats">
+                          <div class="module-five-dashboard-metric"><span class="module-five-dashboard-label">Alignment Health <button class="module-five-metric-info" type="button" aria-expanded="false" aria-label="Show or hide the pilot score calculation. 显示或隐藏试点评分算法。">?</button></span><b>86</b><small>团队对齐健康度</small><span class="module-five-metric-tooltip"><strong>Pilot score model <i>试点评分模型</i></strong><em>Decision Cycle Score 88 × 40% + Consensus Retention Score 90 × 35% + Cross-team Rework Score 77 × 25% = 85.95 → 86</em><small>决策周期评分 88 × 40% ＋ 共识留存率评分 90 × 35% ＋ 跨团队返工评分 77 × 25% ＝ 85.95 → 86</small></span></div>
+                          <div class="module-five-dashboard-metric module-five-dashboard-metric--efficiency"><span class="module-five-dashboard-label">Weekly Efficiency <button class="module-five-metric-info" type="button" aria-expanded="false" aria-label="Show or hide the weekly efficiency calculation. 显示或隐藏周协作效率计算方式。">?</button></span><b>+12%</b><small>周协作效率</small><span class="module-five-metric-tooltip"><strong>Weekly change <i>周度效率变化</i></strong><em>Week 7 74% − Week 1 62% = +12 pp</em><small>第 7 周 74% − 第 1 周 62% ＝ 提升 12 个百分点</small></span></div>
+                        </div>
+                        <p class="module-five-trend-label">Weekly Collaboration Efficiency <span>每周协作效率</span></p>
+                        <figure class="module-five-trend" aria-label="Weekly collaboration efficiency trend rising from 62 percent in week 1 to 74 percent in week 7">
+                          <div class="module-five-trend-line" aria-hidden="true"></div>
+                          <span class="module-five-trend-point" style="--x:0%;--point-y:85px"><b>62%</b></span><span class="module-five-trend-point" style="--x:16.67%;--point-y:78px"><b>64%</b></span><span class="module-five-trend-point" style="--x:33.33%;--point-y:73px"><b>65%</b></span><span class="module-five-trend-point" style="--x:50%;--point-y:62px"><b>68%</b></span><span class="module-five-trend-point" style="--x:66.67%;--point-y:53px"><b>70%</b></span><span class="module-five-trend-point" style="--x:83.33%;--point-y:43px"><b>72%</b></span><span class="module-five-trend-point" style="--x:100%;--point-y:31px"><b>74%</b></span>
+                          <figcaption><span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span><span>W7</span></figcaption>
+                        </figure>
+                      </div>
+                    </article>
+                  </div>
+                </section>
+              </section>
+
+              <section class="teamalign-module-detail" data-chapter-detail="06" hidden aria-label="Adoption analysis and iteration strategy">
+                <section class="module-six-block">
+                  <ol class="module-six-timeline">
+                    <li class="module-six-item module-six-item--diagnosis">
+                      <header>
+                        <em>01 · DIAGNOSE <span>阻力诊断</span></em>
+                        <h4>Barrier Diagnosis</h4>
+                        <p>阻力诊断</p>
+                      </header>
+                      <figure class="module-six-visual module-six-quadrant" aria-label="Risk quadrant mapping rollout barriers by impact and resolution effort">
+                        <figcaption><b>Rollout Barrier Matrix</b><span>推广阻力矩阵</span></figcaption>
+                        <div class="module-six-quadrant-plot">
+                          <span class="module-six-axis-label module-six-axis-label--impact-high">Higher Impact<i>高影响</i></span>
+                          <span class="module-six-axis-label module-six-axis-label--effort-low">Lower Effort<i>低化解成本</i></span>
+                          <div class="module-six-quadrant-grid">
+                            <article class="module-six-quadrant-chip module-six-quadrant-chip--accountability"><b>Responsibility Concerns</b><small>权责顾虑</small><span class="module-six-quadrant-tooltip" role="tooltip"><strong>Impact · 82 / 100<i>预估影响程度 · 82 / 100</i></strong><strong>Resolution effort · 45 / 100<i>预估化解成本 · 45 / 100</i></strong></span></article>
+                            <article class="module-six-quadrant-chip module-six-quadrant-chip--security"><b>Data Security Worries</b><small>数据安全顾虑</small><span class="module-six-quadrant-tooltip" role="tooltip"><strong>Impact · 90 / 100<i>预估影响程度 · 90 / 100</i></strong><strong>Resolution effort · 84 / 100<i>预估化解成本 · 84 / 100</i></strong></span></article>
+                            <article class="module-six-quadrant-chip module-six-quadrant-chip--learning"><b>Learning Cost</b><small>学习成本</small><span class="module-six-quadrant-tooltip" role="tooltip"><strong>Impact · 46 / 100<i>预估影响程度 · 46 / 100</i></strong><strong>Resolution effort · 30 / 100<i>预估化解成本 · 30 / 100</i></strong></span></article>
+                            <article class="module-six-quadrant-chip module-six-quadrant-chip--habit"><b>Habit Resistance</b><small>组织习惯抵触</small><span class="module-six-quadrant-tooltip" role="tooltip"><strong>Impact · 72 / 100<i>预估影响程度 · 72 / 100</i></strong><strong>Resolution effort · 68 / 100<i>预估化解成本 · 68 / 100</i></strong></span></article>
+                          </div>
+                          <span class="module-six-axis-label module-six-axis-label--effort-high">Higher Effort<i>高化解成本</i></span>
+                          <span class="module-six-axis-label module-six-axis-label--impact-low">Lower Impact<i>低影响</i></span>
+                        </div>
+                      </figure>
+                    </li>
+
+                    <li class="module-six-item module-six-item--rollout">
+                      <header>
+                        <em>02 · ROLLOUT <span>分阶段推广</span></em>
+                        <h4>Phased Rollout</h4>
+                        <p>分阶段推广</p>
+                      </header>
+                      <figure class="module-six-visual module-six-rollout" aria-label="Phased rollout from small team pilot to organization rollout">
+                        <details class="module-six-rollout-stage">
+                          <summary><em>01</em><b>Small-Team Pilot</b><small>小团队试点</small></summary>
+                          <div class="module-six-rollout-detail">
+                            <p><b>Focused scope</b><small>选取一个跨职能小团队</small></p>
+                            <p><b>Representative workflow</b><small>验证真实会议到任务的完整流程</small></p>
+                            <p><b>Pilot signals</b><small>观察使用率、任务编辑与报告导出</small></p>
+                          </div>
+                        </details><i aria-hidden="true"></i>
+                        <details class="module-six-rollout-stage">
+                          <summary><em>02</em><b>Benchmark Replication</b><small>标杆复制</small></summary>
+                          <div class="module-six-rollout-detail">
+                            <p><b>Reusable playbook</b><small>沉淀试点流程与培训模板</small></p>
+                            <p><b>Peer-team coaching</b><small>支持相似团队快速复用</small></p>
+                            <p><b>Outcome comparison</b><small>对比推广前后的协作成效</small></p>
+                          </div>
+                        </details><i aria-hidden="true"></i>
+                        <details class="module-six-rollout-stage">
+                          <summary><em>03</em><b>Organization Rollout</b><small>全组织推广</small></summary>
+                          <div class="module-six-rollout-detail">
+                            <p><b>Governance alignment</b><small>建立统一的使用与责任规范</small></p>
+                            <p><b>Scaled enablement</b><small>面向组织推广培训与支持资源</small></p>
+                            <p><b>Adoption health</b><small>持续追踪团队采用与协作健康度</small></p>
+                          </div>
+                        </details>
+                      </figure>
+                    </li>
+
+                    <li class="module-six-item module-six-item--roadmap">
+                      <header>
+                        <em>03 · ITERATE <span>迭代规划</span></em>
+                        <h4>Iteration Roadmap</h4>
+                        <p>迭代规划</p>
+                      </header>
+                      <figure class="module-six-visual module-six-roadmap" aria-label="Dual track roadmap for product iteration and organization enablement">
+                        <article class="module-six-roadmap-track module-six-roadmap-track--product">
+                          <header><em>SHORT TERM</em><b>Product Iteration</b><small>短期产品迭代</small></header>
+                          <ol aria-label="Short-term product iteration milestones">
+                            <li><em>01</em><b>Collect Pilot Feedback</b><small>收集试点反馈</small></li>
+                            <li><em>02</em><b>Prioritize &amp; Refine</b><small>明确优先级并优化</small></li>
+                            <li><em>03</em><b>Release &amp; Validate</b><small>发布并验证效果</small></li>
+                          </ol>
+                        </article>
+                        <article class="module-six-roadmap-track module-six-roadmap-track--organization">
+                          <header><em>LONG TERM</em><b>Organization Enablement</b><small>长期组织能力建设</small></header>
+                          <ol aria-label="Long-term organization enablement milestones">
+                            <li><em>01</em><b>Create Learning Kit</b><small>沉淀培训模板</small></li>
+                            <li><em>02</em><b>Build Champion Network</b><small>培养内部推广骨干</small></li>
+                            <li><em>03</em><b>Scale Governance</b><small>建立规模化治理机制</small></li>
+                          </ol>
+                        </article>
+                      </figure>
+                    </li>
+
+                    <li class="module-six-item module-six-item--enablement">
+                      <header>
+                        <em>04 · ENABLE <span>内部赋能</span></em>
+                        <h4>Internal Enablement</h4>
+                        <p>内部赋能</p>
+                      </header>
+                      <figure class="module-six-visual module-six-enable" aria-label="Internal enablement knowledge base schematic">
+                        <div class="module-six-enable-hub"><b>Enablement Hub</b><small>内部赋能中枢</small></div>
+                        <div class="module-six-enable-items">
+                          <details class="module-six-enable-item">
+                            <summary><b>Adoption Incentives</b><small>推广激励</small><i>View details <span>查看详情</span></i></summary>
+                            <div class="module-six-enable-detail">
+                              <p><b>Recognize Early Adopters</b><small>认可早期使用者与团队实践</small></p>
+                              <p><b>Set Adoption Milestones</b><small>设置团队采用里程碑</small></p>
+                              <p><b>Share Measurable Outcomes</b><small>共享可衡量的协作成效</small></p>
+                            </div>
+                          </details>
+                          <details class="module-six-enable-item">
+                            <summary><b>Reusable Training Templates</b><small>培训模板</small><i>View details <span>查看详情</span></i></summary>
+                            <div class="module-six-enable-detail">
+                              <p><b>Role-Based Onboarding</b><small>按角色提供上手指南</small></p>
+                              <p><b>Meeting-to-Action Playbook</b><small>沉淀会议到任务的操作手册</small></p>
+                              <p><b>Self-Serve Reference Kit</b><small>提供可自助查阅的模板包</small></p>
+                            </div>
+                          </details>
+                          <details class="module-six-enable-item">
+                            <summary><b>Success Case Repository</b><small>内部成功案例沉淀</small><i>View details <span>查看详情</span></i></summary>
+                            <div class="module-six-enable-detail">
+                              <p><b>Reusable Case Format</b><small>建立统一的案例记录格式</small></p>
+                              <p><b>Before / After Evidence</b><small>沉淀推广前后的成效证据</small></p>
+                              <p><b>Searchable Practice Library</b><small>形成可检索的内部实践库</small></p>
+                            </div>
+                          </details>
+                        </div>
+                      </figure>
+                    </li>
+                  </ol>
+                </section>
+              </section>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="structure-section" id="case-structure-archive" hidden>
+        <div class="teamalign-case-frame">
+          <header class="teamalign-case-heading reveal-on-scroll">
+            <div>
+              <p class="eyebrow">TEAMALIGN AI · CASE STUDY</p>
+              <h2>Alignment,<br /><em>made actionable.</em></h2>
+              <p class="teamalign-case-zh">让团队共识，转化为可执行的行动。</p>
+            </div>
+            <div class="teamalign-flow-map" aria-hidden="true">
+              <span class="flow-node flow-node--meeting"></span>
+              <span class="flow-link flow-link--one"></span>
+              <span class="flow-node flow-node--agent"></span>
+              <span class="flow-link flow-link--two"></span>
+              <span class="flow-node flow-node--action"></span>
+              <span class="flow-signal"></span>
+            </div>
+          </header>
+
+          <nav class="teamalign-chapter-nav reveal-on-scroll" aria-label="TeamAlign case study chapters">
+            <button class="teamalign-chapter is-active" type="button" aria-expanded="true">
+              <span class="teamalign-chapter-index">01</span>
+              <span class="teamalign-chapter-label">
+                <span class="teamalign-chapter-en">Project Overview &amp; Organizational Pain Point</span>
+                <span class="teamalign-chapter-zh">项目概述与组织痛点</span>
+              </span>
+              <span class="teamalign-chapter-mark" aria-hidden="true"></span>
+            </button>
+            <button class="teamalign-chapter" type="button" aria-expanded="false">
+              <span class="teamalign-chapter-index">02</span>
+              <span class="teamalign-chapter-label">
+                <span class="teamalign-chapter-en">Alignment Model &amp; Stakeholder Mapping</span>
+                <span class="teamalign-chapter-zh">共识模型与干系人梳理</span>
+              </span>
+              <span class="teamalign-chapter-mark" aria-hidden="true"></span>
+            </button>
+            <button class="teamalign-chapter" type="button" aria-expanded="false">
+              <span class="teamalign-chapter-index">03</span>
+              <span class="teamalign-chapter-label">
+                <span class="teamalign-chapter-en">AI-assisted Decision Workflow Design</span>
+                <span class="teamalign-chapter-zh">AI辅助决策流程设计</span>
+              </span>
+              <span class="teamalign-chapter-mark" aria-hidden="true"></span>
+            </button>
+            <button class="teamalign-chapter" type="button" aria-expanded="false">
+              <span class="teamalign-chapter-index">04</span>
+              <span class="teamalign-chapter-label">
+                <span class="teamalign-chapter-en">Prototype &amp; Internal Usability Validation</span>
+                <span class="teamalign-chapter-zh">原型与内部可用性验证</span>
+              </span>
+              <span class="teamalign-chapter-mark" aria-hidden="true"></span>
+            </button>
+            <button class="teamalign-chapter" type="button" aria-expanded="false">
+              <span class="teamalign-chapter-index">05</span>
+              <span class="teamalign-chapter-label">
+                <span class="teamalign-chapter-en">Collaboration Metrics &amp; Outcome Tracking</span>
+                <span class="teamalign-chapter-zh">协作指标与效果追踪</span>
+              </span>
+              <span class="teamalign-chapter-mark" aria-hidden="true"></span>
+            </button>
+            <button class="teamalign-chapter" type="button" aria-expanded="false">
+              <span class="teamalign-chapter-index">06</span>
+              <span class="teamalign-chapter-label">
+                <span class="teamalign-chapter-en">Adoption Analysis &amp; Iteration Strategy</span>
+                <span class="teamalign-chapter-zh">落地阻力分析与迭代优化策略</span>
+              </span>
+              <span class="teamalign-chapter-mark" aria-hidden="true"></span>
+            </button>
+          </nav>
+        </div>
+      </section>
+    </main>
+
+    <nav class="case-pagination" aria-label="Case study navigation">
+      <a class="case-pagination-link" href="./crossscribe.html">
+        <img class="case-pagination-poster" src="./media/crossscribe/poster.jpg" alt="" aria-hidden="true">
+        <span class="case-pagination-direction">
+          <span class="case-pagination-arrow" aria-hidden="true">←</span>
+          <span class="case-pagination-direction-en">Previous Case</span>
+          <span class="case-pagination-direction-zh">上一个案例</span>
+        </span>
+        <span class="case-pagination-info">
+          <span class="case-pagination-index">Case 01</span>
+          <span class="case-pagination-name">CrossScribe AI</span>
+          <span class="case-pagination-name-zh">RAG 垂直 AI 文案工具</span>
+        </span>
+      </a>
+      <a class="case-pagination-link case-pagination-link--next" href="./fatefork.html">
+        <img class="case-pagination-poster" src="./media/fatefork/poster.jpg" alt="" aria-hidden="true">
+        <span class="case-pagination-direction">
+          <span class="case-pagination-direction-en">Next Case</span>
+          <span class="case-pagination-arrow" aria-hidden="true">→</span>
+          <span class="case-pagination-direction-zh">下一个案例</span>
+        </span>
+        <span class="case-pagination-info">
+          <span class="case-pagination-index">Case 03</span>
+          <span class="case-pagination-name">FateFork AI</span>
+          <span class="case-pagination-name-zh">叙事驱动型 AIGC 自省工具</span>
+        </span>
+      </a>
+    </nav>
+
+    <footer class="portfolio-footer">
+      <p class="portfolio-footer-signature">Ruiying Liu</p>
+      <p class="portfolio-footer-copy">
+        <span aria-hidden="true">©</span>
+        <span class="portfolio-footer-year"></span>
+        · design what matters, develop what endures.
+      </p>
+    </footer>
+    <button class="back-to-top" type="button" aria-label="Back to top"><span aria-hidden="true">↑</span></button>
+    <script src="./assets/live-reload.js" defer></script>
+    <script src="./assets/fluid-cursor.js?v=20260905-opaque-stage-layer" defer></script>
+    <script src="./assets/teamalign/teamalign.js" defer></script>
+  </body>
+</html>

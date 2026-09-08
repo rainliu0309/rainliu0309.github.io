@@ -1,0 +1,3275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f5f5" />
+    <script>
+      (() => {
+        try {
+        const theme = localStorage.getItem("rain-theme") === "dark" ? "dark" : "light";
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#0c111d" : "#f5f5f5";
+        } catch {}
+      })();
+    </script>
+    <meta
+      name="description"
+      content="CrossScribe AI — a RAG-powered vertical AI tool for cross-border e-commerce sellers."
+    />
+    <title>CrossScribe AI</title>
+    <link rel="icon" type="image/svg+xml" href="./media/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&family=Pinyon+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/crossscribe/crossscribe.css?v=20260907-case-icon-balance" />
+    <script src="./assets/case-study.js?v=20260907-shared-navigation" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="glass-control brand portfolio-logo" href="./index.html" aria-label="Back to portfolio">
+        <img src="./media/logo-light.svg" alt="" />
+      </a>
+      <nav class="top-navigation" id="case-navigation" aria-label="Case navigation">
+        <a href="./index.html#project"><svg class="case-nav-icon case-nav-icon--home" viewBox="0 0 16 16" aria-hidden="true"><path d="m2.25 7 5.75-4.75L13.75 7v6.25H2.25Z"></path><path d="M6.25 13.25V9.5h3.5v3.75"></path></svg><span>Home<span class="nav-label-zh" lang="zh-CN">主页</span></span></a>
+        <a class="is-active" href="./crossscribe.html" aria-current="page"><svg class="case-nav-icon case-nav-icon--case" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.25 1.75h7l4.5 4.5v8H2.25Z"></path><path d="M5.25 9h5.5"></path></svg><span>CrossScribe AI</span></a>
+        <a href="./teamalign.html"><svg class="case-nav-icon case-nav-icon--case" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.25 1.75h7l4.5 4.5v8H2.25Z"></path><path d="M5.25 9h5.5"></path></svg><span>TeamAlign AI</span></a>
+        <a href="./fatefork.html"><svg class="case-nav-icon case-nav-icon--case" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.25 1.75h7l4.5 4.5v8H2.25Z"></path><path d="M5.25 9h5.5"></path></svg><span>FateFork AI</span></a>
+        <a href="./fairbench.html"><svg class="case-nav-icon case-nav-icon--case" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.25 1.75h7l4.5 4.5v8H2.25Z"></path><path d="M5.25 9h5.5"></path></svg><span>FairBench AI</span></a>
+        <div class="nav-preferences">
+        <button class="theme-switch" type="button" role="switch" aria-label="Switch to dark mode" aria-checked="false" data-case-theme-switch>
+          <svg class="theme-switch-icon theme-switch-icon--sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.1"></circle><path d="M10 1.5v2M10 16.5v2M1.5 10h2M16.5 10h2M4 4l1.45 1.45M14.55 14.55 16 16M16 4l-1.45 1.45M5.45 14.55 4 16"></path></svg>
+          <svg class="theme-switch-icon theme-switch-icon--moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16.3 12.3A6.7 6.7 0 0 1 7.7 3.7a6.7 6.7 0 1 0 8.6 8.6Z"></path></svg>
+        </button>
+        </div>
+      </nav>
+      <button class="navigation-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="case-navigation"><span></span><span></span><span></span></button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-inner">
+          <p class="eyebrow">Case Study · 01</p>
+          <h1>
+            CrossScribe AI
+          </h1>
+          <p class="hero-role"><b>MY ROLE</b><span>Product Discovery · AI Workflow Design · 0→1 Prototyping<small>需求洞察 · AI 工作流设计 · 0→1 原型落地</small></span></p>
+          <div class="hero-actions" aria-label="Project links">
+            <a
+              class="hero-action"
+              href="https://github.com/rainliu0309/crossscribe-ai-demo.git"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
+            <a
+              class="hero-action hero-action--primary"
+              href="https://crossscribe-ai-demo.onrender.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Demo ↗
+            </a>
+          </div>
+
+          <div class="intro">
+            <div class="intro-details">
+              <p class="intro-copy">
+                A <strong>RAG-powered vertical AI marketing-copy tool</strong> built for cross-border e-commerce sellers.<br />
+                It turns private product knowledge into compliant, market-ready content for cross-border selling.
+              <span class="zh">
+                  面向跨境电商商家打造的 <strong>RAG 垂直 AI 文案工具</strong>。<br />
+                依托专属行业知识库，输出合规、本地化的营销内容，助力跨境销售。
+                </span>
+              </p>
+              <div class="tags" aria-label="Project tags">
+                <span class="tag">AI Product</span>
+                <span class="tag">ToB</span>
+                <span class="tag">SaaS</span>
+                <span class="tag">Automation</span>
+                <span class="tag">Vibe Coding</span>
+              </div>
+            </div>
+            <div class="intro-demo">
+              <div class="demo-shell">
+                <p class="demo-label">Concept Video · 00:05</p>
+                <video src="./media/crossscribe/crossscribe.mov" autoplay muted loop playsinline controls></video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="structure-section" id="case-structure">
+        <div class="structure-inner">
+          <div class="structure-heading reveal-on-scroll case-reveal">
+            <div>
+              <h2>From context<br />to impact.</h2>
+            </div>
+            <p>
+              Nine modules documenting the complete journey from business insight to product
+              delivery and iteration.
+              <span class="zh-small">九个模块，记录从业务洞察到产品落地与迭代的完整路径。</span>
+            </p>
+          </div>
+
+          <div class="case-main-reveal case-reveal">
+          <figure class="overview-banner structure-comparison-banner reveal-on-scroll">
+            <img
+              src="./media/crossscribe/crossscribe-overview-comparison.png"
+              alt="Abstract comparison of a cluttered manual workflow and a streamlined AI-assisted workflow"
+            />
+          </figure>
+
+          <div class="accordion-list">
+            <details class="case-accordion">
+              <summary>
+                <span class="accordion-index">01</span>
+                <span>
+                  <span class="accordion-title-en">Project Overview &amp; Business Background</span>
+                  <span class="accordion-title-zh">项目概述与业务背景</span>
+                </span>
+                <span class="accordion-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-content">
+                <p class="accordion-summary-en">
+                  A lightweight RAG-powered SaaS for cross-border merchants, built around manual
+                  content and compliance pain points.
+                </p>
+                <p class="accordion-summary-zh">
+                  面向中小跨境卖家的轻量化 RAG AI SaaS，聚焦人工文案与合规流程的效率痛点。
+                </p>
+              </div>
+              <div class="accordion-detail">
+                <div class="overview-module">
+                  <div class="overview-layout">
+                    <div class="overview-card-list" role="tablist" aria-label="Project overview topics">
+                      <button
+                        class="overview-info-card is-active"
+                        type="button"
+                        role="tab"
+                        aria-selected="true"
+                        data-scene="context"
+                      >
+                        <span class="overview-info-heading">
+                          <strong>Business Context</strong>
+                          <small>所属业务线 &amp; 现有业务现状</small>
+                        </span>
+                        <span class="overview-info-copy">
+                          <span>
+                            Cross-border seller marketing content creation, relying on manual
+                            copywriting and simple translation tools.
+                          </span>
+                          <small>跨境卖家营销内容创作业务，依赖人工撰写与简易翻译工具。</small>
+                        </span>
+                      </button>
+
+                      <button
+                        class="overview-info-card"
+                        type="button"
+                        role="tab"
+                        aria-selected="false"
+                        data-scene="pain"
+                      >
+                        <span class="overview-info-heading">
+                          <strong>Business Pain Points</strong>
+                          <small>现存业务卡点</small>
+                        </span>
+                        <span class="overview-info-copy">
+                          <span>
+                            Low efficiency, high labor cost, weak conversion, cumbersome compliance
+                            review process.
+                          </span>
+                          <small>效率低、人力成本高、转化弱、合规审核流程繁琐。</small>
+                        </span>
+                      </button>
+
+                      <button
+                        class="overview-info-card"
+                        type="button"
+                        role="tab"
+                        aria-selected="false"
+                        data-scene="solution"
+                      >
+                        <span class="overview-info-heading">
+                          <strong>Project Positioning</strong>
+                          <small>项目定位</small>
+                        </span>
+                        <span class="overview-info-copy">
+                          <span>
+                            A lightweight RAG-powered AI SaaS tool for cross-border compliant marketing
+                            copy generation.
+                          </span>
+                          <small>轻量化、基于RAG架构的跨境合规营销文案生成AI SaaS工具。</small>
+                        </span>
+                      </button>
+
+                      <button
+                        class="overview-info-card"
+                        type="button"
+                        role="tab"
+                        aria-selected="false"
+                        data-scene="scale"
+                      >
+                        <span class="overview-info-heading">
+                          <strong>Project Scale</strong>
+                          <small>项目量级</small>
+                        </span>
+                        <span class="overview-info-copy">
+                          <span>
+                            Target small and medium-sized cross-border merchants, solving copywriting
+                            pain points for individual sellers and small teams.
+                          </span>
+                          <small>面向中小跨境卖家，解决个人卖家与小团队的文案创作痛点。</small>
+                        </span>
+                      </button>
+                    </div>
+
+                    <div class="overview-visual-system" aria-label="Project overview illustrations">
+                      <div class="visual-stage" aria-hidden="true">
+                        <div class="visual-scene scene-context is-active" data-scene-panel="context">
+                          <img
+                            src="./media/crossscribe/business-context.png"
+                            alt=""
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </div>
+
+                        <div class="visual-scene scene-pain" data-scene-panel="pain">
+                          <img
+                            src="./media/crossscribe/business-pain-points.png"
+                            alt=""
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </div>
+
+                        <div class="visual-scene scene-solution" data-scene-panel="solution">
+                          <img
+                            src="./media/crossscribe/project-positioning.png"
+                            alt=""
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </div>
+
+                        <div class="visual-scene scene-scale" data-scene-panel="scale">
+                          <img
+                            src="./media/crossscribe/project-scale.png"
+                            alt=""
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </div>
+                      </div>
+                      <div class="overview-visual-controls">
+                        <button class="overview-visual-prev" type="button" aria-label="Previous illustration">
+                          <span aria-hidden="true"></span>
+                        </button>
+                        <button class="overview-visual-next" type="button" aria-label="Next illustration">
+                          <span aria-hidden="true"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="case-accordion">
+              <summary>
+                <span class="accordion-index">02</span>
+                <span>
+                  <span class="accordion-title-en">Market Research &amp; Competitor Analysis</span>
+                  <span class="accordion-title-zh">市场调研与竞品分析</span>
+                </span>
+                <span class="accordion-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-content">
+                <p class="accordion-summary-en">
+                  From market demand and competitor gaps to a focused RAG entry point and defensible
+                  product barriers.
+                </p>
+                <p class="accordion-summary-zh">
+                  从市场机会与竞品缺口出发，明确 RAG 切入点与可持续产品壁垒。
+                </p>
+              </div>
+              <div class="accordion-detail">
+                <div class="market-timeline">
+                  <span class="market-track" aria-hidden="true"></span>
+
+                  <div class="market-steps">
+                    <article
+                      class="market-step"
+                      data-market-step="opportunity"
+                      tabindex="0"
+                      role="button"
+                      aria-pressed="false"
+                      aria-expanded="false"
+                    >
+                      <img
+                        class="market-step-image"
+                        src="./media/crossscribe/market-opportunity.png"
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <span class="market-node" aria-hidden="true"></span>
+                      <div class="market-step-card">
+                        <div class="market-step-head">
+                          <span class="market-step-icon market-icon-trend" aria-hidden="true"></span>
+                          <div class="market-step-title">
+                            <h3>Market Opportunity</h3>
+                            <span class="market-title-zh">市场机会</span>
+                          </div>
+                        </div>
+                        <div class="market-step-details">
+                          <p>Cross-border sellers need efficient, compliant marketing tools.</p>
+                          <p class="market-copy-zh">跨境卖家急需高效合规的营销内容工具。</p>
+                        </div>
+                        <div class="market-step-affordance" aria-hidden="true">
+                          <span class="market-step-affordance-icon"></span>
+                        </div>
+                        <div class="market-step-expanded" aria-hidden="true">
+                          <p class="market-step-expanded-en">
+                            Amazon listings are easily removed for rule violations, and Shopify content
+                            lacks unified brand tone, bringing huge operational pressure to sellers.
+                          </p>
+                          <p class="market-step-expanded-zh">
+                            亚马逊商品链接易因违规被平台下架，独立站店铺文案缺乏统一品牌调性，给卖家带来极大运营压力。
+                          </p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article
+                      class="market-step"
+                      data-market-step="gap"
+                      tabindex="0"
+                      role="button"
+                      aria-pressed="false"
+                      aria-expanded="false"
+                    >
+                      <img
+                        class="market-step-image"
+                        src="./media/crossscribe/competitor-gap.png"
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <span class="market-node" aria-hidden="true"></span>
+                      <div class="market-step-card">
+                        <div class="market-step-head">
+                          <span class="market-step-icon market-icon-gap" aria-hidden="true"></span>
+                          <div class="market-step-title">
+                            <h3>Competitor Gap</h3>
+                            <span class="market-title-zh">竞品缺口</span>
+                          </div>
+                        </div>
+                        <div class="market-step-details">
+                          <p>Existing tools lack vertical and compliance capabilities.</p>
+                          <p class="market-copy-zh">现有工具缺少跨境垂直能力与合规意识。</p>
+                        </div>
+                        <div class="market-step-affordance" aria-hidden="true">
+                          <span class="market-step-affordance-icon"></span>
+                        </div>
+                        <div class="market-step-expanded" aria-hidden="true">
+                          <p class="market-step-expanded-en">
+                            General AI tools, rigid cross-border templates, and basic translation services
+                            all fail to meet sellers' needs for compliant, brand-aligned, high-converting copy.
+                          </p>
+                          <p class="market-step-expanded-zh">
+                            通用AI工具、固化跨境模板工具与基础翻译工具，均无法满足卖家对合规、贴合品牌调性且具备高转化力文案的需求。
+                          </p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article
+                      class="market-step"
+                      data-market-step="entry"
+                      tabindex="0"
+                      role="button"
+                      aria-pressed="false"
+                      aria-expanded="false"
+                    >
+                      <img
+                        class="market-step-image"
+                        src="./media/crossscribe/our-entry-point.png"
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <span class="market-node" aria-hidden="true"></span>
+                      <div class="market-step-card">
+                        <div class="market-step-head">
+                          <span class="market-step-icon market-icon-entry" aria-hidden="true"></span>
+                          <div class="market-step-title">
+                            <h3>Our Entry Point</h3>
+                            <span class="market-title-zh">我方切入点</span>
+                          </div>
+                        </div>
+                        <div class="market-step-details">
+                          <p>Focus on RAG, private knowledge base and compliance.</p>
+                          <p class="market-copy-zh">聚焦RAG、私有知识库与合规驱动文案生成。</p>
+                        </div>
+                        <div class="market-step-affordance" aria-hidden="true">
+                          <span class="market-step-affordance-icon"></span>
+                        </div>
+                        <div class="market-step-expanded" aria-hidden="true">
+                          <p class="market-step-expanded-en">
+                            Import brand materials, product parameters and platform rules into the database.
+                            The AI automatically references standards during generation to ensure compliant
+                            and brand-consistent copy.
+                          </p>
+                          <p class="market-step-expanded-zh">
+                            将卖家专属品牌资料、产品参数、平台规则入库，AI生成文案时自动对标标准，保证内容合规且贴合品牌调性。
+                          </p>
+                        </div>
+                      </div>
+                    </article>
+
+                    <article
+                      class="market-step"
+                      data-market-step="barrier"
+                      tabindex="0"
+                      role="button"
+                      aria-pressed="false"
+                      aria-expanded="false"
+                    >
+                      <img
+                        class="market-step-image"
+                        src="./media/crossscribe/product-barrier.png"
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <span class="market-node" aria-hidden="true"></span>
+                      <div class="market-step-card">
+                        <div class="market-step-head">
+                          <span class="market-step-icon market-icon-barrier" aria-hidden="true"></span>
+                          <div class="market-step-title">
+                            <h3>Product Barrier</h3>
+                            <span class="market-title-zh">产品壁垒</span>
+                          </div>
+                        </div>
+                        <div class="market-step-details">
+                          <p>Build private knowledge, compliance rules and scenario templates.</p>
+                          <p class="market-copy-zh">构建私有知识、合规规则与场景模板壁垒。</p>
+                        </div>
+                        <div class="market-step-affordance" aria-hidden="true">
+                          <span class="market-step-affordance-icon"></span>
+                        </div>
+                        <div class="market-step-expanded" aria-hidden="true">
+                          <p class="market-step-expanded-en">
+                            Continuously accumulate platform rule templates and verified high-quality copy
+                            data. This vertical industry data cannot be replicated by general AI tools.
+                          </p>
+                          <p class="market-step-expanded-zh">
+                            持续沉淀平台规则模板与验证过的优质文案数据，这套垂直行业数据是通用AI工具无法复刻的核心优势。
+                          </p>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details class="case-accordion">
+              <summary>
+                <span class="accordion-index">03</span>
+                <span>
+                  <span class="accordion-title-en">User Research &amp; Demand Breakdown</span>
+                  <span class="accordion-title-zh">用户研究与需求拆解</span>
+                </span>
+                <span class="accordion-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-content">
+                <p class="accordion-summary-en">
+                  Segment three user groups and translate observed scenarios, needs, and pain points into
+                  prioritized product requirements.
+                </p>
+                <p class="accordion-summary-zh">
+                  聚焦三类核心用户，将场景、需求与痛点转化为分级产品优先级。
+                </p>
+              </div>
+              <div class="accordion-detail">
+                <section class="user-research-dashboard" aria-label="User research dashboard">
+                  <div class="research-panel-heading">
+                    <div class="research-panel-label">
+                      <strong>User Segmentation</strong>
+                      <small>用户分层</small>
+                    </div>
+                    <div class="research-interaction-hint" aria-hidden="true">
+                      <div>
+                        <span>Select a user point or label to compare insights</span>
+                        <small>点击用户点或标签，切换不同用户画像</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="user-quadrant" role="tablist" aria-label="User segments">
+                    <span class="quadrant-axis quadrant-axis--x">Budget <small>预算</small></span>
+                    <span class="quadrant-axis quadrant-axis--y">
+                      <span class="axis-en-y">Time Cost</span>
+                      <small>时间成本</small>
+                    </span>
+
+                    <button
+                      class="user-point user-point--individual is-active"
+                      type="button"
+                      role="tab"
+                      aria-selected="true"
+                      aria-controls="research-insight-board"
+                      aria-label="Individual Cross-border Sellers, 个人跨境卖家"
+                      data-user-segment="individual"
+                    >
+                      <span class="user-point-tooltip">
+                        <strong>Individual Cross-border Sellers</strong>
+                        <small>个人跨境卖家</small>
+                      </span>
+                    </button>
+
+                    <button
+                      class="user-point user-point--team"
+                      type="button"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="research-insight-board"
+                      aria-label="Small E-commerce Operation Teams, 小型电商运营团队"
+                      data-user-segment="team"
+                    >
+                      <span class="user-point-tooltip">
+                        <strong>Small E-commerce Operation Teams</strong>
+                        <small>小型电商运营团队</small>
+                      </span>
+                    </button>
+
+                    <button
+                      class="user-point user-point--startup"
+                      type="button"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="research-insight-board"
+                      aria-label="Cross-border E-commerce Startups, 跨境电商初创公司"
+                      data-user-segment="startup"
+                    >
+                      <span class="user-point-tooltip">
+                        <strong>Cross-border E-commerce Startups</strong>
+                        <small>跨境电商初创公司</small>
+                      </span>
+                    </button>
+                  </div>
+
+                  <div class="user-segment-selector" aria-label="Select a user segment">
+                    <button
+                      class="user-segment-choice user-segment-choice--individual is-active"
+                      type="button"
+                      data-user-selector="individual"
+                      aria-pressed="true"
+                    >
+                      <strong>Individual Cross-border Sellers</strong>
+                      <small>个人跨境卖家</small>
+                    </button>
+                    <button
+                      class="user-segment-choice user-segment-choice--team"
+                      type="button"
+                      data-user-selector="team"
+                      aria-pressed="false"
+                    >
+                      <strong>Small E-commerce Operation Teams</strong>
+                      <small>小型电商运营团队</small>
+                    </button>
+                    <button
+                      class="user-segment-choice user-segment-choice--startup"
+                      type="button"
+                      data-user-selector="startup"
+                      aria-pressed="false"
+                    >
+                      <strong>Cross-border E-commerce Startups</strong>
+                      <small>跨境电商初创公司</small>
+                    </button>
+                  </div>
+
+                  <div
+                    class="research-insight-board"
+                    id="research-insight-board"
+                    data-user="individual"
+                    aria-label="Insights for Individual Cross-border Sellers"
+                    aria-live="polite"
+                  >
+                    <article class="research-insight-card">
+                      <span class="research-insight-symbol research-symbol-scene" aria-hidden="true"></span>
+                      <div class="research-insight-heading">
+                        <strong>Usage Scenario</strong>
+                        <small>使用场景</small>
+                      </div>
+                      <p>Single-person operation, writing all listing and marketing copy alone</p>
+                      <small class="research-insight-copy-zh">
+                        单人独立运营，独自撰写所有Listing和营销文案
+                      </small>
+                    </article>
+                    <article class="research-insight-card">
+                      <span class="research-insight-symbol research-symbol-need" aria-hidden="true"></span>
+                      <div class="research-insight-heading">
+                        <strong>Explicit User Needs</strong>
+                        <small>用户显性需求</small>
+                      </div>
+                      <p>Quickly generate basic compliant copy with low cost</p>
+                      <small class="research-insight-copy-zh">
+                        低成本快速生成基础合规文案
+                      </small>
+                    </article>
+                    <article class="research-insight-card">
+                      <span class="research-insight-symbol research-symbol-pain" aria-hidden="true"></span>
+                      <div class="research-insight-heading">
+                        <strong>Hidden User Pain Points</strong>
+                        <small>用户隐性痛点</small>
+                      </div>
+                      <p>Limited language skills, no brand system, high learning cost for new tools</p>
+                      <small class="research-insight-copy-zh">
+                        语言能力有限，无品牌体系，新工具学习成本高
+                      </small>
+                    </article>
+                  </div>
+
+                  <section class="priority-matrix-section" aria-label="Demand priority matrix">
+                    <div class="research-panel-label">
+                      <strong>Demand Prioritization</strong>
+                      <small>需求优先级排序</small>
+                    </div>
+
+                    <div class="priority-matrix">
+                      <div class="priority-plot">
+                        <span class="matrix-axis matrix-axis--x">Implementation Cost <small>实现成本</small></span>
+                        <span class="matrix-axis matrix-axis--y">
+                          <span class="axis-en-y">Importance</span>
+                          <small>重要性</small>
+                        </span>
+                        <button
+                          class="matrix-info"
+                          type="button"
+                          aria-pressed="false"
+                          aria-label="How to read the demand prioritization matrix"
+                        >
+                          <span class="matrix-info-tooltip">
+                            <span>Bubble size indicates research importance</span>
+                            <small>气泡大小代表用户调研中的需求重要性</small>
+                            <span>Position indicates implementation cost</span>
+                            <small>气泡位置代表功能实现成本</small>
+                            <span>Deep blue P0 · Medium blue P1 · Light gray P2</span>
+                            <small>深蓝为 P0、中蓝为 P1、浅灰为 P2</small>
+                          </span>
+                        </button>
+
+                        <button
+                          class="priority-bubble priority-bubble--p0 priority-bubble--compliance"
+                          type="button"
+                          data-demand="compliance"
+                          aria-pressed="false"
+                          aria-label="Compliance-aware cross-border marketing copy generation, 具备合规校验的跨境营销文案生成"
+                        ></button>
+
+                        <button
+                          class="priority-bubble priority-bubble--p0 priority-bubble--knowledge"
+                          type="button"
+                          data-demand="knowledge"
+                          aria-pressed="false"
+                          aria-label="Private knowledge base integration for brand content, 品牌专属私有知识库集成"
+                        ></button>
+
+                        <button
+                          class="priority-bubble priority-bubble--p1 priority-bubble--language"
+                          type="button"
+                          data-demand="language"
+                          aria-pressed="false"
+                          aria-label="One-click multi-language marketing copy output, 多语言营销文案一键输出"
+                        ></button>
+
+                        <button
+                          class="priority-bubble priority-bubble--p1 priority-bubble--tone"
+                          type="button"
+                          data-demand="tone"
+                          aria-pressed="false"
+                          aria-label="Customizable brand tone and style templates, 可自定义的品牌调性与风格模板"
+                        ></button>
+
+                        <button
+                          class="priority-bubble priority-bubble--p2 priority-bubble--batch"
+                          type="button"
+                          data-demand="batch"
+                          aria-pressed="false"
+                          aria-label="Batch copy generation and template management, 批量文案生成与模板管理"
+                        ></button>
+                      </div>
+
+                      <div class="priority-label-list" aria-label="Demand labels">
+                        <button
+                          class="priority-label priority-label--p0"
+                          type="button"
+                          data-demand-label="compliance"
+                          aria-pressed="false"
+                        >
+                          <strong>Compliance-aware cross-border marketing copy generation</strong>
+                          <small>具备合规校验的跨境营销文案生成</small>
+                        </button>
+                        <button
+                          class="priority-label priority-label--p0"
+                          type="button"
+                          data-demand-label="knowledge"
+                          aria-pressed="false"
+                        >
+                          <strong>Private knowledge base integration for brand content</strong>
+                          <small>品牌专属私有知识库集成</small>
+                        </button>
+                        <button
+                          class="priority-label priority-label--p1"
+                          type="button"
+                          data-demand-label="language"
+                          aria-pressed="false"
+                        >
+                          <strong>One-click multi-language marketing copy output</strong>
+                          <small>多语言营销文案一键输出</small>
+                        </button>
+                        <button
+                          class="priority-label priority-label--p1"
+                          type="button"
+                          data-demand-label="tone"
+                          aria-pressed="false"
+                        >
+                          <strong>Customizable brand tone and style templates</strong>
+                          <small>可自定义的品牌调性与风格模板</small>
+                        </button>
+                        <button
+                          class="priority-label priority-label--p2"
+                          type="button"
+                          data-demand-label="batch"
+                          aria-pressed="false"
+                        >
+                          <strong>Batch copy generation &amp; template management</strong>
+                          <small>批量文案生成与模板管理</small>
+                        </button>
+                      </div>
+                    </div>
+                  </section>
+
+                  <div class="research-alignment-strip">
+                    <span>Filter invalid requirements and align with business objectives</span>
+                    <small>剔除无效需求，对齐业务侧诉求</small>
+                  </div>
+                </section>
+              </div>
+            </details>
+
+            <details class="case-accordion">
+              <summary>
+                <span class="accordion-index">04</span>
+                <span>
+                  <span class="accordion-title-en">Core Problems &amp; Project Objectives</span>
+                  <span class="accordion-title-zh">核心问题与项目目标</span>
+                </span>
+                <span class="accordion-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-content">
+                <p class="accordion-summary-en">
+                  Translate core business pain points into measurable product goals and a phased path from
+                  MVP to scalable SaaS.
+                </p>
+                <p class="accordion-summary-zh">
+                  将核心业务痛点转化为可衡量目标，规划从 MVP 到规模化 SaaS 的阶段路径。
+                </p>
+              </div>
+              <div class="accordion-detail">
+                <section class="product-goals-module" aria-label="Product goals">
+                  <section class="goal-step goal-step--problem">
+                    <span class="goal-step-marker" aria-hidden="true">01</span>
+                    <div class="goal-step-heading">
+                      <strong>Core Business Problem</strong>
+                      <small>核心业务问题</small>
+                    </div>
+                    <article class="goal-problem-card" tabindex="0">
+                      <p>
+                        Cross-border sellers face high costs, low efficiency, and compliance risks in
+                        marketing copy creation.
+                      </p>
+                      <small>跨境卖家在营销文案创作中面临高成本、低效率与合规风险。</small>
+                    </article>
+                  </section>
+
+                  <section class="goal-step goal-step--metrics">
+                    <span class="goal-step-marker" aria-hidden="true">02</span>
+                    <div class="goal-step-heading">
+                      <strong>Quantifiable Goals &amp; Priorities</strong>
+                      <small>量化目标与优先级</small>
+                    </div>
+                    <div class="goal-metrics-panel">
+                      <div class="goal-radar-layout">
+                        <div class="goal-radar-stage">
+                          <div class="goal-radar-chart" aria-label="Five-dimensional KPI priority radar">
+                            <span class="radar-grid-ring radar-grid-ring--outer" aria-hidden="true"></span>
+                            <span class="radar-grid-ring radar-grid-ring--middle" aria-hidden="true"></span>
+                            <span class="radar-grid-ring radar-grid-ring--inner" aria-hidden="true"></span>
+
+                            <span
+                              class="radar-axis radar-axis--cost"
+                              data-radar-axis="cost"
+                              aria-hidden="true"
+                            ></span>
+                            <span
+                              class="radar-axis radar-axis--efficiency"
+                              data-radar-axis="efficiency"
+                              aria-hidden="true"
+                            ></span>
+                            <span
+                              class="radar-axis radar-axis--revenue"
+                              data-radar-axis="revenue"
+                              aria-hidden="true"
+                            ></span>
+                            <span
+                              class="radar-axis radar-axis--activity"
+                              data-radar-axis="activity"
+                              aria-hidden="true"
+                            ></span>
+                            <span
+                              class="radar-axis radar-axis--churn"
+                              data-radar-axis="churn"
+                              aria-hidden="true"
+                            ></span>
+                            <span class="radar-value" aria-hidden="true"></span>
+
+                            <button
+                              class="radar-vertex radar-vertex--cost"
+                              type="button"
+                              data-radar-dimension="cost"
+                              aria-pressed="false"
+                              aria-label="Cost Reduction, 降本"
+                            ></button>
+                            <button
+                              class="radar-vertex radar-vertex--efficiency"
+                              type="button"
+                              data-radar-dimension="efficiency"
+                              aria-pressed="false"
+                              aria-label="Efficiency Improvement, 提效"
+                            ></button>
+                            <button
+                              class="radar-vertex radar-vertex--revenue"
+                              type="button"
+                              data-radar-dimension="revenue"
+                              aria-pressed="false"
+                              aria-label="Revenue Growth, 增收"
+                            ></button>
+                            <button
+                              class="radar-vertex radar-vertex--activity"
+                              type="button"
+                              data-radar-dimension="activity"
+                              aria-pressed="false"
+                              aria-label="User Activity, 提升活跃度"
+                            ></button>
+                            <button
+                              class="radar-vertex radar-vertex--churn"
+                              type="button"
+                              data-radar-dimension="churn"
+                              aria-pressed="false"
+                              aria-label="Churn Reduction, 降低流失"
+                            ></button>
+
+                            <span class="radar-dimension-label radar-dimension-label--cost">
+                              Cost Reduction
+                              <small>降本</small>
+                            </span>
+                            <span class="radar-dimension-label radar-dimension-label--efficiency">
+                              Efficiency Improvement
+                              <small>提效</small>
+                            </span>
+                            <span class="radar-dimension-label radar-dimension-label--revenue">
+                              Revenue Growth
+                              <small>增收</small>
+                            </span>
+                            <span class="radar-dimension-label radar-dimension-label--activity">
+                              User Activity
+                              <small>提升活跃度</small>
+                            </span>
+                            <span class="radar-dimension-label radar-dimension-label--churn">
+                              Churn Reduction
+                              <small>降低流失</small>
+                            </span>
+                          </div>
+                        </div>
+
+                        <aside class="radar-detail-panel" aria-live="polite">
+                          <span class="radar-detail-eyebrow">
+                            <span>KPI Priority</span>
+                            <small>KPI 优先级</small>
+                          </span>
+                          <strong class="radar-detail-title">Explore each priority</strong>
+                          <small class="radar-detail-title-zh">探索各项目标</small>
+                          <span class="radar-detail-copy">
+                            Select a radar vertex to view the complete product goal
+                          </span>
+                          <small class="radar-detail-copy-zh">点击雷达顶点，查看完整产品目标</small>
+                        </aside>
+                      </div>
+
+                      <div class="goal-kpi-cards">
+                        <button
+                          class="goal-kpi-card"
+                          type="button"
+                          data-goal-dimension="cost"
+                          aria-pressed="false"
+                        >
+                          <strong>Cost Reduction</strong>
+                          <small>降本</small>
+                          <span class="goal-kpi-detail">
+                            <span>Reduce manual copywriting labor cost</span>
+                            <small>降低人工文案撰写成本</small>
+                          </span>
+                        </button>
+                        <button
+                          class="goal-kpi-card"
+                          type="button"
+                          data-goal-dimension="efficiency"
+                          aria-pressed="false"
+                        >
+                          <strong>Efficiency Improvement</strong>
+                          <small>提效</small>
+                          <span class="goal-kpi-detail">
+                            <span>Shorten marketing copy creation cycle</span>
+                            <small>缩短营销文案创作周期</small>
+                          </span>
+                        </button>
+                        <button
+                          class="goal-kpi-card"
+                          type="button"
+                          data-goal-dimension="revenue"
+                          aria-pressed="false"
+                        >
+                          <strong>Revenue Growth</strong>
+                          <small>增收</small>
+                          <span class="goal-kpi-detail">
+                            <span>Increase listing conversion rate through optimized copy</span>
+                            <small>通过优化文案提升Listing转化率</small>
+                          </span>
+                        </button>
+                        <button
+                          class="goal-kpi-card"
+                          type="button"
+                          data-goal-dimension="activity"
+                          aria-pressed="false"
+                        >
+                          <strong>User Activity</strong>
+                          <small>提升活跃度</small>
+                          <span class="goal-kpi-detail">
+                            <span>Increase weekly active rate of users</span>
+                            <small>提升用户周活跃度</small>
+                          </span>
+                        </button>
+                        <button
+                          class="goal-kpi-card"
+                          type="button"
+                          data-goal-dimension="churn"
+                          aria-pressed="false"
+                        >
+                          <strong>Churn Reduction</strong>
+                          <small>降低流失</small>
+                          <span class="goal-kpi-detail">
+                            <span>Reduce user churn rate caused by inefficiency</span>
+                            <small>降低因效率低下导致的用户流失率</small>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="goal-step goal-step--roadmap">
+                    <span class="goal-step-marker" aria-hidden="true">03</span>
+                    <div class="goal-step-heading">
+                      <strong>Short-term MVP &amp; Long-term Product Goals</strong>
+                      <small>短期MVP目标与中长期产品目标</small>
+                    </div>
+                    <div class="goal-roadmap-grid">
+                      <article
+                        class="goal-roadmap-card goal-roadmap-card--mvp"
+                        role="button"
+                        tabindex="0"
+                        aria-expanded="false"
+                      >
+                        <span class="goal-roadmap-head">
+                          <span class="goal-roadmap-title">
+                            <strong>Short-term MVP Goals</strong>
+                            <small>短期MVP目标</small>
+                          </span>
+                          <span class="goal-roadmap-toggle" aria-hidden="true"></span>
+                        </span>
+                        <span class="goal-roadmap-copy">
+                          Launch core compliant copy generation and private knowledge base integration.
+                        </span>
+                        <small class="goal-roadmap-copy-zh">
+                          上线核心合规文案生成与私有知识库集成功能。
+                        </small>
+                        <span class="goal-roadmap-hint">
+                          <span class="goal-roadmap-hint-en">View goal breakdown</span>
+                          <span class="goal-roadmap-hint-separator" aria-hidden="true">·</span>
+                          <span class="goal-roadmap-hint-zh">点击展开目标拆解</span>
+                        </span>
+                        <ul class="goal-roadmap-details">
+                          <li>
+                            <span>Private document ingestion</span>
+                            <small>私有文档导入</small>
+                          </li>
+                          <li>
+                            <span>Compliance-aware copy generation</span>
+                            <small>合规感知文案生成</small>
+                          </li>
+                          <li>
+                            <span>Stable cloud deployment</span>
+                            <small>稳定云端部署</small>
+                          </li>
+                        </ul>
+                      </article>
+
+                      <article
+                        class="goal-roadmap-card goal-roadmap-card--long"
+                        role="button"
+                        tabindex="0"
+                        aria-expanded="false"
+                      >
+                        <span class="goal-roadmap-head">
+                          <span class="goal-roadmap-title">
+                            <strong>Long-term Product Goals</strong>
+                            <small>中长期产品目标</small>
+                          </span>
+                          <span class="goal-roadmap-toggle" aria-hidden="true"></span>
+                        </span>
+                        <span class="goal-roadmap-copy">
+                          Build full compliance audit, multi-platform integration, and brand asset management
+                          system.
+                        </span>
+                        <small class="goal-roadmap-copy-zh">
+                          搭建完整合规审核、多平台集成与品牌资产管理体系。
+                        </small>
+                        <span class="goal-roadmap-hint">
+                          <span class="goal-roadmap-hint-en">View goal breakdown</span>
+                          <span class="goal-roadmap-hint-separator" aria-hidden="true">·</span>
+                          <span class="goal-roadmap-hint-zh">点击展开目标拆解</span>
+                        </span>
+                        <ul class="goal-roadmap-details">
+                          <li>
+                            <span>Rule-based compliance audit</span>
+                            <small>规则化合规审核</small>
+                          </li>
+                          <li>
+                            <span>Multi-platform workflow integration</span>
+                            <small>多平台工作流集成</small>
+                          </li>
+                          <li>
+                            <span>Brand asset and team management</span>
+                            <small>品牌资产与团队管理</small>
+                          </li>
+                        </ul>
+                      </article>
+                    </div>
+                  </section>
+                </section>
+              </div>
+            </details>
+
+            <details class="case-accordion">
+              <summary>
+                <span class="accordion-index">05</span>
+                <span>
+                  <span class="accordion-title-en">Overall AI Solution Design</span>
+                  <span class="accordion-title-zh">AI 整体解决方案设计</span>
+                </span>
+                <span class="accordion-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-content">
+                <p class="accordion-summary-en">
+                  Compare model strategies, define the core AI stack, and balance deployment cost with human
+                  oversight boundaries.
+                </p>
+                <p class="accordion-summary-zh">
+                  对比模型方案，定义核心 AI 技术栈，并平衡部署成本与人工兜底边界。
+                </p>
+              </div>
+              <div class="accordion-detail">
+                <section class="ai-solution-module" aria-label="Overall AI solution design">
+                  <section class="ai-architecture-layer ai-architecture-layer--model">
+                    <div class="ai-layer-heading">
+                      <span class="ai-layer-index" aria-hidden="true">01</span>
+                      <div class="ai-layer-title">
+                        <strong>Large Model Selection</strong>
+                        <small>大模型选型</small>
+                      </div>
+                    </div>
+
+                    <div class="ai-layer-content">
+                      <div class="model-option-grid">
+                        <button class="model-option-card" type="button" aria-expanded="false">
+                          <span class="model-option-head">
+                            <span class="model-option-title">
+                              <strong>Public Cloud Models</strong>
+                              <small>公有云模型</small>
+                            </span>
+                            <span class="model-option-toggle" aria-hidden="true"></span>
+                          </span>
+                          <span class="model-option-detail">
+                            <span>High performance, low maintenance, higher per-call cost</span>
+                            <small>性能强，运维成本低，单次调用成本高</small>
+                          </span>
+                        </button>
+
+                        <button class="model-option-card" type="button" aria-expanded="false">
+                          <span class="model-option-head">
+                            <span class="model-option-title">
+                              <strong>Private Deployment</strong>
+                              <small>私有部署</small>
+                            </span>
+                            <span class="model-option-toggle" aria-hidden="true"></span>
+                          </span>
+                          <span class="model-option-detail">
+                            <span>Data security, low recurring cost, high upfront investment</span>
+                            <small>数据安全，长期成本低，前期投入高</small>
+                          </span>
+                        </button>
+
+                        <button class="model-option-card" type="button" aria-expanded="false">
+                          <span class="model-option-head">
+                            <span class="model-option-title">
+                              <strong>Open-source Fine-tuning</strong>
+                              <small>开源微调</small>
+                            </span>
+                            <span class="model-option-toggle" aria-hidden="true"></span>
+                          </span>
+                          <span class="model-option-detail">
+                            <span>High customization, cost-effective, requires technical support</span>
+                            <small>定制化程度高，性价比优，需技术支持</small>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="ai-architecture-layer ai-architecture-layer--core">
+                    <div class="ai-layer-heading">
+                      <span class="ai-layer-index" aria-hidden="true">02</span>
+                      <div class="ai-layer-title">
+                        <strong>Core Technical Architecture</strong>
+                        <small>核心技术架构</small>
+                      </div>
+                    </div>
+
+                    <div class="ai-layer-content">
+                      <div class="architecture-tab-list" role="tablist" aria-label="Core technical modules">
+                      <button
+                        class="architecture-tab is-active"
+                        type="button"
+                        role="tab"
+                        aria-selected="true"
+                        aria-controls="architecture-panel-rag"
+                        data-architecture-tab="rag"
+                      >
+                        <span>RAG Knowledge Base</span>
+                        <small>RAG 知识库</small>
+                      </button>
+                      <button
+                        class="architecture-tab"
+                        type="button"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="architecture-panel-agent"
+                        data-architecture-tab="agent"
+                      >
+                        <span>AI Agent</span>
+                        <small>Agent 智能体</small>
+                      </button>
+                      <button
+                        class="architecture-tab"
+                        type="button"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="architecture-panel-multimodal"
+                        data-architecture-tab="multimodal"
+                      >
+                        <span>Multi-modal Capability</span>
+                        <small>多模态能力</small>
+                      </button>
+                      <button
+                        class="architecture-tab"
+                        type="button"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="architecture-panel-tuning"
+                        data-architecture-tab="tuning"
+                      >
+                        <span>Model Fine-tuning</span>
+                        <small>模型微调</small>
+                      </button>
+                      <button
+                        class="architecture-tab"
+                        type="button"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="architecture-panel-prompt"
+                        data-architecture-tab="prompt"
+                      >
+                        <span>Prompt Engineering System</span>
+                        <small>提示词体系</small>
+                      </button>
+                      </div>
+
+                      <div class="architecture-panel-stack">
+                      <article
+                        class="architecture-panel is-active"
+                        id="architecture-panel-rag"
+                        role="tabpanel"
+                        data-architecture-panel="rag"
+                        aria-hidden="false"
+                      >
+                        <div class="architecture-panel-copy">
+                          <strong>RAG Knowledge Base</strong>
+                          <small>RAG 知识库</small>
+                          <span>Retrieval-Augmented Generation for brand-specific content</span>
+                          <small>检索增强生成，用于品牌专属内容</small>
+                        </div>
+                        <span class="architecture-signal" aria-hidden="true"><i></i><i></i><i></i></span>
+                      </article>
+
+                      <article
+                        class="architecture-panel"
+                        id="architecture-panel-agent"
+                        role="tabpanel"
+                        data-architecture-panel="agent"
+                        aria-hidden="true"
+                      >
+                        <div class="architecture-panel-copy">
+                          <strong>AI Agent</strong>
+                          <small>Agent 智能体</small>
+                          <span>Multi-step task execution and workflow automation</span>
+                          <small>多步骤任务执行与工作流自动化</small>
+                        </div>
+                        <span class="architecture-signal" aria-hidden="true"><i></i><i></i><i></i></span>
+                      </article>
+
+                      <article
+                        class="architecture-panel"
+                        id="architecture-panel-multimodal"
+                        role="tabpanel"
+                        data-architecture-panel="multimodal"
+                        aria-hidden="true"
+                      >
+                        <div class="architecture-panel-copy">
+                          <strong>Multi-modal Capability</strong>
+                          <small>多模态能力</small>
+                          <span>Image-text understanding and cross-platform content adaptation</span>
+                          <small>图文理解与跨平台内容适配</small>
+                        </div>
+                        <span class="architecture-signal" aria-hidden="true"><i></i><i></i><i></i></span>
+                      </article>
+
+                      <article
+                        class="architecture-panel"
+                        id="architecture-panel-tuning"
+                        role="tabpanel"
+                        data-architecture-panel="tuning"
+                        aria-hidden="true"
+                      >
+                        <div class="architecture-panel-copy">
+                          <strong>Model Fine-tuning</strong>
+                          <small>模型微调</small>
+                          <span>Domain-specific optimization for cross-border marketing scenarios</span>
+                          <small>面向跨境营销场景的领域优化</small>
+                        </div>
+                        <span class="architecture-signal" aria-hidden="true"><i></i><i></i><i></i></span>
+                      </article>
+
+                      <article
+                        class="architecture-panel"
+                        id="architecture-panel-prompt"
+                        role="tabpanel"
+                        data-architecture-panel="prompt"
+                        aria-hidden="true"
+                      >
+                        <div class="architecture-panel-copy">
+                          <strong>Prompt Engineering System</strong>
+                          <small>提示词体系</small>
+                          <span>Vertical scenario prompt templates and compliance guardrails</span>
+                          <small>垂直场景提示词模板与合规护栏</small>
+                        </div>
+                        <span class="architecture-signal" aria-hidden="true"><i></i><i></i><i></i></span>
+                      </article>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="ai-architecture-layer ai-architecture-layer--boundary">
+                    <div class="ai-layer-heading">
+                      <span class="ai-layer-index" aria-hidden="true">03</span>
+                      <div class="ai-layer-title">
+                        <strong>Cost &amp; Capability Boundaries</strong>
+                        <small>成本与能力边界</small>
+                      </div>
+                    </div>
+
+                    <div class="ai-layer-content">
+                    <section class="ai-subsection">
+                      <div class="ai-subsection-heading">
+                        <strong>Cost &amp; Deployment Consideration</strong>
+                        <small>成本与部署考量</small>
+                      </div>
+                      <div class="cost-dashboard">
+                        <div class="cost-chart">
+                          <div class="cost-axis" aria-hidden="true">
+                            <span>Cost <small>成本</small></span>
+                            <span>Low <small>低</small></span>
+                            <span>Medium <small>中</small></span>
+                            <span>High <small>高</small></span>
+                          </div>
+                          <button
+                            class="cost-bar-row"
+                            type="button"
+                            data-cost-option="cloud"
+                            data-cost-title="Public Cloud"
+                            data-cost-title-zh="公有云"
+                            data-cost-copy="Low upfront cost, high ongoing cost"
+                            data-cost-copy-zh="前期成本低，持续调用成本高"
+                            aria-pressed="false"
+                          >
+                            <span class="cost-bar-label">
+                              <strong>Public Cloud</strong>
+                              <small>公有云</small>
+                            </span>
+                            <span class="cost-bar-track">
+                              <span class="cost-bar-fill" style="--cost-level: 78%"></span>
+                            </span>
+                          </button>
+                          <button
+                            class="cost-bar-row"
+                            type="button"
+                            data-cost-option="private"
+                            data-cost-title="Private Deployment"
+                            data-cost-title-zh="私有部署"
+                            data-cost-copy="High upfront cost, low ongoing cost"
+                            data-cost-copy-zh="前期成本高，持续维护成本低"
+                            aria-pressed="false"
+                          >
+                            <span class="cost-bar-label">
+                              <strong>Private Deployment</strong>
+                              <small>私有部署</small>
+                            </span>
+                            <span class="cost-bar-track">
+                              <span class="cost-bar-fill" style="--cost-level: 90%"></span>
+                            </span>
+                          </button>
+                          <button
+                            class="cost-bar-row"
+                            type="button"
+                            data-cost-option="open"
+                            data-cost-title="Open-source Fine-tuning"
+                            data-cost-title-zh="开源微调"
+                            data-cost-copy="Medium upfront and ongoing cost"
+                            data-cost-copy-zh="前期与持续成本中等"
+                            aria-pressed="false"
+                          >
+                            <span class="cost-bar-label">
+                              <strong>Open-source Fine-tuning</strong>
+                              <small>开源微调</small>
+                            </span>
+                            <span class="cost-bar-track">
+                              <span class="cost-bar-fill" style="--cost-level: 60%"></span>
+                            </span>
+                          </button>
+                        </div>
+
+                        <aside class="cost-detail-panel" aria-live="polite">
+                          <strong>Compare deployment cost</strong>
+                          <small>比较部署成本</small>
+                          <span>Hover or select a cost bar to view the complete cost structure</span>
+                          <small class="cost-detail-copy-zh">悬停或点击成本条，查看完整成本构成</small>
+                        </aside>
+                      </div>
+                    </section>
+
+                    <section class="ai-subsection">
+                      <div class="ai-subsection-heading">
+                        <strong>AI Capability Scope &amp; Human Oversight Boundary</strong>
+                        <small>AI能力范围与人工兜底边界</small>
+                      </div>
+                      <div class="capability-boundary-grid">
+                        <article class="capability-boundary-card">
+                          <strong>AI Capability Scope</strong>
+                          <small>AI能力范围</small>
+                          <span>Content generation, multi-language adaptation, compliance pre-check</span>
+                          <small>内容生成、多语言适配、合规预校验</small>
+                        </article>
+                        <article class="capability-boundary-card capability-boundary-card--human">
+                          <strong>Human Oversight Boundary</strong>
+                          <small>人工兜底边界</small>
+                          <span>Final compliance review, brand tone adjustment, edge case handling</span>
+                          <small>最终合规审核、品牌调性调整、极端案例处理</small>
+                        </article>
+                      </div>
+                    </section>
+
+                    <section class="ai-subsection">
+                      <div class="ai-subsection-heading">
+                        <strong>Industry Data Integration &amp; Knowledge Base Logic</strong>
+                        <small>行业数据接入与知识库搭建逻辑</small>
+                      </div>
+                      <article class="knowledge-integration-card" tabindex="0">
+                        <div class="knowledge-integration-copy">
+                          <span>
+                            Import brand documents, compliance rules, and product materials into structured
+                            vector database
+                          </span>
+                          <small>导入品牌文档、合规规则与产品资料，构建结构化向量数据库</small>
+                        </div>
+                        <div class="knowledge-flow-visual" aria-hidden="true">
+                          <span class="knowledge-document-node"></span>
+                          <span class="knowledge-flow-dot"></span>
+                          <span class="knowledge-database-node"></span>
+                        </div>
+                      </article>
+                    </section>
+                    </div>
+                  </section>
+                </section>
+              </div>
+            </details>
+
+            <details class="case-accordion">
+              <summary>
+                <span class="accordion-index">06</span>
+                <span>
+                  <span class="accordion-title-en">Product Function &amp; Process Design</span>
+                  <span class="accordion-title-zh">产品功能与流程设计</span>
+                </span>
+                <span class="accordion-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-content">
+                <p class="accordion-summary-en">
+                  Five core product modules, an end-to-end workflow, and role-based compliance controls.
+                </p>
+                <p class="accordion-summary-zh">
+                  五大核心产品模块，串联端到端使用流程与角色化合规风控体系。
+                </p>
+              </div>
+              <div class="accordion-detail">
+                <section
+                  class="product-solution-module-disabled"
+                  hidden
+                  aria-hidden="true"
+                  aria-label="Product function and solution process"
+                >
+                  <div class="solution-split-layout">
+                    <section class="solution-zone">
+                      <div class="solution-zone-heading">
+                        <strong>Core Functional Layout</strong>
+                        <small>核心功能布局</small>
+                      </div>
+
+                      <div class="functional-layout-list">
+                        <button
+                          class="functional-layout-item is-active"
+                          type="button"
+                          aria-pressed="true"
+                          data-solution-targets="1"
+                        >
+                          <strong>Private Knowledge Management</strong>
+                          <span>Store brand materials, product information and industry compliance rules</span>
+                          <small>存储品牌资料、产品信息与行业合规准则</small>
+                        </button>
+                        <button
+                          class="functional-layout-item"
+                          type="button"
+                          aria-pressed="false"
+                          data-solution-targets="2 3"
+                        >
+                          <strong>Scene-oriented Copy Creation</strong>
+                          <span>One-click generate marketing copy matching cross-border platform rules</span>
+                          <small>一键生成适配跨境平台规则营销文案</small>
+                        </button>
+                        <button
+                          class="functional-layout-item"
+                          type="button"
+                          aria-pressed="false"
+                          data-solution-targets="3 5"
+                        >
+                          <strong>Brand Style Unified Control</strong>
+                          <span>Fix writing tone, unify language style of all exported content</span>
+                          <small>固定写作调性，统一全部输出内容语言风格</small>
+                        </button>
+                        <button
+                          class="functional-layout-item"
+                          type="button"
+                          aria-pressed="false"
+                          data-solution-targets="4 5"
+                        >
+                          <strong>Batch Output &amp; Content Audit</strong>
+                          <span>Mass creation, content detection and standardized format export</span>
+                          <small>批量创作、内容检测与标准化格式导出</small>
+                        </button>
+                      </div>
+                    </section>
+
+                    <section class="solution-zone">
+                      <div class="solution-zone-heading">
+                        <strong>User Operation Whole Process</strong>
+                        <small>用户完整操作流程</small>
+                      </div>
+
+                      <div class="solution-flow" aria-label="Linear user operation workflow">
+                        <article
+                          class="solution-flow-step"
+                          tabindex="0"
+                          role="button"
+                          aria-pressed="false"
+                          data-solution-step="0"
+                        >
+                          <span class="solution-flow-node" aria-hidden="true"></span>
+                          <strong>Enter Platform</strong>
+                          <small>进入平台</small>
+                          <span class="solution-flow-detail">
+                            <span>Complete basic registration and user identity confirmation</span>
+                            <small>完成基础注册与使用身份确认</small>
+                          </span>
+                        </article>
+                        <article
+                          class="solution-flow-step is-linked"
+                          tabindex="0"
+                          role="button"
+                          aria-pressed="false"
+                          data-solution-step="1"
+                        >
+                          <span class="solution-flow-node" aria-hidden="true"></span>
+                          <strong>Import Resource Files</strong>
+                          <small>导入资源文件</small>
+                          <span class="solution-flow-detail">
+                            <span>Upload exclusive brand documents and product introduction content</span>
+                            <small>上传专属品牌文档与产品介绍内容</small>
+                          </span>
+                        </article>
+                        <article
+                          class="solution-flow-step"
+                          tabindex="0"
+                          role="button"
+                          aria-pressed="false"
+                          data-solution-step="2"
+                        >
+                          <span class="solution-flow-node" aria-hidden="true"></span>
+                          <strong>Select Application Scene</strong>
+                          <small>选定应用场景</small>
+                          <span class="solution-flow-detail">
+                            <span>Choose corresponding cross-border platform and marketing scene</span>
+                            <small>选择对应跨境平台与营销使用场景</small>
+                          </span>
+                        </article>
+                        <article
+                          class="solution-flow-step"
+                          tabindex="0"
+                          role="button"
+                          aria-pressed="false"
+                          data-solution-step="3"
+                        >
+                          <span class="solution-flow-node" aria-hidden="true"></span>
+                          <strong>Intelligent Content Generation</strong>
+                          <small>智能内容生成</small>
+                          <span class="solution-flow-detail">
+                            <span>Call AI engine to quickly draft original copy content</span>
+                            <small>调用AI引擎快速生成文案初稿内容</small>
+                          </span>
+                        </article>
+                        <article
+                          class="solution-flow-step"
+                          tabindex="0"
+                          role="button"
+                          aria-pressed="false"
+                          data-solution-step="4"
+                        >
+                          <span class="solution-flow-node" aria-hidden="true"></span>
+                          <strong>Automatic Compliance Inspection</strong>
+                          <small>自动合规检测</small>
+                          <span class="solution-flow-detail">
+                            <span>Match platform forbidden words and content risk screening</span>
+                            <small>匹配平台违禁词，完成内容风险筛查</small>
+                          </span>
+                        </article>
+                        <article
+                          class="solution-flow-step"
+                          tabindex="0"
+                          role="button"
+                          aria-pressed="false"
+                          data-solution-step="5"
+                        >
+                          <span class="solution-flow-node" aria-hidden="true"></span>
+                          <strong>Manual Fine Tuning &amp; Export</strong>
+                          <small>人工微调导出</small>
+                          <span class="solution-flow-detail">
+                            <span>Optimize details and finish final content delivery</span>
+                            <small>细节优化调整，完成最终内容输出</small>
+                          </span>
+                        </article>
+                      </div>
+                    </section>
+                  </div>
+
+                  <section class="solution-risk-section">
+                    <div class="solution-zone-heading">
+                      <strong>Risk Control &amp; Output Standard</strong>
+                      <small>风控机制与输出规范</small>
+                    </div>
+                    <div class="solution-risk-grid">
+                      <article class="solution-risk-card">
+                        <strong>AI Generation Restriction</strong>
+                        <span>Strictly rely on imported knowledge base, reduce content illusion</span>
+                        <small>严格依托导入知识库生成，减少内容虚构偏差</small>
+                      </article>
+                      <article class="solution-risk-card">
+                        <strong>Multi-scene Adaptation Rule</strong>
+                        <span>Distinguish different national languages and regional market habits</span>
+                        <small>区分多国语言风格与海外区域市场使用习惯</small>
+                      </article>
+                    </div>
+                  </section>
+                </section>
+
+                <section
+                  class="product-function-module"
+                  aria-label="Product function and process design"
+                >
+                  <section class="product-design-section">
+                    <div class="product-section-heading">
+                      <strong>Overall Product Architecture</strong>
+                      <small>整体产品架构图</small>
+                    </div>
+
+                    <div class="product-architecture-layout">
+                      <div class="product-svg-shell">
+                        <svg
+                          class="product-architecture-svg product-architecture-svg--desktop"
+                          viewBox="0 0 780 390"
+                          role="img"
+                          aria-label="Interactive three-layer product architecture"
+                        >
+                          <g
+                            class="architecture-tier"
+                            tabindex="0"
+                            role="button"
+                            aria-expanded="false"
+                            data-architecture-tier="application"
+                            data-tier-title="Application Layer"
+                            data-tier-title-zh="应用层"
+                            data-tier-copy="Copy generation, content management, and publishing capabilities"
+                            data-tier-copy-zh="承载文案生成、内容管理与发布能力"
+                          >
+                            <rect class="tier-surface" x="25" y="20" width="730" height="100" rx="18"></rect>
+                            <text class="tier-title-en" x="50" y="62">Application Layer</text>
+                            <text class="tier-title-zh" x="50" y="84">应用层</text>
+                            <text class="tier-expand-mark" x="718" y="77">+</text>
+                            <g class="tier-components">
+                              <g class="tier-component">
+                                <rect x="320" y="39" width="126" height="61" rx="12"></rect>
+                                <text x="383" y="65" text-anchor="middle">Copy Generation</text>
+                                <text x="383" y="84" text-anchor="middle">文案生成</text>
+                              </g>
+                              <g class="tier-component">
+                                <rect x="457" y="39" width="126" height="61" rx="12"></rect>
+                                <text x="520" y="65" text-anchor="middle">Management</text>
+                                <text x="520" y="84" text-anchor="middle">内容管理</text>
+                              </g>
+                              <g class="tier-component">
+                                <rect x="594" y="39" width="104" height="61" rx="12"></rect>
+                                <text x="646" y="65" text-anchor="middle">Publishing</text>
+                                <text x="646" y="84" text-anchor="middle">内容发布</text>
+                              </g>
+                            </g>
+                          </g>
+
+                          <path d="M390 120 V145" stroke="rgba(0,47,167,.2)" stroke-width="2"></path>
+
+                          <g
+                            class="architecture-tier"
+                            tabindex="0"
+                            role="button"
+                            aria-expanded="false"
+                            data-architecture-tier="engine"
+                            data-tier-title="AI Engine Layer"
+                            data-tier-title-zh="AI引擎层"
+                            data-tier-copy="RAG retrieval, prompt orchestration, and compliance guardrails"
+                            data-tier-copy-zh="整合RAG检索、提示词编排与合规护栏"
+                          >
+                            <rect class="tier-surface" x="25" y="145" width="730" height="100" rx="18"></rect>
+                            <text class="tier-title-en" x="50" y="187">AI Engine Layer</text>
+                            <text class="tier-title-zh" x="50" y="209">AI引擎层</text>
+                            <text class="tier-expand-mark" x="718" y="202">+</text>
+                            <g class="tier-components">
+                              <g class="tier-component">
+                                <rect x="320" y="164" width="126" height="61" rx="12"></rect>
+                                <text x="383" y="190" text-anchor="middle">RAG Retrieval</text>
+                                <text x="383" y="209" text-anchor="middle">RAG检索</text>
+                              </g>
+                              <g class="tier-component">
+                                <rect x="457" y="164" width="126" height="61" rx="12"></rect>
+                                <text x="520" y="190" text-anchor="middle">Prompt System</text>
+                                <text x="520" y="209" text-anchor="middle">提示词体系</text>
+                              </g>
+                              <g class="tier-component">
+                                <rect x="594" y="164" width="104" height="61" rx="12"></rect>
+                                <text x="646" y="190" text-anchor="middle">Guardrails</text>
+                                <text x="646" y="209" text-anchor="middle">合规护栏</text>
+                              </g>
+                            </g>
+                          </g>
+
+                          <path d="M390 245 V270" stroke="rgba(0,47,167,.2)" stroke-width="2"></path>
+
+                          <g
+                            class="architecture-tier"
+                            tabindex="0"
+                            role="button"
+                            aria-expanded="false"
+                            data-architecture-tier="data"
+                            data-tier-title="Data Layer"
+                            data-tier-title-zh="数据层"
+                            data-tier-copy="User data, private knowledge, and industry compliance rules"
+                            data-tier-copy-zh="沉淀用户数据、私有知识与行业合规规则"
+                          >
+                            <rect class="tier-surface" x="25" y="270" width="730" height="100" rx="18"></rect>
+                            <text class="tier-title-en" x="50" y="312">Data Layer</text>
+                            <text class="tier-title-zh" x="50" y="334">数据层</text>
+                            <text class="tier-expand-mark" x="718" y="327">+</text>
+                            <g class="tier-components">
+                              <g class="tier-component">
+                                <rect x="320" y="289" width="126" height="61" rx="12"></rect>
+                                <text x="383" y="315" text-anchor="middle">User Data</text>
+                                <text x="383" y="334" text-anchor="middle">用户数据</text>
+                              </g>
+                              <g class="tier-component">
+                                <rect x="457" y="289" width="126" height="61" rx="12"></rect>
+                                <text x="520" y="315" text-anchor="middle">Knowledge Base</text>
+                                <text x="520" y="334" text-anchor="middle">知识库</text>
+                              </g>
+                              <g class="tier-component">
+                                <rect x="594" y="289" width="104" height="61" rx="12"></rect>
+                                <text x="646" y="315" text-anchor="middle">Industry Rules</text>
+                                <text x="646" y="334" text-anchor="middle">行业规则</text>
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
+
+                        <svg
+                          class="product-architecture-svg product-architecture-svg--mobile"
+                          viewBox="0 0 420 810"
+                          role="img"
+                          aria-label="Interactive vertical three-layer product architecture"
+                        >
+                          <g
+                            class="architecture-tier"
+                            tabindex="0"
+                            role="button"
+                            aria-expanded="false"
+                            data-architecture-tier="application"
+                            data-tier-title="Application Layer"
+                            data-tier-title-zh="应用层"
+                            data-tier-copy="Copy generation, content management, and publishing capabilities"
+                            data-tier-copy-zh="承载文案生成、内容管理与发布能力"
+                          >
+                            <rect class="tier-surface" x="10" y="10" width="400" height="240" rx="18"></rect>
+                            <text class="tier-title-en" x="34" y="48">Application Layer</text>
+                            <text class="tier-title-zh" x="34" y="70">应用层</text>
+                            <text class="tier-expand-mark" x="378" y="60">+</text>
+                            <g class="tier-components">
+                              <g class="tier-component">
+                                <rect x="34" y="92" width="352" height="39" rx="10"></rect>
+                                <text x="55" y="109">Copy Generation</text>
+                                <text x="55" y="124">文案生成</text>
+                              </g>
+                              <g class="tier-component">
+                                <rect x="34" y="140" width="352" height="39" rx="10"></rect>
+                                <text x="55" y="157">Content Management</text>
+                                <text x="55" y="172">内容管理</text>
+                              </g>
+                              <g class="tier-component">
+                                <rect x="34" y="188" width="352" height="39" rx="10"></rect>
+                                <text x="55" y="205">Publishing</text>
+                                <text x="55" y="220">内容发布</text>
+                              </g>
+                            </g>
+                          </g>
+
+                          <path d="M210 250 V280" stroke="rgba(0,47,167,.2)" stroke-width="2"></path>
+
+                          <g
+                            class="architecture-tier"
+                            tabindex="0"
+                            role="button"
+                            aria-expanded="false"
+                            data-architecture-tier="engine"
+                            data-tier-title="AI Engine Layer"
+                            data-tier-title-zh="AI引擎层"
+                            data-tier-copy="RAG retrieval, prompt orchestration, and compliance guardrails"
+                            data-tier-copy-zh="整合RAG检索、提示词编排与合规护栏"
+                          >
+                            <rect class="tier-surface" x="10" y="280" width="400" height="240" rx="18"></rect>
+                            <text class="tier-title-en" x="34" y="318">AI Engine Layer</text>
+                            <text class="tier-title-zh" x="34" y="340">AI引擎层</text>
+                            <text class="tier-expand-mark" x="378" y="330">+</text>
+                            <g class="tier-components">
+                              <g class="tier-component">
+                                <rect x="34" y="362" width="352" height="39" rx="10"></rect>
+                                <text x="55" y="379">RAG Retrieval</text>
+                                <text x="55" y="394">RAG检索</text>
+                              </g>
+                              <g class="tier-component">
+                                <rect x="34" y="410" width="352" height="39" rx="10"></rect>
+                                <text x="55" y="427">Prompt System</text>
+                                <text x="55" y="442">提示词体系</text>
+                              </g>
+                              <g class="tier-component">
+                                <rect x="34" y="458" width="352" height="39" rx="10"></rect>
+                                <text x="55" y="475">Compliance Guardrails</text>
+                                <text x="55" y="490">合规护栏</text>
+                              </g>
+                            </g>
+                          </g>
+
+                          <path d="M210 520 V550" stroke="rgba(0,47,167,.2)" stroke-width="2"></path>
+
+                          <g
+                            class="architecture-tier"
+                            tabindex="0"
+                            role="button"
+                            aria-expanded="false"
+                            data-architecture-tier="data"
+                            data-tier-title="Data Layer"
+                            data-tier-title-zh="数据层"
+                            data-tier-copy="User data, private knowledge, and industry compliance rules"
+                            data-tier-copy-zh="沉淀用户数据、私有知识与行业合规规则"
+                          >
+                            <rect class="tier-surface" x="10" y="550" width="400" height="240" rx="18"></rect>
+                            <text class="tier-title-en" x="34" y="588">Data Layer</text>
+                            <text class="tier-title-zh" x="34" y="610">数据层</text>
+                            <text class="tier-expand-mark" x="378" y="600">+</text>
+                            <g class="tier-components">
+                              <g class="tier-component">
+                                <rect x="34" y="632" width="352" height="39" rx="10"></rect>
+                                <text x="55" y="649">User Data</text>
+                                <text x="55" y="664">用户数据</text>
+                              </g>
+                              <g class="tier-component">
+                                <rect x="34" y="680" width="352" height="39" rx="10"></rect>
+                                <text x="55" y="697">Knowledge Base</text>
+                                <text x="55" y="712">知识库</text>
+                              </g>
+                              <g class="tier-component">
+                                <rect x="34" y="728" width="352" height="39" rx="10"></rect>
+                                <text x="55" y="745">Industry Rules</text>
+                                <text x="55" y="760">行业规则</text>
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+
+                      <aside class="product-insight-panel architecture-tier-detail" aria-live="polite">
+                        <strong>Select an architecture layer</strong>
+                        <small>选择架构层级</small>
+                        <span>Hover to preview, then click to reveal the core components</span>
+                        <small class="product-insight-copy-zh">悬停预览，点击展开该层核心组件</small>
+                      </aside>
+                    </div>
+                  </section>
+
+                  <section class="product-design-section">
+                    <div class="product-section-heading">
+                      <strong>Core Function Modules</strong>
+                      <small>核心功能模块拆解</small>
+                    </div>
+
+                    <div class="function-module-list">
+                      <button class="function-module-card" type="button" aria-expanded="false">
+                        <span class="function-module-head">
+                          <span class="function-module-title">
+                            <strong>Knowledge Base Management</strong>
+                            <small>知识库管理</small>
+                          </span>
+                          <span class="function-module-toggle" aria-hidden="true"></span>
+                        </span>
+                        <span class="function-module-detail">
+                          <span>Upload, store, and manage brand documents and compliance rules</span>
+                          <small>上传、存储与管理品牌文档及合规规则</small>
+                        </span>
+                      </button>
+
+                      <button class="function-module-card" type="button" aria-expanded="false">
+                        <span class="function-module-head">
+                          <span class="function-module-title">
+                            <strong>Cross-border Copy Generation</strong>
+                            <small>跨境文案生成</small>
+                          </span>
+                          <span class="function-module-toggle" aria-hidden="true"></span>
+                        </span>
+                        <span class="function-module-detail">
+                          <span>Generate compliant multi-language marketing copy based on scenarios</span>
+                          <small>基于场景生成合规的多语言营销文案</small>
+                        </span>
+                      </button>
+
+                      <button class="function-module-card" type="button" aria-expanded="false">
+                        <span class="function-module-head">
+                          <span class="function-module-title">
+                            <strong>Template &amp; Tone Control</strong>
+                            <small>模板与调性控制</small>
+                          </span>
+                          <span class="function-module-toggle" aria-hidden="true"></span>
+                        </span>
+                        <span class="function-module-detail">
+                          <span>Customize brand templates and tone for consistent output</span>
+                          <small>自定义品牌模板与调性，确保输出风格统一</small>
+                        </span>
+                      </button>
+
+                      <button class="function-module-card" type="button" aria-expanded="false">
+                        <span class="function-module-head">
+                          <span class="function-module-title">
+                            <strong>Compliance Review &amp; Audit</strong>
+                            <small>合规审查与审核</small>
+                          </span>
+                          <span class="function-module-toggle" aria-hidden="true"></span>
+                        </span>
+                        <span class="function-module-detail">
+                          <span>Pre-check copy content against platform rules and compliance policies</span>
+                          <small>对照平台规则与合规政策预校验文案内容</small>
+                        </span>
+                      </button>
+
+                      <button class="function-module-card" type="button" aria-expanded="false">
+                        <span class="function-module-head">
+                          <span class="function-module-title">
+                            <strong>Batch Generation &amp; Export</strong>
+                            <small>批量生成与导出</small>
+                          </span>
+                          <span class="function-module-toggle" aria-hidden="true"></span>
+                        </span>
+                        <span class="function-module-detail">
+                          <span>Create multiple copies at once and export in required formats</span>
+                          <small>批量生成多份文案并按指定格式导出</small>
+                        </span>
+                      </button>
+                    </div>
+                  </section>
+
+                  <section class="product-design-section workflow-section">
+                    <div class="product-section-heading">
+                      <strong>User End-to-end Workflow</strong>
+                      <small>用户完整使用流程</small>
+                    </div>
+
+                    <div class="workflow-shell">
+                      <svg
+                        class="workflow-svg workflow-svg--desktop"
+                        viewBox="0 0 1160 190"
+                        role="img"
+                        aria-label="End-to-end user workflow"
+                      >
+                        <line class="workflow-link" data-workflow-link="0" x1="128" y1="82" x2="247" y2="82"></line>
+                        <line class="workflow-link" data-workflow-link="1" x1="323" y1="82" x2="442" y2="82"></line>
+                        <line class="workflow-link" data-workflow-link="2" x1="518" y1="82" x2="637" y2="82"></line>
+                        <line class="workflow-link" data-workflow-link="3" x1="713" y1="82" x2="832" y2="82"></line>
+                        <line class="workflow-link" data-workflow-link="4" x1="908" y1="82" x2="1027" y2="82"></line>
+
+                        <g
+                          class="workflow-node"
+                          tabindex="0"
+                          role="button"
+                          data-workflow-step="0"
+                          data-step-title="Sign-up &amp; Onboarding"
+                          data-step-title-zh="注册与引导"
+                          data-step-copy="Create an account and complete the guided product setup"
+                          data-step-copy-zh="创建账户并完成产品引导设置"
+                        >
+                          <circle cx="90" cy="82" r="38"></circle>
+                          <text class="workflow-step-index" x="90" y="86">01</text>
+                          <text class="workflow-step-en" x="90" y="150">Sign-up &amp; Onboarding</text>
+                          <text class="workflow-step-zh" x="90" y="169">注册与引导</text>
+                        </g>
+                        <g
+                          class="workflow-node"
+                          tabindex="0"
+                          role="button"
+                          data-workflow-step="1"
+                          data-step-title="Knowledge Base Setup"
+                          data-step-title-zh="知识库搭建"
+                          data-step-copy="Upload brand documents, product materials, and compliance rules"
+                          data-step-copy-zh="上传品牌文档、产品资料与合规规则"
+                        >
+                          <circle cx="285" cy="82" r="38"></circle>
+                          <text class="workflow-step-index" x="285" y="86">02</text>
+                          <text class="workflow-step-en" x="285" y="150">Knowledge Base Setup</text>
+                          <text class="workflow-step-zh" x="285" y="169">知识库搭建</text>
+                        </g>
+                        <g
+                          class="workflow-node"
+                          tabindex="0"
+                          role="button"
+                          data-workflow-step="2"
+                          data-step-title="Scenario Selection"
+                          data-step-title-zh="场景选择"
+                          data-step-copy="Choose the target platform, market, and marketing content scenario"
+                          data-step-copy-zh="选择目标平台、市场与营销内容场景"
+                        >
+                          <circle cx="480" cy="82" r="38"></circle>
+                          <text class="workflow-step-index" x="480" y="86">03</text>
+                          <text class="workflow-step-en" x="480" y="150">Scenario Selection</text>
+                          <text class="workflow-step-zh" x="480" y="169">场景选择</text>
+                        </g>
+                        <g
+                          class="workflow-node"
+                          tabindex="0"
+                          role="button"
+                          data-workflow-step="3"
+                          data-step-title="Copy Generation"
+                          data-step-title-zh="文案生成"
+                          data-step-copy="Generate scenario-specific multi-language marketing copy"
+                          data-step-copy-zh="生成适配场景的多语言营销文案"
+                        >
+                          <circle cx="675" cy="82" r="38"></circle>
+                          <text class="workflow-step-index" x="675" y="86">04</text>
+                          <text class="workflow-step-en" x="675" y="150">Copy Generation</text>
+                          <text class="workflow-step-zh" x="675" y="169">文案生成</text>
+                        </g>
+                        <g
+                          class="workflow-node"
+                          tabindex="0"
+                          role="button"
+                          data-workflow-step="4"
+                          data-step-title="Compliance Check"
+                          data-step-title-zh="合规校验"
+                          data-step-copy="Validate generated content against platform and compliance guardrails"
+                          data-step-copy-zh="依据平台规则与合规护栏校验生成内容"
+                        >
+                          <circle cx="870" cy="82" r="38"></circle>
+                          <text class="workflow-step-index" x="870" y="86">05</text>
+                          <text class="workflow-step-en" x="870" y="150">Compliance Check</text>
+                          <text class="workflow-step-zh" x="870" y="169">合规校验</text>
+                        </g>
+                        <g
+                          class="workflow-node"
+                          tabindex="0"
+                          role="button"
+                          data-workflow-step="5"
+                          data-step-title="Export &amp; Publish"
+                          data-step-title-zh="导出与发布"
+                          data-step-copy="Export approved content in the required format and publish"
+                          data-step-copy-zh="按指定格式导出已通过审核的内容并发布"
+                        >
+                          <circle cx="1065" cy="82" r="38"></circle>
+                          <text class="workflow-step-index" x="1065" y="86">06</text>
+                          <text class="workflow-step-en" x="1065" y="150">Export &amp; Publish</text>
+                          <text class="workflow-step-zh" x="1065" y="169">导出与发布</text>
+                        </g>
+                      </svg>
+
+                      <svg
+                        class="workflow-svg workflow-svg--mobile"
+                        viewBox="0 0 420 760"
+                        role="img"
+                        aria-label="Vertical end-to-end user workflow"
+                      >
+                        <line class="workflow-link" data-workflow-link="0" x1="70" y1="108" x2="70" y2="152"></line>
+                        <line class="workflow-link" data-workflow-link="1" x1="70" y1="228" x2="70" y2="272"></line>
+                        <line class="workflow-link" data-workflow-link="2" x1="70" y1="348" x2="70" y2="392"></line>
+                        <line class="workflow-link" data-workflow-link="3" x1="70" y1="468" x2="70" y2="512"></line>
+                        <line class="workflow-link" data-workflow-link="4" x1="70" y1="588" x2="70" y2="632"></line>
+
+                        <g class="workflow-node" tabindex="0" role="button" data-workflow-step="0"
+                          data-step-title="Sign-up &amp; Onboarding" data-step-title-zh="注册与引导"
+                          data-step-copy="Create an account and complete the guided product setup"
+                          data-step-copy-zh="创建账户并完成产品引导设置">
+                          <circle cx="70" cy="70" r="38"></circle>
+                          <text class="workflow-step-index" x="70" y="74">01</text>
+                          <text class="workflow-step-en" x="130" y="65">Sign-up &amp; Onboarding</text>
+                          <text class="workflow-step-zh" x="130" y="87">注册与引导</text>
+                        </g>
+                        <g class="workflow-node" tabindex="0" role="button" data-workflow-step="1"
+                          data-step-title="Knowledge Base Setup" data-step-title-zh="知识库搭建"
+                          data-step-copy="Upload brand documents, product materials, and compliance rules"
+                          data-step-copy-zh="上传品牌文档、产品资料与合规规则">
+                          <circle cx="70" cy="190" r="38"></circle>
+                          <text class="workflow-step-index" x="70" y="194">02</text>
+                          <text class="workflow-step-en" x="130" y="185">Knowledge Base Setup</text>
+                          <text class="workflow-step-zh" x="130" y="207">知识库搭建</text>
+                        </g>
+                        <g class="workflow-node" tabindex="0" role="button" data-workflow-step="2"
+                          data-step-title="Scenario Selection" data-step-title-zh="场景选择"
+                          data-step-copy="Choose the target platform, market, and marketing content scenario"
+                          data-step-copy-zh="选择目标平台、市场与营销内容场景">
+                          <circle cx="70" cy="310" r="38"></circle>
+                          <text class="workflow-step-index" x="70" y="314">03</text>
+                          <text class="workflow-step-en" x="130" y="305">Scenario Selection</text>
+                          <text class="workflow-step-zh" x="130" y="327">场景选择</text>
+                        </g>
+                        <g class="workflow-node" tabindex="0" role="button" data-workflow-step="3"
+                          data-step-title="Copy Generation" data-step-title-zh="文案生成"
+                          data-step-copy="Generate scenario-specific multi-language marketing copy"
+                          data-step-copy-zh="生成适配场景的多语言营销文案">
+                          <circle cx="70" cy="430" r="38"></circle>
+                          <text class="workflow-step-index" x="70" y="434">04</text>
+                          <text class="workflow-step-en" x="130" y="425">Copy Generation</text>
+                          <text class="workflow-step-zh" x="130" y="447">文案生成</text>
+                        </g>
+                        <g class="workflow-node" tabindex="0" role="button" data-workflow-step="4"
+                          data-step-title="Compliance Check" data-step-title-zh="合规校验"
+                          data-step-copy="Validate generated content against platform and compliance guardrails"
+                          data-step-copy-zh="依据平台规则与合规护栏校验生成内容">
+                          <circle cx="70" cy="550" r="38"></circle>
+                          <text class="workflow-step-index" x="70" y="554">05</text>
+                          <text class="workflow-step-en" x="130" y="545">Compliance Check</text>
+                          <text class="workflow-step-zh" x="130" y="567">合规校验</text>
+                        </g>
+                        <g class="workflow-node" tabindex="0" role="button" data-workflow-step="5"
+                          data-step-title="Export &amp; Publish" data-step-title-zh="导出与发布"
+                          data-step-copy="Export approved content in the required format and publish"
+                          data-step-copy-zh="按指定格式导出已通过审核的内容并发布">
+                          <circle cx="70" cy="670" r="38"></circle>
+                          <text class="workflow-step-index" x="70" y="674">06</text>
+                          <text class="workflow-step-en" x="130" y="665">Export &amp; Publish</text>
+                          <text class="workflow-step-zh" x="130" y="687">导出与发布</text>
+                        </g>
+                      </svg>
+
+                      <div class="workflow-static-grid">
+                        <div class="workflow-static-item">
+                          <div class="workflow-static-head">
+                            <span class="workflow-static-index">01</span>
+                            <span class="workflow-static-title">
+                              <strong>Sign-up &amp; Onboarding</strong>
+                              <small>注册与引导</small>
+                            </span>
+                          </div>
+                          <div class="workflow-static-copy">
+                            <p>Create an account and complete the guided product setup</p>
+                            <small>创建账户并完成产品引导设置</small>
+                          </div>
+                        </div>
+                        <div class="workflow-static-item">
+                          <div class="workflow-static-head">
+                            <span class="workflow-static-index">02</span>
+                            <span class="workflow-static-title">
+                              <strong>Knowledge Base Setup</strong>
+                              <small>知识库搭建</small>
+                            </span>
+                          </div>
+                          <div class="workflow-static-copy">
+                            <p>Upload brand documents, product materials, and compliance rules</p>
+                            <small>上传品牌文档、产品资料与合规规则</small>
+                          </div>
+                        </div>
+                        <div class="workflow-static-item">
+                          <div class="workflow-static-head">
+                            <span class="workflow-static-index">03</span>
+                            <span class="workflow-static-title">
+                              <strong>Scenario Selection</strong>
+                              <small>场景选择</small>
+                            </span>
+                          </div>
+                          <div class="workflow-static-copy">
+                            <p>Choose the target platform, market, and marketing content scenario</p>
+                            <small>选择目标平台、市场与营销内容场景</small>
+                          </div>
+                        </div>
+                        <div class="workflow-static-item">
+                          <div class="workflow-static-head">
+                            <span class="workflow-static-index">04</span>
+                            <span class="workflow-static-title">
+                              <strong>Copy Generation</strong>
+                              <small>文案生成</small>
+                            </span>
+                          </div>
+                          <div class="workflow-static-copy">
+                            <p>Generate scenario-specific multi-language marketing copy</p>
+                            <small>生成适配场景的多语言营销文案</small>
+                          </div>
+                        </div>
+                        <div class="workflow-static-item">
+                          <div class="workflow-static-head">
+                            <span class="workflow-static-index">05</span>
+                            <span class="workflow-static-title">
+                              <strong>Compliance Check</strong>
+                              <small>合规校验</small>
+                            </span>
+                          </div>
+                          <div class="workflow-static-copy">
+                            <p>Validate generated content against platform and compliance guardrails</p>
+                            <small>依据平台规则与合规护栏校验生成内容</small>
+                          </div>
+                        </div>
+                        <div class="workflow-static-item">
+                          <div class="workflow-static-head">
+                            <span class="workflow-static-index">06</span>
+                            <span class="workflow-static-title">
+                              <strong>Export &amp; Publish</strong>
+                              <small>导出与发布</small>
+                            </span>
+                          </div>
+                          <div class="workflow-static-copy">
+                            <p>Export approved content in the required format and publish</p>
+                            <small>按指定格式导出已通过审核的内容并发布</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="product-design-section">
+                    <div class="product-section-heading">
+                      <strong>Rules &amp; Risk Control System</strong>
+                      <small>规则与风控体系</small>
+                    </div>
+
+                    <div class="product-rules-stack">
+                      <section class="product-rule-subsection">
+                        <div class="product-rule-subsection-heading">
+                          <strong>AI Trigger Logic &amp; Output Specifications</strong>
+                          <small>AI触发逻辑与输出规范</small>
+                        </div>
+                        <div class="product-rule-grid">
+                          <article class="product-rule-card">
+                            <strong>Trigger Conditions</strong>
+                            <small>触发条件</small>
+                            <span>Scenario selection + keyword input + brand tone settings</span>
+                            <small>场景选择 + 关键词输入 + 品牌调性设置</small>
+                          </article>
+                          <article class="product-rule-card">
+                            <strong>Output Format</strong>
+                            <small>输出规范</small>
+                            <span>Structured marketing copy with compliance check tags</span>
+                            <small>带合规校验标签的结构化营销文案</small>
+                          </article>
+                        </div>
+                      </section>
+
+                      <section class="product-rule-subsection">
+                        <div class="product-rule-subsection-heading">
+                          <strong>Permission &amp; Role-based Process</strong>
+                          <small>权限管理与角色流程</small>
+                        </div>
+                        <article class="permission-process-card">
+                          <strong>Role-based Access Control</strong>
+                          <small>基于角色的权限控制</small>
+                          <span>Role-based access for admin, editor, and reviewer</span>
+                          <small>支持管理员、编辑、审核员不同流程</small>
+                        </article>
+                      </section>
+
+                      <section class="product-rule-subsection">
+                        <div class="product-rule-subsection-heading">
+                          <strong>Risk Control &amp; Anti-hallucination Strategy</strong>
+                          <small>风控规则与防幻觉策略</small>
+                        </div>
+                        <div class="risk-control-layout">
+                          <div class="risk-tab-list" role="tablist" aria-label="Risk control strategies">
+                            <button
+                              class="risk-tab is-active"
+                              type="button"
+                              role="tab"
+                              aria-selected="true"
+                              data-risk-title="Compliance Guardrails"
+                              data-risk-title-zh="合规护栏"
+                              data-risk-copy="Built-in platform rule checks for restricted words and prohibited content"
+                              data-risk-copy-zh="内置平台规则校验，识别受限词与违规内容"
+                            >
+                              <span>Compliance Guardrails</span>
+                              <small>合规护栏</small>
+                            </button>
+                            <button
+                              class="risk-tab"
+                              type="button"
+                              role="tab"
+                              aria-selected="false"
+                              data-risk-title="Source Attribution"
+                              data-risk-title-zh="来源溯源"
+                              data-risk-copy="Generated content links back to knowledge base references"
+                              data-risk-copy-zh="生成内容关联知识库参考来源，便于追溯"
+                            >
+                              <span>Source Attribution</span>
+                              <small>来源溯源</small>
+                            </button>
+                            <button
+                              class="risk-tab"
+                              type="button"
+                              role="tab"
+                              aria-selected="false"
+                              data-risk-title="Human Review"
+                              data-risk-title-zh="人工审核"
+                              data-risk-copy="Flag high-risk content for manual review before output"
+                              data-risk-copy-zh="高风险内容标记为待人工审核，确认后再输出"
+                            >
+                              <span>Human Review</span>
+                              <small>人工审核</small>
+                            </button>
+                          </div>
+
+                          <article class="risk-detail-panel" aria-live="polite">
+                            <strong>Compliance Guardrails</strong>
+                            <small>合规护栏</small>
+                            <span>Built-in platform rule checks for restricted words and prohibited content</span>
+                            <small class="risk-detail-copy-zh">内置平台规则校验，识别受限词与违规内容</small>
+                          </article>
+                        </div>
+                      </section>
+                    </div>
+                  </section>
+                </section>
+              </div>
+            </details>
+
+            <details class="case-accordion">
+              <summary>
+                <span class="accordion-index">07</span>
+                <span>
+                  <span class="accordion-title-en">Project Coordination &amp; Implementation</span>
+                  <span class="accordion-title-zh">项目统筹与落地推进</span>
+                </span>
+                <span class="accordion-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-content">
+                <p class="accordion-summary-en">
+                  Coordinate milestones, cross-functional ownership, delivery governance, and launch risk
+                  control.
+                </p>
+                <p class="accordion-summary-zh">
+                  统筹里程碑、跨职能协作、交付治理与上线风险管控。
+                </p>
+              </div>
+              <div class="accordion-detail">
+                <section class="project-implementation-module">
+                  <section class="implementation-section">
+                    <div class="implementation-section-heading">
+                      <strong>Project Milestone Roadmap</strong>
+                      <small>项目里程碑规划</small>
+                    </div>
+
+                    <div class="implementation-panel milestone-roadmap-panel">
+                      <p class="implementation-interaction-hint">
+                        <span class="implementation-interaction-copy">
+                          <span>Hover or click a milestone to view stage details</span>
+                          <small>悬停或点击里程碑，查看阶段详情</small>
+                        </span>
+                      </p>
+                      <div class="milestone-track" aria-label="Project milestone roadmap">
+                        <button
+                          class="milestone-stage is-active"
+                          type="button"
+                          aria-pressed="true"
+                          style="--stage-color: rgba(0, 47, 167, 0.3)"
+                          data-milestone-title="Requirements &amp; Technical Review"
+                          data-milestone-title-zh="需求与技术评审"
+                          data-milestone-copy="Align product scope, compliance requirements, and technical feasibility before delivery"
+                          data-milestone-copy-zh="交付前对齐产品范围、合规要求与技术可行性"
+                        >
+                          <span class="milestone-stage-title">
+                            <strong>Requirements &amp; Technical Review</strong>
+                            <small>需求与技术评审</small>
+                          </span>
+                        </button>
+                        <button
+                          class="milestone-stage"
+                          type="button"
+                          aria-pressed="false"
+                          style="--stage-color: rgba(0, 47, 167, 0.46)"
+                          data-milestone-title="Minimum Viable Product (MVP) Development"
+                          data-milestone-title-zh="最小可行产品（MVP）开发"
+                          data-milestone-copy="Build the private knowledge base, retrieval pipeline, copy generation, and core guardrails"
+                          data-milestone-copy-zh="搭建私有知识库、检索链路、文案生成与核心合规护栏"
+                        >
+                          <span class="milestone-stage-title">
+                            <strong>Minimum Viable Product (MVP) Development</strong>
+                            <small>最小可行产品（MVP）开发</small>
+                          </span>
+                        </button>
+                        <button
+                          class="milestone-stage"
+                          type="button"
+                          aria-pressed="false"
+                          style="--stage-color: rgba(0, 47, 167, 0.58)"
+                          data-milestone-title="Closed Beta Testing"
+                          data-milestone-title-zh="内部测试"
+                          data-milestone-copy="Validate core workflows with internal users and resolve functional defects"
+                          data-milestone-copy-zh="通过内部用户验证核心流程并修复功能缺陷"
+                        >
+                          <span class="milestone-stage-title">
+                            <strong>Closed Beta Testing</strong>
+                            <small>内部测试</small>
+                          </span>
+                        </button>
+                        <button
+                          class="milestone-stage"
+                          type="button"
+                          aria-pressed="false"
+                          style="--stage-color: rgba(0, 47, 167, 0.72)"
+                          data-milestone-title="Gradual Rollout"
+                          data-milestone-title-zh="灰度发布"
+                          data-milestone-copy="Release to a limited user cohort and monitor stability, quality, and compliance"
+                          data-milestone-copy-zh="向有限用户开放并监控稳定性、内容质量与合规表现"
+                        >
+                          <span class="milestone-stage-title">
+                            <strong>Gradual Rollout</strong>
+                            <small>灰度发布</small>
+                          </span>
+                        </button>
+                        <button
+                          class="milestone-stage"
+                          type="button"
+                          aria-pressed="false"
+                          style="--stage-color: var(--klein)"
+                          data-milestone-title="Full Launch"
+                          data-milestone-title-zh="全量上线"
+                          data-milestone-copy="Open the stable release to all target users with continuous operational monitoring"
+                          data-milestone-copy-zh="向全部目标用户开放稳定版本并持续进行运营监控"
+                        >
+                          <span class="milestone-stage-title">
+                            <strong>Full Launch</strong>
+                            <small>全量上线</small>
+                          </span>
+                        </button>
+                      </div>
+
+                      <article class="milestone-detail" aria-live="polite">
+                        <strong>Requirements &amp; Technical Review</strong>
+                        <small>需求与技术评审</small>
+                        <span>Align product scope, compliance requirements, and technical feasibility before delivery</span>
+                        <small class="milestone-detail-copy-zh">交付前对齐产品范围、合规要求与技术可行性</small>
+                      </article>
+                    </div>
+                  </section>
+
+                  <section class="implementation-section">
+                    <div class="implementation-section-heading">
+                      <strong>Cross-functional Collaboration Matrix</strong>
+                      <small>跨部门协作矩阵</small>
+                    </div>
+
+                    <div class="implementation-panel collaboration-matrix-panel">
+                      <div class="collaboration-matrix-header">
+                        <span class="matrix-corner-label">
+                          <span>Team / Phase</span>
+                          <small>部门 / 阶段</small>
+                        </span>
+                        <button
+                          class="matrix-stage-header"
+                          type="button"
+                          data-matrix-stage="review"
+                          data-detail-title="Requirements Review"
+                          data-detail-title-zh="需求评审"
+                          data-detail-copy="Algorithm, engineering, operations, marketing, and legal teams align scope and constraints"
+                          data-detail-copy-zh="算法、研发、运营、市场与法务共同对齐范围和约束"
+                        >
+                          <span>Requirements Review</span><small>需求评审</small>
+                        </button>
+                        <button
+                          class="matrix-stage-header"
+                          type="button"
+                          data-matrix-stage="development"
+                          data-detail-title="Development"
+                          data-detail-title-zh="开发"
+                          data-detail-copy="Algorithm, engineering, and quality assurance teams build and verify the product incrementally"
+                          data-detail-copy-zh="算法、研发与测试团队协同构建并逐步验证产品"
+                        >
+                          <span>Development</span><small>开发</small>
+                        </button>
+                        <button
+                          class="matrix-stage-header"
+                          type="button"
+                          data-matrix-stage="testing"
+                          data-detail-title="Testing"
+                          data-detail-title-zh="测试"
+                          data-detail-copy="Product quality, system stability, operational fit, and compliance are validated together"
+                          data-detail-copy-zh="联合验证产品质量、系统稳定性、运营适配与内容合规"
+                        >
+                          <span>Testing</span><small>测试</small>
+                        </button>
+                        <button
+                          class="matrix-stage-header"
+                          type="button"
+                          data-matrix-stage="launch"
+                          data-detail-title="Launch"
+                          data-detail-title-zh="上线"
+                          data-detail-copy="All participating teams support deployment, monitoring, user communication, and risk response"
+                          data-detail-copy-zh="各参与团队共同支持部署、监控、用户沟通与风险响应"
+                        >
+                          <span>Launch</span><small>上线</small>
+                        </button>
+                      </div>
+
+                      <div class="collaboration-matrix-row">
+                        <button
+                          class="matrix-department-header"
+                          type="button"
+                          data-matrix-department="algorithm"
+                          data-detail-title="Algorithm"
+                          data-detail-title-zh="算法"
+                          data-detail-copy="Own model feasibility, retrieval quality, generation performance, and prompt optimization"
+                          data-detail-copy-zh="负责模型可行性、检索质量、生成表现与提示词优化"
+                        ><span>Algorithm</span><small>算法</small></button>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="review" data-matrix-department="algorithm"
+                          data-detail-title="Algorithm · Requirements Review" data-detail-title-zh="算法 · 需求评审"
+                          data-detail-copy="Evaluate model feasibility and retrieval strategy" data-detail-copy-zh="评估模型可行性与检索策略">
+                          <span class="matrix-cell-stage-label"><span>Requirements Review</span><small>需求评审</small></span><span class="collaboration-dot"></span>
+                        </button>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="development" data-matrix-department="algorithm"
+                          data-detail-title="Algorithm · Development" data-detail-title-zh="算法 · 开发"
+                          data-detail-copy="Build the retrieval and generation pipeline" data-detail-copy-zh="搭建检索与生成链路">
+                          <span class="matrix-cell-stage-label"><span>Development</span><small>开发</small></span><span class="collaboration-dot"></span>
+                        </button>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="testing" data-matrix-department="algorithm"
+                          data-detail-title="Algorithm · Testing" data-detail-title-zh="算法 · 测试"
+                          data-detail-copy="Validate output quality and retrieval accuracy" data-detail-copy-zh="验证输出质量与检索准确性">
+                          <span class="matrix-cell-stage-label"><span>Testing</span><small>测试</small></span><span class="collaboration-dot"></span>
+                        </button>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="launch" data-matrix-department="algorithm"
+                          data-detail-title="Algorithm · Launch" data-detail-title-zh="算法 · 上线"
+                          data-detail-copy="Monitor model quality and optimize prompts after launch" data-detail-copy-zh="上线后监控模型质量并优化提示词">
+                          <span class="matrix-cell-stage-label"><span>Launch</span><small>上线</small></span><span class="collaboration-dot"></span>
+                        </button>
+                      </div>
+
+                      <div class="collaboration-matrix-row">
+                        <button class="matrix-department-header" type="button" data-matrix-department="engineering"
+                          data-detail-title="Engineering" data-detail-title-zh="研发"
+                          data-detail-copy="Own architecture estimation, feature implementation, system quality, deployment, and troubleshooting"
+                          data-detail-copy-zh="负责架构评估、功能实现、系统质量、部署与线上排障"><span>Engineering</span><small>研发</small></button>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="review" data-matrix-department="engineering"
+                          data-detail-title="Engineering · Requirements Review" data-detail-title-zh="研发 · 需求评审"
+                          data-detail-copy="Estimate architecture, dependencies, and deployment resources" data-detail-copy-zh="评估技术架构、依赖与部署资源">
+                          <span class="matrix-cell-stage-label"><span>Requirements Review</span><small>需求评审</small></span><span class="collaboration-dot"></span>
+                        </button>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="development" data-matrix-department="engineering"
+                          data-detail-title="Engineering · Development" data-detail-title-zh="研发 · 开发"
+                          data-detail-copy="Implement the frontend, backend, database, and application interfaces" data-detail-copy-zh="实现前后端、数据库与应用接口">
+                          <span class="matrix-cell-stage-label"><span>Development</span><small>开发</small></span><span class="collaboration-dot"></span>
+                        </button>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="testing" data-matrix-department="engineering"
+                          data-detail-title="Engineering · Testing" data-detail-title-zh="研发 · 测试"
+                          data-detail-copy="Resolve defects and verify system stability" data-detail-copy-zh="修复缺陷并验证系统稳定性">
+                          <span class="matrix-cell-stage-label"><span>Testing</span><small>测试</small></span><span class="collaboration-dot"></span>
+                        </button>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="launch" data-matrix-department="engineering"
+                          data-detail-title="Engineering · Launch" data-detail-title-zh="研发 · 上线"
+                          data-detail-copy="Deploy services and troubleshoot production incidents" data-detail-copy-zh="部署服务并处理线上故障">
+                          <span class="matrix-cell-stage-label"><span>Launch</span><small>上线</small></span><span class="collaboration-dot"></span>
+                        </button>
+                      </div>
+
+                      <div class="collaboration-matrix-row">
+                        <button class="matrix-department-header" type="button" data-matrix-department="quality"
+                          data-detail-title="Quality Assurance" data-detail-title-zh="测试"
+                          data-detail-copy="Own acceptance criteria, functional validation, regression testing, and launch verification"
+                          data-detail-copy-zh="负责验收标准、功能验证、回归测试与上线确认"><span>Quality Assurance</span><small>测试</small></button>
+                        <span class="collaboration-cell is-empty" aria-hidden="true"></span>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="development" data-matrix-department="quality"
+                          data-detail-title="Quality Assurance · Development" data-detail-title-zh="测试 · 开发"
+                          data-detail-copy="Define acceptance criteria and prepare core test cases" data-detail-copy-zh="制定验收标准并准备核心测试用例">
+                          <span class="matrix-cell-stage-label"><span>Development</span><small>开发</small></span><span class="collaboration-dot"></span>
+                        </button>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="testing" data-matrix-department="quality"
+                          data-detail-title="Quality Assurance · Testing" data-detail-title-zh="测试 · 测试阶段"
+                          data-detail-copy="Execute functional, regression, and boundary testing" data-detail-copy-zh="执行功能、回归与边界测试">
+                          <span class="matrix-cell-stage-label"><span>Testing</span><small>测试</small></span><span class="collaboration-dot"></span>
+                        </button>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="launch" data-matrix-department="quality"
+                          data-detail-title="Quality Assurance · Launch" data-detail-title-zh="测试 · 上线"
+                          data-detail-copy="Verify the production release and critical user paths" data-detail-copy-zh="验证线上版本与关键用户路径">
+                          <span class="matrix-cell-stage-label"><span>Launch</span><small>上线</small></span><span class="collaboration-dot"></span>
+                        </button>
+                      </div>
+
+                      <div class="collaboration-matrix-row">
+                        <button class="matrix-department-header" type="button" data-matrix-department="operations"
+                          data-detail-title="Operations" data-detail-title-zh="运营"
+                          data-detail-copy="Own business scenarios, content validation, user feedback, and operational monitoring"
+                          data-detail-copy-zh="负责业务场景、内容验证、用户反馈与运营监控"><span>Operations</span><small>运营</small></button>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="review" data-matrix-department="operations"
+                          data-detail-title="Operations · Requirements Review" data-detail-title-zh="运营 · 需求评审"
+                          data-detail-copy="Define target scenarios and operational pain points" data-detail-copy-zh="明确目标场景与运营痛点">
+                          <span class="matrix-cell-stage-label"><span>Requirements Review</span><small>需求评审</small></span><span class="collaboration-dot"></span>
+                        </button>
+                        <span class="collaboration-cell is-empty" aria-hidden="true"></span>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="testing" data-matrix-department="operations"
+                          data-detail-title="Operations · Testing" data-detail-title-zh="运营 · 测试"
+                          data-detail-copy="Validate workflow usability and generated content quality" data-detail-copy-zh="验证流程可用性与生成内容质量">
+                          <span class="matrix-cell-stage-label"><span>Testing</span><small>测试</small></span><span class="collaboration-dot"></span>
+                        </button>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="launch" data-matrix-department="operations"
+                          data-detail-title="Operations · Launch" data-detail-title-zh="运营 · 上线"
+                          data-detail-copy="Collect feedback and monitor adoption after release" data-detail-copy-zh="上线后收集反馈并监控使用情况">
+                          <span class="matrix-cell-stage-label"><span>Launch</span><small>上线</small></span><span class="collaboration-dot"></span>
+                        </button>
+                      </div>
+
+                      <div class="collaboration-matrix-row">
+                        <button class="matrix-department-header" type="button" data-matrix-department="marketing"
+                          data-detail-title="Marketing" data-detail-title-zh="市场"
+                          data-detail-copy="Own positioning alignment, launch communication, and target merchant acquisition"
+                          data-detail-copy-zh="负责定位对齐、上线沟通与目标商家获客"><span>Marketing</span><small>市场</small></button>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="review" data-matrix-department="marketing"
+                          data-detail-title="Marketing · Requirements Review" data-detail-title-zh="市场 · 需求评审"
+                          data-detail-copy="Validate market positioning and target merchant messaging" data-detail-copy-zh="验证市场定位与目标商家沟通信息">
+                          <span class="matrix-cell-stage-label"><span>Requirements Review</span><small>需求评审</small></span><span class="collaboration-dot"></span>
+                        </button>
+                        <span class="collaboration-cell is-empty" aria-hidden="true"></span>
+                        <span class="collaboration-cell is-empty" aria-hidden="true"></span>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="launch" data-matrix-department="marketing"
+                          data-detail-title="Marketing · Launch" data-detail-title-zh="市场 · 上线"
+                          data-detail-copy="Coordinate launch communication and acquisition campaigns" data-detail-copy-zh="统筹上线传播与获客活动">
+                          <span class="matrix-cell-stage-label"><span>Launch</span><small>上线</small></span><span class="collaboration-dot"></span>
+                        </button>
+                      </div>
+
+                      <div class="collaboration-matrix-row">
+                        <button class="matrix-department-header" type="button" data-matrix-department="legal"
+                          data-detail-title="Legal &amp; Compliance" data-detail-title-zh="法务与合规"
+                          data-detail-copy="Own platform rule interpretation, policy review, compliance validation, and launch approval"
+                          data-detail-copy-zh="负责平台规则解读、政策审核、合规验证与上线确认"><span>Legal &amp; Compliance</span><small>法务与合规</small></button>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="review" data-matrix-department="legal"
+                          data-detail-title="Legal &amp; Compliance · Requirements Review" data-detail-title-zh="法务与合规 · 需求评审"
+                          data-detail-copy="Review platform rules and content policies" data-detail-copy-zh="审核平台规则与内容合规政策">
+                          <span class="matrix-cell-stage-label"><span>Requirements Review</span><small>需求评审</small></span><span class="collaboration-dot"></span>
+                        </button>
+                        <span class="collaboration-cell is-empty" aria-hidden="true"></span>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="testing" data-matrix-department="legal"
+                          data-detail-title="Legal &amp; Compliance · Testing" data-detail-title-zh="法务与合规 · 测试"
+                          data-detail-copy="Validate restricted words, prohibited content, and review boundaries" data-detail-copy-zh="验证受限词、违规内容与审核边界">
+                          <span class="matrix-cell-stage-label"><span>Testing</span><small>测试</small></span><span class="collaboration-dot"></span>
+                        </button>
+                        <button class="collaboration-cell" type="button" data-matrix-stage="launch" data-matrix-department="legal"
+                          data-detail-title="Legal &amp; Compliance · Launch" data-detail-title-zh="法务与合规 · 上线"
+                          data-detail-copy="Confirm launch compliance and escalation procedures" data-detail-copy-zh="确认上线合规状态与风险升级流程">
+                          <span class="matrix-cell-stage-label"><span>Launch</span><small>上线</small></span><span class="collaboration-dot"></span>
+                        </button>
+                      </div>
+
+                      <article class="collaboration-detail" aria-live="polite">
+                        <strong>Select a phase, team, or collaboration point</strong>
+                        <small>选择项目阶段、协作部门或协作节点</small>
+                        <span>Click a column or row to compare ownership, or inspect a blue point for its core responsibility</span>
+                        <small class="collaboration-detail-copy-zh">点击列或行查看协作范围，也可查看蓝色节点对应的核心职责</small>
+                      </article>
+                    </div>
+                  </section>
+
+                  <section class="implementation-section">
+                    <div class="implementation-section-heading">
+                      <strong>Project Governance &amp; Risk Management</strong>
+                      <small>项目管控与风险管理</small>
+                    </div>
+
+                    <div class="project-governance-grid">
+                      <article class="project-governance-card">
+                        <strong>Change Request Process &amp; Control</strong>
+                        <small>需求变更流程与管控</small>
+                        <span>Standardized review and approval process for all requirement changes</span>
+                        <small>所有需求变更均通过标准化评审与审批流程</small>
+                      </article>
+                      <article class="project-governance-card">
+                        <strong>Proactive Risk Identification &amp; Mitigation</strong>
+                        <small>风险前置识别与缓解</small>
+                        <span>Early risk assessment and contingency planning before each phase</span>
+                        <small>每个阶段前进行风险评估并制定应对预案</small>
+                      </article>
+                    </div>
+                  </section>
+                </section>
+              </div>
+            </details>
+
+            <details class="case-accordion">
+              <summary>
+                <span class="accordion-index">08</span>
+                <span>
+                  <span class="accordion-title-en">Online Data &amp; Business Value</span>
+                  <span class="accordion-title-zh">上线数据与业务价值</span>
+                </span>
+                <span class="accordion-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-content">
+                <p class="accordion-summary-en">
+                  Review product usage, AI performance, and business value through linked dimension cards and
+                  comparison bars.
+                </p>
+                <p class="accordion-summary-zh">
+                  通过联动维度卡片与对比条，复盘产品使用、AI 效果与业务价值。
+                </p>
+              </div>
+              <div class="accordion-detail">
+                <section class="online-value-dashboard">
+                  <section class="online-value-layer">
+                    <div class="review-dimension-grid" aria-label="Review dimensions">
+                      <button
+                        class="review-dimension-card is-active"
+                        type="button"
+                        aria-pressed="true"
+                        data-review-dimension="product"
+                      >
+                        <strong>Product Metrics</strong>
+                        <small>产品数据</small>
+                        <span>Core usage, retention and engagement data</span>
+                        <small class="review-dimension-copy-zh">核心使用、留存与用户参与数据</small>
+                      </button>
+                      <button
+                        class="review-dimension-card"
+                        type="button"
+                        aria-pressed="false"
+                        data-review-dimension="ai"
+                      >
+                        <strong>AI Performance Metrics</strong>
+                        <small>AI效果数据</small>
+                        <span>Accuracy, speed and error correction data</span>
+                        <small class="review-dimension-copy-zh">准确率、响应速度与合规纠错数据</small>
+                      </button>
+                      <button
+                        class="review-dimension-card"
+                        type="button"
+                        aria-pressed="false"
+                        data-review-dimension="business"
+                      >
+                        <strong>Business Value Metrics</strong>
+                        <small>业务价值数据</small>
+                        <span>Before &amp; after launch impact on users and operations</span>
+                        <small class="review-dimension-copy-zh">上线前后对用户与业务的价值变化</small>
+                      </button>
+                    </div>
+
+                    <div class="linked-metrics-panel">
+                      <div class="research-panel-heading">
+                        <div class="research-panel-label">
+                          <strong>Project Core Performance Overview</strong>
+                          <small>项目核心表现总览</small>
+                        </div>
+                        <div class="research-interaction-hint" aria-hidden="true">
+                          <div>
+                            <span>Select a category to compare insights</span>
+                            <small>点击分类标签，切换数据视图</small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="linked-metrics-list" aria-live="polite"></div>
+                    </div>
+                  </section>
+                </section>
+
+                <section class="legacy-data-review-dashboard" hidden aria-hidden="true">
+                  <section class="data-review-layer">
+                    <div class="data-review-layer-heading">
+                      <span class="data-review-layer-mark data-review-layer-mark--product" aria-hidden="true">
+                        <i></i><i></i><i></i>
+                      </span>
+                      <span class="data-review-layer-title">
+                        <strong>Core Product Metrics</strong>
+                        <small>产品核心数据</small>
+                      </span>
+                    </div>
+
+                    <div class="data-dashboard-panel">
+                      <div class="product-metric-card-grid" role="tablist" aria-label="Core product metrics">
+                        <button
+                          class="product-metric-card is-active"
+                          type="button"
+                          role="tab"
+                          aria-selected="true"
+                          data-product-metric="usage"
+                          data-bar-values="70,85,75"
+                          data-metric-title="Usage Rate"
+                          data-metric-title-zh="使用率"
+                          data-chart-copy="72% platform core function usage rate"
+                          data-chart-copy-zh="平台核心功能使用率 72%"
+                        >
+                          <strong>Usage Rate</strong>
+                          <small>使用率</small>
+                          <span>72% platform core function usage rate</span>
+                          <small>平台核心功能使用率 72%</small>
+                        </button>
+                        <button
+                          class="product-metric-card"
+                          type="button"
+                          role="tab"
+                          aria-selected="false"
+                          data-product-metric="click-through"
+                          data-bar-values="70,85,75"
+                          data-metric-title="Click-through Rate"
+                          data-metric-title-zh="点击率"
+                          data-chart-copy="48% feature entrance click-through rate"
+                          data-chart-copy-zh="功能入口点击率 48%"
+                        >
+                          <strong>Click-through Rate</strong>
+                          <small>点击率</small>
+                          <span>48% feature entrance click-through rate</span>
+                          <small>功能入口点击率 48%</small>
+                        </button>
+                        <button
+                          class="product-metric-card"
+                          type="button"
+                          role="tab"
+                          aria-selected="false"
+                          data-product-metric="retention"
+                          data-bar-values="70,85,75"
+                          data-metric-title="User Retention"
+                          data-metric-title-zh="用户留存"
+                          data-chart-copy="45% 7-day user retention rate"
+                          data-chart-copy-zh="用户周留存率 45%"
+                        >
+                          <strong>User Retention</strong>
+                          <small>用户留存</small>
+                          <span>45% 7-day user retention rate</span>
+                          <small>用户周留存率 45%</small>
+                        </button>
+                        <button
+                          class="product-metric-card"
+                          type="button"
+                          role="tab"
+                          aria-selected="false"
+                          data-product-metric="duration"
+                          data-bar-values="70,85,75"
+                          data-metric-title="Usage Duration"
+                          data-metric-title-zh="使用时长"
+                          data-chart-copy="Average 4.2 minutes per user session"
+                          data-chart-copy-zh="用户单次会话平均使用时长 4.2 分钟"
+                        >
+                          <strong>Usage Duration</strong>
+                          <small>使用时长</small>
+                          <span>Average 4.2 minutes per user session</span>
+                          <small>用户单次会话平均使用时长 4.2 分钟</small>
+                        </button>
+                      </div>
+
+                      <div class="audience-metric-chart">
+                        <div class="audience-chart-axis">
+                          <span>Metrics <small>指标</small></span>
+                          <span>User Groups <small>用户群体</small></span>
+                        </div>
+                        <button class="audience-bar-row" type="button" data-user-group="Individual Cross-border Sellers"
+                          data-user-group-zh="个人跨境卖家">
+                          <span class="audience-group-label"><span>Individual Cross-border Sellers</span><small>个人跨境卖家</small></span>
+                          <span class="audience-bar-track"><span class="audience-bar-fill" style="--bar-value: 70%"></span></span>
+                        </button>
+                        <button class="audience-bar-row" type="button" data-user-group="Small E-commerce Operation Teams"
+                          data-user-group-zh="小型电商运营团队">
+                          <span class="audience-group-label"><span>Small E-commerce Operation Teams</span><small>小型电商运营团队</small></span>
+                          <span class="audience-bar-track"><span class="audience-bar-fill" style="--bar-value: 85%"></span></span>
+                        </button>
+                        <button class="audience-bar-row" type="button" data-user-group="Cross-border E-commerce Startups"
+                          data-user-group-zh="跨境电商初创公司">
+                          <span class="audience-group-label"><span>Cross-border E-commerce Startups</span><small>跨境电商初创公司</small></span>
+                          <span class="audience-bar-track"><span class="audience-bar-fill" style="--bar-value: 75%"></span></span>
+                        </button>
+
+                        <article class="data-detail-strip product-metric-detail" aria-live="polite">
+                          <strong>Usage Rate</strong>
+                          <small>使用率</small>
+                          <span>72% platform core function usage rate</span>
+                          <small class="data-detail-copy-zh">平台核心功能使用率 72%</small>
+                        </article>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="data-review-layer">
+                    <div class="data-review-layer-heading">
+                      <span class="data-review-layer-mark data-review-layer-mark--ai" aria-hidden="true">
+                        <i></i><i></i><i></i>
+                      </span>
+                      <span class="data-review-layer-title">
+                        <strong>AI Performance Metrics</strong>
+                        <small>AI 效果数据</small>
+                      </span>
+                    </div>
+
+                    <div class="data-dashboard-panel">
+                      <div class="ai-performance-list">
+                        <button class="ai-progress-row is-active" type="button" aria-pressed="true"
+                          data-ai-title="Content Accuracy" data-ai-title-zh="内容准确性"
+                          data-ai-copy="91% AI-generated content accuracy rate"
+                          data-ai-copy-zh="AI生成内容准确率 91%">
+                          <span class="ai-progress-label"><strong>Content Accuracy</strong><small>内容准确性</small></span>
+                          <span class="ai-progress-track"><span class="ai-progress-fill" style="--bar-value: 91%"></span></span>
+                          <span class="ai-progress-value">91%</span>
+                        </button>
+                        <button class="ai-progress-row" type="button" aria-pressed="false"
+                          data-ai-title="Response Speed" data-ai-title-zh="响应速度"
+                          data-ai-copy="Average 2.8 seconds response time"
+                          data-ai-copy-zh="文案生成平均响应速度 2.8 秒">
+                          <span class="ai-progress-label"><strong>Response Speed</strong><small>响应速度</small></span>
+                          <span class="ai-progress-track"><span class="ai-progress-fill" style="--bar-value: 72%"></span></span>
+                          <span class="ai-progress-value">2.8 seconds</span>
+                        </button>
+                        <button class="ai-progress-row" type="button" aria-pressed="false"
+                          data-ai-title="Error Correction Rate" data-ai-title-zh="错误纠正率"
+                          data-ai-copy="88% compliance error correction rate"
+                          data-ai-copy-zh="生成内容合规错误纠正率 88%">
+                          <span class="ai-progress-label"><strong>Error Correction Rate</strong><small>错误纠正率</small></span>
+                          <span class="ai-progress-track"><span class="ai-progress-fill" style="--bar-value: 88%"></span></span>
+                          <span class="ai-progress-value">88%</span>
+                        </button>
+                      </div>
+
+                      <article class="data-detail-strip ai-performance-detail" aria-live="polite">
+                        <strong>Content Accuracy</strong>
+                        <small>内容准确性</small>
+                        <span>91% AI-generated content accuracy rate</span>
+                        <small class="data-detail-copy-zh">AI生成内容准确率 91%</small>
+                      </article>
+                    </div>
+                  </section>
+
+                  <section class="data-review-layer">
+                    <div class="data-review-layer-heading">
+                      <span class="data-review-layer-mark data-review-layer-mark--impact" aria-hidden="true">
+                        <i></i><i></i>
+                      </span>
+                      <span class="data-review-layer-title">
+                        <strong>Business Value &amp; Impact</strong>
+                        <small>业务价值与影响</small>
+                      </span>
+                    </div>
+
+                    <div class="data-dashboard-panel">
+                      <div class="business-impact-chart">
+                        <div class="impact-chart-legend" aria-hidden="true">
+                          <span></span>
+                          <span>Before Launch <small>上线前</small></span>
+                          <span>After Launch <small>上线后</small></span>
+                        </div>
+                        <button class="impact-metric-row is-active" type="button" aria-pressed="true"
+                          data-impact-title="Manpower Reduction" data-impact-title-zh="人力缩减"
+                          data-impact-copy="65% reduction in manual work"
+                          data-impact-copy-zh="人力投入缩减 65%">
+                          <span class="impact-metric-label"><strong>Manpower Reduction</strong><small>人力缩减</small></span>
+                          <span class="impact-bar-track" aria-label="Before Launch"><span class="impact-bar-fill impact-bar-fill--before" style="--bar-value: 100%"></span></span>
+                          <span class="impact-bar-track" aria-label="After Launch"><span class="impact-bar-fill impact-bar-fill--after" style="--bar-value: 35%"></span></span>
+                        </button>
+                        <button class="impact-metric-row" type="button" aria-pressed="false"
+                          data-impact-title="Efficiency Improvement" data-impact-title-zh="效率提升"
+                          data-impact-copy="88% increase in copy creation efficiency"
+                          data-impact-copy-zh="文案创作效率提升 88%">
+                          <span class="impact-metric-label"><strong>Efficiency Improvement</strong><small>效率提升</small></span>
+                          <span class="impact-bar-track" aria-label="Before Launch"><span class="impact-bar-fill impact-bar-fill--before" style="--bar-value: 12%"></span></span>
+                          <span class="impact-bar-track" aria-label="After Launch"><span class="impact-bar-fill impact-bar-fill--after" style="--bar-value: 100%"></span></span>
+                        </button>
+                        <button class="impact-metric-row" type="button" aria-pressed="false"
+                          data-impact-title="Revenue Growth" data-impact-title-zh="营收增长"
+                          data-impact-copy="18% revenue growth driven by optimized copy"
+                          data-impact-copy-zh="优化文案带来的营收增长 18%">
+                          <span class="impact-metric-label"><strong>Revenue Growth</strong><small>营收增长</small></span>
+                          <span class="impact-bar-track" aria-label="Before Launch"><span class="impact-bar-fill impact-bar-fill--before" style="--bar-value: 82%"></span></span>
+                          <span class="impact-bar-track" aria-label="After Launch"><span class="impact-bar-fill impact-bar-fill--after" style="--bar-value: 100%"></span></span>
+                        </button>
+                        <button class="impact-metric-row" type="button" aria-pressed="false"
+                          data-impact-title="Renewal Rate Increase" data-impact-title-zh="续约率提升"
+                          data-impact-copy="19% increase in customer renewal rate"
+                          data-impact-copy-zh="客户续约率提升 19%">
+                          <span class="impact-metric-label"><strong>Renewal Rate Increase</strong><small>续约率提升</small></span>
+                          <span class="impact-bar-track" aria-label="Before Launch"><span class="impact-bar-fill impact-bar-fill--before" style="--bar-value: 81%"></span></span>
+                          <span class="impact-bar-track" aria-label="After Launch"><span class="impact-bar-fill impact-bar-fill--after" style="--bar-value: 100%"></span></span>
+                        </button>
+                      </div>
+
+                      <article class="data-detail-strip business-impact-detail" aria-live="polite">
+                        <strong>Manpower Reduction</strong>
+                        <small>人力缩减</small>
+                        <span>65% reduction in manual work</span>
+                        <small class="data-detail-copy-zh">人力投入缩减 65%</small>
+                      </article>
+                    </div>
+                  </section>
+                </section>
+              </div>
+            </details>
+
+            <details class="case-accordion">
+              <summary>
+                <span class="accordion-index">09</span>
+                <span>
+                  <span class="accordion-title-en">Risk Review &amp; Iteration Plan</span>
+                  <span class="accordion-title-zh">风险复盘与迭代规划</span>
+                </span>
+                <span class="accordion-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="accordion-content">
+                <p class="accordion-summary-en">
+                  Review key online technical risks and define a three-phase iteration roadmap for
+                  commercialization.
+                </p>
+                <p class="accordion-summary-zh">
+                  复盘上线核心技术隐患，分三期规划商业化产品迭代路线。
+                </p>
+              </div>
+              <div class="accordion-detail">
+                <section class="risk-review-module">
+                  <section class="risk-review-section">
+                    <div class="risk-section-heading">
+                      <span>
+                        <strong>Project Challenges &amp; Solutions</strong>
+                        <small>项目挑战与解决方案</small>
+                      </span>
+                    </div>
+
+                    <div class="challenge-solution-panel">
+                      <div class="challenge-solution-legend" aria-hidden="true">
+                        <span>Challenge <small>项目问题</small></span>
+                        <span>Response <small>对应解决方案</small></span>
+                      </div>
+
+                      <div class="challenge-solution-row" data-challenge-pair="performance">
+                        <button class="challenge-card" type="button" aria-pressed="false"
+                          data-challenge-target="performance">
+                          <strong>Model Performance Issues</strong>
+                          <small>模型效果不佳</small>
+                        </button>
+                        <button class="challenge-response-card" type="button" aria-pressed="false"
+                          data-challenge-target="performance">
+                          <span>Fine-tune prompts and optimize RAG knowledge base retrieval logic</span>
+                          <small>优化提示词与RAG知识库检索逻辑</small>
+                        </button>
+                      </div>
+
+                      <div class="challenge-solution-row" data-challenge-pair="speed">
+                        <button class="challenge-card" type="button" aria-pressed="false"
+                          data-challenge-target="speed">
+                          <strong>Slow Response Speed</strong>
+                          <small>响应速度慢</small>
+                        </button>
+                        <button class="challenge-response-card" type="button" aria-pressed="false"
+                          data-challenge-target="speed">
+                          <span>Adopt streaming output and request caching strategies</span>
+                          <small>采用流式输出与请求缓存策略</small>
+                        </button>
+                      </div>
+
+                      <div class="challenge-solution-row" data-challenge-pair="data">
+                        <button class="challenge-card" type="button" aria-pressed="false"
+                          data-challenge-target="data">
+                          <strong>Insufficient Data Volume</strong>
+                          <small>数据不足</small>
+                        </button>
+                        <button class="challenge-response-card" type="button" aria-pressed="false"
+                          data-challenge-target="data">
+                          <span>Collect user-generated content and build a private industry corpus</span>
+                          <small>收集用户生成内容，搭建行业私有语料库</small>
+                        </button>
+                      </div>
+
+                      <div class="challenge-solution-row" data-challenge-pair="business">
+                        <button class="challenge-card" type="button" aria-pressed="false"
+                          data-challenge-target="business">
+                          <strong>Business Misalignment</strong>
+                          <small>业务不落地</small>
+                        </button>
+                        <button class="challenge-response-card" type="button" aria-pressed="false"
+                          data-challenge-target="business">
+                          <span>Add scenario-based templates aligned with cross-border platform rules</span>
+                          <small>新增适配跨境平台规则的场景化模板</small>
+                        </button>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="risk-review-section">
+                    <div class="risk-section-heading">
+                      <span>
+                        <strong>Risk &amp; Compliance Management</strong>
+                        <small>风险与合规管理</small>
+                      </span>
+                    </div>
+
+                    <div class="risk-framework-panel">
+                      <div class="risk-framework-flow">
+                        <button class="risk-framework-step" type="button" aria-pressed="false"
+                          data-risk-title="Compliance Risk" data-risk-title-zh="合规风险"
+                          data-risk-copy="Platform rule pre-check + human review workflow"
+                          data-risk-copy-zh="平台规则预校验 + 人工审核流程">
+                          <strong>Compliance Risk</strong>
+                          <small>合规风险</small>
+                        </button>
+                        <button class="risk-framework-step" type="button" aria-pressed="false"
+                          data-risk-title="Data Privacy" data-risk-title-zh="数据隐私"
+                          data-risk-copy="User data encryption and knowledge base permission control"
+                          data-risk-copy-zh="用户数据加密与知识库权限管控">
+                          <strong>Data Privacy</strong>
+                          <small>数据隐私</small>
+                        </button>
+                        <button class="risk-framework-step" type="button" aria-pressed="false"
+                          data-risk-title="Industry Policy Risk" data-risk-title-zh="行业政策风险"
+                          data-risk-copy="Regular compliance rule updates and policy monitoring"
+                          data-risk-copy-zh="定期更新合规规则与政策监控">
+                          <strong>Industry Policy Risk</strong>
+                          <small>行业政策风险</small>
+                        </button>
+                      </div>
+
+                      <article class="risk-framework-detail is-empty" aria-live="polite">
+                        <div>
+                          <strong>Select a risk area</strong>
+                          <small>请选择风险类型</small>
+                        </div>
+                        <div>
+                          <span>Review the corresponding mitigation approach</span>
+                          <small class="risk-framework-detail-copy-zh">查看对应的风险应对措施</small>
+                        </div>
+                      </article>
+                    </div>
+                  </section>
+
+                  <section class="risk-review-section">
+                    <div class="risk-section-heading">
+                      <span>
+                        <strong>Iteration Roadmap &amp; Commercialization</strong>
+                        <small>迭代路线图与商业化路径</small>
+                      </span>
+                    </div>
+
+                    <div class="iteration-roadmap-panel">
+                      <div class="roadmap-branch-stage">
+                        <span class="roadmap-core" aria-hidden="true"></span>
+
+                        <section class="roadmap-branch roadmap-branch--product" data-roadmap-branch="product">
+                          <div class="roadmap-branch-heading">
+                            <strong>Product Iteration</strong>
+                            <small>产品迭代方向</small>
+                          </div>
+                          <div class="roadmap-node-list">
+                            <button class="roadmap-node" type="button" aria-pressed="false"
+                              data-roadmap-branch-name="product"
+                              data-roadmap-title="Multi-platform Template Expansion"
+                              data-roadmap-title-zh="多平台模板扩展"
+                              data-roadmap-copy="Expand compliant content templates for major cross-border sales channels"
+                              data-roadmap-copy-zh="扩展适配主流跨境销售渠道的合规内容模板">
+                              <span>Multi-platform template expansion</span>
+                              <small>多平台模板扩展</small>
+                            </button>
+                            <button class="roadmap-node" type="button" aria-pressed="false"
+                              data-roadmap-branch-name="product"
+                              data-roadmap-title="Team Collaboration Features"
+                              data-roadmap-title-zh="团队协作功能"
+                              data-roadmap-copy="Add shared workflows, role permissions, and collaborative review"
+                              data-roadmap-copy-zh="增加共享工作流、角色权限与协同审核能力">
+                              <span>Team collaboration features</span>
+                              <small>团队协作功能</small>
+                            </button>
+                            <button class="roadmap-node" type="button" aria-pressed="false"
+                              data-roadmap-branch-name="product"
+                              data-roadmap-title="Advanced Brand Customization"
+                              data-roadmap-title-zh="高级品牌自定义"
+                              data-roadmap-copy="Provide deeper control of brand voice, terminology, and output rules"
+                              data-roadmap-copy-zh="提供更深入的品牌语气、术语与输出规则控制">
+                              <span>Advanced brand customization</span>
+                              <small>高级品牌自定义</small>
+                            </button>
+                          </div>
+                        </section>
+
+                        <section class="roadmap-branch roadmap-branch--business" data-roadmap-branch="business">
+                          <div class="roadmap-branch-heading">
+                            <strong>Commercialization &amp; Business Extension</strong>
+                            <small>商业化与业务延伸</small>
+                          </div>
+                          <div class="roadmap-node-list">
+                            <button class="roadmap-node" type="button" aria-pressed="false"
+                              data-roadmap-branch-name="business"
+                              data-roadmap-title="Tiered Subscription Pricing"
+                              data-roadmap-title-zh="分层订阅定价"
+                              data-roadmap-copy="Create subscription tiers for individual sellers, teams, and enterprises"
+                              data-roadmap-copy-zh="面向个人卖家、团队与企业设计分层订阅方案">
+                              <span>Tiered subscription pricing</span>
+                              <small>分层订阅定价</small>
+                            </button>
+                            <button class="roadmap-node" type="button" aria-pressed="false"
+                              data-roadmap-branch-name="business"
+                              data-roadmap-title="Enterprise-level Private Deployment"
+                              data-roadmap-title-zh="企业级私有部署方案"
+                              data-roadmap-copy="Offer secure private deployment for enterprise data and workflow needs"
+                              data-roadmap-copy-zh="为企业数据安全与工作流需求提供私有部署能力">
+                              <span>Enterprise-level private deployment</span>
+                              <small>企业级私有部署方案</small>
+                            </button>
+                            <button class="roadmap-node" type="button" aria-pressed="false"
+                              data-roadmap-branch-name="business"
+                              data-roadmap-title="Industry Compliance Service Add-ons"
+                              data-roadmap-title-zh="行业合规服务附加模块"
+                              data-roadmap-copy="Extend paid compliance modules for specialized markets and platform policies"
+                              data-roadmap-copy-zh="面向专业市场与平台政策扩展付费合规模块">
+                              <span>Industry compliance service add-ons</span>
+                              <small>行业合规服务附加模块</small>
+                            </button>
+                          </div>
+                        </section>
+                      </div>
+
+                      <article class="roadmap-detail is-empty" aria-live="polite">
+                        <div>
+                          <strong>Select a roadmap node</strong>
+                          <small>请选择路线节点</small>
+                        </div>
+                        <div>
+                          <span>Explore the corresponding iteration or commercialization plan</span>
+                          <small class="roadmap-detail-copy-zh">查看对应的产品迭代或商业化规划</small>
+                        </div>
+                      </article>
+                    </div>
+                  </section>
+                </section>
+              </div>
+            </details>
+          </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <nav class="case-pagination" aria-label="Case study navigation">
+      <span class="case-pagination-link case-pagination-link--disabled" aria-disabled="true">
+        <span class="case-pagination-direction">
+          <span class="case-pagination-arrow" aria-hidden="true">←</span>
+          <span class="case-pagination-direction-en">Previous Case</span>
+          <span class="case-pagination-direction-zh">上一个案例</span>
+        </span>
+        <span class="case-pagination-info">
+          <span class="case-pagination-index">Case 01</span>
+          <span class="case-pagination-name">No previous case</span>
+          <span class="case-pagination-name-zh">已是第一个案例</span>
+        </span>
+      </span>
+      <a class="case-pagination-link case-pagination-link--next" href="./teamalign.html">
+        <img class="case-pagination-poster" src="./media/teamalign/poster.jpg" alt="" aria-hidden="true">
+        <span class="case-pagination-direction">
+          <span class="case-pagination-direction-en">Next Case</span>
+          <span class="case-pagination-arrow" aria-hidden="true">→</span>
+          <span class="case-pagination-direction-zh">下一个案例</span>
+        </span>
+        <span class="case-pagination-info">
+          <span class="case-pagination-index">Case 02</span>
+          <span class="case-pagination-name">TeamAlign AI</span>
+          <span class="case-pagination-name-zh">轻量化 Agent 原生 AI 协作工具</span>
+        </span>
+      </a>
+    </nav>
+    <footer class="portfolio-footer">
+      <p class="portfolio-footer-signature">Ruiying Liu</p>
+      <p class="portfolio-footer-copy">
+        <span aria-hidden="true">©</span>
+        <span class="portfolio-footer-year"></span>
+        · design what matters, develop what endures.
+      </p>
+    </footer>
+    <button class="back-to-top" type="button" aria-label="Back to top">
+      <span aria-hidden="true">↑</span>
+    </button>
+    <script src="./assets/live-reload.js" defer></script>
+    <script src="./assets/fluid-cursor.js" defer></script>
+    <script src="./assets/crossscribe/crossscribe.js" defer></script>
+  </body>
+</html>

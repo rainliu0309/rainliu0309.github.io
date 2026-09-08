@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f5f5" />
+    <script>
+      (() => {
+        try {
+        const theme = localStorage.getItem("rain-theme") === "dark" ? "dark" : "light";
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === "dark" ? "#0c111d" : "#f5f5f5";
+        } catch {}
+      })();
+    </script>
+    <meta
+      name="description"
+      content="FateFork AI, a narrative-driven AIGC self-reflection tool for young adults facing major life decisions."
+    />
+    <title>FateFork AI</title>
+    <link rel="icon" type="image/svg+xml" href="./media/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&family=Pinyon+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/fatefork/fatefork.css?v=20260907-case-icon-balance" />
+    <script src="./assets/case-study.js?v=20260907-shared-navigation" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="glass-control brand portfolio-logo" href="./index.html" aria-label="Back to portfolio">
+        <img src="./media/logo-light.svg" alt="" />
+      </a>
+      <nav class="top-navigation" id="case-navigation" aria-label="Case navigation">
+        <a href="./index.html#project"><svg class="case-nav-icon case-nav-icon--home" viewBox="0 0 16 16" aria-hidden="true"><path d="m2.25 7 5.75-4.75L13.75 7v6.25H2.25Z"></path><path d="M6.25 13.25V9.5h3.5v3.75"></path></svg><span>Home<span class="nav-label-zh" lang="zh-CN">主页</span></span></a>
+        <a href="./crossscribe.html"><svg class="case-nav-icon case-nav-icon--case" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.25 1.75h7l4.5 4.5v8H2.25Z"></path><path d="M5.25 9h5.5"></path></svg><span>CrossScribe AI</span></a>
+        <a href="./teamalign.html"><svg class="case-nav-icon case-nav-icon--case" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.25 1.75h7l4.5 4.5v8H2.25Z"></path><path d="M5.25 9h5.5"></path></svg><span>TeamAlign AI</span></a>
+        <a class="is-active" href="./fatefork.html" aria-current="page"><svg class="case-nav-icon case-nav-icon--case" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.25 1.75h7l4.5 4.5v8H2.25Z"></path><path d="M5.25 9h5.5"></path></svg><span>FateFork AI</span></a>
+        <a href="./fairbench.html"><svg class="case-nav-icon case-nav-icon--case" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.25 1.75h7l4.5 4.5v8H2.25Z"></path><path d="M5.25 9h5.5"></path></svg><span>FairBench AI</span></a>
+        <div class="nav-preferences">
+        <button class="theme-switch" type="button" role="switch" aria-label="Switch to dark mode" aria-checked="false" data-case-theme-switch>
+          <svg class="theme-switch-icon theme-switch-icon--sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.1"></circle><path d="M10 1.5v2M10 16.5v2M1.5 10h2M16.5 10h2M4 4l1.45 1.45M14.55 14.55 16 16M16 4l-1.45 1.45M5.45 14.55 4 16"></path></svg>
+          <svg class="theme-switch-icon theme-switch-icon--moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16.3 12.3A6.7 6.7 0 0 1 7.7 3.7a6.7 6.7 0 1 0 8.6 8.6Z"></path></svg>
+        </button>
+        </div>
+      </nav>
+      <button class="navigation-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="case-navigation"><span></span><span></span><span></span></button>
+    </header>
+
+    <main>
+      <section class="hero fatefork-hero">
+        <div class="hero-inner">
+          <p class="eyebrow">Case Study · 03</p>
+          <h1>
+            FateFork AI
+          </h1>
+          <p class="hero-role"><b>MY ROLE</b><span>Product Discovery · Narrative AI Design · 0→1 Prototyping<small>需求洞察 · 叙事型 AI 设计 · 0→1 原型落地</small></span></p>
+
+          <div class="hero-actions" aria-label="Project links">
+            <a
+              class="hero-action"
+              href="https://github.com/rainliu0309/fatefork-ai-app.git"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
+            <a
+              class="hero-action hero-action--primary"
+              href="https://fatefork-ai-app.onrender.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Demo ↗
+            </a>
+          </div>
+
+          <div class="intro">
+            <div class="intro-details">
+              <p class="intro-copy">
+                A <strong>narrative‑driven AIGC self‑reflection tool</strong> for young adults facing major life decisions.<br />
+                It creates dual‑life narratives with East‑West symbols to ease anxiety and return user agency.
+                <span class="zh">
+                  面向年轻群体的<strong>叙事驱动型 AIGC 自省工具</strong>。<br />
+                  融合中西符号，生成双平行叙事，缓解焦虑，交还用户选择权。
+                </span>
+              </p>
+              <div class="tags" aria-label="Project tags">
+                <span class="tag">AI Product</span>
+                <span class="tag">ToC</span>
+                <span class="tag">AIGC</span>
+                <span class="tag">Prompt</span>
+                <span class="tag">Narrative Design</span>
+              </div>
+            </div>
+
+            <div class="intro-demo" id="demo">
+              <div class="demo-shell">
+                <p class="demo-label">Concept Video · 00:05</p>
+                <video
+                  src="./media/fatefork/fatefork.mov"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  controls
+                  aria-label="FateFork AI concept video"
+                ></video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="structure-section fate-case" id="fate-case" aria-labelledby="fate-case-title">
+        <div class="fate-case-aurora" aria-hidden="true"></div>
+        <div class="structure-inner fate-case-shell">
+          <header class="structure-heading reveal-on-scroll case-reveal">
+            <div>
+              <h2 id="fate-case-title">From prediction<br />to possibility.</h2>
+            </div>
+            <p>
+              Seven chapters charting the path from decision anxiety to a product that keeps users
+              in control.
+              <span class="zh-small">七个章节，记录从决策焦虑洞察到保留用户判断权的产品路径。</span>
+            </p>
+          </header>
+
+          <div class="case-main-reveal case-reveal">
+          <figure class="fate-case-banner reveal-on-scroll">
+            <img
+              src="./media/fatefork/fatefork-case-banner.png"
+              alt="A person standing before two equal paths: one structured by rules, the other opened by narrative"
+              width="2048"
+              height="768"
+              loading="lazy"
+            />
+          </figure>
+
+          <nav class="fate-route-index" aria-label="Fate Fork case study chapters">
+            <header class="fate-route-index-head">
+              <p>CASE CHAPTERS · 案例章节</p>
+            </header>
+            <div class="fate-route-compact">
+              <span class="fate-route-compact-index" data-fate-route-current aria-hidden="true">01</span>
+              <span class="fate-route-compact-current" aria-live="polite">
+                <b data-fate-route-title>Problem</b>
+                <small data-fate-route-subtitle>问题</small>
+              </span>
+              <button class="fate-route-menu-toggle" type="button" data-fate-menu-toggle aria-expanded="false" aria-controls="fate-route-menu" aria-label="Open case-study chapters">
+                <span>CHAPTERS<small>章节</small></span><i aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="fate-route-index-track" id="fate-route-menu" role="tablist" aria-orientation="horizontal" aria-label="Choose a case-study chapter">
+              <button class="is-active" type="button" role="tab" aria-selected="true" data-fate-target="01"><span>01</span><b>Problem</b><small>问题</small></button>
+              <button type="button" role="tab" aria-selected="false" data-fate-target="02"><span>02</span><b>Scenarios</b><small>情景</small></button>
+              <button type="button" role="tab" aria-selected="false" data-fate-target="03"><span>03</span><b>Guardrails</b><small>护栏</small></button>
+              <button type="button" role="tab" aria-selected="false" data-fate-target="04"><span>04</span><b>Testing</b><small>测试</small></button>
+              <button type="button" role="tab" aria-selected="false" data-fate-target="05"><span>05</span><b>Control</b><small>可控</small></button>
+              <button type="button" role="tab" aria-selected="false" data-fate-target="06"><span>06</span><b>Trust</b><small>信任</small></button>
+              <button type="button" role="tab" aria-selected="false" data-fate-target="07"><span>07</span><b>Future</b><small>未来</small></button>
+            </div>
+          </nav>
+
+          <div class="fate-chapter-list">
+            <article class="fate-chapter is-selected is-open" id="fatefork-chapter-01" data-fate-chapter="01">
+              <header class="fate-chapter-trigger" tabindex="-1">
+                <span class="fate-chapter-number">01</span>
+                <span class="fate-chapter-heading">
+                  <span class="fate-chapter-eyebrow">PROBLEM FRAMING · 问题定义</span>
+                  <strong>Project Overview &amp; Limitation of Linear Generation</strong>
+                  <small>项目概述与单线生成局限</small>
+                </span>
+                <span class="fate-chapter-mark" aria-hidden="true"></span>
+              </header>
+              <div class="fate-chapter-panel" id="fate-panel-01">
+                <div class="fate-panel-inner">
+                  <section class="fate-overview-lead fate-panel-brief">
+                    <aside>
+                      <span>PRODUCT IN ONE LINE · 一句话产品定义</span>
+                      <p>A controlled multimodal narrative reflection tool for young adults navigating uncertain career, relationship, and life choices.</p>
+                      <small>面向职业、关系与生活中不确定选择的年轻人的受控多模态叙事自省工具。</small>
+                    </aside>
+                    <figure class="fate-panel-visual">
+                      <img src="./media/fatefork/module-01-overview.png" alt="Abstract blue paths opening from one starting point into equal possibilities." loading="lazy" decoding="async" />
+                    </figure>
+                  </section>
+
+                  <h3 class="fate-block-title">Project Snapshot · <em>项目概览</em></h3>
+                  <div class="fate-overview-facts" aria-label="Fate Fork project snapshot">
+                    <details class="fate-overview-fact">
+                      <summary>
+                        <span>TARGET USER · 目标用户</span>
+                        <strong>Young adults navigating decision anxiety</strong>
+                        <small>正在应对决策焦虑的年轻人</small>
+                        <i aria-hidden="true"></i>
+                      </summary>
+                      <p class="fate-overview-fact-detail">For career, relationship, and life choices where a single answer does not resolve the uncertainty.<small>面对职业、关系与生活选择时，单一答案无法消解不确定感。</small></p>
+                    </details>
+                    <details class="fate-overview-fact">
+                      <summary>
+                        <span>BUSINESS LINE · 业务方向</span>
+                        <strong>Controlled reflection for decision anxiety</strong>
+                        <small>面向决策焦虑的受控自省体验</small>
+                        <i aria-hidden="true"></i>
+                      </summary>
+                      <p class="fate-overview-fact-detail">Three guided routes offer a longer view, a present mirror, and open dialogue for reflection.<small>三条引导路径提供长期视角、当下映照与开放对话，帮助用户展开自省。</small></p>
+                    </details>
+                    <details class="fate-overview-fact">
+                      <summary>
+                        <span>NORTH STAR · 核心目标</span>
+                        <strong>User-owned decisions, not model verdicts</strong>
+                        <small>判断权属于用户，而非模型结论</small>
+                        <i aria-hidden="true"></i>
+                      </summary>
+                      <p class="fate-overview-fact-detail">Each route offers perspectives and boundaries, while users decide what matters in real life.<small>每条路径提供视角与边界，用户决定哪些内容对现实生活真正重要。</small></p>
+                    </details>
+                  </div>
+
+                  <h3 class="fate-block-title">Comparison Logic · <em>对照逻辑</em></h3>
+                  <section class="fate-overview-shift" aria-labelledby="fate-overview-shift-title">
+                    <div class="fate-overview-comparison">
+                      <header>
+                      <span>PRODUCT SHIFT · 产品转向</span>
+                      <h4 id="fate-overview-shift-title">From a fluent answer to a controlled space for comparison.</h4>
+                      <small>从一个流畅答案，转向一个受控、可比较的选择空间。</small>
+                      </header>
+
+                    <div class="fate-overview-lanes">
+                      <article class="is-before">
+                        <span>LINEAR AIGC · 常见单线生成</span>
+                        <div><b>Question<small>问题</small></b><i></i><b>One answer<small>单一答案</small></b><i></i><b>False closure<small>虚假收束</small></b></div>
+                        <p>One fluent answer compresses a complex context, hiding alternatives, limits, and when real-world support matters.<small>单一流畅答案压缩复杂情境，容易遮蔽其他可能、产品边界与现实支持的需要。</small></p>
+                      </article>
+                      <article class="is-after">
+                        <span>FATE FORK · 命运岔途</span>
+                        <div><b>Context<small>情境</small></b><i></i><b>Equal paths<small>等权路径</small></b><i></i><b>User reflection<small>用户自省</small></b></div>
+                        <p>Multiple perspectives remain visible. Equal paths and guided reflection leave the final decision with the user.<small>多个视角始终可见。等权路径与引导式自省，让最终判断始终留在用户手中。</small></p>
+                      </article>
+                      </div>
+                    </div>
+
+                    <div class="fate-overview-decision-group">
+                      <footer class="fate-overview-decision">
+                      <span>PM DECISION · 产品决策</span>
+                      <p>Prioritize perspective and understanding over certainty.<small>优先拓展视角并确保理解，而非追求确定感。</small></p>
+                      </footer>
+
+                      <div class="fate-overview-principles" aria-label="Product principles">
+                      <article><span>01</span><strong>Compare, not recommend</strong><small>提供对照，而不是推荐</small></article>
+                      <article><span>02</span><strong>Reveal, not overwhelm</strong><small>渐进披露，而不是信息倾倒</small></article>
+                      <article><span>03</span><strong>Bound, not predict</strong><small>明确边界，而不是预测</small></article>
+                      </div>
+                    </div>
+                  </section>
+
+                  <h3 class="fate-block-title">Limits &amp; Boundaries · <em>局限与边界</em></h3>
+                  <div class="fate-overview-disclosures">
+                    <details>
+                      <summary>
+                        <span>01 / PRODUCT GAP</span>
+                        <strong>Why linear AIGC falls short</strong>
+                        <small>为什么单线 AIGC 存在局限</small>
+                        <i aria-hidden="true"></i>
+                      </summary>
+                      <div class="fate-overview-disclosure-body">
+                        <p><strong>Irreversible framing<small>问题框架过早固化</small></strong><span>One prompt fixes the frame too early, so later questions inherit the same assumption.</span><small>一次提问过早固定问题框架，后续追问容易沿用同一假设。</small></p>
+                        <p><strong>No visible comparison<small>缺少可见对照</small></strong><span>Alternatives merge into one answer, making side-by-side comparison difficult.</span><small>不同可能被合并进一个答案，难以进行横向比较。</small></p>
+                        <p><strong>Boundary opacity<small>安全边界不透明</small></strong><span>Fluent language can hide uncertainty, product limits, and when a user needs real-world support.</span><small>流畅语言会遮蔽不确定性、产品边界，以及何时需要回到现实支持。</small></p>
+                      </div>
+                    </details>
+
+                    <details>
+                      <summary>
+                        <span>02 / PROTOTYPE BOUNDARY</span>
+                        <strong>Where this prototype draws the line</strong>
+                        <small>这个原型的边界在哪里</small>
+                        <i aria-hidden="true"></i>
+                      </summary>
+                      <div class="fate-overview-boundary-grid">
+                        <p><em>01</em><strong>No outcome prediction<small>不预测现实结果</small></strong><span>Does not predict real-world outcomes or recommend a best path.</span><small>不预测现实结果，也不推荐最佳路径。</small></p>
+                        <p><em>02</em><strong>No causal simulation<small>不模拟因果关系</small></strong><span>Does not simulate event probabilities or causal relationships.</span><small>不模拟事件概率或因果关系。</small></p>
+                        <p><em>03</em><strong>Bounded Zi Wei coverage<small>有限的紫微规则覆盖</small></strong><span>Covers twelve palaces and fourteen major stars, not every school.</span><small>覆盖十二宫与十四主星，不代表全部流派。</small></p>
+                        <p><em>04</em><strong>No psychological measurement<small>不作心理测量</small></strong><span>Emotion metadata adjusts narrative and interface, not mental-health assessment.</span><small>情绪元数据只调节叙事与界面，不构成心理评估。</small></p>
+                      </div>
+                    </details>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="fate-chapter" id="fatefork-chapter-02" data-fate-chapter="02">
+              <header class="fate-chapter-trigger" tabindex="-1">
+                <span class="fate-chapter-number">02</span>
+                <span class="fate-chapter-heading">
+                  <span class="fate-chapter-eyebrow">PRODUCT LOGIC · 产品逻辑</span>
+                  <strong>Scenario Branching &amp; State Management</strong>
+                  <small>情景分支与状态管理</small>
+                </span>
+                <span class="fate-chapter-mark" aria-hidden="true"></span>
+              </header>
+              <div class="fate-chapter-panel" id="fate-panel-02">
+                <div class="fate-panel-inner">
+                  <header class="fate-overview-lead fate-state-lead fate-panel-brief">
+                    <aside>
+                      <span>EXPERIENCE MODEL · 体验模型</span>
+                      <p>Three routes share one rhythm: gather context, resolve rules, reveal gradually, reflect, and return to real life.</p>
+                      <small>三条路径共享同一节奏：收集情境、解析规则、渐进披露、复盘并回到现实。</small>
+                    </aside>
+                    <figure class="fate-panel-visual">
+                      <img src="./media/fatefork/module-02-state.png" alt="Abstract layers flowing into a stable blue state." loading="lazy" decoding="async" />
+                    </figure>
+                  </header>
+
+                  <h3 class="fate-block-title">Product Facts · <em>产品构成</em></h3>
+                  <div class="fate-system-facts" aria-label="Core product facts">
+                    <div class="fate-system-fact">
+                      <strong>03</strong>
+                      <span>User entry paths<small>三种体验入口</small></span>
+                      <button class="fate-system-fact-info" type="button" aria-label="Show the three user entry paths" aria-controls="fate-fact-03" aria-expanded="false">+</button>
+                      <span class="fate-system-fact-tooltip" id="fate-fact-03" role="tooltip">
+                        <span>Choose long-term Zi Wei, present-focused tarot, or open dialogue.</span>
+                        <small>可选择长期紫微推演、即时塔罗镜像或无符号开放对话。</small>
+                      </span>
+                    </div>
+                    <div class="fate-system-fact">
+                      <strong>02</strong>
+                      <span>Equal path narratives<small>等权双轨叙事</small></span>
+                      <button class="fate-system-fact-info" type="button" aria-label="Show the two equal path narratives" aria-controls="fate-fact-02" aria-expanded="false">+</button>
+                      <span class="fate-system-fact-tooltip" id="fate-fact-02" role="tooltip">
+                        <span>Continuation and change are shown side by side, without ranking.</span>
+                        <small>顺势与转折并行呈现，不预设优劣。</small>
+                      </span>
+                    </div>
+                    <div class="fate-system-fact">
+                      <strong>12</strong>
+                      <span>Rule-built Zi Wei map<small>紫微规则排盘</small></span>
+                      <button class="fate-system-fact-info" type="button" aria-label="Show how backend rules compute the twelve palaces" aria-controls="fate-fact-12" aria-expanded="false">+</button>
+                      <span class="fate-system-fact-tooltip" id="fate-fact-12" role="tooltip">
+                        <span>Backend rules compute all twelve palaces from birth data.</span>
+                        <small>后端规则根据生辰信息计算完整十二宫。</small>
+                      </span>
+                    </div>
+                    <div class="fate-system-fact">
+                      <strong>78</strong>
+                      <span>Full-deck selection<small>完整牌库选牌</small></span>
+                      <button class="fate-system-fact-info" type="button" aria-label="Show how users select from the full tarot deck" aria-controls="fate-fact-78" aria-expanded="false">+</button>
+                      <span class="fate-system-fact-tooltip" id="fate-fact-78" role="tooltip">
+                        <span>Server-side code shuffles all 78 cards before users choose three.</span>
+                        <small>后端代码洗牌完整 78 张牌，再由用户选出三张。</small>
+                      </span>
+                    </div>
+                  </div>
+
+                  <h3 class="fate-block-title">State Rhythm · <em>状态节奏</em></h3>
+                  <div class="fate-state-lab">
+                    <div class="fate-state-flow" role="tablist" aria-orientation="horizontal" aria-label="Narrative state flow">
+                      <button class="fate-state-node is-active" type="button" role="tab" aria-selected="true" data-state="context">
+                        <span>01</span><strong>Capture</strong><small>收集情境</small>
+                      </button>
+                      <i aria-hidden="true"></i>
+                      <button class="fate-state-node" type="button" role="tab" aria-selected="false" data-state="resolve">
+                        <span>02</span><strong>Resolve</strong><small>规则解析</small>
+                      </button>
+                      <i aria-hidden="true"></i>
+                      <button class="fate-state-node" type="button" role="tab" aria-selected="false" data-state="reveal">
+                        <span>03</span><strong>Reveal</strong><small>渐进披露</small>
+                      </button>
+                      <i aria-hidden="true"></i>
+                      <button class="fate-state-node" type="button" role="tab" aria-selected="false" data-state="reflect">
+                        <span>04</span><strong>Reflect</strong><small>形成复盘</small>
+                      </button>
+                      <i aria-hidden="true"></i>
+                      <button class="fate-state-node" type="button" role="tab" aria-selected="false" data-state="return">
+                        <span>05</span><strong>Return</strong><small>现实对照</small>
+                      </button>
+                    </div>
+
+                    <div class="fate-state-inspector" aria-live="polite">
+                      <div data-state-panel="context">
+                        <span>STATE 01 · CONTEXT · 收集情境</span>
+                        <h4>Keep each route’s context separate.<em>让每条路径只保留自己的情境</em></h4>
+                        <p>Zi Wei uses birth data and timezone; tarot keeps the question and fixed draw; open dialogue sends a capped conversation history. Context does not transfer across routes.</p>
+                        <small>紫微使用生辰与时区；塔罗保留问题与固定抽牌；闲谈仅携带有限对话历史。不同路径之间不继承上下文。</small>
+                      </div>
+                      <div data-state-panel="resolve" hidden>
+                        <span>STATE 02 · RULES · 规则解析</span>
+                        <h4>Create one fixed session snapshot.<em>生成前先固定一次会话快照</em></h4>
+                        <p>Time-zone conversion, palace placement, card identity, orientation, and spread position are resolved in code before generation. Follow-ups preserve the same draw instead of redrawing.</p>
+                        <small>生成前由代码确定时区、宫位、牌面、正逆位与牌阵位置；后续追问沿用同一次抽牌，不会重新抽取。</small>
+                      </div>
+                      <div data-state-panel="reveal" hidden>
+                        <span>STATE 03 · REVEAL · 渐进披露</span>
+                        <h4>Expose one cognitive step at a time.<em>一次只呈现一个认知步骤</em></h4>
+                        <p>The user chooses which path or card to reveal. Progress is explicit, user-controlled, and never ranked as good or bad.</p>
+                        <small>由用户决定先看哪条路径或哪张牌；进度清楚、过程由用户控制，也没有好坏排序。</small>
+                      </div>
+                      <div data-state-panel="reflect" hidden>
+                        <span>STATE 04 · REFLECT · 形成复盘</span>
+                        <h4>Convert reading into user-owned language.<em>把解读转为用户自己的语言</em></h4>
+                        <p>Across the two symbolic routes, three multiple-choice prompts turn passive reading into a reflection card shaped by the user’s selections.</p>
+                        <small>在两条符号通道中，三道选择题把被动阅读转成由用户选择共同形成的复盘卡片。</small>
+                      </div>
+                      <div data-state-panel="return" hidden>
+                        <span>STATE 05 · RETURN · 现实对照</span>
+                        <h4>Place narrative beside what actually happened.<em>让叙事与现实发生的事情并置</em></h4>
+                        <p>The local Choice Journal lets users revisit and compare records, add reality notes, or delete a record from this device.</p>
+                        <small>本地“反宿命日志”支持回看与对照记录、添加现实备注，或从当前设备删除内容。</small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <h3 class="fate-block-title">State Boundaries · <em>状态边界</em></h3>
+                  <section class="fate-state-boundaries" aria-label="Route state boundaries">
+                    <article>
+                      <span>ROUTE CONTEXT · 路由上下文</span>
+                      <strong>Each route holds only the context it needs.</strong>
+                      <small>紫微、塔罗与闲谈各自保存所需输入，不跨路径继承。</small>
+                    </article>
+                    <article>
+                      <span>SESSION SNAPSHOT · 会话快照</span>
+                      <strong>Symbols are fixed before narration begins.</strong>
+                      <small>盘面与抽牌确定后才进入叙事，追问不重新抽牌。</small>
+                    </article>
+                    <article>
+                      <span>LOCAL RECORD · 本地记录</span>
+                      <strong>Revisit, compare, annotate, or delete.</strong>
+                      <small>记录保存在当前设备，可回看、对照、添加现实备注或删除。</small>
+                    </article>
+                    <article>
+                      <span>GUIDED PATHS · 受控路径</span>
+                      <strong>Reveal and revisit, rather than create branches.</strong>
+                      <small>支持渐进展开与路径回看，不提供手动创建、命名或合并分支。</small>
+                    </article>
+                  </section>
+
+                  <h3 class="fate-block-title">Route Experiences · <em>路径体验</em></h3>
+                  <div class="fate-lane-grid">
+                    <div data-index="01">
+                      <span>LONG HORIZON · 长期视角</span><strong>Zi Wei · 紫微斗数</strong><p>Flow path ↔ Turn path</p><small>顺势路径 ↔ 转折路径</small>
+                      <details class="fate-lane-details"><summary>Explore this route <b>查看详情</b></summary><p>Birth data and timezone build a fixed twelve-palace map. Users reveal one equal-weight narrative path at a time, then revisit the other.</p><small>生辰与时区先生成固定的十二宫结构；用户一次展开一条等权叙事路径，再回看另一条。</small></details>
+                    </div>
+                    <div data-index="02">
+                      <span>PRESENT MIRROR · 当下镜像</span><strong>Tarot · 塔罗</strong><p>Situation → Inner block → Possibilities</p><small>此刻镜面 → 内在阻力 → 可能路径</small>
+                      <details class="fate-lane-details"><summary>Explore this route <b>查看详情</b></summary><p>The user writes a question, shuffles the full deck, and chooses three cards. The fixed draw stays as the context for later follow-up reflection.</p><small>用户写下困惑、洗牌并选出三张牌；固定抽牌会保留为后续追问与复盘的上下文。</small></details>
+                    </div>
+                    <div data-index="03">
+                      <span>NO SYMBOLS · 无命理符号</span><strong>Dialogue · 随心闲谈</strong><p>Facts → Needs → Controllable action</p><small>事实 → 需要 → 可控行动</small>
+                      <details class="fate-lane-details"><summary>Explore this route <b>查看详情</b></summary><p>No symbolic system is used. A capped conversation context helps users separate facts, needs, and the next action they can actually control.</p><small>不启用任何符号体系；有限的对话上下文帮助用户梳理事实、需求与此刻可控制的下一步。</small></details>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="fate-chapter" id="fatefork-chapter-03" data-fate-chapter="03">
+              <header class="fate-chapter-trigger" tabindex="-1">
+                <span class="fate-chapter-number">03</span>
+                <span class="fate-chapter-heading">
+                  <span class="fate-chapter-eyebrow">AI SYSTEM DESIGN · AI 系统设计</span>
+                  <strong>Generation Guardrail &amp; Boundary Rule Design</strong>
+                  <small>生成护栏与边界规则设计</small>
+                </span>
+                <span class="fate-chapter-mark" aria-hidden="true"></span>
+              </header>
+              <div class="fate-chapter-panel" id="fate-panel-03">
+                <div class="fate-panel-inner">
+                  <section class="fate-overview-lead fate-guardrail-lead fate-panel-brief">
+                    <aside>
+                      <span>ROLE SEPARATION · 职责分离</span>
+                      <p>Code fixes symbols and boundaries first. The model only turns verified inputs into neutral, structured language.</p>
+                      <small>代码先确定符号与边界，模型只将已验证的输入转为中立、结构化的叙事语言。</small>
+                    </aside>
+                    <figure class="fate-panel-visual">
+                      <img src="./media/fatefork/module-03-guardrails.png" alt="Abstract blue boundary layers protecting a calm central core." loading="lazy" decoding="async" />
+                    </figure>
+                  </section>
+
+                  <h3 class="fate-block-title">Responsibility Map · <em>职责地图</em></h3>
+                  <section class="fate-guardrail-roles" aria-label="Generation responsibility map">
+                    <details>
+                      <summary>
+                        <span>RULE ENGINE · 规则引擎</span>
+                        <strong>Fixes the symbolic structure</strong>
+                        <small>固定符号结构</small>
+                        <i aria-hidden="true"></i>
+                      </summary>
+                      <p>Backend code determines time zones, chart structures, card identities, orientations, and spread positions before AI writing begins. The symbolic result is never generated by the model.<small>模型写作开始前，后端代码已确定时区、盘面结构、牌面、正逆位与牌阵位置；符号结果不由模型生成。</small></p>
+                    </details>
+                    <details>
+                      <summary>
+                        <span>OUTPUT CHECK · 输出校验</span>
+                        <strong>Validates output before display</strong>
+                        <small>展示前校验输出</small>
+                        <i aria-hidden="true"></i>
+                      </summary>
+                      <p>Schema and required-field checks run before display. Incomplete or malformed results do not appear as finished experiences.<small>展示前执行 Schema 与必填字段校验；不完整或格式异常的结果不会被呈现为完整体验。</small></p>
+                    </details>
+                    <details>
+                      <summary>
+                        <span>NARRATIVE MODEL · 叙事模型</span>
+                        <strong>Turns rules into reflection</strong>
+                        <small>把规则写成自省叙事</small>
+                        <i aria-hidden="true"></i>
+                      </summary>
+                      <p>Agnes turns verified rule results into neutral, readable reflection. An optional mood image can adjust tone, never the underlying result.<small>Agnes 将已确定的规则结果写成中立、易读的自省叙事；可选心境图片只调整语气，不改变底层结果。</small></p>
+                    </details>
+                    <details>
+                      <summary>
+                        <span>PATH EQUITY · 路径等权</span>
+                        <strong>Keeps neither path above the other</strong>
+                        <small>不把任一路径标成更好答案</small>
+                        <i aria-hidden="true"></i>
+                      </summary>
+                      <p>The two Zi Wei paths share one safety boundary and equal visual weight. Users choose how they read, reflect, and act; the final decision stays with them.<small>两条紫微路径共享同一安全边界与视觉权重；用户决定如何阅读、反思与行动，最终判断始终留给用户。</small></p>
+                    </details>
+                  </section>
+
+                  <h3 class="fate-block-title">Model Permissions · <em>模型权限</em></h3>
+                  <section class="fate-guardrail-permissions" aria-label="Model permissions and limits">
+                    <article class="fate-permission-card is-allowed">
+                      <p>MODEL MAY · 模型可以</p>
+                      <ul>
+                        <li>Translate fixed symbols into neutral narratives <small>将固定符号转为中立叙事</small></li>
+                        <li>Adapt wording from optional mood imagery <small>根据可选心境图片调整表达语气</small></li>
+                        <li>Return validated emotion metadata for the interface <small>返回经校验、供界面使用的情绪元数据</small></li>
+                      </ul>
+                    </article>
+                    <article class="fate-permission-card is-blocked">
+                      <p>MODEL MUST NOT · 模型不得</p>
+                      <ul>
+                        <li>Calculate, redraw, or change symbolic results <small>计算、重抽或修改符号结果</small></li>
+                        <li>Predict outcomes or frame either path as the right answer <small>预测现实结果，或把任一路径包装成正确答案</small></li>
+                        <li>Use retrieval, function calls, tools, or agent loops <small>调用检索、函数、工具或自主循环</small></li>
+                      </ul>
+                    </article>
+                  </section>
+
+                  <h3 class="fate-block-title">Runtime Safeguards · <em>运行保护</em></h3>
+                  <div class="fate-safety-rules fate-guardrail-constraints" aria-label="Generation architecture constraints">
+                    <article>
+                      <strong>PREVENT · <em>前置约束</em></strong>
+                      <span>Fix symbols, bound prompts, and limit inputs before narration begins.</span>
+                      <small>叙事开始前固定符号、约束提示词并限制输入范围。</small>
+                    </article>
+                    <article>
+                      <strong>VALIDATE · <em>运行校验</em></strong>
+                      <span>Check schema and required fields before the interface renders.</span>
+                      <small>界面展示前校验 Schema 与必填字段。</small>
+                    </article>
+                    <article>
+                      <strong>INTERCEPT · <em>越界拦截</em></strong>
+                      <span>Sanitize unsafe language and surface a safety note for immediate risk.</span>
+                      <small>清理越界语言，并为即时风险内容显示安全提示。</small>
+                    </article>
+                    <article>
+                      <strong>FAILURE · <em>请求失败</em></strong>
+                      <span>Show a clear message, fallback visual, and request ID when requests fail.</span>
+                      <small>请求失败时显示明确提示、替代视觉与请求 ID。</small>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="fate-chapter" id="fatefork-chapter-04" data-fate-chapter="04">
+              <header class="fate-chapter-trigger" tabindex="-1">
+                <span class="fate-chapter-number">04</span>
+                <span class="fate-chapter-heading">
+                  <span class="fate-chapter-eyebrow">PROTOTYPE VALIDATION · 原型验证</span>
+                  <strong>Interactive Prototype &amp; Perception Testing</strong>
+                  <small>交互原型与用户感知测试</small>
+                </span>
+                <span class="fate-chapter-mark" aria-hidden="true"></span>
+              </header>
+              <div class="fate-chapter-panel" id="fate-panel-04">
+                <div class="fate-panel-inner">
+                  <header class="fate-overview-lead fate-prototype-lead fate-panel-brief">
+                    <aside class="fate-prototype-summary">
+                      <span>RESEARCH SCOPE · 研究范围</span>
+                      <p>Eight moderated sessions tested the end-to-end prototype and informed focused design decisions. Findings are directional.</p>
+                      <small>8 场引导式测试覆盖完整原型流程，并为聚焦的设计决策提供方向性参考。</small>
+                    </aside>
+                    <figure class="fate-panel-visual">
+                      <img src="./media/fatefork/module-04-testing.png" alt="Abstract constellation of observation points around two equal arcs." loading="lazy" decoding="async" />
+                    </figure>
+                  </header>
+
+                  <h3 class="fate-block-title">Study Setup · <em>测试设置</em></h3>
+                  <div class="fate-study-method" aria-label="Study method">
+                    <div>
+                      <span>PROTOTYPE SCOPE · 原型范围</span>
+                      <strong>Three routes, equal-weight Zi Wei paths, local history</strong>
+                      <small>三条路径、等权紫微双轨、本地历史</small>
+                    </div>
+                    <div>
+                      <span>PARTICIPANTS · 参与者</span>
+                      <strong>Content creators · product researchers · safety reviewers</strong>
+                      <small>内容创作 · 产品研究 · 安全审核</small>
+                    </div>
+                    <div>
+                      <span>FORMAT · 测试方式</span>
+                      <strong>Moderated end-to-end walkthrough</strong>
+                      <small>引导式完整流程走查</small>
+                    </div>
+                    <div>
+                      <span>LOOKED FOR · 观察重点</span>
+                      <strong>Comprehension, operation load, and agency</strong>
+                      <small>理解度、操作负担与可控感</small>
+                    </div>
+                  </div>
+
+                  <h3 class="fate-block-title">Directional Signals · <em>方向性信号</em></h3>
+                  <div class="fate-study-metrics">
+                    <div class="fate-metric-ring" style="--value: 87.5%">
+                      <div><p class="fate-metric-label">COMPREHENSION · 理解度</p><strong>7/8</strong><span class="fate-metric-copy"><b>understood reflection rather than prediction</b><small>理解产品用于自省，而非预测</small></span></div>
+                    </div>
+                    <div class="fate-metric-ring" style="--value: 75%">
+                      <div><p class="fate-metric-label">OPERATION LOAD · 操作负担</p><strong>6/8</strong><span class="fate-metric-copy"><b>preferred one path at a time</b><small>偏好一次展开一条路径</small></span></div>
+                    </div>
+                    <div class="fate-metric-ring" style="--value: 62.5%">
+                      <div><p class="fate-metric-label">ROLE BOUNDARY · 职责边界</p><strong>5/8</strong><span class="fate-metric-copy"><b>distinguished code from AI roles</b><small>能区分代码定规则，AI 写叙事</small></span></div>
+                    </div>
+                  </div>
+                  <p class="fate-method-note">
+                    Tested dual paths, staged reveal, reflection, and local history. Branches created by users and merging were out of scope. Findings are directional.
+                    <span>覆盖双轨、渐进展开、复盘与本地历史；不含用户新建分支或路径合并。结果仅作方向性参考。</span>
+                  </p>
+
+                  <section class="fate-design-impact" aria-labelledby="fate-design-impact-title">
+                    <header>
+                      <span id="fate-design-impact-title">Design Impact · <em>设计影响</em></span>
+                    </header>
+                    <div class="fate-design-impact-list">
+                      <details>
+                        <summary>
+                          <span>01 · ENTRY · 入口引导</span>
+                          <strong>Soften the first decision<small>把第一次选择变得更温和</small></strong>
+                          <em>Less pressure<small>减少被推动感</small></em>
+                          <i aria-hidden="true"></i>
+                        </summary>
+                        <div class="fate-design-impact-detail"><div><p>The dominant start CTA made the first step feel directive, so it became a quieter invitation into three routes.</p><small>强势的开始按钮让第一步显得被推动，因此改成更克制的入口，引导用户进入三条路径。</small></div></div>
+                      </details>
+                      <details>
+                        <summary>
+                          <span>02 · STAR PATH · 星轨推演</span>
+                          <strong>Reveal one path at a time<small>一次只展开一条路径</small></strong>
+                          <em>Lower comparison load<small>降低比较负担</small></em>
+                          <i aria-hidden="true"></i>
+                        </summary>
+                        <div class="fate-design-impact-detail"><div><p>Showing both paths together increased comparison load, so users reveal one route, then decide when to open the other.</p><small>同时展示两条路径会增加比较负担，因此先展开一条，再由用户决定何时打开另一条。</small></div></div>
+                      </details>
+                      <details>
+                        <summary>
+                          <span>03 · TAROT · 塔罗</span>
+                          <strong>Make agency visible before interpretation<small>先让用户看见自己的选择</small></strong>
+                          <em>More agency<small>增强参与感</small></em>
+                          <i aria-hidden="true"></i>
+                        </summary>
+                        <div class="fate-design-impact-detail"><div><p>A full spread lets users choose three positions before the cards are revealed together, keeping agency visible before interpretation.</p><small>用户先从完整牌组中选择三个位置，再一起揭示牌面，让自主选择先于解释发生。</small></div></div>
+                      </details>
+                      <details>
+                        <summary>
+                          <span>04 · HISTORY · 历史记录</span>
+                          <strong>Start with choices, then keep the record<small>先选择，再保留记录</small></strong>
+                          <em>Easier revisiting<small>更容易回看</small></em>
+                          <i aria-hidden="true"></i>
+                        </summary>
+                        <div class="fate-design-impact-detail"><div><p>Staged choices reduce response effort, and the resulting reflection card stays in local history for later comparison.</p><small>先用选择题降低作答负担，生成的复盘卡保存在本地历史中，方便之后回看对照。</small></div></div>
+                      </details>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </article>
+
+            <article class="fate-chapter" id="fatefork-chapter-05" data-fate-chapter="05">
+              <header class="fate-chapter-trigger" tabindex="-1">
+                <span class="fate-chapter-number">05</span>
+                <span class="fate-chapter-heading">
+                  <span class="fate-chapter-eyebrow">SAFETY ASSURANCE · 安全保障</span>
+                  <strong>Safety &amp; Controllability Evaluation</strong>
+                  <small>安全性与可控性评估</small>
+                </span>
+                <span class="fate-chapter-mark" aria-hidden="true"></span>
+              </header>
+              <div class="fate-chapter-panel" id="fate-panel-05">
+                <div class="fate-panel-inner">
+                  <header class="fate-overview-lead fate-panel-brief">
+                    <aside>
+                      <span>SYSTEM ASSURANCE · 系统保障</span>
+                      <p>Safety is built into the flow: boundaries set limits, checks verify outputs, and recovery keeps the experience usable.</p>
+                      <small>安全融入流程：边界设定限制，校验确认输出，回退让体验仍可继续。</small>
+                    </aside>
+                    <figure class="fate-panel-visual">
+                      <img src="./media/fatefork/module-05-safety.png" alt="Abstract concentric forms guiding small blue signals toward a calm center." loading="lazy" decoding="async" />
+                    </figure>
+                  </header>
+
+                  <h3 class="fate-block-title">Evaluation Signals · <em>验证信号</em></h3>
+                  <div class="fate-safety-summary">
+                    <div><strong>24</strong><span>24 risky requests were tested<small>测试了 24 个高风险请求</small></span></div>
+                    <div><strong>22/24</strong><span>22 followed the safety rules<small>其中 22 个遵守安全规则</small></span></div>
+                    <div><strong>12</strong><span>12 automated checks ran<small>运行了 12 项自动检查</small></span></div>
+                    <div><strong>100%</strong><span>path stages stayed aligned<small>双轨阶段保持一致</small></span></div>
+                  </div>
+                  <p class="fate-method-note">
+                    24 prompts and 12 automated checks tested boundaries, path consistency, and recovery. Portfolio evidence only.
+                    <span>24 条提示与 12 项自动化检查覆盖边界、路径一致性与安全回退，仅作作品集阶段证据。</span>
+                  </p>
+
+                  <h3 class="fate-block-title">Test Coverage · <em>测试覆盖</em></h3>
+                  <section class="fate-safety-coverage" aria-label="Safety evaluation coverage">
+                    <article><span>INDUCED PROMPTS · 诱导提示</span><strong>Test requests for a best path, certain future, or direct decision.</strong><small>测试最佳路径、确定未来或代替用户决定的请求。</small></article>
+                    <article><span>BOUNDARY PROBES · 边界探测</span><strong>Test requests turning reflection into causation, probability, or verdict.</strong><small>测试把叙事变成因果、概率或权威结论的请求。</small></article>
+                    <article><span>PATH CONSISTENCY · 路径对齐</span><strong>Check fixed draws, stage alignment, and equal treatment of both paths.</strong><small>验证抽牌固定、阶段对齐，且两条路径等权呈现。</small></article>
+                    <article><span>FAILURE RECOVERY · 异常回退</span><strong>Check crisis prompts, errors, and fallback visuals preserve core use.</strong><small>验证危机提示、错误与回退视觉仍保留核心体验。</small></article>
+                  </section>
+
+                  <h3 class="fate-block-title">Risk &amp; Recovery · <em>风险与回退</em></h3>
+                  <div class="fate-risk-layout">
+                    <section class="fate-risk-register" aria-label="Risks considered">
+                      <header><p>What could go wrong<small>需要防范的具体问题</small></p></header>
+                      <div>
+                        <p class="fate-risk-axis-y"><b>IMPACT</b><i aria-hidden="true">·</i><em>影响</em></p>
+                        <article class="is-watch"><span>MODEL OUTPUT · 模型输出</span><strong>Authority tone</strong><small>权威化语气</small></article>
+                        <article class="is-critical"><span>MODEL OUTPUT · 模型输出</span><strong>Deterministic claim</strong><small>宿命化断言</small></article>
+                        <article class="is-low"><span>IMAGE LAYER · 图像层</span><strong>Visual symbol leak</strong><small>图像符号泄漏</small></article>
+                        <article class="is-high"><span>INTERACTION · 交互层</span><strong>Crisis mishandling</strong><small>危机内容误处理</small></article>
+                      </div>
+                    </section>
+
+                    <section class="fate-risk-response" aria-label="Safety response path">
+                      <header><p>How the product responds<small>系统如何从前到后处理</small></p></header>
+                      <ol>
+                        <li><b>01</b><div><strong>Set symbols, prompts, and input limits first.</strong><small>先设定符号、提示词与输入边界。</small></div></li>
+                        <li><b>02</b><div><strong>Check structure, stages, and equal treatment before display.</strong><small>展示前核验内容结构、路径阶段与等权呈现。</small></div></li>
+                        <li><b>03</b><div><strong>Recover with guidance, clear errors, and a usable fallback.</strong><small>异常时提供安全提示、统一错误与可用回退。</small></div></li>
+                      </ol>
+                    </section>
+                  </div>
+
+                  <h3 class="fate-block-title">Safety Commitments · <em>安全承诺</em></h3>
+                  <div class="fate-safety-rules">
+                    <p><strong>LANGUAGE · <em>表述边界</em></strong><span>No verdicts, fixed futures or path ranking.</span><small>不作吉凶判断、不确定未来、不排序路径。</small></p>
+                    <p><strong>HIGH STAKES · <em>风险决策</em></strong><span>Return to real evidence and qualified support.</span><small>涉及高风险决定时回到现实证据与专业支持。</small></p>
+                    <p><strong>PRIVACY · <em>本地隐私</em></strong><span>Local-first history with visible delete controls.</span><small>记录本地优先保存，并提供清楚的删除入口。</small></p>
+                    <p><strong>FAILURE · <em>异常回退</em></strong><span>Narrative remains usable when image generation fails.</span><small>配图失败不阻断核心叙事，回退至原生抽象视觉。</small></p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="fate-chapter" id="fatefork-chapter-06" data-fate-chapter="06">
+              <header class="fate-chapter-trigger" tabindex="-1">
+                <span class="fate-chapter-number">06</span>
+                <span class="fate-chapter-heading">
+                  <span class="fate-chapter-eyebrow">TRUST DESIGN · 信任设计</span>
+                  <strong>User Trust &amp; Mental Model Research</strong>
+                  <small>用户信任与心智调研</small>
+                </span>
+                <span class="fate-chapter-mark" aria-hidden="true"></span>
+              </header>
+              <div class="fate-chapter-panel" id="fate-panel-06">
+                <div class="fate-panel-inner">
+                  <header class="fate-overview-lead fate-panel-brief">
+                    <aside>
+                      <span>DESIGN IMPLICATIONS · 设计启示</span>
+                      <p>Trust grows when boundaries, equal paths, and user control are made visible in the experience.</p>
+                      <small>当边界、等权路径与用户控制被清晰呈现时，产品才能建立恰当信任。</small>
+                    </aside>
+                    <figure class="fate-panel-visual">
+                      <img src="./media/fatefork/module-06-trust.png" alt="Abstract equal translucent blue forms sharing a clear visible center." loading="lazy" decoding="async" />
+                    </figure>
+                  </header>
+
+                  <h3 class="fate-block-title">Mental Model Shift · <em>心智模型变化</em></h3>
+                  <div class="fate-mental-model">
+                    <section class="fate-model-bars">
+                      <p>HOW USERS DESCRIBED THE PRODUCT · <span>用户如何描述产品</span></p>
+                      <div class="fate-model-row">
+                        <strong>Oracle<small>预言者</small></strong>
+                        <div><i style="--before: 37.5%; --after: 12.5%"></i></div>
+                        <span><b>3/8</b> → <em>1/8</em></span>
+                      </div>
+                      <div class="fate-model-row">
+                        <strong>Advisor<small>建议者</small></strong>
+                        <div><i style="--before: 37.5%; --after: 25%"></i></div>
+                        <span><b>3/8</b> → <em>2/8</em></span>
+                      </div>
+                      <div class="fate-model-row is-primary">
+                        <strong>Mirror<small>镜子</small></strong>
+                        <div><i style="--before: 25%; --after: 75%"></i></div>
+                        <span><b>2/8</b> → <em>6/8</em></span>
+                      </div>
+                      <footer><span><i class="is-before"></i>Before prototype · 体验前</span><span><i class="is-after"></i>After prototype · 体验后</span></footer>
+                    </section>
+
+                    <section class="fate-research-quote" aria-label="Synthesized participant sentiment">
+                      <span>SYNTHESIZED PARTICIPANT SENTIMENT · 反馈综合</span>
+                      <ul class="fate-sentiment-list">
+                        <li><strong>Oracle and advisor roles recede.</strong><small>预言者与建议者角色明显减弱。</small></li>
+                        <li><strong>Mirror becomes the dominant mental model.</strong><small>镜子成为最主要的产品心智模型。</small></li>
+                        <li><strong>People want room to compare before deciding.</strong><small>参与者希望先比较不同可能，再自行决定。</small></li>
+                        <li><strong>Equal paths support calmer, self-owned reflection.</strong><small>等权路径让反思更安心，也更具自主感。</small></li>
+                      </ul>
+                    </section>
+                  </div>
+
+                  <h3 class="fate-block-title">Trust Drivers · <em>信任要素</em></h3>
+                  <div class="fate-safety-rules fate-trust-drivers">
+                    <p><strong>BOUNDARY LABELS · <em>生成边界</em></strong><span>Label what code fixes, what AI narrates, and what stays user-decided.</span><small>标明代码固定什么、AI 叙述什么，决定始终留给用户。</small></p>
+                    <p><strong>EQUAL PATHS · <em>路径等权</em></strong><span>Keep both paths equal, with neither framed as a hidden recommendation.</span><small>保持两条路径等权，不把任何一条包装成隐藏推荐。</small></p>
+                    <p><strong>USER CONTROL · <em>用户掌控</em></strong><span>Let users pause, revisit, annotate, or delete their own local records.</span><small>允许用户暂停、回看、添加现实备注或删除本地记录。</small></p>
+                    <p><strong>VISIBLE BASIS · <em>显示依据</em></strong><span>Show each fixed source so reflection stays grounded, traceable, and non-predictive.</span><small>展示固定来源，让每段自省保持可追溯而不构成预测。</small></p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="fate-chapter" id="fatefork-chapter-07" data-fate-chapter="07">
+              <header class="fate-chapter-trigger" tabindex="-1">
+                <span class="fate-chapter-number">07</span>
+                <span class="fate-chapter-heading">
+                  <span class="fate-chapter-eyebrow">PRODUCT DIRECTION · 产品方向</span>
+                  <strong>UX of Speculative AI &amp; Future Exploration</strong>
+                  <small>推演式 AI 体验与后续探索</small>
+                </span>
+                <span class="fate-chapter-mark" aria-hidden="true"></span>
+              </header>
+              <div class="fate-chapter-panel" id="fate-panel-07">
+                <div class="fate-panel-inner">
+                  <header class="fate-overview-lead fate-panel-brief">
+                    <aside>
+                      <span>FUTURE BOUNDARY · 未来边界</span>
+                      <p>Future work extends guided reflection without taking over user judgement, especially in urgent or high-stakes moments.</p>
+                      <small>后续工作继续支持引导式自省，但不接管用户判断，尤其在紧急或高风险情境中。</small>
+                    </aside>
+                    <figure class="fate-panel-visual">
+                      <img src="./media/fatefork/module-07-future.png" alt="Abstract blue paths remaining open as they move toward a soft horizon." loading="lazy" decoding="async" />
+                    </figure>
+                  </header>
+
+                  <h3 class="fate-block-title">Roadmap · <em>路线规划</em></h3>
+                  <div class="fate-roadmap">
+                    <details class="is-now">
+                      <summary>
+                        <span>NOW · 当前</span>
+                        <strong>Guided reflection, not generic branching</strong>
+                        <small>受控自省，而非通用分支系统</small>
+                      </summary>
+                      <ul>
+                        <li>Three distinct reflection routes <small>三条独立自省入口</small></li>
+                        <li>Equal-weight paths with staged reveal <small>双轨等权，并支持渐进展开</small></li>
+                        <li>Local journal for revisiting reality <small>用本地日志回看与现实对照</small></li>
+                      </ul>
+                    </details>
+                    <details class="is-next">
+                      <summary>
+                        <span>NEXT · 下一步</span>
+                        <strong>Simpler comparison and revisiting</strong>
+                        <small>更轻量的对照与回看</small>
+                      </summary>
+                      <ul>
+                        <li>One shared comparison view after both paths open <small>两条路径展开后提供共同对照视图</small></li>
+                        <li>Faster re-entry from local history and reality notes <small>从本地历史与现实备注更快回到原路径</small></li>
+                        <li>User-edited reflection summary export <small>支持用户编辑后导出复盘摘要</small></li>
+                      </ul>
+                    </details>
+                    <details class="is-later">
+                      <summary>
+                        <span>LATER · 远期</span>
+                        <strong>User-governed convergence</strong>
+                        <small>由用户决定如何收束</small>
+                      </summary>
+                      <ul>
+                        <li>Choose which assumptions carry into one reflection card <small>由用户选择哪些假设进入同一份复盘卡</small></li>
+                        <li>Consent-based comparison across text and mood context <small>经用户同意，对照文字记录与当时的情绪背景</small></li>
+                        <li>Export a source-visible reflection brief, never a decision verdict <small>导出来源可见的复盘简报，而非替用户下决定</small></li>
+                      </ul>
+                    </details>
+                  </div>
+
+                  <h3 class="fate-block-title">Fit &amp; Red Lines · <em>适配与红线</em></h3>
+                  <div class="fate-future-boundary">
+                    <div>
+                      <span>WHERE GUIDED PATHS FIT · 适配场景</span>
+                      <ul class="fate-future-list">
+                        <li><strong>Ambiguous, reversible choices</strong><small>适合模糊且可调整的选择</small></li>
+                        <li><strong>Time to compare assumptions and trade-offs</strong><small>允许比较假设并辨认取舍</small></li>
+                        <li><strong>Return to real evidence, not urgent judgment</strong><small>回到现实证据，不替代紧急或高风险专业判断</small></li>
+                      </ul>
+                    </div>
+                    <div>
+                      <span>COMMERCIAL &amp; SAFETY RED LINES · 商业与安全红线</span>
+                      <ul class="fate-future-list">
+                        <li><strong>No prediction scores or paid redraws</strong><small>不做预测评分或付费重抽</small></li>
+                        <li><strong>No anxiety-driven retention or hidden profiling</strong><small>不以焦虑留存，也不做隐性画像</small></li>
+                        <li><strong>No “ideal path” recommendation</strong><small>不把任何路径包装成“最佳答案”</small></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="fate-closing-question">
+                    <span>THE QUESTION I AM CARRYING FORWARD · 带入下一阶段的问题</span>
+                    <p>How might consumer AI create a reflection experience people choose to return to, without taking over their judgment?</p>
+                    <small>消费者 AI 如何创造一种让用户愿意反复回访、又不接管其判断的自省体验？</small>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="fate-stage-controls" aria-label="Case-study chapter controls">
+            <button type="button" data-fate-prev disabled>
+              <span aria-hidden="true">←</span>
+              <strong>Previous</strong>
+              <small>上一章</small>
+            </button>
+            <p role="status" aria-live="polite" aria-atomic="true">
+              <span data-fate-current>01</span><i>/</i><span>07</span>
+            </p>
+            <button type="button" data-fate-next>
+              <strong>Next</strong>
+              <small>下一章</small>
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <nav class="case-pagination" aria-label="Case study navigation">
+      <a class="case-pagination-link" href="./teamalign.html">
+        <img class="case-pagination-poster" src="./media/teamalign/poster.jpg" alt="" aria-hidden="true">
+        <span class="case-pagination-direction">
+          <span class="case-pagination-arrow" aria-hidden="true">←</span>
+          <span class="case-pagination-direction-en">Previous Case</span>
+          <span class="case-pagination-direction-zh">上一个案例</span>
+        </span>
+        <span class="case-pagination-info">
+          <span class="case-pagination-index">Case 02</span>
+          <span class="case-pagination-name">TeamAlign AI</span>
+          <span class="case-pagination-name-zh">轻量化 Agent 原生 AI 协作工具</span>
+        </span>
+      </a>
+      <a class="case-pagination-link case-pagination-link--next" href="./fairbench.html">
+        <img class="case-pagination-poster" src="./media/fairbench/poster.jpg" alt="" aria-hidden="true">
+        <span class="case-pagination-direction">
+          <span class="case-pagination-direction-en">Next Case</span>
+          <span class="case-pagination-arrow" aria-hidden="true">→</span>
+          <span class="case-pagination-direction-zh">下一个案例</span>
+        </span>
+        <span class="case-pagination-info">
+          <span class="case-pagination-index">Case 04</span>
+          <span class="case-pagination-name">FairBench AI</span>
+          <span class="case-pagination-name-zh">人脸算法公平性 AI 评测工具</span>
+        </span>
+      </a>
+    </nav>
+
+    <footer class="portfolio-footer">
+      <p class="portfolio-footer-signature">Ruiying Liu</p>
+      <p class="portfolio-footer-copy">
+        <span aria-hidden="true">©</span>
+        <span class="portfolio-footer-year"></span>
+        · design what matters, develop what endures.
+      </p>
+    </footer>
+    <button class="back-to-top" type="button" aria-label="Back to top"><span aria-hidden="true">↑</span></button>
+    <script src="./assets/live-reload.js" defer></script>
+    <script src="./assets/fluid-cursor.js" defer></script>
+    <script src="./assets/fatefork/fatefork.js" defer></script>
+  </body>
+</html>
