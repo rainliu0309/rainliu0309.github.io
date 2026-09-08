@@ -961,7 +961,7 @@ html[data-language="zh"] .flip-video-card__caption {
   left: 0;
   border-radius: 50%;
   border: 1.5px solid rgba(0, 0, 0, 0.06);
-  pointer-events: auto;
+  pointer-events: none;
 }
 .dial-tick {
   position: absolute;
@@ -984,6 +984,7 @@ html[data-language="zh"] .flip-video-card__caption {
   align-items: center;
   gap: 5px;
   cursor: pointer;
+  pointer-events: auto;
   background: none;
   border: none;
   padding: 0;
@@ -1026,10 +1027,10 @@ html[data-language="zh"] .flip-video-card__caption {
   box-shadow: 0 0 10px #002fa740;
 }
 .dial-marker:hover:not(.dial-marker--active) .dial-marker-year {
-  color: #002fa766;
+  color: #002fa7;
 }
 .dial-marker:hover:not(.dial-marker--active) .dial-marker-bar {
-  background: #002fa72e;
+  background: #002fa7;
 }
 .dial-pointer {
   position: absolute;
@@ -1076,20 +1077,28 @@ html[data-language="zh"] .flip-video-card__caption {
   pointer-events: none;
 }
 .dial-nav {
+  position: relative;
+  z-index: 20;
   display: flex;
   align-items: center;
   gap: 32px;
+  pointer-events: auto;
+  touch-action: manipulation;
 }
 .dial-nav-btn {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 6px;
+  -webkit-appearance: none;
   background: none;
   border: none;
   cursor: pointer;
   color: #1a1a1a59;
   transition: color 0.3s;
   padding: 8px;
+  touch-action: manipulation;
 }
 .dial-nav-btn:hover {
   color: #002fa7;
@@ -4722,6 +4731,14 @@ html[data-theme="dark"] .fan-flip-back .subtitle-back,
 html[data-theme="dark"] .dial-marker--active .dial-marker-year,
 html[data-theme="dark"] .dial-nav-btn:hover {
   color: var(--dark-accent);
+}
+
+html[data-theme="dark"] .dial-marker:hover:not(.dial-marker--active) .dial-marker-year {
+  color: var(--dark-accent);
+}
+
+html[data-theme="dark"] .dial-marker:hover:not(.dial-marker--active) .dial-marker-bar {
+  background: var(--dark-accent);
 }
 
 html[data-theme="dark"] #root .dial-nav-btn:hover svg {
