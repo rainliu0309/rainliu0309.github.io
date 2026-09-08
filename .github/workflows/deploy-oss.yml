@@ -14,9 +14,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Prepare website files
+        run: |
+          mkdir -p deploy
+          cp index.html deploy/
+          cp crossscribe.html deploy/
+          cp fairbench.html deploy/
+          cp fatefork.html deploy/
+          cp teamalign.html deploy/
+          cp site.webmanifest deploy/
+          cp -r assets deploy/
+          cp -r media deploy/
+
       - name: Install ossutil
         run: |
-          curl -L https://gosspublic.alicdn.com/ossutil/v2/2.4.0/ossutil-2.4.0-linux-amd64.zip -o ossutil.zip
+          curl -L https://gosspublic.alicdn.com/ossutil/v2/2.4.0/ossutil-2.4.0-linux-amd64.zip -o /tmp/ossutil.zip
+          cd /tmp
           unzip ossutil.zip
           sudo mv ossutil-2.4.0-linux-amd64/ossutil /usr/local/bin/ossutil
           sudo chmod +x /usr/local/bin/ossutil
@@ -29,11 +42,9 @@ jobs:
           OSS_ENDPOINT: ${{ secrets.ALIYUN_OSS_ENDPOINT }}
           OSS_BUCKET: ${{ secrets.ALIYUN_OSS_BUCKET }}
         run: |
-          ossutil sync ./ "oss://${OSS_BUCKET}/" \
+          ossutil sync ./deploy/ "oss://${OSS_BUCKET}/" \
             --region cn-hongkong \
             --endpoint "${OSS_ENDPOINT}" \
             --access-key-id "${OSS_ACCESS_KEY_ID}" \
             --access-key-secret "${OSS_ACCESS_KEY_SECRET}" \
-            --delete \
-            --exclude ".git/*" \
-            --exclude ".github/*"
+            --delete
