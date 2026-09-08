@@ -10,9 +10,8 @@
     <meta property="og:title" content="Rain | Finding myself in what I build" />
     <meta property="og:description" content="A personal portfolio exploring product, visual storytelling, and creative technology." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://gracexygu.github.io/" />
-    <meta property="og:image" content="https://gracexygu.github.io/og-image.png" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:url" content="https://rainliu0309.github.io/" />
+    <meta name="twitter:card" content="summary" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@200;300;400;500;600&family=Pinyon+Script&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
@@ -38,78 +37,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <button class="back-to-top" type="button" aria-label="Back to top"><span aria-hidden="true">↑</span></button>
-    <script>
-      (() => {
-        const backToTop = document.querySelector('.back-to-top');
-        if (backToTop) {
-          const syncBackToTop = () => backToTop.classList.toggle('is-visible', window.scrollY > 360);
-          window.addEventListener('scroll', syncBackToTop, { passive: true });
-          backToTop.addEventListener('click', () => {
-            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
-          });
-          syncBackToTop();
-        }
-
-        const configureResumeDownloads = () => {
-          const links = document.querySelectorAll('.resume-downloads .resume-download-button');
-          if (links.length < 2) return false;
-
-          links[0].href = './media/RuiyingLiu‑Resume.pdf';
-          links[0].download = 'RuiyingLiu‑Resume.pdf';
-          links[0].setAttribute('aria-label', 'Download Ruiying Liu resume PDF');
-
-          links[1].href = './media/刘瑞颍‑简历.pdf';
-          links[1].download = '刘瑞颍‑简历.pdf';
-          links[1].setAttribute('aria-label', '下载刘瑞颍中文简历 PDF');
-          return true;
-        };
-
-        if (!configureResumeDownloads()) {
-          const observer = new MutationObserver((_, activeObserver) => {
-            if (configureResumeDownloads()) activeObserver.disconnect();
-          });
-          observer.observe(document.getElementById('root'), { childList: true, subtree: true });
-        }
-
-        const keepFooterSignatureConsistent = () => {
-          const signature = document.querySelector('footer .font-script');
-          const preferredSignature = document.documentElement.dataset.language === 'zh'
-            ? '刘瑞颍'
-            : 'Ruiying Liu';
-          if (signature && signature.textContent !== preferredSignature) {
-            signature.textContent = preferredSignature;
-          }
-        };
-
-        const keepContactTitleConsistent = () => {
-          const title = document.querySelector('#contact .section-title');
-          const preferredTitle = document.documentElement.dataset.language === 'zh'
-            ? '来都来了，我们聊聊'
-            : 'DON’T BE A STRANGER';
-          if (title && title.textContent !== preferredTitle) {
-            title.textContent = preferredTitle;
-          }
-        };
-
-        const signatureObserver = new MutationObserver(() => {
-          keepFooterSignatureConsistent();
-          keepContactTitleConsistent();
-        });
-        signatureObserver.observe(document.getElementById('root'), {
-          childList: true,
-          characterData: true,
-          subtree: true
-        });
-        signatureObserver.observe(document.documentElement, {
-          attributes: true,
-          attributeFilter: ['data-language']
-        });
-        keepFooterSignatureConsistent();
-        keepContactTitleConsistent();
-      })();
-    </script>
     <script src="./assets/live-reload.js" defer></script>
   </body>
 </html>

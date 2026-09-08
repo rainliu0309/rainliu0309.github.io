@@ -1543,3 +1543,51 @@ updatePortfolioName();
     }
   });
 })();
+
+(() => {
+  const root = document.querySelector('#root');
+  let backToTop = document.querySelector('.back-to-top');
+  if (!backToTop && root) {
+    backToTop = document.createElement('button');
+    backToTop.className = 'back-to-top';
+    backToTop.type = 'button';
+    backToTop.setAttribute('aria-label', 'Back to top');
+    const arrow = document.createElement('span');
+    arrow.setAttribute('aria-hidden', 'true');
+    arrow.textContent = '↑';
+    backToTop.append(arrow);
+    root.insertAdjacentElement('afterend', backToTop);
+  }
+  if (backToTop) {
+    const syncBackToTop = () => backToTop.classList.toggle('is-visible', window.scrollY > 360);
+    window.addEventListener('scroll', syncBackToTop, { passive: true });
+    backToTop.addEventListener('click', () => {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+    syncBackToTop();
+  }
+
+  const configureResumeDownloads = () => {
+    const links = document.querySelectorAll('.resume-downloads .resume-download-button');
+    if (links.length < 2) return false;
+
+    links[0].href = './media/RuiyingLiu‑Resume.pdf';
+    links[0].download = 'RuiyingLiu‑Resume.pdf';
+    links[0].setAttribute('aria-label', 'Download Ruiying Liu resume PDF');
+
+    links[1].href = './media/刘瑞颍‑简历.pdf';
+    links[1].download = '刘瑞颍‑简历.pdf';
+    links[1].setAttribute('aria-label', '下载刘瑞颍中文简历 PDF');
+    return true;
+  };
+
+  if (!configureResumeDownloads()) {
+    const root = document.querySelector('#root');
+    if (!root) return;
+    const observer = new MutationObserver((_, activeObserver) => {
+      if (configureResumeDownloads()) activeObserver.disconnect();
+    });
+    observer.observe(root, { childList: true, subtree: true });
+  }
+})();
