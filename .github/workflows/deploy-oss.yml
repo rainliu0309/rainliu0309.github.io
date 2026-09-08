@@ -1,0 +1,38 @@
+name: Deploy Portfolio to Aliyun OSS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install ossutil
+        run: |
+          curl -L https://gosspublic.alicdn.com/ossutil/2.0.7/ossutil-2.0.7-linux-amd64.zip -o ossutil.zip
+          unzip ossutil.zip
+          sudo mv ossutil-2.0.7-linux-amd64/ossutil /usr/local/bin/ossutil
+          ossutil version
+
+      - name: Deploy to Aliyun OSS
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
+          OSS_ENDPOINT: ${{ secrets.ALIYUN_OSS_ENDPOINT }}
+          OSS_BUCKET: ${{ secrets.ALIYUN_OSS_BUCKET }}
+        run: |
+          ossutil sync ./ "oss://${OSS_BUCKET}/" \
+            --region cn-hongkong \
+            --endpoint "${OSS_ENDPOINT}" \
+            --access-key-id "${OSS_ACCESS_KEY_ID}" \
+            --access-key-secret "${OSS_ACCESS_KEY_SECRET}" \
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*"
