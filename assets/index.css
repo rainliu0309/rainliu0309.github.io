@@ -4747,6 +4747,14 @@ html[data-theme="dark"] .dial-marker-bar--sub {
   background: rgba(190, 207, 246, 0.14);
 }
 
+html[data-theme="dark"] .dial-nav [class*="bg-black"] {
+  background: rgba(190, 207, 246, 0.24);
+}
+
+html[data-theme="dark"] #root .dial-nav [class*="bg-klein"] {
+  background-color: var(--dark-accent) !important;
+}
+
 html[data-theme="dark"] .dial-pointer-needle {
   background: linear-gradient(to top, var(--dark-accent), rgba(142, 174, 255, 0.06));
 }

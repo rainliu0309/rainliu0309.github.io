@@ -1335,6 +1335,15 @@ updatePortfolioName();
       socialProfileCopy.dataset.language = normalizedLanguage;
     }
     const photoCover = document.querySelector('#photography .flip-cover-f');
+    const eraNavigation = document.querySelector('.dial-nav');
+    if (eraNavigation) {
+      const [previousEra, nextEra] = eraNavigation.querySelectorAll('.dial-nav-label');
+      if (previousEra) previousEra.textContent = normalizedLanguage === 'zh' ? '上一项' : 'Prev';
+      if (nextEra) nextEra.textContent = normalizedLanguage === 'zh' ? '下一项' : 'Next';
+      const [previousButton, nextButton] = eraNavigation.querySelectorAll('button');
+      if (previousButton) previousButton.setAttribute('aria-label', normalizedLanguage === 'zh' ? '上一项' : 'Previous era');
+      if (nextButton) nextButton.setAttribute('aria-label', normalizedLanguage === 'zh' ? '下一项' : 'Next era');
+    }
     const photoSwipeHint = document.querySelector('[data-photo-swipe-hint]');
     if (photoSwipeHint) {
       photoSwipeHint.textContent = normalizedLanguage === 'zh'
