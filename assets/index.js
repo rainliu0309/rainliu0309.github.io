@@ -1560,6 +1560,36 @@ updatePortfolioName();
 })();
 
 (() => {
+  // Safari can occasionally lose React's delegated click after a transformed
+  // element has animated above the experience navigation. Dispatch a native
+  // click on pointer release, while suppressing Safari's duplicate click.
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  if (!isSafari) return;
+
+  let fallbackClickAt = 0;
+  document.addEventListener('pointerup', (event) => {
+    const button = event.target.closest?.('.dial-nav-btn');
+    if (!button || button.disabled) return;
+
+    fallbackClickAt = performance.now();
+    event.preventDefault();
+    event.stopPropagation();
+    button.click();
+  }, true);
+
+  document.addEventListener('click', (event) => {
+    if (
+      event.isTrusted &&
+      performance.now() - fallbackClickAt < 450 &&
+      event.target.closest?.('.dial-nav-btn')
+    ) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    }
+  }, true);
+})();
+
+(() => {
   const hintEnglish = '← SWIPE TO EXPLORE →';
   const hintChinese = '← 左右滑动浏览 →';
 
