@@ -5036,6 +5036,10 @@ html[data-theme="dark"] #hero p {
   color: var(--dark-text) !important;
 }
 
+html[data-theme="dark"] #hero p .hover\:text-klein:hover {
+  color: var(--dark-accent) !important;
+}
+
 html[data-theme="dark"] #hero > .absolute.z-50 > div:last-child {
   background: linear-gradient(
     to left,
