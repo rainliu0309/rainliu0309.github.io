@@ -1,4 +1,4 @@
-@import url("../case-study.css?v=20260909-controls-parity");
+@import url("../case-study.css?v=20260909-safari-layer-boundary");
 
 :root {
   --ff-paper: #f5f5f5;
@@ -3891,15 +3891,6 @@ html[data-theme="dark"] .fate-roadmap details[open] summary::after {
   box-shadow: 0 14px 32px rgba(28, 51, 100, 0.13);
   transform: translateX(-50%);
   transition: box-shadow 220ms var(--ff-ease);
-}
-
-/* Safari can drop fixed controls when several overlapping backdrop-filter
-   layers are promoted during a scroll. FateFork's dock and global controls
-   keep their glass colours, but use ordinary painted backgrounds instead. */
-html.fate-js .site-header .portfolio-logo::before,
-html.fate-js .site-header .navigation-toggle {
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
 }
 
 .fate-route-index.is-docked.reveal-on-scroll.is-visible {
