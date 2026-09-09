@@ -5295,7 +5295,6 @@ html[data-theme="dark"] .navigation-toggle:focus-visible span {
 /* Fixed controls keep the glass palette through painted gradients, without
    Safari's fragile backdrop-filter compositing path. */
 .portfolio-logo::before,
-.top-navigation::before,
 .navigation-toggle,
 .back-to-top {
   -webkit-backdrop-filter: none;
