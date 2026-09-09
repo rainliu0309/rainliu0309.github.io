@@ -5232,6 +5232,8 @@ html[data-language="zh"]:not(.localized-hero-complete) .resume-downloads {
     inset 10px 10px 22px rgba(255, 255, 255, 0.14),
     0 12px 34px rgba(36, 91, 224, 0.22);
   color: #002fa7;
+  -webkit-backdrop-filter: blur(16px) saturate(190%) contrast(112%);
+  backdrop-filter: blur(16px) saturate(190%) contrast(112%);
   cursor: pointer;
   isolation: isolate;
   opacity: 0;

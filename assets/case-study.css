@@ -463,9 +463,6 @@ main {
     inset 10px 10px 22px rgba(255, 255, 255, 0.14),
     0 12px 34px rgba(36, 91, 224, 0.22);
   color: #002fa7;
-  font-family: monospace;
-  font-size: 11px;
-  letter-spacing: 0.07em;
   -webkit-backdrop-filter: blur(16px) saturate(190%) contrast(112%);
   backdrop-filter: blur(16px) saturate(190%) contrast(112%);
   cursor: pointer;
@@ -473,17 +470,21 @@ main {
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
-  transition:
-    opacity 0.22s ease,
-    transform 0.22s ease,
-    visibility 0.22s,
-    background 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s, background 0.2s ease, color 0.2s ease;
 }
 
 .back-to-top::after {
+  position: absolute;
   top: 5px;
   left: 11px;
+  z-index: 0;
+  width: 42%;
+  height: 23%;
+  content: "";
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.82);
+  filter: blur(1.5px);
+  pointer-events: none;
 }
 
 .back-to-top span {
@@ -504,16 +505,6 @@ main {
 .back-to-top:hover,
 .back-to-top:focus-visible {
   outline: none;
-  transform: translateY(0);
-  background:
-    radial-gradient(ellipse at 31% 22%, rgba(255, 255, 255, 0.95) 0 5%, rgba(255, 255, 255, 0.38) 15%, transparent 34%),
-    radial-gradient(ellipse at 66% 72%, rgba(42, 94, 225, 0.26), transparent 56%),
-    radial-gradient(circle at 48% 44%, rgba(255, 255, 255, 0.12), transparent 64%),
-    rgba(205, 221, 255, 0.07);
-  box-shadow:
-    inset 0 -12px 22px rgba(0, 47, 167, 0.13),
-    inset 10px 10px 22px rgba(255, 255, 255, 0.14),
-    0 12px 34px rgba(36, 91, 224, 0.22);
   color: #001b66;
 }
 
@@ -1341,7 +1332,7 @@ html[data-theme="dark"] .case-theme-switch {
 /* Use the homepage's glass return-control treatment on every case page.
    The back arrow and upward arrow should feel like one control family, not
    darker standalone buttons. */
-html[data-theme="dark"] :is(.site-header .back-link, .back-to-top) {
+html[data-theme="dark"] .site-header .back-link {
   border-color: transparent;
   color: #bcd0ff;
   background:
@@ -1352,6 +1343,18 @@ html[data-theme="dark"] :is(.site-header .back-link, .back-to-top) {
     inset 0 -12px 22px rgba(0, 14, 52, 0.42),
     inset 10px 10px 22px rgba(179, 201, 255, 0.05),
     0 12px 34px rgba(0, 0, 0, 0.34);
+}
+
+html[data-theme="dark"] .back-to-top {
+  background:
+    radial-gradient(ellipse at 31% 22%, rgba(205, 220, 255, 0.18) 0 5%, rgba(143, 170, 233, 0.09) 15%, transparent 34%),
+    radial-gradient(ellipse at 66% 72%, rgba(54, 101, 225, 0.25), transparent 56%),
+    rgba(17, 27, 51, 0.72);
+  box-shadow:
+    inset 0 -12px 22px rgba(0, 14, 52, 0.42),
+    inset 10px 10px 22px rgba(179, 201, 255, 0.05),
+    0 12px 34px rgba(0, 0, 0, 0.34);
+  color: #bcd0ff;
 }
 
 html[data-theme="dark"] .case-theme-switch::before {
@@ -1366,8 +1369,8 @@ html[data-theme="dark"] .case-theme-switch-icon--moon { color: #fff; }
 html[data-theme="dark"] .site-header .back-link::after,
 html[data-theme="dark"] .back-to-top::after { background: rgba(202, 219, 255, 0.15); }
 
-html[data-theme="dark"] :is(.site-header .back-link, .back-to-top):hover,
-html[data-theme="dark"] :is(.site-header .back-link, .back-to-top):focus-visible {
+html[data-theme="dark"] .site-header .back-link:hover,
+html[data-theme="dark"] .site-header .back-link:focus-visible {
   color: #fff;
   background:
     radial-gradient(ellipse at 31% 22%, rgba(205, 220, 255, 0.18) 0 5%, rgba(143, 170, 233, 0.09) 15%, transparent 34%),
@@ -1377,6 +1380,11 @@ html[data-theme="dark"] :is(.site-header .back-link, .back-to-top):focus-visible
     inset 0 -12px 22px rgba(0, 14, 52, 0.42),
     inset 10px 10px 22px rgba(179, 201, 255, 0.05),
     0 12px 34px rgba(0, 0, 0, 0.34);
+}
+
+html[data-theme="dark"] .back-to-top:hover,
+html[data-theme="dark"] .back-to-top:focus-visible {
+  color: #ffffff;
 }
 
 html[data-theme="dark"] .site-header .portfolio-logo::before {
