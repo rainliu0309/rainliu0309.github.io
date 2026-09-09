@@ -30,25 +30,6 @@
     pointerEvents: "none",
   });
 
-  document.body.style.isolation = "isolate";
-  Array.from(document.body.children).forEach((element) => {
-    if (
-      element === layer ||
-      element.tagName === "SCRIPT" ||
-      element.tagName === "STYLE"
-    ) {
-      return;
-    }
-
-    const computedStyle = window.getComputedStyle(element);
-    if (computedStyle.position === "static") {
-      element.style.position = "relative";
-    }
-    if (computedStyle.zIndex === "auto") {
-      element.style.zIndex = "1";
-    }
-  });
-
   const w = { current: canvas };
   const g = { current: null };
   const t = 128;
