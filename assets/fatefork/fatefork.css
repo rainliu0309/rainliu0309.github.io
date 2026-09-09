@@ -280,8 +280,6 @@ html[data-theme="dark"] .fate-case::after {
     rgba(248, 250, 255, 0.92) 90%,
     rgba(248, 250, 255, 0) 100%
   );
-  -webkit-backdrop-filter: blur(15px) saturate(115%);
-  backdrop-filter: blur(15px) saturate(115%);
   /* Opacity follows scroll progress directly. A delayed fade would make the
      veil visibly chase the chapter control when the reader reverses scroll. */
   transition: none;
@@ -3891,10 +3889,17 @@ html[data-theme="dark"] .fate-roadmap details[open] summary::after {
   border-radius: 14px;
   background: #eef3ff;
   box-shadow: 0 14px 32px rgba(28, 51, 100, 0.13);
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
   transform: translateX(-50%);
   transition: box-shadow 220ms var(--ff-ease);
+}
+
+/* Safari can drop fixed controls when several overlapping backdrop-filter
+   layers are promoted during a scroll. FateFork's dock and global controls
+   keep their glass colours, but use ordinary painted backgrounds instead. */
+html.fate-js .site-header .portfolio-logo::before,
+html.fate-js .site-header .navigation-toggle {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .fate-route-index.is-docked.reveal-on-scroll.is-visible {

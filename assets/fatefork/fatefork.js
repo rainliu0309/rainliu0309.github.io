@@ -418,17 +418,4 @@
   const footerYear = document.querySelector(".portfolio-footer-year");
   if (footerYear) footerYear.textContent = String(new Date().getFullYear());
 
-  const backToTopButton = document.querySelector(".back-to-top");
-  const syncBackToTopButton = () => {
-    backToTopButton?.classList.toggle("is-visible", window.scrollY > 360);
-  };
-
-  window.addEventListener("scroll", syncBackToTopButton, { passive: true });
-  backToTopButton?.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: reduceMotion.matches ? "auto" : "smooth",
-    });
-  });
-  syncBackToTopButton();
 })();

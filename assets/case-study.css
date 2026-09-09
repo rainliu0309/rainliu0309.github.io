@@ -440,6 +440,7 @@ main {
 
 .back-to-top {
   position: fixed;
+  left: auto;
   right: 18px;
   bottom: 18px;
   z-index: 1000;
@@ -466,16 +467,11 @@ main {
   font-family: monospace;
   font-size: 11px;
   letter-spacing: 0.07em;
-  -webkit-backdrop-filter: blur(16px) saturate(190%) contrast(112%);
-  backdrop-filter: blur(16px) saturate(190%) contrast(112%);
   cursor: pointer;
-  isolation: isolate;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(10px);
   transition:
     opacity 0.22s ease,
-    transform 0.22s ease,
     visibility 0.22s,
     background 0.2s ease,
     box-shadow 0.2s ease;
@@ -498,13 +494,11 @@ main {
 .back-to-top.is-visible {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
 }
 
 .back-to-top:hover,
 .back-to-top:focus-visible {
   outline: none;
-  transform: translateY(0);
   background:
     radial-gradient(ellipse at 31% 22%, rgba(255, 255, 255, 0.95) 0 5%, rgba(255, 255, 255, 0.38) 15%, transparent 34%),
     radial-gradient(ellipse at 66% 72%, rgba(42, 94, 225, 0.26), transparent 56%),
@@ -1810,4 +1804,14 @@ transition: none;
 html[data-theme="dark"] .navigation-toggle:hover span,
 html[data-theme="dark"] .navigation-toggle:focus-visible span {
   background: #ffffff;
+}
+
+/* Keep fixed controls in Safari's ordinary paint path. Overlapping blurred
+   fixed layers can intermittently disappear or be positioned incorrectly. */
+.site-header .portfolio-logo::before,
+.top-navigation::before,
+.navigation-toggle,
+.back-to-top {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
