@@ -5292,6 +5292,28 @@ html[data-theme="dark"] .navigation-toggle:focus-visible span {
   background: #ffffff;
 }
 
+/* Fixed controls keep the glass palette through painted gradients, without
+   Safari's fragile backdrop-filter compositing path. */
+.portfolio-logo::before,
+.top-navigation::before,
+.navigation-toggle,
+.back-to-top {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.back-to-top {
+  left: auto;
+  transform: none;
+  transition: opacity 0.22s ease, visibility 0.22s, background 0.2s ease, color 0.2s ease;
+}
+
+.back-to-top.is-visible,
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  transform: none;
+}
+
 /* This switches at the same point as the hamburger navigation. Until then,
    the orbit stays beside the copy and remains fully interactive. */
 @media (max-width: 1180px) {
