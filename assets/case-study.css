@@ -1809,7 +1809,6 @@ html[data-theme="dark"] .navigation-toggle:focus-visible span {
 /* Keep fixed controls in Safari's ordinary paint path. Overlapping blurred
    fixed layers can intermittently disappear or be positioned incorrectly. */
 .site-header .portfolio-logo::before,
-.top-navigation::before,
 .navigation-toggle,
 .back-to-top {
   -webkit-backdrop-filter: none;
