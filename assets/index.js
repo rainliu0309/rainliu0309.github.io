@@ -889,7 +889,10 @@ updatePortfolioName();
         clone.addEventListener('mouseleave', () => {
           originalLabel?.dispatchEvent(new MouseEvent('mouseout', { bubbles: true }));
         });
-        clone.addEventListener('click', () => navigateTo(labelText));
+        clone.addEventListener('click', (event) => {
+          event.stopPropagation();
+          originalLabel?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+        });
       }
       svg.append(clone);
       return clone;
@@ -1679,4 +1682,104 @@ updatePortfolioName();
 
   document.addEventListener('touchstart', keepPageScroll, { capture: true, passive: false });
   document.addEventListener('touchmove', keepPageScroll, { capture: true, passive: false });
+})();
+
+/* Homepage orbit preview and paired navigation interactions. */
+(() => {
+  const scenes = {
+    About: ['关于我', '探索自我，保持好奇', 'Stay curious, keep exploring', '<path d="M42 96V30h23c26 0 26 33 0 33H42m22 0 24 33M91 30v66h29"/>'],
+    Experience: ['经历', '每一步，都留下连接', 'Every step connects', '<path d="M24 96C45 96 38 65 66 65S95 32 128 32"/><circle cx="24" cy="96" r="5"/><circle cx="66" cy="65" r="5"/><circle cx="128" cy="32" r="5"/>'],
+    Project: ['项目', '从想法，到构建', 'From ideas to creation', '<rect x="27" y="24" width="38" height="32" rx="6"/><rect x="95" y="24" width="38" height="32" rx="6"/><rect x="61" y="84" width="38" height="32" rx="6"/><path d="M46 56v12h68V56M80 68v16"/>'],
+    Photography: ['摄影', '让目光停留一瞬', 'A moment through my lens', '<path d="M35 35H23v14m102-14h12v14M23 91v14h12m90 0h12V91"/><circle cx="80" cy="70" r="32"/><path d="m80 38 18 32-18 32-18-32Zm-28 16h37m19 32H71"/>'],
+    Social: ['分享', '让灵感，产生回响', 'Ideas that resonate', '<circle cx="80" cy="70" r="6"/><path d="M64 51a25 25 0 0 0 0 38m32-38a25 25 0 0 1 0 38M51 37a44 44 0 0 0 0 66m58-66a44 44 0 0 1 0 66"/>'],
+    Contact: ['联系我', '从一次对话开始', 'It starts with a conversation', '<path d="M23 45h27c20 0 18 50 40 50h47M23 95h27c20 0 18-50 40-50h47"/><circle cx="80" cy="70" r="9"/>'],
+  };
+  function install() {
+    const shell = document.querySelector('.orbit-navigation-shell');
+    if (!shell || !shell.querySelector('.orbit-navigation-label')) return false;
+    const panel = document.createElement('div');
+    panel.className = 'orbit-sketch';
+    panel.setAttribute('aria-hidden', 'true');
+    const fade = shell.querySelector(':scope > div[style*="linear-gradient"]');
+    shell.insertBefore(panel, fade || null);
+    shell.classList.add('has-orbit-sketch');
+    const compact = matchMedia('(max-width: 1180px)');
+    let current = '';
+    let navigating = false;
+    const labels = [...shell.querySelectorAll('.orbit-navigation-label')].filter(label => scenes[label.textContent.trim()]);
+    const hide = () => {
+      current = '';
+      panel.classList.remove('is-visible');
+      shell.classList.remove('orbit-preview-active');
+      labels.forEach(label => label.classList.remove('orbit-pair-active'));
+    };
+    function render(key) {
+      shell.classList.add('orbit-preview-active');
+      labels.forEach(label => label.classList.toggle('orbit-pair-active', label.textContent.trim() === key));
+      const [zh, zhCaption, enCaption, drawing] = scenes[key];
+      const chinese = document.documentElement.dataset.language === 'zh';
+      const visual = key === 'About'
+        ? '<svg viewBox="0 0 160 140" fill="none" aria-hidden="true"><defs><clipPath id="orbit-avatar-clip"><circle cx="80" cy="70" r="66"/></clipPath></defs><image href="./media/profile-avatar.png" x="10" y="2" width="140" height="140" clip-path="url(#orbit-avatar-clip)"/><path d="M21.02 111.3A72 72 0 0 0 138.98 111.3"/></svg>'
+        : `<svg viewBox="0 0 160 140" fill="none" aria-hidden="true">${drawing}</svg>`;
+      panel.innerHTML = `${visual}<div class="orbit-sketch-title"></div><p class="orbit-sketch-caption"></p>`;
+      panel.querySelector('.orbit-sketch-title').textContent = chinese ? zh : key;
+      panel.querySelector('.orbit-sketch-caption').textContent = chinese ? zhCaption : enCaption;
+      panel.querySelectorAll('svg > path, svg > circle, svg > rect').forEach(shape => {
+        shape.setAttribute('fill', 'none');
+        shape.setAttribute('stroke', 'currentColor');
+        shape.setAttribute('stroke-width', '2');
+        shape.setAttribute('stroke-linecap', 'round');
+        shape.setAttribute('stroke-linejoin', 'round');
+      });
+      panel.classList.add('is-visible');
+    }
+    labels.forEach(label => {
+      const key = label.textContent.trim();
+      if (!scenes[key]) return;
+      label.addEventListener('pointerenter', () => {
+        if (compact.matches || current === key) return;
+        current = key;
+        render(key);
+      });
+      label.addEventListener('pointerleave', hide);
+      label.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        if (compact.matches || navigating) return;
+        navigating = true;
+        const ring = shell.querySelector('svg:has(#circlePath)')?.parentElement;
+        if (ring) {
+          const matrix = new DOMMatrixReadOnly(getComputedStyle(ring).transform);
+          ring.style.setProperty('--current-rotation', `${Math.atan2(matrix.b, matrix.a) * 180 / Math.PI}deg`);
+        }
+        hide();
+        shell.classList.add('orbit-click-expanding');
+        setTimeout(() => document.getElementById(key.toLowerCase())?.scrollIntoView({ behavior: 'smooth' }), 300);
+        setTimeout(() => {
+          shell.classList.remove('orbit-click-expanding');
+          navigating = false;
+        }, 1000);
+      }, true);
+      if (label.getAttribute('aria-hidden') !== 'true') {
+        label.setAttribute('tabindex', compact.matches ? '-1' : '0');
+        label.addEventListener('focus', () => { if (!compact.matches) { current = key; render(key); } });
+        label.addEventListener('blur', hide);
+        label.addEventListener('keydown', event => {
+          if (!compact.matches && (event.key === 'Enter' || event.key === ' ')) {
+            event.preventDefault();
+            label.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+          }
+        });
+        compact.addEventListener('change', () => label.setAttribute('tabindex', compact.matches ? '-1' : '0'));
+      }
+    });
+    shell.addEventListener('mouseleave', hide);
+    shell.addEventListener('click', hide);
+    compact.addEventListener('change', hide);
+    new MutationObserver(() => { if (current) render(current); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-language'] });
+    return true;
+  }
+  if (install()) return;
+  const observer = new MutationObserver(() => { if (install()) observer.disconnect(); });
+  observer.observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['class'] });
 })();

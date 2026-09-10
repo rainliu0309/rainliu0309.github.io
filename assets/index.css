@@ -5340,3 +5340,36 @@ html[data-theme="dark"] .navigation-toggle:focus-visible span {
     opacity: 0 !important;
   }
 }
+
+/* Homepage orbit preview and paired navigation interactions. */
+.orbit-sketch {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -46%);
+  width: 240px;
+  text-align: center;
+  color: #002fa7;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 220ms ease, transform 350ms ease;
+}
+.orbit-sketch.is-visible { opacity: 1; transform: translate(-50%, -50%); }
+.orbit-sketch > svg { display: block; width: 140px; height: 123px; margin: 0 auto 16px; overflow: visible; }
+.orbit-sketch svg > * { opacity: 1; stroke-dasharray: none; stroke-dashoffset: 0; }
+.orbit-sketch-title { font: 24px "Cormorant Garamond", "Noto Sans SC", serif; }
+#hero .orbit-sketch-caption { margin: 10px 0 0; font: 13px/1.6 "JetBrains Mono", "Noto Sans SC", monospace; letter-spacing: .05em; color: #0a0a0a !important; opacity: 1; }
+.has-orbit-sketch > div:nth-child(2) > span { visibility: hidden; }
+#hero .orbit-navigation-label { transition: fill 200ms ease; }
+#hero .orbit-navigation-label.orbit-pair-active { fill: #002fa7 !important; font-weight: 400; }
+html[data-theme="dark"] #hero .orbit-navigation-label.orbit-pair-active { fill: var(--dark-accent) !important; }
+#hero .orbit-preview-active > div[style*="linear-gradient"] { opacity: 0; pointer-events: none; }
+#hero .orbit-click-expanding > div:first-child { animation: orbExplode 1s ease-out forwards !important; }
+#hero .orbit-click-expanding > div:has(> svg #circlePath) { animation: ringExplode 1s ease-out forwards !important; animation-play-state: running !important; }
+#hero .orbit-click-expanding > div[style*="linear-gradient"] { opacity: 0 !important; }
+html[data-theme="dark"] #hero .orbit-sketch,
+html[data-theme="dark"] #hero .orbit-sketch-title { color: var(--dark-accent) !important; }
+html[data-theme="dark"] #hero .orbit-sketch-caption { color: var(--dark-text) !important; }
+@media (max-width: 1180px) { .orbit-sketch { display: none; } }
+@media (prefers-reduced-motion: reduce) { .orbit-sketch { transition: none; } .orbit-sketch svg > * { animation: none; } }
