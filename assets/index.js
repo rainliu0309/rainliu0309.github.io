@@ -899,6 +899,9 @@ updatePortfolioName();
     });
     const secondBoundary = addSeparator(svg);
     const orbitItems = [...labels, firstBoundary, ...repeatedLabels, secondBoundary];
+    orbitItems.forEach(label => {
+      label.dataset.orbitItem = navigationTargets[label.textContent.trim()] ? 'label' : 'separator';
+    });
     const circlePath = svg.querySelector('#circlePath');
     const layoutOrbit = () => {
       const circumference = circlePath.getTotalLength();
@@ -911,7 +914,15 @@ updatePortfolioName();
       });
     };
     layoutOrbit();
-    document.fonts?.ready.then(layoutOrbit);
+    let layoutFrame;
+    const scheduleLayout = () => {
+      cancelAnimationFrame(layoutFrame);
+      layoutFrame = requestAnimationFrame(layoutOrbit);
+    };
+    document.fonts?.ready.then(scheduleLayout);
+    document.fonts?.addEventListener('loadingdone', scheduleLayout);
+    new ResizeObserver(scheduleLayout).observe(svg);
+    window.addEventListener('pageshow', scheduleLayout);
     return true;
   };
   if (completeOrbit()) return;
@@ -1752,6 +1763,7 @@ updatePortfolioName();
     labels.forEach(label => {
       const key = label.textContent.trim();
       if (!scenes[key]) return;
+      label.setAttribute('data-orbit-control', 'true');
       label.addEventListener('pointerenter', () => {
         if (compact.matches || current === key) return;
         current = key;
