@@ -5373,6 +5373,9 @@ html[data-theme="dark"] .navigation-toggle:focus-visible span {
 #hero .orbit-pointer-inside > div:has(> svg #circlePath) { animation-play-state: paused !important; }
 #hero .orbit-selection-paused > div:has(> svg #circlePath) { animation-play-state: paused !important; }
 #hero [data-orbit-item] { text-anchor: middle; }
+#hero text[data-orbit-item="separator"] { display: none !important; }
+#hero [data-orbit-dot] { pointer-events: none; }
+@media (max-width: 1180px) { #hero [data-orbit-dot] { display: none; } }
 #hero [data-orbit-selected="true"] { fill: #002fa7 !important; font-weight: 400; }
 html[data-theme="dark"] #hero [data-orbit-selected="true"] { fill: var(--dark-accent) !important; }
 #hero .orbit-preview-active > div[style*="linear-gradient"] { opacity: 0; pointer-events: none; }

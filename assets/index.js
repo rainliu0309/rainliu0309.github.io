@@ -903,6 +903,16 @@ updatePortfolioName();
       label.dataset.orbitItem = navigationTargets[label.textContent.trim()] ? 'label' : 'separator';
     });
     const circlePath = svg.querySelector('#circlePath');
+    const separatorDots = new Map();
+    orbitItems.filter(label => label.dataset.orbitItem === 'separator').forEach(label => {
+      const dot = document.createElementNS(svgNamespace, 'circle');
+      dot.setAttribute('r', '0.9');
+      dot.setAttribute('class', 'fill-text-muted');
+      dot.setAttribute('data-orbit-dot', 'true');
+      dot.setAttribute('aria-hidden', 'true');
+      svg.append(dot);
+      separatorDots.set(label, dot);
+    });
     const layoutOrbit = () => {
       const circumference = circlePath.getTotalLength();
       const words = orbitItems.filter(label => label.dataset.orbitItem === 'label');
@@ -913,6 +923,13 @@ updatePortfolioName();
       orbitItems.forEach((label, index) => {
         const isWord = label.dataset.orbitItem === 'label';
         const center = isWord ? distance + widths[wordIndex] / 2 : distance - gap / 2;
+        if (!isWord) {
+          const point = circlePath.getPointAtLength((center % circumference + circumference) % circumference);
+          const dot = separatorDots.get(label);
+          dot.setAttribute('cx', point.x);
+          dot.setAttribute('cy', point.y);
+          return;
+        }
         const path = label.querySelector('textPath');
         const offset = `${((center % circumference) / circumference) * 100}%`;
         if (path.getAttribute('startOffset') !== offset) path.setAttribute('startOffset', offset);
