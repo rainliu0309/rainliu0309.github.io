@@ -1687,7 +1687,7 @@ updatePortfolioName();
 /* Homepage orbit preview and paired navigation interactions. */
 (() => {
   const scenes = {
-    About: ['关于我', '探索自我，保持好奇', 'Stay curious, keep exploring', '<path d="M42 96V30h23c26 0 26 33 0 33H42m22 0 24 33M91 30v66h29"/>'],
+    About: ['关于我', '探索自我，保持好奇', 'Stay curious, keep exploring', '<path d="M24 74Q80 16 136 74Q80 122 24 74Z"/><circle cx="84" cy="65" r="17"/><circle cx="88" cy="60" r="5"/><path d="M80 20V12M48 29l-6-9m70 9 6-9"/>'],
     Experience: ['经历', '每一步，都留下连接', 'Every step connects', '<path d="M24 96C45 96 38 65 66 65S95 32 128 32"/><circle cx="24" cy="96" r="5"/><circle cx="66" cy="65" r="5"/><circle cx="128" cy="32" r="5"/>'],
     Project: ['项目', '从想法，到构建', 'From ideas to creation', '<rect x="27" y="24" width="38" height="32" rx="6"/><rect x="95" y="24" width="38" height="32" rx="6"/><rect x="61" y="84" width="38" height="32" rx="6"/><path d="M46 56v12h68V56M80 68v16"/>'],
     Photography: ['摄影', '让目光停留一瞬', 'A moment through my lens', '<path d="M35 35H23v14m102-14h12v14M23 91v14h12m90 0h12V91"/><circle cx="80" cy="70" r="32"/><path d="m80 38 18 32-18 32-18-32Zm-28 16h37m19 32H71"/>'],
@@ -1699,28 +1699,44 @@ updatePortfolioName();
     if (!shell || !shell.querySelector('.orbit-navigation-label')) return false;
     const panel = document.createElement('div');
     panel.className = 'orbit-sketch';
-    panel.setAttribute('aria-hidden', 'true');
+    panel.setAttribute('role', 'link');
+    panel.tabIndex = -1;
     const fade = shell.querySelector(':scope > div[style*="linear-gradient"]');
     shell.insertBefore(panel, fade || null);
     shell.classList.add('has-orbit-sketch');
     const compact = matchMedia('(max-width: 1180px)');
+    // Native listeners cover both React labels and the cloned second half.
+    const rotatingRing = shell.querySelector('svg:has(#circlePath)')?.parentElement;
+    shell.addEventListener('pointerenter', () => {
+      if (!compact.matches) shell.classList.add('orbit-pointer-inside');
+    });
+    shell.addEventListener('pointerleave', () => {
+      shell.classList.remove('orbit-pointer-inside');
+      if (rotatingRing) rotatingRing.style.animationPlayState = 'running';
+    });
+    compact.addEventListener('change', () => {
+      shell.classList.remove('orbit-pointer-inside');
+      if (rotatingRing) rotatingRing.style.animationPlayState = 'running';
+    });
     let current = '';
-    let navigating = false;
     const labels = [...shell.querySelectorAll('.orbit-navigation-label')].filter(label => scenes[label.textContent.trim()]);
     const hide = () => {
       current = '';
+      panel.replaceChildren();
       panel.classList.remove('is-visible');
+      panel.tabIndex = -1;
+      panel.removeAttribute('aria-label');
       shell.classList.remove('orbit-preview-active');
-      labels.forEach(label => label.classList.remove('orbit-pair-active'));
+      labels.forEach(label => { delete label.dataset.orbitSelected; });
     };
     function render(key) {
       shell.classList.add('orbit-preview-active');
-      labels.forEach(label => label.classList.toggle('orbit-pair-active', label.textContent.trim() === key));
+      labels.forEach(label => { label.dataset.orbitSelected = String(label.textContent.trim() === key); });
       const [zh, zhCaption, enCaption, drawing] = scenes[key];
       const chinese = document.documentElement.dataset.language === 'zh';
-      const visual = key === 'About'
-        ? '<svg viewBox="0 0 160 140" fill="none" aria-hidden="true"><defs><clipPath id="orbit-avatar-clip"><circle cx="80" cy="70" r="66"/></clipPath></defs><image href="./media/profile-avatar.png" x="10" y="2" width="140" height="140" clip-path="url(#orbit-avatar-clip)"/><path d="M21.02 111.3A72 72 0 0 0 138.98 111.3"/></svg>'
-        : `<svg viewBox="0 0 160 140" fill="none" aria-hidden="true">${drawing}</svg>`;
+      panel.tabIndex = 0;
+      panel.setAttribute('aria-label', chinese ? `前往${zh}` : `Go to ${key}`);
+      const visual = `<svg viewBox="0 0 160 140" fill="none" aria-hidden="true">${drawing}</svg>`;
       panel.innerHTML = `${visual}<div class="orbit-sketch-title"></div><p class="orbit-sketch-caption"></p>`;
       panel.querySelector('.orbit-sketch-title').textContent = chinese ? zh : key;
       panel.querySelector('.orbit-sketch-caption').textContent = chinese ? zhCaption : enCaption;
@@ -1741,29 +1757,16 @@ updatePortfolioName();
         current = key;
         render(key);
       });
-      label.addEventListener('pointerleave', hide);
       label.addEventListener('click', event => {
         event.preventDefault();
         event.stopImmediatePropagation();
-        if (compact.matches || navigating) return;
-        navigating = true;
-        const ring = shell.querySelector('svg:has(#circlePath)')?.parentElement;
-        if (ring) {
-          const matrix = new DOMMatrixReadOnly(getComputedStyle(ring).transform);
-          ring.style.setProperty('--current-rotation', `${Math.atan2(matrix.b, matrix.a) * 180 / Math.PI}deg`);
-        }
-        hide();
-        shell.classList.add('orbit-click-expanding');
-        setTimeout(() => document.getElementById(key.toLowerCase())?.scrollIntoView({ behavior: 'smooth' }), 300);
-        setTimeout(() => {
-          shell.classList.remove('orbit-click-expanding');
-          navigating = false;
-        }, 1000);
+        if (compact.matches) return;
+        current = key;
+        render(key);
       }, true);
       if (label.getAttribute('aria-hidden') !== 'true') {
         label.setAttribute('tabindex', compact.matches ? '-1' : '0');
         label.addEventListener('focus', () => { if (!compact.matches) { current = key; render(key); } });
-        label.addEventListener('blur', hide);
         label.addEventListener('keydown', event => {
           if (!compact.matches && (event.key === 'Enter' || event.key === ' ')) {
             event.preventDefault();
@@ -1773,10 +1776,31 @@ updatePortfolioName();
         compact.addEventListener('change', () => label.setAttribute('tabindex', compact.matches ? '-1' : '0'));
       }
     });
-    shell.addEventListener('mouseleave', hide);
-    shell.addEventListener('click', hide);
+    const navigate = () => {
+      if (compact.matches || !current) return;
+      const target = document.getElementById(current.toLowerCase());
+      hide();
+      target?.scrollIntoView({ behavior: 'smooth' });
+    };
+    panel.addEventListener('click', event => {
+      event.stopPropagation();
+      navigate();
+    });
+    panel.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        navigate();
+      }
+    });
+    shell.addEventListener('keydown', event => { if (event.key === 'Escape') hide(); });
+    document.addEventListener('click', event => {
+      if (!current || panel.contains(event.target)) return;
+      if (labels.some(label => label.contains(event.target))) return;
+      hide();
+    }, true);
     compact.addEventListener('change', hide);
     new MutationObserver(() => { if (current) render(current); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-language'] });
+    hide();
     return true;
   }
   if (install()) return;
