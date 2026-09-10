@@ -2036,12 +2036,14 @@ video {
   animation: ringRotate 50s linear infinite;
 }
 
-.orbit-navigation-label {
+.orbit-navigation-label,
+#hero [data-orbit-item="label"] {
   font-size: 8px;
   letter-spacing: 1.35px;
 }
 
-.orbit-navigation-separator {
+.orbit-navigation-separator,
+#hero [data-orbit-item="separator"] {
   font-size: 9px !important;
   letter-spacing: 0 !important;
 }
@@ -5364,6 +5366,10 @@ html[data-theme="dark"] .navigation-toggle:focus-visible span {
 #hero .orbit-sketch-caption { margin: 10px 0 0; font: 13px/1.6 "JetBrains Mono", "Noto Sans SC", monospace; letter-spacing: .05em; color: #0a0a0a !important; opacity: 1; }
 .has-orbit-sketch > div:nth-child(2) > span { visibility: hidden; }
 #hero .orbit-navigation-label { transition: fill 200ms ease; }
+#hero [data-orbit-control="true"],
+#hero [data-orbit-control="true"]:focus,
+#hero [data-orbit-control="true"]:focus-visible,
+#hero svg:has(#circlePath) text:focus { outline: none !important; box-shadow: none !important; }
 #hero .orbit-pointer-inside > div:has(> svg #circlePath) { animation-play-state: paused !important; }
 #hero [data-orbit-selected="true"] { fill: #002fa7 !important; font-weight: 400; }
 html[data-theme="dark"] #hero [data-orbit-selected="true"] { fill: var(--dark-accent) !important; }
