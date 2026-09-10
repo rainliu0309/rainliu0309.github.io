@@ -924,10 +924,13 @@ updatePortfolioName();
         const isWord = label.dataset.orbitItem === 'label';
         const center = isWord ? distance + widths[wordIndex] / 2 : distance - gap / 2;
         if (!isWord) {
-          const point = circlePath.getPointAtLength((center % circumference + circumference) % circumference);
+          // circlePath starts at the left edge of the (300, 300), r=240 circle.
+          // Calculate directly so a seam position cannot resolve to its initial move-to at the center.
+          const progress = ((center % circumference) + circumference) % circumference / circumference;
+          const angle = Math.PI + progress * 2 * Math.PI;
           const dot = separatorDots.get(label);
-          dot.setAttribute('cx', point.x);
-          dot.setAttribute('cy', point.y);
+          dot.setAttribute('cx', 300 + 240 * Math.cos(angle));
+          dot.setAttribute('cy', 300 + 240 * Math.sin(angle));
           return;
         }
         const path = label.querySelector('textPath');
