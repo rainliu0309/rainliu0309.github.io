@@ -5040,7 +5040,8 @@ html[data-theme="dark"] #hero p .hover\:text-klein:hover {
   color: var(--dark-accent) !important;
 }
 
-html[data-theme="dark"] #hero > .absolute.z-50 > div:last-child {
+html[data-theme="dark"] #hero .orbit-edge-fade,
+html[data-theme="dark"] #hero > .absolute.z-50 > div[style*="linear-gradient"] {
   background: linear-gradient(
     to left,
     var(--dark-bg) 0%,
@@ -5294,6 +5295,16 @@ html[data-theme="dark"] .navigation-toggle:focus-visible span {
   background: #ffffff;
 }
 
+
+/* Reserve the full 650px orbit plus a gap before the compact layout begins. */
+@media (min-width: 1181px) {
+  #hero > div:first-child {
+    min-width: 0;
+    max-width: min(55%, calc(90vw - 682px));
+    overflow-wrap: anywhere;
+  }
+}
+
 /* This switches at the same point as the hamburger navigation. Until then,
    the orbit stays beside the copy and remains fully interactive. */
 @media (max-width: 1180px) {
@@ -5317,6 +5328,10 @@ html[data-theme="dark"] .navigation-toggle:focus-visible span {
   #hero .orbit-navigation-shell .animate-ring-rotate,
   #hero .orbit-navigation-shell .animate-ring-explode {
     pointer-events: none !important;
+  }
+
+  #hero .orbit-navigation-shell svg text {
+    display: none;
   }
 
   /* The right-to-left fade belongs to the side-by-side composition. Once the
