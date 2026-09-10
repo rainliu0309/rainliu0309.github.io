@@ -905,12 +905,18 @@ updatePortfolioName();
     const circlePath = svg.querySelector('#circlePath');
     const layoutOrbit = () => {
       const circumference = circlePath.getTotalLength();
-      const widths = orbitItems.map((label) => Math.max(label.getComputedTextLength(), 1));
-      const gap = (circumference - widths.reduce((total, width) => total + width, 0)) / orbitItems.length;
+      const words = orbitItems.filter(label => label.dataset.orbitItem === 'label');
+      const widths = words.map(label => Math.max(label.getComputedTextLength(), 1));
+      const gap = (circumference - widths.reduce((total, width) => total + width, 0)) / words.length;
       let distance = gap / 2;
+      let wordIndex = 0;
       orbitItems.forEach((label, index) => {
-        label.querySelector('textPath').setAttribute('startOffset', `${(distance / circumference) * 100}%`);
-        distance += widths[index] + gap;
+        const isWord = label.dataset.orbitItem === 'label';
+        const center = isWord ? distance + widths[wordIndex] / 2 : distance - gap / 2;
+        const path = label.querySelector('textPath');
+        const offset = `${((center % circumference) / circumference) * 100}%`;
+        if (path.getAttribute('startOffset') !== offset) path.setAttribute('startOffset', offset);
+        if (isWord) distance += widths[wordIndex++] + gap;
       });
     };
     layoutOrbit();
@@ -922,6 +928,8 @@ updatePortfolioName();
     document.fonts?.ready.then(scheduleLayout);
     document.fonts?.addEventListener('loadingdone', scheduleLayout);
     new ResizeObserver(scheduleLayout).observe(svg);
+    // React may restore original textPath offsets during selection updates.
+    new MutationObserver(scheduleLayout).observe(svg, { subtree: true, attributes: true, attributeFilter: ['startOffset', 'class'] });
     window.addEventListener('pageshow', scheduleLayout);
     return true;
   };
@@ -1738,9 +1746,11 @@ updatePortfolioName();
       panel.tabIndex = -1;
       panel.removeAttribute('aria-label');
       shell.classList.remove('orbit-preview-active');
+      shell.classList.remove('orbit-selection-paused');
       labels.forEach(label => { delete label.dataset.orbitSelected; });
     };
     function render(key) {
+      shell.classList.add('orbit-selection-paused');
       shell.classList.add('orbit-preview-active');
       labels.forEach(label => { label.dataset.orbitSelected = String(label.textContent.trim() === key); });
       const [zh, zhCaption, enCaption, drawing] = scenes[key];
