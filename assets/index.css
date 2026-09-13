@@ -2144,10 +2144,11 @@ video {
   scroll-behavior: smooth;
 }
 
-/* Language switching performs an immediate scroll-anchor correction. */
-html.language-anchor-lock,
-html.language-anchor-lock body {
+/* Keep language-switch scroll corrections immediate while layout settles. */
+html.language-scroll-lock,
+html.language-scroll-lock body {
   scroll-behavior: auto !important;
+  overflow-anchor: none;
 }
 .rounded {
   border-radius: 0.25rem;

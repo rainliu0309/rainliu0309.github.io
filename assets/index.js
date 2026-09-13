@@ -966,49 +966,53 @@ updatePortfolioName();
   const originalTextNodes = new WeakMap();
   let languageFrame;
   let languageAnchorFrame;
-  let languageAnchorTimer;
+  let languageSwitchInProgress = false;
 
   /*
-   * The photography book is absolutely positioned inside a full-height section,
-   * so it is not a dependable native scroll-anchor. When copy above it changes
-   * height during a language switch, preserve the section's exact viewport
-   * coordinate until layout has settled.
+   * Chinese and English copy have different line metrics. Safari may apply its
+   * own scroll anchoring while that copy is replaced, which moves the viewport.
+   * Keep whichever main section currently contains the viewport centre fixed
+   * until all language-driven layout work has settled.
    */
-  const capturePhotographyAnchor = () => {
-    const section = document.querySelector('#photography');
+  const captureScrollAnchor = () => {
+    const centreY = window.innerHeight / 2;
+    const sections = [...document.querySelectorAll('section[id], #root > footer')];
+    const section = sections.find((candidate) => {
+      const rect = candidate.getBoundingClientRect();
+      return rect.top <= centreY && rect.bottom >= centreY;
+    });
     if (!section) return null;
-    const rect = section.getBoundingClientRect();
-    if (rect.bottom <= 0 || rect.top >= window.innerHeight) return null;
-    return { section, top: rect.top };
+    return { section, top: section.getBoundingClientRect().top };
   };
 
-  const restorePhotographyAnchor = (anchor) => {
+  const restoreScrollAnchor = (anchor) => {
     if (!anchor?.section?.isConnected) return;
     const delta = anchor.section.getBoundingClientRect().top - anchor.top;
-    if (Math.abs(delta) > 0.25) window.scrollBy(0, delta);
+    if (Math.abs(delta) <= 0.25) return;
+    const nextTop = Math.round(window.scrollY + delta);
+    // Safari can animate window.scrollBy when the document has smooth scroll
+    // enabled. Assigning the scroll roots directly keeps this correction out of
+    // the compositor animation path.
+    const scroller = document.scrollingElement;
+    if (scroller) scroller.scrollTop = nextTop;
+    document.documentElement.scrollTop = nextTop;
+    document.body.scrollTop = nextTop;
   };
 
-  const stabilizePhotographyAnchor = (anchor) => {
-    if (!anchor) return;
+  const stabilizeScrollAnchor = (anchor) => {
+    if (!anchor) {
+      languageSwitchInProgress = false;
+      return;
+    }
     cancelAnimationFrame(languageAnchorFrame);
-    clearTimeout(languageAnchorTimer);
-    document.documentElement.classList.add('language-anchor-lock');
-
-    let remainingFrames = 4;
-    const settle = () => {
-      restorePhotographyAnchor(anchor);
-      remainingFrames -= 1;
-      if (remainingFrames > 0) {
-        languageAnchorFrame = requestAnimationFrame(settle);
-        return;
-      }
-      languageAnchorTimer = window.setTimeout(() => {
-        restorePhotographyAnchor(anchor);
-        document.documentElement.classList.remove('language-anchor-lock');
-      }, 80);
-    };
-    restorePhotographyAnchor(anchor);
-    languageAnchorFrame = requestAnimationFrame(settle);
+    // Force the post-translation layout now, before Safari paints it. A single
+    // synchronous correction avoids visibly moving the WebGL ball pit frame by
+    // frame while it is on screen.
+    restoreScrollAnchor(anchor);
+    languageAnchorFrame = requestAnimationFrame(() => {
+      document.documentElement.classList.remove('language-scroll-lock');
+      languageSwitchInProgress = false;
+    });
   };
 
   const translations = new Map(Object.entries({
@@ -1560,6 +1564,7 @@ updatePortfolioName();
   };
 
   const scheduleLanguageUpdate = () => {
+    if (languageSwitchInProgress) return;
     cancelAnimationFrame(languageFrame);
     languageFrame = requestAnimationFrame(() => applyLanguage(document.documentElement.dataset.language));
   };
@@ -1571,14 +1576,16 @@ updatePortfolioName();
 
   applyLanguage(document.documentElement.dataset.language);
   switchControl?.addEventListener('click', () => {
-    const photographyAnchor = capturePhotographyAnchor();
+    const scrollAnchor = captureScrollAnchor();
     const nextLanguage = document.documentElement.dataset.language === 'zh' ? 'en' : 'zh';
+    languageSwitchInProgress = true;
+    if (scrollAnchor) document.documentElement.classList.add('language-scroll-lock');
     if (nextLanguage === 'zh') {
       ensureLocalizedHero();
       finishLocalizedHeroTyping();
     }
     applyLanguage(nextLanguage);
-    stabilizePhotographyAnchor(photographyAnchor);
+    stabilizeScrollAnchor(scrollAnchor);
   });
   window.addEventListener('click', (event) => {
     if (
