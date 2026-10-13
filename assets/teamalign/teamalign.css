@@ -1704,6 +1704,15 @@ html[data-theme="dark"] .flow-node { border-color: #121a2a; }
 
 .module-two-gap-flip.is-flipped { transform: rotateY(180deg); }
 
+/* Safari can briefly paint the hidden front face when its hover transform
+   unwinds after the card has flipped. Keep both faces in stable 3D layers
+   and stop the front-face hover transition while the detail side is shown. */
+.module-two-gap-flip,
+.module-two-gap-face {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
 .module-two-gap-face {
   position: absolute;
   inset: 0;
@@ -1721,6 +1730,8 @@ html[data-theme="dark"] .flow-node { border-color: #121a2a; }
 }
 
 .module-two-gap-face--front {
+  -webkit-transform: rotateY(0deg) translateZ(.1px);
+  transform: rotateY(0deg) translateZ(.1px);
   background: rgba(255, 255, 255, .86);
   transition: background 360ms ease, box-shadow 360ms ease, transform 360ms cubic-bezier(.22, 1, .36, 1);
 }
@@ -1868,7 +1879,15 @@ html[data-theme="dark"] .flow-node { border-color: #121a2a; }
   background: linear-gradient(135deg, rgba(222, 233, 255, .98), rgba(246, 249, 255, .98));
   box-shadow: 0 12px 26px rgba(0, 47, 167, .1), inset 0 1px rgba(255, 255, 255, .92);
   color: #2d3442;
-  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg) translateZ(.1px);
+  transform: rotateY(180deg) translateZ(.1px);
+}
+
+.module-two-gap-flip.is-flipped .module-two-gap-face--front,
+.module-two-gap-flip.is-flipped:hover .module-two-gap-face--front {
+  -webkit-transform: rotateY(0deg) translateZ(.1px);
+  transform: rotateY(0deg) translateZ(.1px);
+  transition: none;
 }
 
 .module-two-gap-detail-en {
